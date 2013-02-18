@@ -17,10 +17,13 @@
 
 #include "app.hpp"
 #include "start.hpp"
+#include "options.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
     EVT_MENU(Minimal_About, Start::OnAbout)
+    EVT_MENU(SEE_VERSION_MENU, Start::SeeMenu)
+    EVT_MENU(SEE_OPTIONS, Start::Options)
 END_EVENT_TABLE()
 
 Start::Start(const wxString& title)
@@ -69,4 +72,14 @@ void Start::OnAbout(wxCommandEvent& WXUNUSED(event))
                 _T("Welcome to %s"), wxVERSION_STRING);
 
     wxMessageBox(msg, _T("About Minimal"), wxOK | wxICON_INFORMATION, this);
+}
+void Start::SeeMenu(wxCommandEvent& event)
+{
+	//See Version dialog TODO
+	
+}
+void Start::Options(wxCommandEvent& event)
+{
+	//See Options dialog TODO
+
 }

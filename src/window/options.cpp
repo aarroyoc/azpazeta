@@ -15,33 +15,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 #include "../app.hpp"
-
-class Options : public wxFrame
-{
-public:
-	Options(const wxString& title); //Constructor
-	typedef struct{			//Options structure
-	
-		struct net{		//Net options
-			wxString DivelAppsURL; 
-			bool autoConnect;
-			wxString GooglePlus;
-			wxString DivelNetworkName;
-			wxString UserAgent;}net;
-			
-		struct general{
-			int language;
-			bool fullScreen;	
-			bool developer;
-
-		}general;
-		
-	}AZPOptions;
-private:
-	void Apply(wxCommandEvent& event);
-	void Cancel(wxCommandEvent& event);
-	void Ok(wxCommandEvent& event);
-	void Tab(wxCommandEvent& event);
+#include "options.hpp"
 
 
-};

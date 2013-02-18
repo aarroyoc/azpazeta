@@ -28,7 +28,8 @@ INCLUDE("${wxWidgets_USE_FILE}")
 SET (AZP_SRC
 src/app.cpp
 src/start.cpp
-src/window/options.cpp)
+src/window/options.cpp
+src/version.cpp)
 SET (AZP_LIB
 ${wxWidgets_LIBRARIES}
 )

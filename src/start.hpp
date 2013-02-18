@@ -24,6 +24,8 @@ public:
     // event handlers (these functions should _not_ be virtual)
     void OnQuit(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
+    void SeeMenu(wxCommandEvent& event);
+    void Options(wxCommandEvent& event);
 
 private:
     // any class wishing to process wxWidgets events must use this macro
