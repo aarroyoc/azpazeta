@@ -23,7 +23,16 @@ IMPLEMENT_APP(Azpazeta)
 bool Azpazeta::OnInit()
 {
     // create the main application window
-    Start *frame = new Start(_T("Minimal wxWidgets App"));
+    //Init wxLocale funcionality
+    if(!InitWxLocale())
+	{
+		wxMessageBox(_("Your language doesn't appear in Azpazeta translations. Please, create a translation in translations.launchpad.net/azpazeta"));
+	}
+
+
+
+
+    Start *frame = new Start(_("Minimal wxWidgets App"));
 
     // and show it (the frames, unlike simple controls, are not shown when
     // created initially)
@@ -33,4 +42,39 @@ bool Azpazeta::OnInit()
     // loop and the application will run. If we returned false here, the
     // application would exit immediately.
     return true;
+}
+
+wxLocale* locale;
+long userLanguage;
+
+bool Azpazeta::InitWxLocale()
+{
+	userLanguage=wxLANGUAGE_DEFAULT;
+	 if(wxLocale::IsAvailable(userLanguage))
+    	{
+        	locale = new wxLocale( userLanguage, wxLOCALE_CONV_ENCODING );
+ 
+
+        // add locale search paths
+
+        locale->AddCatalogLookupPathPrefix(wxT("./lang"));
+
+
+ 
+        locale->AddCatalog(wxT("azpazeta"));
+ 
+        if(! locale->IsOk() )
+        {
+            locale = new wxLocale( wxLANGUAGE_ENGLISH );
+            userLanguage = wxLANGUAGE_ENGLISH;
+		return false;
+        }
+    	}
+    	else
+    	{
+        	locale = new wxLocale( wxLANGUAGE_ENGLISH );
+        	userLanguage = wxLANGUAGE_ENGLISH;
+		return false;
+    	}
+	return true;
 }

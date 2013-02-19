@@ -16,12 +16,17 @@
 */
 
 #include "wx/wx.h"
+#include "wx/intl.h"
 #ifndef APP_HPP
 #define APP_HPP
+
+
 class Azpazeta : public wxApp
 {
 public:
     virtual bool OnInit();
+private:
+	bool InitWxLocale();
 };
 enum
 {

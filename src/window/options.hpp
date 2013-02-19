@@ -15,6 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 #include "../app.hpp"
+#ifndef OPTIONS_HPP
+#define OPTIONS_HPP
 enum{
 	CHECK_NEW_VERSION,
 	APPLY_OPTIONS,
@@ -26,7 +28,7 @@ enum{
 	MANAGE_MAPS
 
 };
-class Options : public wxFrame
+typedef class Options : public wxDialog
 {
 public:
 	Options(const wxString& title); //Constructor
@@ -44,7 +46,7 @@ public:
 		}net;
 			
 		struct general{
-			int language;
+			long language;
 			bool fullScreen;	
 			bool developer;
 			bool divelMarketing;
@@ -64,6 +66,9 @@ private:
 	void Cancel(wxCommandEvent& event);
 	void Ok(wxCommandEvent& event);
 	void Tab(wxCommandEvent& event);
+	wxChoice* getLanguage;
 
 
-};
+} Options;
+
+#endif

@@ -22,8 +22,8 @@
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
     EVT_MENU(Minimal_About, Start::OnAbout)
-    EVT_MENU(SEE_VERSION_MENU, Start::SeeMenu)
-    EVT_MENU(SEE_OPTIONS, Start::Options)
+    EVT_MENU(SEE_VERSION_MENU, Start::SeeVersion)
+    EVT_MENU(SEE_OPTIONS, Start::SeeOptions)
 END_EVENT_TABLE()
 
 Start::Start(const wxString& title)
@@ -33,16 +33,17 @@ Start::Start(const wxString& title)
 #if wxUSE_MENUS
     // create a menu bar
     wxMenu *fileMenu = new wxMenu;
-
+    wxMenu* editMenu=new wxMenu();
     // the "About" item should be in the help menu
     wxMenu *helpMenu = new wxMenu;
     helpMenu->Append(Minimal_About, _T("&About...\tF1"), _T("Show about dialog"));
-
+    editMenu->Append(SEE_OPTIONS, _("&Settings"),_("Change game settings"));
     fileMenu->Append(Minimal_Quit, _T("E&xit\tAlt-X"), _T("Quit this program"));
 
     // now append the freshly created menu to the menu bar...
     wxMenuBar *menuBar = new wxMenuBar();
     menuBar->Append(fileMenu, _T("&File"));
+    menuBar->Append(editMenu, _("&Edit"));
     menuBar->Append(helpMenu, _T("&Help"));
 
     // ... and attach this menu bar to the frame
@@ -73,13 +74,14 @@ void Start::OnAbout(wxCommandEvent& WXUNUSED(event))
 
     wxMessageBox(msg, _T("About Minimal"), wxOK | wxICON_INFORMATION, this);
 }
-void Start::SeeMenu(wxCommandEvent& event)
+void Start::SeeVersion(wxCommandEvent& event)
 {
 	//See Version dialog TODO
 	
 }
-void Start::Options(wxCommandEvent& event)
+void Start::SeeOptions(wxCommandEvent& event)
 {
-	//See Options dialog TODO
+	Options* options=new Options(_("Options"));
+	options->ShowModal();
 
 }

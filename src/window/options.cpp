@@ -16,5 +16,28 @@
 */
 #include "../app.hpp"
 #include "options.hpp"
+#include "wx/notebook.h"
 
+Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
+{	
+	//Create tabs
+	wxNotebook* tabs=new wxNotebook(this,wxID_ANY);
+	wxPanel* general=new wxPanel(tabs);
+	wxPanel* azpscript=new wxPanel(tabs);
+	wxPanel* net=new wxPanel(tabs);
+	//Adding controls
+	wxArrayString arrayLG;
+	arrayLG.Add(_("English"));
+	arrayLG.Add(_("Spanish"));
+	arrayLG.Add(_("French"));
+	
+	getLanguage=new wxChoice(general,wxID_ANY,wxPoint(1,1),wxSize(200,20),arrayLG);
+
+	//Splash the tabs
+	tabs->AddPage(general,_("General"));
+	tabs->AddPage(azpscript,_("AZPScript"));
+	tabs->AddPage(net,_("Net"));
+	tabs->Layout();
+
+}
 
