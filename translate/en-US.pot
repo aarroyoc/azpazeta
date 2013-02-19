@@ -1,0 +1,4 @@
+
+#POT file in English
+msgid "version"
+msgstr "Version"
