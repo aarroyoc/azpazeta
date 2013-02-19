@@ -10,7 +10,8 @@ SET(CMAKE_CXX_FLAGS_RELEASE,"-O2 -pipe")
 #SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 SET(wxWidgets_USE_LIBS)
 FIND_PACKAGE(wxWidgets)
-
+SET(A,${CMAKE_CURRENT_SOURCE_DIR})
+SET(B,${CMAKE_SOURCE_DIR})
 
 IF(NOT CMAKE_BUILD_TYPE )
    SET( CMAKE_BUILD_TYPE "Release" )
@@ -25,14 +26,17 @@ INCLUDE("${wxWidgets_USE_FILE}")
 #ADD_EXECUTABLE(AZPAZETA_JUNO src/app.cpp)
 # Se puede usar asi ADD_LIBRARY(start src/start.cpp)
 #TARGET_LINK_LIBRARIES(AZPAZETA_JUNO start ${wxWidgets_LIBRARIES}) o con SRC multiples
+
 SET (AZP_SRC
 src/app.cpp
 src/start.cpp
 src/window/options.cpp
-src/version.cpp)
+#src/version.cpp)
+)
 SET (AZP_LIB
 ${wxWidgets_LIBRARIES}
 )
+
 add_definitions(-DSPANISH)
 ADD_EXECUTABLE(AZPAZETA_JUNO ${AZP_SRC})
 SET_TARGET_PROPERTIES(AZPAZETA_JUNO PROPERTIES RUNTIME "${CMAKE_CURRENT_SOURCE_DIR}/AZPAZETA_JUNO")

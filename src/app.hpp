@@ -16,7 +16,8 @@
 */
 
 #include "wx/wx.h"
-
+#ifndef APP_HPP
+#define APP_HPP
 class Azpazeta : public wxApp
 {
 public:
@@ -34,3 +35,4 @@ enum
     SEE_VERSION_MENU,
     SEE_OPTIONS
 };
+#endif

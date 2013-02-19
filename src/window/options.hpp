@@ -64,7 +64,6 @@ private:
 	void Cancel(wxCommandEvent& event);
 	void Ok(wxCommandEvent& event);
 	void Tab(wxCommandEvent& event);
-	DECLARE_EVENTS_TABLE()
 
 
 };

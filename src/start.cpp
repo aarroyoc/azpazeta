@@ -17,7 +17,7 @@
 
 #include "app.hpp"
 #include "start.hpp"
-#include "options.hpp"
+#include "window/options.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
