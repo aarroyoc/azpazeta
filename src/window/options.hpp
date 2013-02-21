@@ -15,6 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 #include "../app.hpp"
+#include "wx/glcanvas.h"
+#include "testgl.hpp"
 #ifndef OPTIONS_HPP
 #define OPTIONS_HPP
 enum{
@@ -61,14 +63,16 @@ public:
 		}azpscript;
 		//Ok, Cancel
 	}AZPOptions;
+	BasicGLPane* glPane;
 private:
 	void Apply(wxCommandEvent& event);
 	void Cancel(wxCommandEvent& event);
 	void Ok(wxCommandEvent& event);
 	void Tab(wxCommandEvent& event);
-	wxChoice* getLanguage;
 
 
 } Options;
+
+
 
 #endif

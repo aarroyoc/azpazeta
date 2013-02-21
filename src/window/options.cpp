@@ -17,27 +17,52 @@
 #include "../app.hpp"
 #include "options.hpp"
 #include "wx/notebook.h"
+#include "wx/glcanvas.h"
+
+
+
 
 Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 {	
 	//Create tabs
+
 	wxNotebook* tabs=new wxNotebook(this,wxID_ANY);
 	wxPanel* general=new wxPanel(tabs);
 	wxPanel* azpscript=new wxPanel(tabs);
 	wxPanel* net=new wxPanel(tabs);
-	//Adding controls
+	wxPanel* opengl=new wxPanel(tabs);
+	//Adding controls to the tabs
+	//General tab
 	wxArrayString arrayLG;
 	arrayLG.Add(_("English"));
 	arrayLG.Add(_("Spanish"));
 	arrayLG.Add(_("French"));
 	
-	getLanguage=new wxChoice(general,wxID_ANY,wxPoint(1,1),wxSize(200,20),arrayLG);
+	wxChoice* getLanguage=new wxChoice(general,wxID_ANY,wxDefaultPosition,wxDefaultSize,arrayLG);
+	//AZPScript tab
+
+
+	//Net tab
+	
+
+
+	//OpenGL
+	wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
+	int args[] = {WX_GL_RGBA, WX_GL_DOUBLEBUFFER, WX_GL_DEPTH_SIZE, 16, 0};
+    
+	glPane = new BasicGLPane( (wxPanel*) opengl, args);
+	sizer->Add(glPane, 1, wxEXPAND);
+	
+	opengl->SetSizer(sizer);
+	opengl->SetAutoLayout(true);
+	wxStaticText* opengl_view=new wxStaticText(opengl,wxID_ANY,_("If you see the square and the cube your computer supports OpenGL"),wxPoint(1,1));
 
 	//Splash the tabs
 	tabs->AddPage(general,_("General"));
+	
 	tabs->AddPage(azpscript,_("AZPScript"));
 	tabs->AddPage(net,_("Net"));
+	tabs->AddPage(opengl,_("OpenGL"));
 	tabs->Layout();
 
 }
-
