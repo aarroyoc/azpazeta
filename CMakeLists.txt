@@ -35,17 +35,27 @@ INCLUDE("${wxWidgets_USE_FILE}")
 # Se puede usar asi ADD_LIBRARY(start src/start.cpp)
 #TARGET_LINK_LIBRARIES(AZPAZETA_JUNO start ${wxWidgets_LIBRARIES}) o con SRC multiples
 
+
+
 SET (AZP_SRC
 src/app.cpp
 src/start.cpp
 src/window/options.cpp
 src/version.cpp
-src/window/testgl.cpp)
+src/window/testgl.cpp
+src/pathfinder/pathfinder.cpp
+src/window/console.cpp
+src/xml/tinyxml.cpp
+src/xml/tinystr.cpp
+src/xml/tinyxmlerror.cpp
+src/xml/tinyxmlparser.cpp)
 SET (AZP_LIB
 ${wxWidgets_LIBRARIES}
 ${GLUT_LIBRARY}
 ${OPENGL_LIBRARIES}
 )
+
+
 
 add_definitions(-DLANGUAGE=SPANISH -DOS_VERSION=${OS_VERSION} -DOS_NAME=${OS_NAME} -DPROCESSOR=${PROCESSOR})
 MESSAGE(STATUS ${welcome})
@@ -59,5 +69,6 @@ ARCHIVE          DESTINATION    lib/static
 LIBRARY          DESTINATION    lib
 PUBLIC_HEADER    DESTINATION    include
 )
-
+INSTALL(FILES lang/*mo         DESTINATION    lang)
+INSTALL(FILES options/options.xml DESTINATION options)
 

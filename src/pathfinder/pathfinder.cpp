@@ -14,5 +14,29 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
+//PathFinder - Get the path of the EXE
+#ifdef WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+#include "wx/wx.h"
+wxString GetUniversalDir(){
+	#ifdef WIN32
+	#define MAX_PATH 2048
+	WCHAR path[MAX_PATH];
+	GetModuleFileName(NULL, path, ARRAYSIZE(path));
+	strcat(path,"_FOLDER");
+	
+	return wxString::FromUTF8(path);
+	#else
+	#define BUFSIZ 2048
+	char buffer[BUFSIZ];
+  	readlink("/proc/self/exe", buffer, BUFSIZ); //Se obtiene ejecutable, no directorio
+	strcat(buffer,"_FOLDER");
+	return wxString::FromUTF8(buffer);
+	#endif
 
-//Add Version frame TODO
+
+
+}

@@ -17,14 +17,44 @@
 
 #include "wx/wx.h"
 #include "wx/intl.h"
+
+#include "window/options.hpp" 
 #ifndef APP_HPP
 #define APP_HPP
 
+typedef struct{			//Options structure
+	struct net{		//Net options
+			wxString DivelAppsURL; 
+			bool autoConnect;
+			wxString lastCheck;
+			wxString GooglePlus;
+			wxString DivelNetworkName;
+			wxString UserAgent;
+			//Check new version
+			//Apply
+		}net;	
+	struct general{
+			long language;
+			bool fullScreen;	
+			bool developer;
+			bool divelMarketing;
+			//See Version Information
+			//Go to webpage
+		}general;
+	struct azpscript{
+			bool onlyFromMarket;
+			wxString azpVersion;
+			//Go to Market
+			//Manage addons
+		}azpscript;
+		//Ok, Cancel
+}AZPOptions;
 
 class Azpazeta : public wxApp
 {
 public:
     virtual bool OnInit();
+	
 private:
 	bool InitWxLocale();
 };
@@ -40,4 +70,5 @@ enum
     SEE_VERSION_MENU,
     SEE_OPTIONS
 };
+AZPOptions LoadOptions();
 #endif

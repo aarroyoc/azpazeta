@@ -25,7 +25,7 @@
 Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 {	
 	//Create tabs
-
+	SetSize(500,500);
 	wxNotebook* tabs=new wxNotebook(this,wxID_ANY);
 	wxPanel* general=new wxPanel(tabs);
 	wxPanel* azpscript=new wxPanel(tabs);
@@ -38,11 +38,28 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 	arrayLG.Add(_("Spanish"));
 	arrayLG.Add(_("French"));
 	
-	wxChoice* getLanguage=new wxChoice(general,wxID_ANY,wxDefaultPosition,wxDefaultSize,arrayLG);
-	//AZPScript tab
+	//getLanguage=new wxChoice(general,wxID_ANY,wxDefaultPosition,wxDefaultSize,arrayLG); Used default language
 
 
-	//Net tab
+
+	//Loading data
+	AZPOptions options=LoadOptions(); 
+	//General tab TODO
+	/*
+	fullScreen=new wxCheckBox();
+	developer=new wxCheckBox();
+	divelMarketing=new wxCheckBox();
+	seeVersion=new wxButton();
+	goWebpage=new wxButton();*/
+
+	
+	//AZPScript tab TODO
+
+
+	//Net tab TODO
+	wxStaticText* divelAppsUrl=new wxStaticText(net,wxID_ANY,wxT("Divel Apps URL: ")+options.net.DivelAppsURL,wxPoint(1,1),wxSize(490,15));
+	autoConnect=new wxCheckBox(net,wxID_ANY,_("Auto-Update"),wxPoint(1,25));
+	autoConnect->SetValue(options.net.autoConnect);
 	
 
 

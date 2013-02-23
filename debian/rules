@@ -3,7 +3,7 @@
 	dh $@
 
 override_dh_auto_configure:
-	cmake . -DCMAKE_INSTALL_PREFIX=${CURDIR}/debian/azpazeta
+	cmake . -DCMAKE_INSTALL_PREFIX=${CURDIR}/debian/azpazeta/opt
 	#mkdir -p ${CURDIR}/debian/azpazeta
 	#cp -rv build/* ${CURDIR}/debian/azpazeta/
 	#dh_auto_configure

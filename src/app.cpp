@@ -17,6 +17,10 @@
 
 #include "app.hpp"
 #include "start.hpp"
+#include "./window/options.hpp"
+#include "./pathfinder/pathfinder.hpp"
+
+#include "xml/tinyxml.h"
 
 IMPLEMENT_APP(Azpazeta)
 
@@ -32,7 +36,7 @@ bool Azpazeta::OnInit()
 
 
 
-    Start *frame = new Start(_("Minimal wxWidgets App"));
+    Start *frame = new Start(_("Azpazeta Juno"));
 
     // and show it (the frames, unlike simple controls, are not shown when
     // created initially)
@@ -42,6 +46,67 @@ bool Azpazeta::OnInit()
     // loop and the application will run. If we returned false here, the
     // application would exit immediately.
     return true;
+}
+AZPOptions LoadOptions()
+{
+	//Cargar ficheros de opciones XML
+	#ifdef WIN32
+	const char* home="APPDATA";
+
+	#else
+	const char* home="HOME";
+
+	#endif
+	char* localPath=getenv(home);
+	strcat(localPath,"/.azpazeta/options.xml");
+	AZPOptions options;
+	//Usar TinyXML
+	TiXmlDocument doc(localPath);
+	if(!doc.LoadFile())
+	{
+		//Si no existe poner el auto-generado
+		wxCopyFile(GetUniversalDir()+wxT("options/options.xml"),wxString::FromUTF8(localPath));
+		return LoadOptions();
+	}
+	//Procesar XML
+	//Obtener ROOT
+	TiXmlElement *option_tab, *option;
+	TiXmlElement* azpazeta_options=doc.RootElement();
+	while (azpazeta_options) {
+		//Parsear cada uno
+		option_tab=azpazeta_options->FirstChildElement("option-tab");
+		while(option_tab){
+			option=option_tab->FirstChildElement("option");
+			while(option)
+			{
+				//Seguir esta estructura
+				if(strcmp(option->Attribute("id"),"divelAppsURL")==0){
+					wxString url=wxString::FromUTF8(option->GetText());
+					options.net.DivelAppsURL=url;
+					//wxMessageBox(url);
+				}
+				if(strcmp(option->Attribute("id"),"autoConnect")==0){
+					bool box;
+					if(strcmp(option->GetText(),"1")==0)
+						box=true;
+					else
+						box=false;
+					options.net.autoConnect=box;
+				}
+				
+			//wxMessageBox(wxString::FromUTF8(option->Attribute("id")));
+			option=option->NextSiblingElement("option");
+			}
+
+
+		option_tab = option_tab->NextSiblingElement( "option-tab" );
+		}
+
+	azpazeta_options=azpazeta_options->NextSiblingElement("azpazeta-options");
+	}
+		//Leer todo TODO
+
+	return options; 
 }
 
 wxLocale* locale;

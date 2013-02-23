@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<azpazeta-options version="1.0">
+	<option-tab id="general">
+		<option id="fullScreen">1</option>
+		<option id="developer">0</option>
+		<option id="divelMarketing">0</option>
+	</option-tab>
+	<option-tab id="azpscript">
+		<option id="onlyFromMarket">1</option>
+	</option-tab>
+	<option-tab id="net">
+		<option id="autoConnect">1</option>
+		<option id="divelAppsURL">http://divelapps.appspot.com</option>
+		<option id="google-plus">Not registered</option>
+		<option id="divel-network">Not registered</option>
+	</option-tab>
+
+
+</azpazeta-options>
