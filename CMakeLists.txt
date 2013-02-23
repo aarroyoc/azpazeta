@@ -69,6 +69,6 @@ ARCHIVE          DESTINATION    lib/static
 LIBRARY          DESTINATION    lib
 PUBLIC_HEADER    DESTINATION    include
 )
-INSTALL(FILES lang/*mo         DESTINATION    lang)
-INSTALL(FILES options/options.xml DESTINATION options)
+#INSTALL(FILES lang/*mo         DESTINATION    lang)
+#INSTALL(FILES options/options.xml DESTINATION options)
 
