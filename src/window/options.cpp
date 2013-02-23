@@ -58,6 +58,7 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 
 	//Net tab TODO
 	wxStaticText* divelAppsUrl=new wxStaticText(net,wxID_ANY,wxT("Divel Apps URL: ")+options.net.DivelAppsURL,wxPoint(1,1),wxSize(490,15));
+	
 	autoConnect=new wxCheckBox(net,wxID_ANY,_("Auto-Update"),wxPoint(1,25));
 	autoConnect->SetValue(options.net.autoConnect);
 	
