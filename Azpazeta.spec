@@ -3,7 +3,7 @@ Version: 2.0.0
 Release: 2
 URL: http://sites.google.com/site/divelmedia
 Summary: Azpazeta
-License: GPL
+License: GPLv2
 Group: Games
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
