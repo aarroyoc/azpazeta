@@ -3,6 +3,14 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
 
 SET(welcome,"Welcome to Azpazeta 2.0 (Juno)")
+SET(PROJECT_NAME_SHORT   "Azpazeta")
+SET(PROJECT_NAME_LONG    "Azpazeta 2.0 Juno")
+SET(PROJECT_DESCRIPTION  "Azpazeta is the strategy-economic sandbox game")
+SET(PROJECT_COPYRIGHT    "Copyright (C) 2013 Adrián Arroyo Calle")
+SET(PROJECT_CONTACT      "adrian.arroyocalle@gmail.com")
+SET(PROJECT_VENDOR       "Divel")
+SET(ORG_WEBSITE          "sites.google.com/site/divelmedia")
+SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 MESSAGE(STATUS "Welcome to Azpazeta 2.0 (Juno)")
 SET(CMAKE_CXX_FLAGS_DEBUG,"-O0 -g3 -Wall -Werror -W -Wno-return-type")
 SET(CMAKE_CXX_FLAGS_RELEASE,"-O2 -pipe")
@@ -14,6 +22,7 @@ SET(wxWidgets_USE_LIBS)
 find_package(OpenGL QUIET)
 find_package(GLUT)
 FIND_PACKAGE(wxWidgets COMPONENTS gl aui adv html core net base xml QUIET)
+FIND_PACKAGE(LIBVLC)
 
 SET(A,${CMAKE_CURRENT_SOURCE_DIR})
 SET(B,${CMAKE_SOURCE_DIR})
@@ -31,6 +40,7 @@ ENDIF()
 
 
 INCLUDE("${wxWidgets_USE_FILE}")
+INCLUDE_DIRECTORIES(${LIBVLC_INCLUDE_DIR})
 #ADD_EXECUTABLE(AZPAZETA_JUNO src/app.cpp)
 # Se puede usar asi ADD_LIBRARY(start src/start.cpp)
 #TARGET_LINK_LIBRARIES(AZPAZETA_JUNO start ${wxWidgets_LIBRARIES}) o con SRC multiples
@@ -53,6 +63,8 @@ SET (AZP_LIB
 ${wxWidgets_LIBRARIES}
 ${GLUT_LIBRARY}
 ${OPENGL_LIBRARIES}
+${LIBVLC_LIBRARY}
+${LIBVLCCORE_LIBRARY}
 )
 
 
