@@ -75,27 +75,75 @@ AZPOptions LoadOptions()
 	while (azpazeta_options) {
 		//Parsear cada uno
 		option_tab=azpazeta_options->FirstChildElement("option-tab");
-		while(option_tab){
-			option=option_tab->FirstChildElement("option");
-			while(option)
-			{
-				//Seguir esta estructura
-				if(strcmp(option->Attribute("id"),"divelAppsURL")==0){
-					wxString url=wxString::FromUTF8(option->GetText());
-					options.net.DivelAppsURL=url;
-					//wxMessageBox(url);
+		while(option_tab){ //Mientras haya OptionTab
+			
+			if(strcmp(option_tab->Attribute("id"),"general")==0){
+				option=option_tab->FirstChildElement("option");
+				//General Tab DONE
+				while(option)
+				{
+					if(strcmp(option->Attribute("id"),"fullScreen")==0){
+						bool box;
+						if(strcmp(option->GetText(),"1")==0)
+							box=true;
+						else
+							box=false;
+						options.general.fullScreen=box;
+					}				
+					if(strcmp(option->Attribute("id"),"developer")==0){
+						bool box;
+						if(strcmp(option->GetText(),"1")==0)
+							box=true;
+						else
+							box=false;
+						options.general.developer=box;
+					}
+					if(strcmp(option->Attribute("id"),"divelMarketing")==0){
+						bool box;
+						if(strcmp(option->GetText(),"1")==0)
+							box=true;
+						else
+							box=false;
+						options.general.divelMarketing=box;
+					}
+
+					option=option->NextSiblingElement("option");
 				}
-				if(strcmp(option->Attribute("id"),"autoConnect")==0){
-					bool box;
-					if(strcmp(option->GetText(),"1")==0)
-						box=true;
-					else
-						box=false;
-					options.net.autoConnect=box;
-				}
+
+
+			}
+			if(strcmp(option_tab->Attribute("id"),"azpscript")==0){
+				option=option_tab->FirstChildElement("option");
+				//AZPScript Tab TODO
+			}
+			if(strcmp(option_tab->Attribute("id"),"net")==0){
+				option=option_tab->FirstChildElement("option");
+				//Net Tab TODO
+				while(option)
+				{
+					
+					if(strcmp(option->Attribute("id"),"divelAppsURL")==0){
+						wxString url=wxString::FromUTF8(option->GetText());
+						options.net.DivelAppsURL=url;
+					}
+					if(strcmp(option->Attribute("id"),"autoConnect")==0){
+						bool box;
+						if(strcmp(option->GetText(),"1")==0)
+							box=true;
+						else
+							box=false;
+						options.net.autoConnect=box;
+					}
+					if(strcmp(option->Attribute("id"),"google-plus")==0){
+						options.net.GooglePlus=wxString::FromUTF8(option->GetText());
+					}
+					if(strcmp(option->Attribute("id"),"divel-network")==0){
+						options.net.DivelNetworkName=wxString::FromUTF8(option->GetText());
+					}
 				
-			//wxMessageBox(wxString::FromUTF8(option->Attribute("id")));
-			option=option->NextSiblingElement("option");
+				//wxMessageBox(wxString::FromUTF8(option->Attribute("id")));
+				option=option->NextSiblingElement("option");
+				}
 			}
 
 
@@ -104,7 +152,6 @@ AZPOptions LoadOptions()
 
 	azpazeta_options=azpazeta_options->NextSiblingElement("azpazeta-options");
 	}
-		//Leer todo TODO
 
 	return options; 
 }

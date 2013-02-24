@@ -30,8 +30,6 @@ typedef struct{			//Options structure
 			wxString GooglePlus;
 			wxString DivelNetworkName;
 			wxString UserAgent;
-			wxString azpazetaMarketURL;
-			bool allowPayPal;
 			//Check new version
 			//Apply
 		}net;	
@@ -46,6 +44,8 @@ typedef struct{			//Options structure
 	struct azpscript{
 			bool onlyFromMarket;
 			wxString azpVersion;
+			wxString azpazetaMarketURL;
+			bool allowPayPal;
 			//Go to Market
 			//Manage addons
 		}azpscript;

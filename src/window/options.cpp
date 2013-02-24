@@ -44,22 +44,27 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 
 	//Loading data
 	AZPOptions options=LoadOptions(); 
-	//General tab TODO
-	/*
-	fullScreen=new wxCheckBox();
-	developer=new wxCheckBox();
-	divelMarketing=new wxCheckBox();
+	//General tab TODO 
+	
+	fullScreen=new wxCheckBox(general,wxID_ANY,_("Full Screen"),wxPoint(1,1));
+	fullScreen->SetValue(options.general.fullScreen);
+	developer=new wxCheckBox(general,wxID_ANY,_("Developer"),wxPoint(1,30));
+	developer->SetValue(options.general.developer);
+	divelMarketing=new wxCheckBox(general,wxID_ANY,_("Allow Divel Marketing"),wxPoint(1,60));
+	divelMarketing->SetValue(options.general.divelMarketing);
+
 	seeVersion=new wxButton();
-	goWebpage=new wxButton();*/
+	goWebpage=new wxButton();
 
 	
 	//AZPScript tab TODO
 
 
 	//Net tab TODO
-	wxStaticText* divelAppsUrl=new wxStaticText(net,wxID_ANY,wxT("Divel Apps URL: ")+options.net.DivelAppsURL,wxPoint(1,1),wxSize(490,15));
+	wxStaticText* divelAppsUrl=new wxStaticText(net,wxID_ANY,wxT("Divel Apps URL: "),wxPoint(1,1),wxSize(150,15));
+	XdivelAppsUrl=new wxTextCtrl(net,wxID_ANY,options.net.DivelAppsURL,wxPoint(160,1),wxSize(200,25));
 	
-	autoConnect=new wxCheckBox(net,wxID_ANY,_("Auto-Update"),wxPoint(1,25));
+	autoConnect=new wxCheckBox(net,wxID_ANY,_("Auto-Update"),wxPoint(1,30));
 	autoConnect->SetValue(options.net.autoConnect);
 	
 

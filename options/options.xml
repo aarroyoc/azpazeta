@@ -7,6 +7,8 @@
 	</option-tab>
 	<option-tab id="azpscript">
 		<option id="onlyFromMarket">1</option>
+		<option id="azpazetaMarketURL">https://code.google.com/p/azpazeta-market/</option>
+		<option id="allowPayPal">0</option>
 	</option-tab>
 	<option-tab id="net">
 		<option id="autoConnect">1</option>

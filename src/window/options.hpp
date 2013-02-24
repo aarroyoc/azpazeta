@@ -54,6 +54,7 @@ private:
 	wxButton* manageAddons;
 	
 	//Net
+	wxTextCtrl* XdivelAppsUrl;
 	wxCheckBox* autoConnect;
 	wxButton* checkNewVersion;
 	//All
