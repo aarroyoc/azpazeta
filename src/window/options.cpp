@@ -25,8 +25,9 @@
 Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 {	
 	//Create tabs
-	SetSize(500,500);
-	wxNotebook* tabs=new wxNotebook(this,wxID_ANY);
+	SetSize(500,600);
+	wxPanel* commonbutton=new wxPanel(this,wxID_ANY,wxPoint(1,501),wxSize(500,100));
+	wxNotebook* tabs=new wxNotebook(this,wxID_ANY,wxPoint(1,1),wxSize(500,500));
 	wxPanel* general=new wxPanel(tabs);
 	wxPanel* azpscript=new wxPanel(tabs);
 	wxPanel* net=new wxPanel(tabs);
@@ -53,8 +54,9 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 	divelMarketing=new wxCheckBox(general,wxID_ANY,_("Allow Divel Marketing"),wxPoint(1,60));
 	divelMarketing->SetValue(options.general.divelMarketing);
 
-	seeVersion=new wxButton();
-	goWebpage=new wxButton();
+	seeVersion=new wxButton(general,SEE_VERSION,_("See version"),wxPoint(1,90));
+	goWebpage=new wxButton(general,GO_WEB,_("Go to website"),wxPoint(1,120));
+	seeVersion->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(Options::SeeVersion));
 
 	
 	//AZPScript tab TODO
@@ -69,7 +71,7 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 	
 
 
-	//OpenGL
+	//OpenGL DONE
 	wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
 	int args[] = {WX_GL_RGBA, WX_GL_DOUBLEBUFFER, WX_GL_DEPTH_SIZE, 16, 0};
     
@@ -79,6 +81,7 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 	opengl->SetSizer(sizer);
 	opengl->SetAutoLayout(true);
 	wxStaticText* opengl_view=new wxStaticText(opengl,wxID_ANY,_("If you see the square and the cube your computer supports OpenGL"),wxPoint(1,1));
+	//Sound TODO
 
 	//Splash the tabs
 	tabs->AddPage(general,_("General"));
@@ -87,5 +90,16 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 	tabs->AddPage(net,_("Net"));
 	tabs->AddPage(opengl,_("OpenGL"));
 	tabs->Layout();
+	//On Close Dialog Apply or not? TODO
 
+	
+
+}
+void Options::SeeVersion(wxCommandEvent& event)
+{
+	wxMessageBox(_("HI"));
+}
+void Options::OnClose(wxCloseEvent& event)
+{
+	wxMessageBox(_("Closing"));
 }

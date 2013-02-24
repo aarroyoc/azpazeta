@@ -36,11 +36,14 @@ typedef class Options : public wxDialog
 public:
 	Options(const wxString& title); //Constructor
 	BasicGLPane* glPane;
+	void OnClose(wxCloseEvent& event);
 private:
 	void Apply(wxCommandEvent& event);
 	void Cancel(wxCommandEvent& event);
 	void Ok(wxCommandEvent& event);
 	void Tab(wxCommandEvent& event);
+	void SeeVersion(wxCommandEvent& event);
+	
 	//General
 	wxChoice* getLanguage;
 	wxCheckBox* fullScreen;

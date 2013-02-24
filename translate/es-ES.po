@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AZPAZETA JUNO\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-19 18:54+0100\n"
-"PO-Revision-Date: 2013-02-19 18:55+0100\n"
+"POT-Creation-Date: 2013-02-24 02:32+0100\n"
+"PO-Revision-Date: 2013-02-24 02:36+0100\n"
 "Last-Translator: Adrián Arroyo <adrian.arroyocalle@gmail.com>\n"
 "Language-Team:  <adrian.arroyocalle@gmail.com>\n"
 "Language: \n"
@@ -25,31 +25,69 @@ msgstr "&Editar"
 msgid "&Settings"
 msgstr "&Ajustes"
 
-#: ../src/window/options.cpp:29
+#: ../src/window/options.cpp:86
 msgid "AZPScript"
 msgstr "AZPScript"
+
+#: ../src/window/options.cpp:53
+msgid "Allow Divel Marketing"
+msgstr "Permitir Divel Marketing"
+
+#: ../src/window/options.cpp:67
+msgid "Auto-Update"
+msgstr "Auto-Actualizar"
+
+#: ../src/app.cpp:39
+msgid "Azpazeta Juno"
+msgstr "Azpazeta Juno"
 
 #: ../src/start.cpp:40
 msgid "Change game settings"
 msgstr "Cambiar ajustes del juego"
 
-#: ../src/window/options.cpp:28
+#: ../src/window/options.cpp:51
+msgid "Developer"
+msgstr "Desarrollador"
+
+#: ../src/window/options.cpp:37
+msgid "English"
+msgstr "Inglés"
+
+#: ../src/window/options.cpp:39
+msgid "French"
+msgstr "Francés"
+
+#: ../src/window/options.cpp:49
+msgid "Full Screen"
+msgstr "Pantalla Completa"
+
+#: ../src/window/options.cpp:84
 msgid "General"
 msgstr "General"
 
-#: ../src/app.cpp:35
-msgid "Minimal wxWidgets App"
-msgstr "Azpazeta"
+#: ../src/window/options.cpp:81
+msgid "If you see the square and the cube your computer supports OpenGL"
+msgstr "Si ves este cuadrado y este cubo tu ordenador soporta OpenGL"
 
-#: ../src/window/options.cpp:30
+#: ../src/window/options.cpp:87
 msgid "Net"
 msgstr "Net"
+
+#: ../src/window/options.cpp:88
+msgid "OpenGL"
+msgstr "OpenGL"
 
 #: ../src/start.cpp:84
 msgid "Options"
 msgstr "Opciones"
 
-#: ../src/app.cpp:29
+#: ../src/window/options.cpp:38
+msgid "Spanish"
+msgstr "Español"
+
+#: ../src/app.cpp:33
 msgid "Your language doesn't appear in Azpazeta translations. Please, create a translation in translations.launchpad.net/azpazeta"
 msgstr "Tu lenguaje no aparece en las traducciones de Azpazeta. Por favor crea tu traducción en Launchpad.net/azpazeta"
 
+#~ msgid "Minimal wxWidgets App"
+#~ msgstr "Azpazeta"

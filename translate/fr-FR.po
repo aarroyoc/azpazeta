@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Azpazeta Juno\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-24 02:32+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2013-02-24 02:34+0100\n"
+"Last-Translator: Adrián Arroyo <adrian.arroyocalle@gmail.com>\n"
+"Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
 
 #: ../src/start.cpp:46
 msgid "&Edit"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../src/window/options.cpp:86
 msgid "AZPScript"
-msgstr ""
+msgstr "AZPScript"
 
 #: ../src/window/options.cpp:53
 msgid "Allow Divel Marketing"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: ../src/app.cpp:39
 msgid "Azpazeta Juno"
-msgstr ""
+msgstr "Azpazeta Juno"
 
 #: ../src/start.cpp:40
 msgid "Change game settings"
@@ -51,11 +51,11 @@ msgstr ""
 
 #: ../src/window/options.cpp:37
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: ../src/window/options.cpp:39
 msgid "French"
-msgstr ""
+msgstr "Français"
 
 #: ../src/window/options.cpp:49
 msgid "Full Screen"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: ../src/window/options.cpp:88
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #: ../src/start.cpp:84
 msgid "Options"
@@ -83,10 +83,9 @@ msgstr ""
 
 #: ../src/window/options.cpp:38
 msgid "Spanish"
-msgstr ""
+msgstr "Espagnol"
 
 #: ../src/app.cpp:33
-msgid ""
-"Your language doesn't appear in Azpazeta translations. Please, create a "
-"translation in translations.launchpad.net/azpazeta"
+msgid "Your language doesn't appear in Azpazeta translations. Please, create a translation in translations.launchpad.net/azpazeta"
 msgstr ""
+
