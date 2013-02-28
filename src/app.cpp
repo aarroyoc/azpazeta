@@ -57,7 +57,9 @@ AZPOptions LoadOptions()
 	const char* home="HOME";
 
 	#endif
-	char* localPath=getenv(home);
+	char* homePath=getenv(home);
+	char localPath[1024];
+	strcpy(localPath,homePath);
 	strcat(localPath,"/.azpazeta/options.xml");
 	AZPOptions options;
 	//Usar TinyXML
@@ -128,14 +130,14 @@ AZPOptions LoadOptions()
 					if(strcmp(option->Attribute("id"),"azpazetaMarketURL")==0){
 						options.azpscript.azpazetaMarketURL=wxString::FromUTF8(option->GetText());
 					}
-					if(strcmp(option->Attribute("id"),"allowPayPal")==0){
+					/*if(strcmp(option->Attribute("id"),"allowPayPal")==0){
 						bool box;
 						if(strcmp(option->GetText(),"1")==0)
 							box=true;
 						else
 							box=false;
 						options.azpscript.allowPayPal=box;
-					}
+					}*/
 
 
 					option=option->NextSiblingElement("option");
@@ -144,7 +146,7 @@ AZPOptions LoadOptions()
 			}
 			if(strcmp(option_tab->Attribute("id"),"net")==0){
 				option=option_tab->FirstChildElement("option");
-				//Net Tab TODO
+				//Net Tab DONE
 				while(option)
 				{
 					
@@ -180,9 +182,6 @@ AZPOptions LoadOptions()
 	}
 
 
-	delete option_tab;
-	delete option;
-	delete azpazeta_options;
 	return options; 
 }
 

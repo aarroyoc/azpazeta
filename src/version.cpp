@@ -16,3 +16,28 @@
 */
 
 //Add Version frame TODO
+#include "wx/aboutdlg.h"
+#include "version.hpp"
+#include "wx/wxhtml.h"
+void Version::Display::About()
+{
+	wxAboutDialogInfo info;
+	info.AddArtist(wxT("Adrián Arroyo Calle"));
+	info.AddArtist(wxT("Raúl Izquierdo Buznego"));
+	info.AddArtist(wxT("Pablo Izquierdo Buznego"));
+	info.AddDeveloper(wxT("Adrián Arroyo Calle"));
+	info.AddDocWriter(wxT("Adrián Arroyo Calle"));
+	info.AddDocWriter(wxT("Raúl Izquierdo Buznego"));
+	info.AddTranslator(wxT("Adrián Arroyo Calle->Spanish"));
+	info.AddTranslator(wxT("Google Translate->French"));
+	info.SetDescription(_("Azpazeta is a strategy-economic game about Vadrix and the region of Azpazeta. Explore the world in a sandbox game"));
+	info.SetLicense(wxT("GPLv2"));
+	info.SetName(wxT("Azpazeta"));
+	info.SetVersion(wxString::FromUTF8(AZPAZETA_VERSION_STR));
+	info.SetWebSite(wxT("http://launchpad.net/azpazeta"));
+	wxAboutBox(info);
+}
+void Version::Display::All()
+{
+	//wxHTML, create class VersionHTML and put all the data in this file TODO
+}

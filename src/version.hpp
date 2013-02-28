@@ -23,6 +23,13 @@
 #define AZPAZETA_VERSION_STR "2.0.0"
 #define AZPAZETA_NAME "JUNO"
 #define AZPSCRIPT_VERSION 1
+namespace Version{
+	namespace Display{
+		void About();
+		void All();
+	}
 
+
+}
 
 #endif
