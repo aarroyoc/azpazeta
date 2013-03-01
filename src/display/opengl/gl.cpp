@@ -14,3 +14,39 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+#include "gl.hpp"
+//#include "GLES2/gl2.h"
+#include "EGL/egl.h"
+
+int args[]={WX_GL_RGBA, WX_GL_DOUBLEBUFFER, WX_GL_DEPTH_SIZE, 16, 0};
+
+AZPGL::AZPGL(wxPanel* parent) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
+{
+	gl=new wxGLContext(this);
+	glEnable(GL_DEPTH_TEST);
+}
+
+void AZPGL::Resize(wxSizeEvent& event)
+{
+
+}
+int AZPGL::getWidth()
+{
+
+}
+int AZPGL::getHeight()
+{
+
+}
+void AZPGL::Render(wxPaintEvent& event)
+{
+
+}
+void AZPGL::AZPViewport(int a, int b, int c, int d)
+{
+
+}
+void AZPGL::OnKey(wxKeyEvent& event)
+{
+
+}

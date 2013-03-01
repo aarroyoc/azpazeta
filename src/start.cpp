@@ -19,6 +19,7 @@
 #include "start.hpp"
 #include "window/options.hpp"
 #include "version.hpp"
+#include "display/opengl/gl.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
@@ -50,6 +51,11 @@ Start::Start(const wxString& title)
     // ... and attach this menu bar to the frame
     SetMenuBar(menuBar);
 #endif // wxUSE_MENUS
+//Use AZPGL - Implementation of AZP Graphics in OpenGL ES 2
+	wxPanel* glpanel=new wxPanel(this);
+	AZPGL* azpgl=new AZPGL(glpanel);
+
+
 
 #if wxUSE_STATUSBAR
     // create a status bar just for fun (by default with 1 pane only)

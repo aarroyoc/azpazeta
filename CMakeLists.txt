@@ -24,6 +24,7 @@ find_package(GLUT)
 FIND_PACKAGE(wxWidgets COMPONENTS gl aui adv html core net base xml QUIET)
 FIND_PACKAGE(LIBVLC)
 FIND_PACKAGE(Lua51 REQUIRED)
+FIND_PACKAGE(OpenGLES2)
 
 SET(A,${CMAKE_CURRENT_SOURCE_DIR})
 SET(B,${CMAKE_SOURCE_DIR})
@@ -45,6 +46,8 @@ ENDIF()
 INCLUDE("${wxWidgets_USE_FILE}")
 INCLUDE_DIRECTORIES(${Lua51_INCLUDE_DIRS})
 INCLUDE(${LIBVLC_INCLUDE_DIR})
+INCLUDE_DIRECTORIES(${OPENGLES2_INCLUDE_DIRS})
+LINK_DIRECTORIES(${OPENGLES2_LIBRARY_DIRS})
 #ADD_EXECUTABLE(AZPAZETA_JUNO src/app.cpp)
 # Se puede usar asi ADD_LIBRARY(start src/start.cpp)
 #TARGET_LINK_LIBRARIES(AZPAZETA_JUNO start ${wxWidgets_LIBRARIES}) o con SRC multiples
@@ -57,6 +60,7 @@ src/start.cpp
 src/window/options.cpp
 src/window/alert.cpp
 src/version.cpp
+src/display/opengl/gl.cpp
 src/window/testgl.cpp
 src/pathfinder/pathfinder.cpp
 src/window/console.cpp
@@ -71,6 +75,7 @@ ${OPENGL_LIBRARIES}
 ${LIBVLC_LIBRARY}
 ${LIBVLCCORE_LIBRARY}
 ${Lua51_LIBRARIES}
+${OPENGL_LIBRARIES}
 )
 
 

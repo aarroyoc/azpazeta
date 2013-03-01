@@ -15,3 +15,24 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 /* OpenGL ES 2.0 Implementation of Azpazeta Display - This is the version with most performance */
+
+#include "wx/wx.h"
+#include "wx/glcanvas.h"
+
+class AZPGL : public wxGLCanvas
+{
+	private:
+		wxGLContext* gl;
+		
+	public:
+		AZPGL(wxPanel* parent);
+		void Resize(wxSizeEvent& event);
+		int getWidth();
+		int getHeight();
+		void Render(wxPaintEvent& event);
+		void AZPViewport(int a, int b, int c, int d);
+		void OnKey(wxKeyEvent& event);
+
+
+
+};
