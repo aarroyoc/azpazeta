@@ -22,7 +22,26 @@
 #define AZPAZETA_VERSION_PATCH 0
 #define AZPAZETA_VERSION_STR "2.0.0"
 #define AZPAZETA_NAME "JUNO"
+#define AZPAZETA_WX_NAME wxT("JUNO")
 #define AZPSCRIPT_VERSION 1
+
+#ifndef COMPILER_WX
+#define COMPILER_WX wxT("Unknow")
+#endif
+#ifndef CMAKE_WX_VERSION
+#define CMAKE_WX_VERSION wxT("Unknow")
+#endif
+#ifndef OS_WX
+#define OS_WX wxT("Unknow")
+#endif
+#ifndef PROCESSOR_WX
+#define PROCESSOR_WX wxT("Unknow")
+#endif
+
+
+
+#include "wx/wx.h"
+#include "wx/wxhtml.h"
 namespace Version{
 	namespace Display{
 		void About();
@@ -31,5 +50,14 @@ namespace Version{
 
 
 }
+
+class HTMLVersion : public wxDialog
+{
+	public:
+		HTMLVersion();
+	private:
+		wxHtmlWindow* html;
+};
+
 
 #endif

@@ -18,6 +18,7 @@
 #include "app.hpp"
 #include "start.hpp"
 #include "window/options.hpp"
+#include "version.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
@@ -36,15 +37,15 @@ Start::Start(const wxString& title)
     wxMenu* editMenu=new wxMenu();
     // the "About" item should be in the help menu
     wxMenu *helpMenu = new wxMenu;
-    helpMenu->Append(Minimal_About, _T("&About...\tF1"), _T("Show about dialog"));
+    helpMenu->Append(Minimal_About, _("&About...\tF1"), _("Show about dialog"));
     editMenu->Append(SEE_OPTIONS, _("&Settings"),_("Change game settings"));
-    fileMenu->Append(Minimal_Quit, _T("E&xit\tAlt-X"), _T("Quit this program"));
+    fileMenu->Append(Minimal_Quit, _("E&xit\tAlt-X"), _("Quit this program"));
 
     // now append the freshly created menu to the menu bar...
     wxMenuBar *menuBar = new wxMenuBar();
-    menuBar->Append(fileMenu, _T("&File"));
+    menuBar->Append(fileMenu, _("&File"));
     menuBar->Append(editMenu, _("&Edit"));
-    menuBar->Append(helpMenu, _T("&Help"));
+    menuBar->Append(helpMenu, _("&Help"));
 
     // ... and attach this menu bar to the frame
     SetMenuBar(menuBar);
@@ -68,15 +69,12 @@ void Start::OnQuit(wxCommandEvent& WXUNUSED(event))
 
 void Start::OnAbout(wxCommandEvent& WXUNUSED(event))
 {
-    wxString msg;
-    msg.Printf( _T("This is the About dialog of the minimal sample.\n")
-                _T("Welcome to %s"), wxVERSION_STRING);
-
-    wxMessageBox(msg, _T("About Minimal"), wxOK | wxICON_INFORMATION, this);
+    Version::Display::About();
 }
 void Start::SeeVersion(wxCommandEvent& event)
 {
-	//See Version dialog TODO
+	//See Version dialog DONE
+	Version::Display::About();
 	
 }
 void Start::SeeOptions(wxCommandEvent& event)

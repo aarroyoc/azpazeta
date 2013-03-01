@@ -21,6 +21,7 @@
 #include "wx/utils.h"
 #include "../xml/tinyxml.h"
 #include "../version.hpp"
+#include "console.hpp"
 
 
 
@@ -101,6 +102,10 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 	opengl->SetAutoLayout(true);
 	wxStaticText* opengl_view=new wxStaticText(opengl,wxID_ANY,_("If you see the square and the cube your computer supports OpenGL"),wxPoint(1,1));
 	//Sound TODO
+
+	//Display AZPLog
+	if(options.general.developer)
+		AZPLogWindow* log=new AZPLogWindow();
 	
 
 	//Splash the tabs
