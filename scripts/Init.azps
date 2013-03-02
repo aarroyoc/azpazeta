@@ -1,0 +1,4 @@
+#Running on Azpazeta Startup
+print("Starting Azpazeta in AZPScript");
+#operating_system,version=azpInit("Init Script","[AZPCORE]","1.0");
+#print("Azpazeta running version is "... version ... " in " ... operating_system ... " ");
