@@ -15,6 +15,12 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 /* OpenGL ES 2.0 Implementation of Azpazeta Display - This is the version with most performance */
+/**
+* @file gl.hpp
+* @brief OpenGL ES 2 Implementation of Azpazeta Display
+* @author Adrián Arroyo Calle
+* @date 1/03/2013
+*/
 
 #include "wx/wx.h"
 #include "wx/glcanvas.h"

@@ -15,16 +15,26 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 /* AzpVM - Azpazeta Virtual Machine */
+/**
+* @file azpvm.hpp
+* @brief AzpVM - Azpazeta Virtual Machine
+*/
+
+
 
 #include "lua.hpp"
 #include "wx/wx.h"
 
-typedef enum{ 	//States of AzpVM
-azpVM_FULL,	//All the options (not recomended)
-azpVM_SECURE,	//Secure AzpVM (default)
-azpVM_INSTALLATION, //Install files for AZPP (only INSTALL.LUA, UPGRADE.LUA and UNINSTALL.LUA)
-azpVM_TEST,	//Test script for developers (verbose output)
-azpVM_INTERNET	//Allow Internet in azpVM_SECURE
+/**
+* @enum AZPVMState
+* @brief States of the Azpazeta Virtual Machine
+*/
+typedef enum{
+azpVM_FULL,	/**< Without security firewalls  */
+azpVM_SECURE,	/**< Only allow secure APIs (recomended) */
+azpVM_INSTALLATION, /**< Install files for AZPP (only INSTALL.LUA, UPGRADE.LUA and UNINSTALL.LUA) */
+azpVM_TEST,	/**< Test script for developers (verbose output) */
+azpVM_INTERNET	/**< Allow Internet in azpVM_SECURE */
 
 }AZPVMState;
 /**
@@ -34,6 +44,11 @@ azpVM_INTERNET	//Allow Internet in azpVM_SECURE
 class AZPVM
 {
 	public:
+		/**
+		* @brief Create a new instance of Azpazeta Virtual Machine
+		* @param file Path of the AZPScript or Lua file
+		* @param state The AZPVMState of the Virtual Machine
+		*/
 		AZPVM(wxString file,AZPVMState state);
 };
 

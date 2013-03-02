@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="title">azpvm.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*      Azpazeta - Sandbox strategy game</span></div>
+<a href="../../d4/df7/azpvm_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*      Azpazeta - Sandbox strategy game</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">        Copyright (C) 2013  Adrián Arroyo Calle</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">    This program is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">    modify it under the terms of the GNU General Public License</span></div>
@@ -105,28 +105,26 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/* AzpVM - Azpazeta Virtual Machine */</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;lua.hpp&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;wx/wx.h&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{   <span class="comment">//States of AzpVM</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;azpVM_FULL, <span class="comment">//All the options (not recomended)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;azpVM_SECURE,   <span class="comment">//Secure AzpVM (default)</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;azpVM_INSTALLATION, <span class="comment">//Install files for AZPP (only INSTALL.LUA, UPGRADE.LUA and UNINSTALL.LUA)</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;azpVM_TEST, <span class="comment">//Test script for developers (verbose output)</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;azpVM_INTERNET  <span class="comment">//Allow Internet in azpVM_SECURE</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}AZPVMState;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="../../d3/d75/classAZPVM.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/d75/classAZPVM.html" title="Azpazeta Virtual Machine.">AZPVM</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d3/d75/classAZPVM.html" title="Azpazeta Virtual Machine.">AZPVM</a>(wxString file,AZPVMState state);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;lua.hpp&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;wx/wx.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3f">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fa43036434fe6928171e38fcd1adb2b44e">   33</a></span>&#160;<a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fa43036434fe6928171e38fcd1adb2b44e">azpVM_FULL</a>, </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3facd5afe0b6465944b786a160346db46e1">   34</a></span>&#160;<a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3facd5afe0b6465944b786a160346db46e1">azpVM_SECURE</a>,   </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fa27852cdc263fd9d414e1d1057120a54a">   35</a></span>&#160;<a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fa27852cdc263fd9d414e1d1057120a54a">azpVM_INSTALLATION</a>, </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fa22c78f0e24a7a85908b3511b56b00c04">   36</a></span>&#160;<a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fa22c78f0e24a7a85908b3511b56b00c04">azpVM_TEST</a>, </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fae58566346de5d3d4f5aab0d2040f98cf">   37</a></span>&#160;<a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fae58566346de5d3d4f5aab0d2040f98cf">azpVM_INTERNET</a>  </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}<a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3f" title="States of the Azpazeta Virtual Machine.">AZPVMState</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="../../d3/d75/classAZPVM.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/d75/classAZPVM.html" title="Azpazeta Virtual Machine.">AZPVM</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../d3/d75/classAZPVM.html#a5dda0ca4141cb630f843de260ffce109" title="Create a new instance of Azpazeta Virtual Machine.">AZPVM</a>(wxString file,<a class="code" href="../../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3f" title="States of the Azpazeta Virtual Machine.">AZPVMState</a> state);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 2 2013 19:21:36 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 2 2013 20:21:15 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
