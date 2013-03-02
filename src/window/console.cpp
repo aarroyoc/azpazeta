@@ -14,6 +14,12 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+/** 
+ * @file console.cpp
+ * @brief Window for Logging events in Azpazeta and AzpVM
+ * @author Adrián Arroyo Calle
+ * @date 02/03/2013
+ */
 
 #include "console.hpp"
 #include "wx/utils.h"

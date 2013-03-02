@@ -126,6 +126,12 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 	
 
 }
+/**
+ * @brief Display the Version Dialog. If the user is a developer display the All Dialog instead of About Dialog
+ * @param event wxWidgets Event
+ * @return Nothing
+ * @see LaunchWebSite
+ */
 void Options::SeeVersion(wxCommandEvent& event)
 {
 	//Create Version Class DONE

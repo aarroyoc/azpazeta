@@ -27,7 +27,10 @@ azpVM_TEST,	//Test script for developers (verbose output)
 azpVM_INTERNET	//Allow Internet in azpVM_SECURE
 
 }AZPVMState;
-
+/**
+ * @class AZPVM
+ * @brief Azpazeta Virtual Machine
+ */
 class AZPVM
 {
 	public:

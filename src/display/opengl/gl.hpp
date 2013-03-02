@@ -18,6 +18,11 @@
 
 #include "wx/wx.h"
 #include "wx/glcanvas.h"
+/**
+ * @class AZPGL
+ * @brief Implementation of Azpazeta Display in OpenGL ES 2
+ */
+
 
 class AZPGL : public wxGLCanvas
 {

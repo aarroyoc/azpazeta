@@ -19,6 +19,17 @@
 #include "wx/wx.h"
 #include "../version.hpp"
 
+/**
+* @brief Start the AZPScript context
+* @param Name The Name of the Script
+* @param Author The Author name
+* @param Version Version of the Script
+* @return The Operating System and the Azpazeta Version
+* @note This is the Lua description of the function
+* @see azpConsole
+*
+*/
+
 int azpInit(lua_State*);
 int azpConsole(lua_State*);
 float azpVersion();

@@ -14,13 +14,23 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-//PathFinder - Get the path of the EXE
+/**
+ * @file pathfinder.cpp
+ * @brief Get some paths in the current Operating System
+ * @author Adrián Arroyo Calle
+ */
 #ifdef WIN32
 #include <windows.h>
 #else
 #include <unistd.h>
 #endif
 #include "wx/wx.h"
+
+
+/**
+ * @brief Get the Dir of the executable
+ * @returns The directory of the executable
+ */
 wxString GetUniversalDir(){
 	#ifdef WIN32
 	#define MAX_PATH 2048

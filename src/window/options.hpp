@@ -20,6 +20,10 @@
 #include "../app.hpp"
 #include "wx/glcanvas.h"
 #include "testgl.hpp"
+/**
+ * @enum OptionsEnum
+ * @brief Events ID for buttons
+ */
 enum{
 	CHECK_NEW_VERSION,
 	APPLY_OPTIONS,
@@ -31,6 +35,10 @@ enum{
 	MANAGE_MAPS
 
 };
+/** 
+ * @class Options
+ * @brief Options dialog
+ */
 typedef class Options : public wxDialog
 {
 public:
