@@ -77,6 +77,7 @@ HTMLVersion::HTMLVersion() : wxDialog(NULL,wxID_ANY,_("Version information"))
 	htmlPageRunning.Append(wxT("<br>Native 64 bits: "));
 	htmlPageRunning.Append(wxIsPlatform64Bit() ? wxT("Yes") : wxT("No"));
 	html->AppendToPage(htmlPageRunning);
+
 	
 	
 

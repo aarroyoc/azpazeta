@@ -20,6 +20,7 @@
 #include "window/options.hpp"
 #include "version.hpp"
 #include "display/opengl/gl.hpp"
+#include "azpscript/azpvm.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
@@ -52,9 +53,14 @@ Start::Start(const wxString& title)
     SetMenuBar(menuBar);
 #endif // wxUSE_MENUS
 //Use AZPGL - Implementation of AZP Graphics in OpenGL ES 2
-	wxPanel* glpanel=new wxPanel(this);
-	AZPGL* azpgl=new AZPGL(glpanel);
+	AZPVM* azpvm=new AZPVM(wxT("scripts/Init.azps"),azpVM_TEST);
 
+	wxPanel* glpanel=new wxPanel(this,wxID_ANY,wxPoint(1,1),wxSize(500,500));
+	wxBoxSizer* sizer=new wxBoxSizer(wxHORIZONTAL);
+	AZPGL* azpgl=new AZPGL(glpanel);
+	sizer->Add(azpgl,1,wxEXPAND);
+	glpanel->SetSizer(sizer);
+	glpanel->SetAutoLayout(true);
 
 
 #if wxUSE_STATUSBAR

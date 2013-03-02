@@ -16,10 +16,18 @@
 */
 
 #include "console.hpp"
+#include "wx/utils.h"
 
 AZPLogWindow::AZPLogWindow()
 {
 	wxLogWindow* log=new wxLogWindow(NULL,wxT("AZPLog Window"),true);
+	wxLog::SetVerbose(true);
 	wxLogVerbose(wxT("[AZPLOG] Init AZPLogWindow"));
+	/*wxLogInfo(wxT("[AZPLOG] Init AZPLogWindow"));
+	wxLogGeneric(wxLOG_Info,wxT("[AZPLOG] Init AZPLogWindow"));
+	wxLogMessage(wxT("[AZPLOG] Init AZPLogWindow"));*/
+	wxString runningon=wxT("[AZPLOG] Running on ");
+	runningon.Append(wxGetOsDescription());
+	wxLogStatus(runningon);
 	wxLogWarning(wxT("[AZPLOG] Running Azpazeta as developer"));
 }
