@@ -67,7 +67,7 @@ void AZPGL::Render(wxPaintEvent& event)
     glEnd();
 
 	glEnable(GL_TEXTURE_2D);
-	wxImage imagen(wxT("azpazeta.png"),wxBITMAP_TYPE_PNG);
+	wxImage imagen(wxT("media/azpazeta.png"),wxBITMAP_TYPE_PNG);
 	GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);

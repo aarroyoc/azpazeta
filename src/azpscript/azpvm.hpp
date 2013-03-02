@@ -33,4 +33,4 @@ class AZPVM
 	public:
 		AZPVM(wxString file,AZPVMState state);
 };
-static int azpInit(lua_State*);
+

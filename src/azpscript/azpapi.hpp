@@ -14,8 +14,11 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+/* AzpAPI - Library of functions for AzpVM */
+#include "lua.hpp"
 #include "wx/wx.h"
+#include "../version.hpp"
 
-
-wxString GetUniversalDir();
-
+int azpInit(lua_State*);
+int azpConsole(lua_State*);
+float azpVersion();

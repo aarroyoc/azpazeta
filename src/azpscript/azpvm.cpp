@@ -19,10 +19,13 @@
 #include <iostream>
 #include "wx/utils.h"
 #include "../version.hpp"
+#include "azpapi.hpp"
 
 AZPVM::AZPVM(wxString file, AZPVMState state)
 {
 	//Check files and state DONE
+	#pragma message LUA_VERSION
+	std::cout << azpVersion() << std::endl;
 	wxLogMessage(wxT("AZPVM Running"));	//Debug TODO
 	if(!wxFileExists(file))
 	{
@@ -30,39 +33,42 @@ AZPVM::AZPVM(wxString file, AZPVMState state)
 		return;
 	}else{
 		if(state==azpVM_TEST)wxLogVerbose(wxT("[AZPVM] Init AZPVM"));
-		//Run 5.1 or 5.2
-	
+		//Run Lua 5.2
+	 lua_State *azpvm = luaL_newstate();
 
+    static const luaL_Reg lualibs[] =
+    {
+        {"base", luaopen_base},
+        {"io", luaopen_io},
+        {NULL, NULL}
+    };
+    const luaL_Reg *lib = lualibs;
+    for(; lib->func != NULL; lib++)
+    {
+        luaL_requiref(azpvm, lib->name, lib->func, 1);
+        lua_settop(azpvm, 0);
+    }
+	lua_pushcfunction(azpvm, azpInit);
+	lua_setglobal(azpvm, "azpInit");
+	lua_pushcfunction(azpvm,azpConsole);
+	lua_setglobal(azpvm,"azpConsole");
+
+    int status = luaL_loadfile(azpvm, file.mb_str());
+    int result = 0;
+    if(status == LUA_OK)
+    {
+        result = lua_pcall(azpvm, 0, LUA_MULTRET, 0);
+    }
+    else
+    {
+
+    }
+ 
+    // close the Lua state
+	
+	lua_close(azpvm);
 
 	}
 
 }
-static int azpInit(lua_State* l)
-{
-	wxLogMessage(wxT("Call azpInit"));
-	int argc = lua_gettop(l);
-	std::string parameter[3];
-    for(int i=0; i<argc; i++)
-    {
- 	parameter[i]=lua_tostring(l, lua_gettop(l));
-        lua_pop(l, 1);
-    }
-	wxString wxparameter[3];
-	wxparameter[0]=wxString::FromUTF8(parameter[0].c_str());
-	wxparameter[1]=wxString::FromUTF8(parameter[1].c_str());
-	wxparameter[2]=wxString::FromUTF8(parameter[2].c_str());
-	wxString message=wxT("Running new AZPScript: Name->");
-	message.Append(wxparameter[0]);
-	message.Append(wxT(" Author->"));
-	message.Append(wxparameter[1]);
-	message.Append(wxT(" Version->"));
-	message.Append(wxparameter[2]);
- 	wxMessageBox(message);
-    // push to the stack the multiple return values
-	//lua_pushnumber(l, 1); //1=Developer 0=Non-Developer Non avalible
-	lua_pushstring(l,wxGetOsDescription().mb_str());
-	lua_pushstring(l,AZPAZETA_VERSION_STR);
- 
-    // number of return values
-    return 2;
-}
+

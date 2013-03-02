@@ -23,7 +23,7 @@ find_package(OpenGL QUIET)
 find_package(GLUT)
 FIND_PACKAGE(wxWidgets COMPONENTS gl aui adv html core net base xml QUIET)
 FIND_PACKAGE(LIBVLC)
-FIND_PACKAGE(Lua51 REQUIRED)
+FIND_PACKAGE(Lua52 REQUIRED)
 FIND_PACKAGE(OpenGLES2)
 
 SET(A,${CMAKE_CURRENT_SOURCE_DIR})
@@ -53,11 +53,18 @@ LINK_DIRECTORIES(${OPENGLES2_LIBRARY_DIRS})
 #TARGET_LINK_LIBRARIES(AZPAZETA_JUNO start ${wxWidgets_LIBRARIES}) o con SRC multiples
 
 
+#SET (AZP_API
+#src/azpscript/azpapi.cpp
+#)
+#AzpAPI Library
+#ADD_LIBRARY(AZPAPI STATIC ${AZP_API})
+
 
 SET (AZP_SRC
 src/app.cpp
 src/start.cpp
 src/azpscript/azpvm.cpp
+src/azpscript/azpapi.cpp
 src/window/options.cpp
 src/window/alert.cpp
 src/version.cpp
@@ -70,6 +77,7 @@ src/xml/tinystr.cpp
 src/xml/tinyxmlerror.cpp
 src/xml/tinyxmlparser.cpp)
 SET (AZP_LIB
+#${AZPAPI}
 ${wxWidgets_LIBRARIES}
 ${GLUT_LIBRARY}
 ${OPENGL_LIBRARIES}
@@ -88,11 +96,14 @@ SET_TARGET_PROPERTIES(AZPAZETA_JUNO PROPERTIES RUNTIME "${CMAKE_CURRENT_SOURCE_D
 TARGET_LINK_LIBRARIES(AZPAZETA_JUNO ${AZP_LIB} )
 
 INSTALL(TARGETS AZPAZETA_JUNO
-RUNTIME          DESTINATION    bin
-ARCHIVE          DESTINATION    lib/static
-LIBRARY          DESTINATION    lib
-PUBLIC_HEADER    DESTINATION    include
+RUNTIME          DESTINATION    azpazeta/bin
+ARCHIVE          DESTINATION    azpazeta/lib/static
+LIBRARY          DESTINATION    azpazeta/lib
+PUBLIC_HEADER    DESTINATION    azpazeta/include
 )
-#INSTALL(FILES lang/*mo         DESTINATION    lang)
-#INSTALL(FILES options/options.xml DESTINATION options)
+INSTALL(FILES lang/es/azpazeta.mo         DESTINATION    azpazeta/lang/es/)
+INSTALL(FILES lang/fr/azpazeta.mo         DESTINATION    azpazeta/lang/fr/)
+INSTALL(FILES options/options.xml DESTINATION azpazeta/options/)
+INSTALL(FILES media/azpazeta.png DESTINATION azpazeta/media/)
+INSTALL(FILES scripts/Init.azps DESTINATION azpazeta/scripts/)
 
