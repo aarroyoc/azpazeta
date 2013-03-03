@@ -23,6 +23,7 @@
 
 #include "console.hpp"
 #include "wx/utils.h"
+#include "../pathfinder/pathfinder.hpp"
 
 AZPLogWindow::AZPLogWindow()
 {
@@ -35,5 +36,6 @@ AZPLogWindow::AZPLogWindow()
 	wxString runningon=wxT("[AZPLOG] Running on ");
 	runningon.Append(wxGetOsDescription());
 	wxLogStatus(runningon);
+	wxLogVerbose(wxT("[AZPLOG] Running Azpazeta in ")+PathFinder::GetInstalledPath());
 	wxLogWarning(wxT("[AZPLOG] Running Azpazeta as developer"));
 }

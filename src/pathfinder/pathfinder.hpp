@@ -15,7 +15,45 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 #include "wx/wx.h"
+#ifndef PATHFINDER_HPP
+#define PATHFINDER_HPP
+/**
+* @file pathfinder.hpp
+* @brief Get paths in different OS
+*/
+
+/**
+* @addtogroup PathFinder
+* @{
+*/
+namespace PathFinder{
+
+	wxString GetUniversalExe();
+
+	wxString GetInstalledPath();
+
+	wxString GetUserPath();
+	void Start();
+}
+/**
+* @}
+*/
 
 
-wxString GetUniversalDir();
-
+/**
+* @class AzpPath
+* @brief The better way to get the path of the executable
+*/
+class AzpPath
+{
+	public:
+		AzpPath();
+		/**
+		* @brief Get the path of the executable in a safe mode
+		* @returns The full path to the executable without the last slash
+		*/
+		wxString GetPath();
+	private:
+		wxString path;
+};
+#endif

@@ -35,7 +35,7 @@ bool Azpazeta::OnInit()
 
 
 
-
+	PathFinder::Start();
     Start *frame = new Start(_("Azpazeta Juno"));
 
     // and show it (the frames, unlike simple controls, are not shown when
@@ -66,8 +66,8 @@ AZPOptions LoadOptions()
 	TiXmlDocument doc(localPath);
 	if(!doc.LoadFile())
 	{
-		//Si no existe poner el auto-generado
-		wxCopyFile(GetUniversalDir()+wxT("options/options.xml"),wxString::FromUTF8(localPath));
+		//Si no existe poner el guardado en carpeta de instalación
+		wxCopyFile(PathFinder::GetInstalledPath()+wxT("options/options.xml"),wxString::FromUTF8(localPath));
 		return LoadOptions();
 	}
 	//Procesar XML
@@ -198,7 +198,7 @@ bool Azpazeta::InitWxLocale()
 
         // add locale search paths
 
-        locale->AddCatalogLookupPathPrefix(wxT("./lang"));
+        locale->AddCatalogLookupPathPrefix(PathFinder::GetInstalledPath()+wxT("/lang"));
 
 
  

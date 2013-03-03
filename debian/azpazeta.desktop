@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Azpazeta
+Comment=The strategy-economic sandbox game.
+Exec=/opt/azpazeta/AZPAZETA_JUNO
+Icon=/opt/azpazeta/media/azpazeta.png
+Terminal=false

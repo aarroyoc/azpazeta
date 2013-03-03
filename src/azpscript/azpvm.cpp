@@ -29,7 +29,7 @@ AZPVM::AZPVM(wxString file, AZPVMState state)
 	wxLogMessage(wxT("AZPVM Running"));	//Debug TODO
 	if(!wxFileExists(file))
 	{
-		wxLogError(wxT("The file doesn't exist. Reinstall the game can solve the problem"));
+		wxLogError(wxT("The file (")+file+wxT(") doesn't exist. Reinstall the game can solve the problem"));
 		return;
 	}else{
 		if(state==azpVM_TEST)wxLogVerbose(wxT("[AZPVM] Init AZPVM"));

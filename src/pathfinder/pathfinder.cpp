@@ -25,28 +25,88 @@
 #include <unistd.h>
 #endif
 #include "wx/wx.h"
+#include "pathfinder.hpp"
+
+wxString azppath;
 
 
+void PathFinder::Start()
+{
+
+	azppath=PathFinder::GetInstalledPath();
+	
+}
 /**
  * @brief Get the Dir of the executable
  * @returns The directory of the executable
  */
-wxString GetUniversalDir(){
+wxString PathFinder::GetUniversalExe(){
 	#ifdef WIN32
 	#define MAX_PATH 2048
 	WCHAR path[MAX_PATH];
 	GetModuleFileName(NULL, path, ARRAYSIZE(path));
-	strcat(path,"_FOLDER");
 	
 	return wxString::FromUTF8(path);
-	#else
-	#define BUFSIZ 2048
+	#elif BSD
+	char buffer[BUFSIZ];
+	readlink("/proc/curproc/exe",buffer,BUFSIZ);
+	return wxString::FromUTF8(buffer);
+	#elif BASH
+	char buffer[BUFSIZ];
+	buffer=getenv("_");
+	return wxString::FromUTF8(buffer);
+	#else //Linux
 	char buffer[BUFSIZ];
   	readlink("/proc/self/exe", buffer, BUFSIZ); //Se obtiene ejecutable, no directorio
-	strcat(buffer,"_FOLDER");
 	return wxString::FromUTF8(buffer);
 	#endif
 
 
 
+}
+/**
+* @brief Get the Path of the installation
+* @returns The path of the installations
+* @verbatim
+Example:
+Azpazeta binary installed in /opt/azpazeta/AZPAZETA_JUNO returns /opt/azpazeta. Azpazeta binary installed in C:\Program Files (x86)\Azpazeta\Azpazeta.exe returns C:\Program Files (x86)\Azpazeta
+* @endverbatim
+*/
+wxString PathFinder::GetInstalledPath()
+{
+	wxString exe=PathFinder::GetUniversalExe();
+	wxString path;
+	#ifdef WIN32
+	path=exe.BeforeLast('\\');
+	#else
+	path=exe.BeforeLast('/');
+	#endif
+	return path;
+
+}
+/**
+* @brief Get the Path of the current user
+* @returns The path of the current user
+* @verbatim
+Example:
+Current user is James the function returns /home/james/.azpazeta or C:\Users\james\AppData\Roaming\.azpazeta
+* @endverbatim
+*/
+wxString PathFinder::GetUserPath()
+{
+
+}
+
+AzpPath::AzpPath()
+{
+	wxString exe=PathFinder::GetUniversalExe();
+	#ifdef WIN32
+	path=exe.BeforeLast('\\');
+	#else
+	path=exe.BeforeLast('/');
+	#endif
+}
+wxString AzpPath::GetPath()
+{
+	return path;
 }

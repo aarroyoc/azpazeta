@@ -32,5 +32,4 @@ void azpInit(Name,Author,Version);
 * @see azpInit
 */
 void azpConsole(Phrase);
-
 };

@@ -17,14 +17,16 @@
 #include "EGL/egl.h"
 //#include "GLES2/gl2.h"
 #include "gl.hpp"
+#include "../../pathfinder/pathfinder.hpp"
 
-
+extern wxString azppath;
 
 int args[]={WX_GL_RGBA, WX_GL_DOUBLEBUFFER, WX_GL_DEPTH_SIZE, 16, 0};
 
 AZPGL::AZPGL(wxPanel* parent) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
 {
 	gl=new wxGLContext(this);
+	
 	wxInitAllImageHandlers();
 	this->Connect(wxEVT_PAINT,wxPaintEventHandler(AZPGL::Render));
 	this->Connect(wxEVT_SIZE,wxSizeEventHandler(AZPGL::Resize));
@@ -67,13 +69,14 @@ void AZPGL::Render(wxPaintEvent& event)
     glEnd();
 
 	glEnable(GL_TEXTURE_2D);
-	wxImage imagen(wxT("media/azpazeta.png"),wxBITMAP_TYPE_PNG);
+
+	wxImage imagen(azppath+wxT("/media/azpazeta.png"),wxBITMAP_TYPE_PNG);
 	GLuint texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 512, 512, 0, GL_RGB, GL_UNSIGNED_BYTE, imagen.GetData());
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 512, 512, 0, GL_RGB, GL_UNSIGNED_BYTE, imagen.GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 
 

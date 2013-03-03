@@ -21,6 +21,8 @@
 #include "version.hpp"
 #include "display/opengl/gl.hpp"
 #include "azpscript/azpvm.hpp"
+#include "pathfinder/pathfinder.hpp"
+#include "wx/utils.h"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
@@ -28,6 +30,8 @@ BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(SEE_VERSION_MENU, Start::SeeVersion)
     EVT_MENU(SEE_OPTIONS, Start::SeeOptions)
 END_EVENT_TABLE()
+
+extern wxString azppath;
 
 Start::Start(const wxString& title)
        : wxFrame(NULL, wxID_ANY, title)
@@ -53,7 +57,8 @@ Start::Start(const wxString& title)
     SetMenuBar(menuBar);
 #endif // wxUSE_MENUS
 //Use AZPGL - Implementation of AZP Graphics in OpenGL ES 2
-	AZPVM* azpvm=new AZPVM(wxT("scripts/Init.azps"),azpVM_TEST);
+
+	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
 
 	wxPanel* glpanel=new wxPanel(this,wxID_ANY,wxPoint(1,1),wxSize(500,500));
 	wxBoxSizer* sizer=new wxBoxSizer(wxHORIZONTAL);
