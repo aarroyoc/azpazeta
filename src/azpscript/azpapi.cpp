@@ -39,6 +39,7 @@ float azpVersion()
  * @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
  * @see AzpAPI::azpConsole
  */
+ 
 int azpConsole(lua_State* l)
 {
 	if(lua_gettop(l)==1){

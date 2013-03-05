@@ -19,6 +19,7 @@
 #include "start.hpp"
 #include "./window/options.hpp"
 #include "./pathfinder/pathfinder.hpp"
+#include "wx/wx.h"
 
 #include "xml/tinyxml.h"
 

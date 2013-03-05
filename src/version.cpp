@@ -62,9 +62,9 @@ HTMLVersion::HTMLVersion() : wxDialog(NULL,wxID_ANY,_("Version information"))
 	htmlPageCompile.Append(wxT("<br>Processor: "));
 	htmlPageCompile.Append(wxString::FromUTF8(PROCESSOR_WX));
 	htmlPageCompile.Append(wxT("<br>wxWidgets Major Version: "));
-	htmlPageCompile.Append(wxMAJOR_VERSION);
+//	htmlPageCompile.Append(wxMAJOR_VERSION);
 	htmlPageCompile.Append(wxT("<br>wxWidgets Minor Version: "));
-	htmlPageCompile.Append(wxMINOR_VERSION);
+//	htmlPageCompile.Append(wxMINOR_VERSION);
 	htmlPageCompile.Append(wxT("<br></p>"));//COMPILER_WX,CMAKE_WX_VERSION,OS_WX,PROCESSOR_WX,wxMAJOR_VERSION,wxMINOR_VERSION);
 	html->AppendToPage(htmlPageCompile);
 	//Runtime Values

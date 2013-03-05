@@ -46,7 +46,7 @@ wxString PathFinder::GetUniversalExe(){
 	WCHAR path[MAX_PATH];
 	GetModuleFileName(NULL, path, ARRAYSIZE(path));
 	
-	return wxString::FromUTF8(path);
+	return wxString(path);
 	#elif BSD
 	char buffer[BUFSIZ];
 	readlink("/proc/curproc/exe",buffer,BUFSIZ);
@@ -94,7 +94,7 @@ Current user is James the function returns /home/james/.azpazeta or C:\Users\jam
 */
 wxString PathFinder::GetUserPath()
 {
-
+	return wxString(_("USER"));
 }
 
 AzpPath::AzpPath()
