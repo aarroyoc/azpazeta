@@ -1,0 +1,128 @@
+=== modificado archivo CMakeLists.txt
+--- CMakeLists.txt	2013-03-02 17:54:16 +0000
++++ CMakeLists.txt	2013-03-05 16:16:06 +0000
+@@ -17,13 +17,13 @@
+ #SET(PROJECT_BINARY_DIR ${PROJECT_BINARY_DIR}/build)
+ #SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+ #SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+-SET(WXWINDOWS_USE_GL 1) 
++#SET(WXWINDOWS_USE_GL 1) 
+ SET(wxWidgets_USE_LIBS)
+ find_package(OpenGL QUIET)
+-find_package(GLUT)
+-FIND_PACKAGE(wxWidgets COMPONENTS gl aui adv html core net base xml QUIET)
+-FIND_PACKAGE(LIBVLC)
+-FIND_PACKAGE(Lua52 REQUIRED)
++#find_package(GLUT)
++FIND_PACKAGE(wxWidgets COMPONENTS gl aui adv html core net base QUIET)
++#FIND_PACKAGE(LIBVLC)
++#FIND_PACKAGE(Lua52 REQUIRED)
+ FIND_PACKAGE(OpenGLES2)
+ 
+ SET(A,${CMAKE_CURRENT_SOURCE_DIR})
+@@ -44,8 +44,8 @@
+ 
+ 
+ INCLUDE("${wxWidgets_USE_FILE}")
+-INCLUDE_DIRECTORIES(${LUA_INCLUDE_DIR})
+-INCLUDE(${LIBVLC_INCLUDE_DIR})
++#INCLUDE_DIRECTORIES(${LUA_INCLUDE_DIR})
++#INCLUDE(${LIBVLC_INCLUDE_DIR})
+ INCLUDE_DIRECTORIES(${OPENGLES2_INCLUDE_DIRS})
+ LINK_DIRECTORIES(${OPENGLES2_LIBRARY_DIRS})
+ #ADD_EXECUTABLE(AZPAZETA_JUNO src/app.cpp)
+@@ -79,11 +79,11 @@
+ SET (AZP_LIB
+ #${AZPAPI}
+ ${wxWidgets_LIBRARIES}
+-${GLUT_LIBRARY}
++#${GLUT_LIBRARY}
+ ${OPENGL_LIBRARIES}
+-${LIBVLC_LIBRARY}
+-${LIBVLCCORE_LIBRARY}
+-${LUA_LIBRARY}
++#${LIBVLC_LIBRARY}
++#${LIBVLCCORE_LIBRARY}
++#${LUA_LIBRARY}
+ ${OPENGL_LIBRARIES}
+ )
+ 
+
+=== modificado archivo src/app.cpp
+--- src/app.cpp	2013-03-03 17:28:53 +0000
++++ src/app.cpp	2013-03-05 16:28:16 +0000
+@@ -19,6 +19,7 @@
+ #include "start.hpp"
+ #include "./window/options.hpp"
+ #include "./pathfinder/pathfinder.hpp"
++#include "wx/wx.h"
+ 
+ #include "xml/tinyxml.h"
+ 
+
+=== modificado archivo src/azpscript/azpapi.cpp
+--- src/azpscript/azpapi.cpp	2013-03-02 19:22:47 +0000
++++ src/azpscript/azpapi.cpp	2013-03-05 17:11:28 +0000
+@@ -39,6 +39,7 @@
+  * @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+  * @see AzpAPI::azpConsole
+  */
++ 
+ int azpConsole(lua_State* l)
+ {
+ 	if(lua_gettop(l)==1){
+
+=== modificado archivo src/display/opengl/gl.cpp
+--- src/display/opengl/gl.cpp	2013-03-03 17:28:53 +0000
++++ src/display/opengl/gl.cpp	2013-03-05 16:34:09 +0000
+@@ -14,9 +14,10 @@
+ 	along with this program; if not, write to the Free Software
+ 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+-#include "EGL/egl.h"
++//#include "EGL/egl.h"
+ //#include "GLES2/gl2.h"
+ #include "gl.hpp"
++#include "gl/glu.h"
+ #include "../../pathfinder/pathfinder.hpp"
+ 
+ extern wxString azppath;
+
+=== modificado archivo src/pathfinder/pathfinder.cpp
+--- src/pathfinder/pathfinder.cpp	2013-03-03 17:28:53 +0000
++++ src/pathfinder/pathfinder.cpp	2013-03-05 16:34:47 +0000
+@@ -46,7 +46,7 @@
+ 	WCHAR path[MAX_PATH];
+ 	GetModuleFileName(NULL, path, ARRAYSIZE(path));
+ 	
+-	return wxString::FromUTF8(path);
++	return wxString(path);
+ 	#elif BSD
+ 	char buffer[BUFSIZ];
+ 	readlink("/proc/curproc/exe",buffer,BUFSIZ);
+@@ -94,7 +94,7 @@
+ */
+ wxString PathFinder::GetUserPath()
+ {
+-
++	return wxString("USER");
+ }
+ 
+ AzpPath::AzpPath()
+
+=== modificado archivo src/version.cpp
+--- src/version.cpp	2013-03-02 13:20:46 +0000
++++ src/version.cpp	2013-03-05 16:31:56 +0000
+@@ -62,9 +62,9 @@
+ 	htmlPageCompile.Append(wxT("<br>Processor: "));
+ 	htmlPageCompile.Append(wxString::FromUTF8(PROCESSOR_WX));
+ 	htmlPageCompile.Append(wxT("<br>wxWidgets Major Version: "));
+-	htmlPageCompile.Append(wxMAJOR_VERSION);
++//	htmlPageCompile.Append(wxMAJOR_VERSION);
+ 	htmlPageCompile.Append(wxT("<br>wxWidgets Minor Version: "));
+-	htmlPageCompile.Append(wxMINOR_VERSION);
++//	htmlPageCompile.Append(wxMINOR_VERSION);
+ 	htmlPageCompile.Append(wxT("<br></p>"));//COMPILER_WX,CMAKE_WX_VERSION,OS_WX,PROCESSOR_WX,wxMAJOR_VERSION,wxMINOR_VERSION);
+ 	html->AppendToPage(htmlPageCompile);
+ 	//Runtime Values
+

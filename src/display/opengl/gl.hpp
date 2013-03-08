@@ -24,6 +24,7 @@
 
 #include "wx/wx.h"
 #include "wx/glcanvas.h"
+#include "../../maploader/map.hpp"
 /**
  * @class AZPGL
  * @brief Implementation of Azpazeta Display in OpenGL ES 2
@@ -34,15 +35,32 @@ class AZPGL : public wxGLCanvas
 {
 	private:
 		wxGLContext* gl;
+		AzpMapData map;
+		wxString imgpath;
+		float xDesp;
+		float yDesp;
+		GLint vertex_shader;
+		GLint fragment_shader;
+		GLint program_shader;
+		bool shaderEnabled;
+		bool bufferEnabled;
+		bool textureEnabled;
+		unsigned int triangleBuffer;
+		unsigned int triangleTexture;
+		unsigned int triangleIndex;
+		GLuint azptexture;
 		
 	public:
-		AZPGL(wxPanel* parent);
+		AZPGL(wxPanel* parent,wxString azpmapuri);
 		void Resize(wxSizeEvent& event);
 		int getWidth();
 		int getHeight();
 		void Render(wxPaintEvent& event);
-		void AZPViewport(int a, int b, int c, int d);
+		void AZPSetup(int a, int b, int c, int d);
 		void OnKey(wxKeyEvent& event);
+		void AZPBuffer();
+		void AZPShader();
+		void AZPTexture();
 
 
 

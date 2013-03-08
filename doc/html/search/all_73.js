@@ -14,6 +14,7 @@ var searchData=
   ['settabsize',['SetTabSize',['../df/d09/classTiXmlDocument.html#a51dac56316f89b35bdb7d0d433ba988e',1,'TiXmlDocument']]],
   ['setuserdata',['SetUserData',['../d8/d47/classTiXmlBase.html#ac6b3e0f790930d4970ec30764e937b5d',1,'TiXmlBase']]],
   ['setvalue',['SetValue',['../d3/dd5/classTiXmlNode.html#a2a38329ca5d3f28f98ce932b8299ae90',1,'TiXmlNode::SetValue()'],['../d4/dc1/classTiXmlAttribute.html#a2dae44178f668b3cb48101be4f2236a0',1,'TiXmlAttribute::SetValue()']]],
+  ['sides',['sides',['../d7/d68/structAzpMapData_1_1sides.html',1,'AzpMapData']]],
   ['size',['Size',['../d4/d3c/classTiXmlPrinter.html#ad01375ae9199bd2f48252eaddce3039d',1,'TiXmlPrinter']]],
   ['standalone',['Standalone',['../d2/df2/classTiXmlDeclaration.html#a9ff06afc033d7ef730ec7c6825b97ad9',1,'TiXmlDeclaration']]],
   ['start',['Start',['../dc/d68/classStart.html',1,'']]]

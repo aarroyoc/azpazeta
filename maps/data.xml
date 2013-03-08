@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<azpazeta-data version="1.0">
+	<map name="Azpazeta Core">core/mount.xml</map>
+	<map name="Orwell">orwell/mount.xml</map>
+</azpazeta-data>

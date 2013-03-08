@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<azpazeta-map version="1.0">
+    <meta-data>
+        <data id="name">City of Orwell</data>
+	<data id="description">The second city in Azpazeta</data>
+        <data id="homesite">http://launchpad.net/azpazeta</data>
+        <data id="author">Adrián Arroyo</data>
+    </metadata>
+    <map-main>station.xml<map-main>
+</azpazeta-map>

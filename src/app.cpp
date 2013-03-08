@@ -68,7 +68,7 @@ AZPOptions LoadOptions()
 	if(!doc.LoadFile())
 	{
 		//Si no existe poner el guardado en carpeta de instalación
-		wxCopyFile(PathFinder::GetInstalledPath()+wxT("options/options.xml"),wxString::FromUTF8(localPath));
+		wxCopyFile(PathFinder::GetInstalledPath()+wxT("/options/options.xml"),wxString::FromUTF8(localPath));
 		return LoadOptions();
 	}
 	//Procesar XML

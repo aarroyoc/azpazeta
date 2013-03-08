@@ -23,6 +23,9 @@
 #include "azpscript/azpvm.hpp"
 #include "pathfinder/pathfinder.hpp"
 #include "wx/utils.h"
+#include "wx/splash.h"
+#include "maploader/map.hpp"
+#include "maploader/azpmap.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
@@ -36,6 +39,15 @@ extern wxString azppath;
 Start::Start(const wxString& title)
        : wxFrame(NULL, wxID_ANY, title)
 {
+	//Splash Screen
+	wxInitAllImageHandlers();
+	wxBitmap bitmap;
+  	if (bitmap.LoadFile(azppath+wxT("/media/azpazeta.png"), wxBITMAP_TYPE_PNG))
+  	{
+      		wxSplashScreen* splash = new wxSplashScreen(bitmap,wxSPLASH_CENTRE_ON_SCREEN|wxSPLASH_TIMEOUT,6000, NULL, -1, wxDefaultPosition, wxDefaultSize,wxSIMPLE_BORDER|wxSTAY_ON_TOP);
+  }
+  wxYield();
+
 
 #if wxUSE_MENUS
     // create a menu bar
@@ -58,11 +70,24 @@ Start::Start(const wxString& title)
 #endif // wxUSE_MENUS
 //Use AZPGL - Implementation of AZP Graphics in OpenGL ES 2
 
+	//AzpVM DONE
 	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
 
+	//AzpData TODO
+
+
+	//AzpMount TODO
+	AzpMount* azpmount=new AzpMount(azppath+wxT("/maps/core/mount.xml"));
+
+	//AzpMap TODO - Esto es un test
+	//AzpMap* map=new AzpMap(azppath+wxT("/maps/core/start.xml")); //azpmount->mainmap
+	//AzpMapData mapdata=map->GetData();
+	//wxMessageBox(mapdata.inside.tile[1][1]);
+
+	//AzpGL DONE
 	wxPanel* glpanel=new wxPanel(this,wxID_ANY,wxPoint(1,1),wxSize(500,500));
 	wxBoxSizer* sizer=new wxBoxSizer(wxHORIZONTAL);
-	AZPGL* azpgl=new AZPGL(glpanel);
+	AZPGL* azpgl=new AZPGL(glpanel, azppath+azpmount->mainmap);
 	sizer->Add(azpgl,1,wxEXPAND);
 	glpanel->SetSizer(sizer);
 	glpanel->SetAutoLayout(true);
@@ -73,6 +98,11 @@ Start::Start(const wxString& title)
     CreateStatusBar(2);
     SetStatusText(_T("Welcome to wxWidgets!"));
 #endif // wxUSE_STATUSBAR
+	//FullScreen
+	if(LoadOptions().general.fullScreen)
+		ShowFullScreen(true);
+
+
 }
 
 

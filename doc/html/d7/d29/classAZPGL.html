@@ -106,9 +106,9 @@ Inheritance diagram for AZPGL:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a239bfc5884af56a64877f044c414bb4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a239bfc5884af56a64877f044c414bb4b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AZPGL</b> (wxPanel *parent)</td></tr>
-<tr class="separator:a239bfc5884af56a64877f044c414bb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41806d4b3cdacb7a292230116803261a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41806d4b3cdacb7a292230116803261a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AZPGL</b> (wxPanel *parent, wxString azpmapuri)</td></tr>
+<tr class="separator:a41806d4b3cdacb7a292230116803261a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c928334ab955ea732246b21d7ab48d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c928334ab955ea732246b21d7ab48d4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Resize</b> (wxSizeEvent &amp;event)</td></tr>
 <tr class="separator:a9c928334ab955ea732246b21d7ab48d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,12 +121,21 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> ()</td><
 <tr class="memitem:aea74bf387d1ac2e49b0455e991749fec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea74bf387d1ac2e49b0455e991749fec"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Render</b> (wxPaintEvent &amp;event)</td></tr>
 <tr class="separator:aea74bf387d1ac2e49b0455e991749fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac86eab3a44a82e7c7c3c48b6dd08012e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac86eab3a44a82e7c7c3c48b6dd08012e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AZPViewport</b> (int a, int b, int c, int d)</td></tr>
-<tr class="separator:ac86eab3a44a82e7c7c3c48b6dd08012e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9fa0005822acd4f857f0aaa6f3e2ae4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9fa0005822acd4f857f0aaa6f3e2ae4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AZPSetup</b> (int a, int b, int c, int d)</td></tr>
+<tr class="separator:af9fa0005822acd4f857f0aaa6f3e2ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4148fbe0466a847f63d9e50522de0f48"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4148fbe0466a847f63d9e50522de0f48"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>OnKey</b> (wxKeyEvent &amp;event)</td></tr>
 <tr class="separator:a4148fbe0466a847f63d9e50522de0f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af527e17dd6b8f049c63eb3d6eb98ee91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af527e17dd6b8f049c63eb3d6eb98ee91"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AZPBuffer</b> ()</td></tr>
+<tr class="separator:af527e17dd6b8f049c63eb3d6eb98ee91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a202ff81a70398066e69ca07357c8c684"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a202ff81a70398066e69ca07357c8c684"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AZPShader</b> ()</td></tr>
+<tr class="separator:a202ff81a70398066e69ca07357c8c684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a191f052c9c0ac11b58f72fb5c26b4a89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a191f052c9c0ac11b58f72fb5c26b4a89"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AZPTexture</b> ()</td></tr>
+<tr class="separator:a191f052c9c0ac11b58f72fb5c26b4a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of Azpazeta Display in OpenGL ES 2. </p>
@@ -137,7 +146,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>OnKey</b> (wxKeyEvent
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 3 2013 18:14:58 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 8 2013 22:18:25 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

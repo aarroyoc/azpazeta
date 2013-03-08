@@ -23,7 +23,7 @@ find_package(OpenGL QUIET)
 #find_package(GLUT)
 FIND_PACKAGE(wxWidgets COMPONENTS gl aui adv html core net base QUIET)
 #FIND_PACKAGE(LIBVLC)
-#FIND_PACKAGE(Lua52 REQUIRED)
+FIND_PACKAGE(Lua52 REQUIRED)
 FIND_PACKAGE(OpenGLES2)
 
 SET(A,${CMAKE_CURRENT_SOURCE_DIR})
@@ -65,10 +65,13 @@ src/app.cpp
 src/start.cpp
 src/azpscript/azpvm.cpp
 src/azpscript/azpapi.cpp
+src/maploader/map.cpp
+src/maploader/azpmap.cpp
 src/window/options.cpp
 src/window/alert.cpp
 src/version.cpp
 src/display/opengl/gl.cpp
+src/display/opengl/shader.cpp
 src/window/testgl.cpp
 src/pathfinder/pathfinder.cpp
 src/window/console.cpp
@@ -89,7 +92,7 @@ ${OPENGL_LIBRARIES}
 
 
 
-add_definitions(-DLANGUAGE=SPANISH -DOS_WX="${OS_VERSION}" -DPROCESSOR_WX="${PROCESSOR}" -DCOMPILER_WX="${COMPILER}" -DCMAKE_WX_VERSION="${BUILD_CMAKE}")
+add_definitions(-DGL_GLEXT_PROTOTYPES -DLANGUAGE=SPANISH -DOS_WX="${OS_VERSION}" -DPROCESSOR_WX="${PROCESSOR}" -DCOMPILER_WX="${COMPILER}" -DCMAKE_WX_VERSION="${BUILD_CMAKE}")
 MESSAGE(STATUS ${welcome})
 ADD_EXECUTABLE(AZPAZETA_JUNO ${AZP_SRC})
 SET_TARGET_PROPERTIES(AZPAZETA_JUNO PROPERTIES RUNTIME "${CMAKE_CURRENT_SOURCE_DIR}/AZPAZETA_JUNO")
@@ -104,6 +107,10 @@ PUBLIC_HEADER    DESTINATION    azpazeta/include
 INSTALL(FILES lang/es/azpazeta.mo         DESTINATION    azpazeta/lang/es/)
 INSTALL(FILES lang/fr/azpazeta.mo         DESTINATION    azpazeta/lang/fr/)
 INSTALL(FILES options/options.xml DESTINATION azpazeta/options/)
-INSTALL(FILES media/azpazeta.png DESTINATION azpazeta/media/)
+INSTALL(DIRECTORY media DESTINATION azpazeta/)
 INSTALL(FILES scripts/Init.azps DESTINATION azpazeta/scripts/)
+INSTALL(FILES maps/data.xml DESTINATION azpazeta/maps/)
+INSTALL(DIRECTORY maps/core DESTINATION azpazeta/maps/)
+INSTALL(DIRECTORY maps/orwell DESTINATION azpazeta/maps/)
+INSTALL(DIRECTORY shaders DESTINATION azpazeta/)
 

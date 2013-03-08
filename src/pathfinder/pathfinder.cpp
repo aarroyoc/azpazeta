@@ -94,7 +94,17 @@ Current user is James the function returns /home/james/.azpazeta or C:\Users\jam
 */
 wxString PathFinder::GetUserPath()
 {
-	return wxString(_("USER"));
+	#ifdef WIN32
+	const char* home="APPDATA";
+
+	#else
+	const char* home="HOME";
+
+	#endif
+	char* homePath=getenv(home);
+	char localPath[1024];
+	strcpy(localPath,homePath);
+	return wxString::FromUTF8(localPath);
 }
 
 AzpPath::AzpPath()

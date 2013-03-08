@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<map version="1.0">
+    <background>AZPAZETA_THEME</background>
+    <inside>
+	<tile onenter="OnStation.azps" posX="1" posY="1">red.png</tile>
+    </inside>
+    <sides>
+	<up>end.xml</up>
+    </sides>
+</map>
