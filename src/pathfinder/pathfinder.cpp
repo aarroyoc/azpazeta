@@ -57,7 +57,7 @@ wxString PathFinder::GetUniversalExe(){
 	return wxString::FromUTF8(buffer);
 	#else //Linux
 	char buffer[BUFSIZ];
-  	readlink("/proc/self/exe", buffer, BUFSIZ); //Se obtiene ejecutable, no directorio
+  	ssize_t tamano=readlink("/proc/self/exe", buffer, BUFSIZ); //Se obtiene ejecutable, no directorio
 	return wxString::FromUTF8(buffer);
 	#endif
 

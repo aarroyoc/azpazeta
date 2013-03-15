@@ -284,15 +284,18 @@ void AZPGL::Render(wxPaintEvent& event)
 	glEnableVertexAttribArray(0);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 	SwapBuffers();*/
+
+/*
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glEnableClientState(GL_INDEX_ARRAY);
    
 
 	glViewport(0, 0, getHeight(), getHeight());
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(program_shader);
-	int loc = glGetAttribLocation(program_shader, "vPosition");
+	int loc =glGetAttribLocation(program_shader, "vPosition");
 	int loc2=glGetAttribLocation(program_shader,"aTextureCoord");
 	int loc3=glGetAttribLocation(program_shader,"uSampler");
 
@@ -309,6 +312,7 @@ void AZPGL::Render(wxPaintEvent& event)
 	
 	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
 	glVertexAttribPointer(loc2,2,GL_FLOAT,GL_FALSE,0,0);
+	glEnableVertexAttribArray(0);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, azptexture);
 	glUniform1i(loc3, 0);
@@ -337,9 +341,29 @@ void AZPGL::Render(wxPaintEvent& event)
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	glDisableClientState(GL_INDEX_ARRAY);
+*/
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+	glViewport(0, 0, getHeight(), getHeight());
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(program_shader);
+	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
+	int loc = glGetAttribLocation(program_shader, "vPosition");
+	glVertexAttribPointer(loc, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
 
+	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
+	int loc2 = glGetAttribLocation(program_shader,"vTextureCoord");
+	glVertexAttribPointer(loc2,2,GL_FLOAT,GL_FALSE,0,0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, azptexture);
+	glUniform1i(glGetAttribLocation(program_shader,"uSampler"), 0);
+
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,triangleIndex);
+	//glDrawElements(GL_TRIANGLES, 5, GL_UNSIGNED_INT, 0);
 	
-	
+	glDrawArrays(GL_QUADS, 0, 4); //Square=glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	SwapBuffers();
+
 	
 
 
@@ -347,7 +371,7 @@ void AZPGL::Render(wxPaintEvent& event)
 void AZPGL::AZPSetup(int a, int b, int c, int d)
 {
 	glEnable(GL_DEPTH_TEST);
-	glClearColor(0.0f,0.0f,0.0f,1.0f);
+	glClearColor(1.0f,0.0f,0.0f,1.0f);
 }
 void AZPGL::OnKey(wxKeyEvent& event)
 {
@@ -374,41 +398,10 @@ void AZPGL::AZPBuffer()
 	};*/
 	GLfloat vVertices[]={
             // Front face
-            -1.0, -1.0,  1.0,
-             1.0, -1.0,  1.0,
-             1.0,  1.0,  1.0,
-            -1.0,  1.0,  1.0,
-
-            // Back face
-            -1.0, -1.0, -1.0,
-            -1.0,  1.0, -1.0,
-             1.0,  1.0, -1.0,
-             1.0, -1.0, -1.0,
-
-            // Top face
-            -1.0,  1.0, -1.0,
-            -1.0,  1.0,  1.0,
-             1.0,  1.0,  1.0,
-             1.0,  1.0, -1.0,
-
-            // Bottom face
-            -1.0, -1.0, -1.0,
-             1.0, -1.0, -1.0,
-             1.0, -1.0,  1.0,
-            -1.0, -1.0,  1.0,
-
-            // Right face
-             1.0, -1.0, -1.0,
-             1.0,  1.0, -1.0,
-             1.0,  1.0,  1.0,
-             1.0, -1.0,  1.0,
-
-            // Left face
-            -1.0, -1.0, -1.0,
-            -1.0, -1.0,  1.0,
-            -1.0,  1.0,  1.0,
-            -1.0,  1.0, -1.0,
-        };
+            -0.5, -0.5,  1.0,
+             0.5, -0.5,  1.0,
+             0.5,  0.5,  1.0,
+            -0.5,  0.5,  1.0};
 	glGenBuffers(1,&triangleBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vVertices), vVertices, GL_STATIC_DRAW);
@@ -418,37 +411,7 @@ void AZPGL::AZPBuffer()
           0.0, 0.0,
           1.0, 0.0,
           1.0, 1.0,
-          0.0, 1.0,
-
-          // Back face
-          1.0, 0.0,
-          1.0, 1.0,
-          0.0, 1.0,
-          0.0, 0.0,
-
-          // Top face
-          0.0, 1.0,
-          0.0, 0.0,
-          1.0, 0.0,
-          1.0, 1.0,
-
-          // Bottom face
-          1.0, 1.0,
-          0.0, 1.0,
-          0.0, 0.0,
-          1.0, 0.0,
-
-          // Right face
-          1.0, 0.0,
-          1.0, 1.0,
-          0.0, 1.0,
-          0.0, 0.0,
-
-          // Left face
-          0.0, 0.0,
-          1.0, 0.0,
-          1.0, 1.0,
-          0.0, 1.0,
+          0.0, 1.0
         };
 	glGenBuffers(1,&triangleTexture);
 	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
@@ -456,12 +419,7 @@ void AZPGL::AZPBuffer()
 	//Luego buffer de INDEX
 	//8x3=24
 	GLfloat index[]={
-            0, 1, 2,      0, 2, 3,    // Front face
-            4, 5, 6,      4, 6, 7,    // Back face
-            8, 9, 10,     8, 10, 11,  // Top face
-            12, 13, 14,   12, 14, 15, // Bottom face
-            16, 17, 18,   16, 18, 19, // Right face
-            20, 21, 22,   20, 22, 23  // Left face
+            0, 1, 2,      0, 2, 3    // Front face
 	};
 	glGenBuffers(1,&triangleIndex);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, triangleIndex);

@@ -49,6 +49,7 @@ GLint AzpShader::LoadShader(wxString file, GLenum type)
 	"void main() \n"
 	"{ \n"
 	" gl_FragColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t)); \n"
+	"  //gl_FragColor = vec4(0.0,0.0,1.0,1.0);\n"
 	"} \n";
 	
 	GLuint shader;	

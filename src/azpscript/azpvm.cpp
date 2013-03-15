@@ -24,7 +24,10 @@
 AZPVM::AZPVM(wxString file, AZPVMState state)
 {
 	//Check files and state DONE
+	#if LUA_VERSION_NUM < 502
 	#pragma message LUA_VERSION
+	#error
+	#endif
 	std::cout << azpVersion() << std::endl;
 	wxLogMessage(wxT("AZPVM Running"));	//Debug TODO
 	if(!wxFileExists(file))
