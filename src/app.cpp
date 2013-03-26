@@ -20,6 +20,7 @@
 #include "./window/options.hpp"
 #include "./pathfinder/pathfinder.hpp"
 #include "wx/wx.h"
+#include "start/startgui.hpp"
 
 #include "xml/tinyxml.h"
 
@@ -37,16 +38,33 @@ bool Azpazeta::OnInit()
 
 
 	PathFinder::Start();
+	Notify();
     Start *frame = new Start(_("Azpazeta Juno"));
 
     // and show it (the frames, unlike simple controls, are not shown when
     // created initially)
     frame->Show(true);
+		//Start Dialog
+	StartDialog* stdg=new StartDialog();
+	stdg->ShowModal();
 
     // success: wxApp::OnRun() will be called which will enter the main message
     // loop and the application will run. If we returned false here, the
     // application would exit immediately.
     return true;
+}
+void Azpazeta::Notify()
+{
+	//Win32 TODO
+	#ifdef WIN32
+
+	//Linux-Ayatana DONE
+	#else
+	wxShell(wxT("notify-send -i azpazeta \"Azpazeta\" \"Welcome to Azpazeta 2.0 Juno\""));
+
+	#endif 
+
+
 }
 AZPOptions LoadOptions()
 {

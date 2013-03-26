@@ -17,5 +17,7 @@ var searchData=
   ['sides',['sides',['../d7/d68/structAzpMapData_1_1sides.html',1,'AzpMapData']]],
   ['size',['Size',['../d4/d3c/classTiXmlPrinter.html#ad01375ae9199bd2f48252eaddce3039d',1,'TiXmlPrinter']]],
   ['standalone',['Standalone',['../d2/df2/classTiXmlDeclaration.html#a9ff06afc033d7ef730ec7c6825b97ad9',1,'TiXmlDeclaration']]],
-  ['start',['Start',['../dc/d68/classStart.html',1,'']]]
+  ['start',['Start',['../dc/d68/classStart.html',1,'']]],
+  ['startdialog',['StartDialog',['../db/d78/classStartDialog.html',1,'']]],
+  ['startgui_2ehpp',['startgui.hpp',['../d0/d3b/startgui_8hpp.html',1,'']]]
 ];

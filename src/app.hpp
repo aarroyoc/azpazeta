@@ -14,7 +14,10 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-
+/**
+@file app.hpp
+@brief Entry point of Azpazeta
+*/
 #include "wx/wx.h"
 #include "wx/intl.h"
 
@@ -51,7 +54,10 @@ typedef struct{			//Options structure
 		}azpscript;
 		//Ok, Cancel
 }AZPOptions;
-
+/**
+@class Azpazeta
+@brief Entry point of Azpazeta and common functions
+*/
 class Azpazeta : public wxApp
 {
 public:
@@ -59,6 +65,7 @@ public:
 	
 private:
 	bool InitWxLocale();
+	void Notify();
 };
 enum
 {

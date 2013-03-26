@@ -26,6 +26,7 @@
 #include "wx/splash.h"
 #include "maploader/map.hpp"
 #include "maploader/azpmap.hpp"
+#include "start/startgui.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
@@ -68,6 +69,11 @@ Start::Start(const wxString& title)
     // ... and attach this menu bar to the frame
     SetMenuBar(menuBar);
 #endif // wxUSE_MENUS
+
+
+
+
+
 //Use AZPGL - Implementation of AZP Graphics in OpenGL ES 2
 
 	//AzpVM DONE

@@ -65,6 +65,7 @@ src/app.cpp
 src/start.cpp
 src/azpscript/azpvm.cpp
 src/azpscript/azpapi.cpp
+src/start/startgui.cpp
 src/maploader/map.cpp
 src/maploader/azpmap.cpp
 src/window/options.cpp
