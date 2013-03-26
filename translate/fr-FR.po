@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Azpazeta Juno\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-24 02:32+0100\n"
-"PO-Revision-Date: 2013-02-24 02:34+0100\n"
+"PO-Revision-Date: 2013-03-26 16:54+0100\n"
 "Last-Translator: Adrián Arroyo <adrian.arroyocalle@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: ../src/window/options.cpp:67
 msgid "Auto-Update"
-msgstr ""
+msgstr "Auto-Update"
 
 #: ../src/app.cpp:39
 msgid "Azpazeta Juno"
@@ -43,7 +43,7 @@ msgstr "Azpazeta Juno"
 
 #: ../src/start.cpp:40
 msgid "Change game settings"
-msgstr ""
+msgstr "Change jue "
 
 #: ../src/window/options.cpp:51
 msgid "Developer"
@@ -63,15 +63,15 @@ msgstr ""
 
 #: ../src/window/options.cpp:84
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: ../src/window/options.cpp:81
 msgid "If you see the square and the cube your computer supports OpenGL"
-msgstr ""
+msgstr "Si tu peut regarder ton ordinateur travaille avec OpenGL"
 
 #: ../src/window/options.cpp:87
 msgid "Net"
-msgstr ""
+msgstr "Net"
 
 #: ../src/window/options.cpp:88
 msgid "OpenGL"
@@ -87,5 +87,5 @@ msgstr "Espagnol"
 
 #: ../src/app.cpp:33
 msgid "Your language doesn't appear in Azpazeta translations. Please, create a translation in translations.launchpad.net/azpazeta"
-msgstr ""
+msgstr "Ton language est difficile de recherche"
 

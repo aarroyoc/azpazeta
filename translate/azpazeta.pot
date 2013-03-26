@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-24 02:32+0100\n"
+"POT-Creation-Date: 2013-03-26 16:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,75 +17,201 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/start.cpp:46
+#: ../src/display/opengl/shader.cpp:77
+msgid ""
+"\n"
+"File: "
+msgstr ""
+
+#: ../src/start.cpp:59
+msgid "&About...\tF1"
+msgstr ""
+
+#: ../src/start.cpp:66
 msgid "&Edit"
 msgstr ""
 
-#: ../src/start.cpp:40
+#: ../src/start.cpp:65
+msgid "&File"
+msgstr ""
+
+#: ../src/start.cpp:67
+msgid "&Help"
+msgstr ""
+
+#: ../src/start.cpp:60
 msgid "&Settings"
 msgstr ""
 
-#: ../src/window/options.cpp:86
+#: ../src/display/opengl/gl.cpp:438
+msgid "/media/azpazeta.png"
+msgstr ""
+
+#: ../src/window/options.cpp:114
 msgid "AZPScript"
 msgstr ""
 
-#: ../src/window/options.cpp:53
+#: ../src/window/options.cpp:58
 msgid "Allow Divel Marketing"
 msgstr ""
 
-#: ../src/window/options.cpp:67
+#: ../src/window/options.cpp:83
 msgid "Auto-Update"
 msgstr ""
 
-#: ../src/app.cpp:39
+#: ../src/start/startgui.cpp:29
+msgid "Azpazeta 2.0 Juno"
+msgstr ""
+
+#: ../src/app.cpp:42
 msgid "Azpazeta Juno"
 msgstr ""
 
-#: ../src/start.cpp:40
+#: ../src/window/options.cpp:72
+msgid "Azpazeta Market URL: "
+msgstr ""
+
+#: ../src/start/startgui.cpp:155
+msgid "Azpazeta Money"
+msgstr ""
+
+#: ../src/version.cpp:34
+msgid ""
+"Azpazeta is a strategy-economic game about Vadrix and the region of "
+"Azpazeta. Explore the world in a sandbox game"
+msgstr ""
+
+#: ../src/window/options.cpp:121
+msgid "Cancel"
+msgstr ""
+
+#: ../src/start.cpp:60
 msgid "Change game settings"
 msgstr ""
 
-#: ../src/window/options.cpp:51
+#: ../src/window/options.cpp:149
+msgid "Closing"
+msgstr ""
+
+#: ../src/window/options.cpp:56
 msgid "Developer"
 msgstr ""
 
-#: ../src/window/options.cpp:37
+#: ../src/window/options.cpp:86
+msgid "Divel Network Name: "
+msgstr ""
+
+#: ../src/display/opengl/gl.cpp:224
+msgid "Do you want to exit?"
+msgstr ""
+
+#: ../src/start/startgui.cpp:155
+msgid ""
+"Do you want to spend some money on Azpazeta? We accept BitCoins and Bank "
+"Transfer. Divel BitCoins key is 1A2j8CwiFEhQ4Uycsjhr3gQPbJxFk1LRmM . Do you "
+"want to copy to the clipboard?"
+msgstr ""
+
+#: ../src/start.cpp:61
+msgid "E&xit\tAlt-X"
+msgstr ""
+
+#: ../src/window/options.cpp:42
 msgid "English"
 msgstr ""
 
-#: ../src/window/options.cpp:39
+#: ../src/display/opengl/shader.cpp:75
+msgid "Error compiling shader:\n"
+msgstr ""
+
+#: ../src/display/opengl/shader.cpp:60
+msgid "Error creating shaders"
+msgstr ""
+
+#: ../src/display/opengl/shader.cpp:90
+#, c-format
+msgid "Error while creating shader program in %s"
+msgstr ""
+
+#: ../src/maploader/azpmap.cpp:10
+msgid "Failed to load the selected map"
+msgstr ""
+
+#: ../src/maploader/map.cpp:24
+msgid "Failed to load the selected map: "
+msgstr ""
+
+#: ../src/window/options.cpp:44
 msgid "French"
 msgstr ""
 
-#: ../src/window/options.cpp:49
+#: ../src/window/options.cpp:54
 msgid "Full Screen"
 msgstr ""
 
-#: ../src/window/options.cpp:84
+#: ../src/window/options.cpp:112
 msgid "General"
 msgstr ""
 
-#: ../src/window/options.cpp:81
+#: ../src/window/options.cpp:62
+msgid "Go to website"
+msgstr ""
+
+#: ../src/window/options.cpp:89
+msgid "Google+ Profile: "
+msgstr ""
+
+#: ../src/window/options.cpp:103
 msgid "If you see the square and the cube your computer supports OpenGL"
 msgstr ""
 
-#: ../src/window/options.cpp:87
+#: ../src/window/options.cpp:115
 msgid "Net"
 msgstr ""
 
-#: ../src/window/options.cpp:88
+#: ../src/window/options.cpp:120
+msgid "OK"
+msgstr ""
+
+#: ../src/window/options.cpp:69
+msgid "Only from Market"
+msgstr ""
+
+#: ../src/window/options.cpp:116
 msgid "OpenGL"
 msgstr ""
 
-#: ../src/start.cpp:84
+#: ../src/start/startgui.cpp:169 ../src/start.cpp:135
 msgid "Options"
 msgstr ""
 
-#: ../src/window/options.cpp:38
+#: ../src/start.cpp:61
+msgid "Quit this program"
+msgstr ""
+
+#: ../src/window/options.cpp:61
+msgid "See version"
+msgstr ""
+
+#: ../src/start.cpp:59
+msgid "Show about dialog"
+msgstr ""
+
+#: ../src/window/options.cpp:43
 msgid "Spanish"
 msgstr ""
 
-#: ../src/app.cpp:33
+#: ../src/version.cpp:48
+msgid "Version information"
+msgstr ""
+
+#: ../src/start/startgui.cpp:52
+msgid ""
+"Welcome to Azpazeta 2.0 Juno, the strategy-economic\n"
+" game in sandbox mode. Please select an option"
+msgstr ""
+
+#: ../src/app.cpp:35
 msgid ""
 "Your language doesn't appear in Azpazeta translations. Please, create a "
 "translation in translations.launchpad.net/azpazeta"

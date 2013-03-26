@@ -221,7 +221,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 	switch(event.GetKeyCode())
 	{
 		case WXK_ESCAPE:{
-			int salir=wxMessageBox(_("¿Deseas salir?"),wxT("Azpazeta"),wxICON_QUESTION|wxYES_NO);
+			int salir=wxMessageBox(_("Do you want to exit?"),wxT("Azpazeta"),wxICON_QUESTION|wxYES_NO);
         		if(salir==wxYES){
             			this->Destroy();
             			wxExit();
@@ -435,7 +435,7 @@ void AZPGL::AZPShader()
 }
 void AZPGL::AZPTexture()
 {
-	wxImage azpazeta_img(azppath+wxT("/media/azpazeta.png"),wxBITMAP_TYPE_PNG);
+	wxImage azpazeta_img(azppath+_("/media/azpazeta.png"),wxBITMAP_TYPE_PNG);
 	glGenTextures(1, &azptexture);
 	glBindTexture(GL_TEXTURE_2D, azptexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 512, 512, 0, GL_RGB, GL_UNSIGNED_BYTE, azpazeta_img.GetData());
