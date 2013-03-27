@@ -12,5 +12,6 @@ override_dh_auto_build:
 override_dh_auto_install:
 	make install
 	mkdir -p ${CURDIR}/debian/azpazeta/usr/share/applications
+	mkdir -p ${CURDIR}/debian/azpazeta/usr/share/icons/hicolor/scalable/apps
 	cp debian/azpazeta.desktop ${CURDIR}/debian/azpazeta/usr/share/applications/
 	cp media/azpazeta.svg ${CURDIR}/debian/azpazeta/usr/share/icons/hicolor/scalable/apps/azpazeta.svg
