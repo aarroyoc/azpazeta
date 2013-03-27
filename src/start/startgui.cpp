@@ -22,6 +22,8 @@
 #include "wx/protocol/http.h"
 #include "../version.hpp"
 #include "wx/clipbrd.h"
+#include "../azpmarket/azpmarket.hpp"
+#include "../app.hpp"
 
 
 extern wxString azppath;
@@ -148,7 +150,8 @@ void StartDialog::MapManager(wxCommandEvent& event)
 }
 void StartDialog::MapMarket(wxCommandEvent& event)
 {
-
+	HTMLMarket* market=new HTMLMarket();
+	market->ShowModal();
 }
 void StartDialog::Donate(wxCommandEvent& event)
 {

@@ -7,7 +7,7 @@
 	</option-tab>
 	<option-tab id="azpscript">
 		<option id="onlyFromMarket">1</option>
-		<option id="azpazetaMarketURL">https://code.google.com/p/azpazeta-market/</option>
+		<option id="azpazetaMarketURL">azpazeta-market.googlecode.com/svn/trunk/AzpazetaMarket.html</option>
 		<option id="allowPayPal">0</option>
 	</option-tab>
 	<option-tab id="net">
