@@ -27,6 +27,7 @@
  * @brief Get the current version of AZPScript
  * @returns The number of the version
  */
+bool azplogo;
 
 float azpVersion()
 {
@@ -84,7 +85,42 @@ int azpInit(lua_State* l)
 	lua_pushstring(l,wxGetOsDescription().mb_str());
 	lua_pushstring(l,AZPAZETA_VERSION_STR);
 	//std::cout << "[AZPVM] Call azpInit" << std::endl;
+
+
+	//Set default vars
+	azplogo=false;
  
     // number of return values
     return 2;
+}
+/**
+* @brief Display the Azpazeta logo
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see AzpAPI::azpLogo
+*
+*/
+
+int azpLogo(lua_State* l)
+{
+
+	azplogo=true;
+	return 0;
+}
+/**
+* @brief Wait the selected miliseconds
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see AzpAPI::azpLogo
+*
+*/
+
+int azpWait(lua_State* l)
+{
+	int argc = lua_gettop(l);
+	long milliseconds=lua_tointeger(l, lua_gettop(l));
+	wxMilliSleep(milliseconds);
+	return 0;
 }

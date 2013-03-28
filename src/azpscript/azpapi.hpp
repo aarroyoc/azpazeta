@@ -32,4 +32,6 @@
 
 int azpInit(lua_State*);
 int azpConsole(lua_State*);
+int azpLogo(lua_State*);
+int azpWait(lua_State*);
 float azpVersion();

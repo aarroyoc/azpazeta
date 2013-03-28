@@ -24,4 +24,5 @@ namespace AzpShader{
 	GLint CreateProgram(GLint vertex, GLint fragment);
 	
 }
+
 #endif

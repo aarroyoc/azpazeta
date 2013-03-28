@@ -32,4 +32,22 @@ void azpInit(Name,Author,Version);
 * @see azpInit
 */
 void azpConsole(Phrase);
+/**
+* @brief Display the Azpazeta logo
+* @returns Nothing
+* @verbatim 
+Used for exit the map, or loading the map
+* @endverbatim
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpInit
+*/
+void azpLogo();
+/**
+* @brief Waits the selected milliseconds
+* @param Milliseconds The time to wait in milliseconds
+* @returns Nothing
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpLogo
+*/
+void azpConsole(Milliseconds);
 };

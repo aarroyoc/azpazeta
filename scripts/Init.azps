@@ -3,3 +3,5 @@ print("Starting Azpazeta in AZPScript");
 a,b=azpInit("Azpazeta Startup","Adrian Arroyo","2.0");
 io.write('[AZPCORE] Working in <' .. a .. '> with Azpazeta Version <' .. b .. '>n')
 azpConsole("Starting Azpazeta in AZPScript");
+azpWait(6000);
+azpLogo();

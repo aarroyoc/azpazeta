@@ -44,7 +44,7 @@ StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"))
 	wxBitmap donate(azppath+wxT("/media/donate.png"),wxBITMAP_TYPE_PNG);
 
 
-	//Put the DATA TODO
+	//Put the DATA DONE
 	wxPanel* panel=new wxPanel(this);
 
 	/*wxBitmapButton* azpicon=new wxBitmapButton(panel,wxID_ANY,azpscale,wxPoint(64*2,1),wxSize(60,60));
@@ -92,40 +92,6 @@ StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"))
 	version->SetBitmapSelected(azpscale);
 	version->Connect(wxEVT_COMMAND_BUTTON_CLICKED,wxCommandEventHandler(StartDialog::Version),NULL,this);
 
-
- /*
-wxHTTP get;
-get.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
-get.SetTimeout(10); // 10 seconds of timeout instead of 10 minutes ...
- 
-// this will wait until the user connects to the internet. It is important in case of dialup (or ADSL) connections
-while (!get.Connect(_T("www.google.com")))  // only the server, no pages here yet ...
-    wxSleep(5);
- 
-wxApp::IsMainLoopRunning(); // should return true
- 
-// use _T("/") for index.html, index.php, default.asp, etc.
-wxInputStream *httpStream = get.GetInputStream(_T("/intl/en/about.html"));
- 
-// wxLogVerbose( wxString(_T(" GetInputStream: ")) << get.GetResponse() << _T("-") << ((resStream)? _T("OK ") : _T("FAILURE ")) << get.GetError() );
- 
-if (get.GetError() == wxPROTO_NOERR)
-{
-    wxString res;
-    wxStringOutputStream out_stream(&res);
-    httpStream->Read(out_stream);
- 
-    wxMessageBox(res);
-    // wxLogVerbose( wxString(_T(" returned document length: ")) << res.Length() );
-}
-else
-{
-    wxMessageBox(_T("Unable to connect!"));
-}
- 
-wxDELETE(httpStream);
-get.Close();
-*/
 
 }
 void StartDialog::NewGame(wxCommandEvent& event)

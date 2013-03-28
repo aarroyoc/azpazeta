@@ -7,15 +7,15 @@ var searchData=
   ['azpapi',['AzpAPI',['../d3/d50/classAzpAPI.html',1,'']]],
   ['azpapi_2ecpp',['azpapi.cpp',['../da/de3/azpapi_8cpp.html',1,'']]],
   ['azpapilua_2ehpp',['azpapilua.hpp',['../d4/d5b/azpapilua_8hpp.html',1,'']]],
-  ['azpconsole',['azpConsole',['../d3/d50/classAzpAPI.html#acf34e8e087f774a4b4336747679b83b0',1,'AzpAPI::azpConsole()'],['../da/de3/azpapi_8cpp.html#a7a6fde83253590499c09f65cb67ff840',1,'azpConsole():&#160;azpapi.cpp']]],
+  ['azpconsole',['azpConsole',['../d3/d50/classAzpAPI.html#acf34e8e087f774a4b4336747679b83b0',1,'AzpAPI::azpConsole(Phrase)'],['../d3/d50/classAzpAPI.html#aa691c1f4fa1e1d9267ec19ea88ee483d',1,'AzpAPI::azpConsole(Milliseconds)'],['../da/de3/azpapi_8cpp.html#a7a6fde83253590499c09f65cb67ff840',1,'azpConsole():&#160;azpapi.cpp']]],
   ['azpgl',['AZPGL',['../d7/d29/classAZPGL.html',1,'']]],
   ['azpinit',['azpInit',['../d3/d50/classAzpAPI.html#ac4bc3b02915493c94b2630a13bf9dfba',1,'AzpAPI::azpInit()'],['../da/de3/azpapi_8cpp.html#a58e2a7800602f633830b335cf8874c4f',1,'azpInit():&#160;azpapi.cpp']]],
+  ['azplogo',['azpLogo',['../d3/d50/classAzpAPI.html#a69e0f89bc542b57a3e39733fc95a7b0d',1,'AzpAPI::azpLogo()'],['../da/de3/azpapi_8cpp.html#a9a68a78fac942509d57009d95a014eb0',1,'azpLogo(lua_State *l):&#160;azpapi.cpp'],['../da/de3/azpapi_8cpp.html#a4753ca5ac6990af868abe7b38344635b',1,'azplogo():&#160;azpapi.cpp']]],
   ['azplogwindow',['AZPLogWindow',['../d8/df8/classAZPLogWindow.html',1,'']]],
   ['azpmap',['AzpMap',['../df/df7/classAzpMap.html',1,'']]],
   ['azpmapdata',['AzpMapData',['../d8/d98/structAzpMapData.html',1,'']]],
   ['azpmount',['AzpMount',['../de/d0e/classAzpMount.html',1,'']]],
   ['azppath',['AzpPath',['../d6/db5/classAzpPath.html',1,'']]],
-  ['azpversion',['azpVersion',['../da/de3/azpapi_8cpp.html#a86fb99299f45cbfe5b369a216e06e966',1,'azpapi.cpp']]],
   ['azpvm',['AZPVM',['../d3/d75/classAZPVM.html',1,'AZPVM'],['../d3/d75/classAZPVM.html#a5dda0ca4141cb630f843de260ffce109',1,'AZPVM::AZPVM()']]],
   ['azpvm_2ehpp',['azpvm.hpp',['../d4/df7/azpvm_8hpp.html',1,'']]],
   ['azpvm_5ffull',['azpVM_FULL',['../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fa43036434fe6928171e38fcd1adb2b44e',1,'azpvm.hpp']]],
@@ -23,5 +23,6 @@ var searchData=
   ['azpvm_5finternet',['azpVM_INTERNET',['../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fae58566346de5d3d4f5aab0d2040f98cf',1,'azpvm.hpp']]],
   ['azpvm_5fsecure',['azpVM_SECURE',['../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3facd5afe0b6465944b786a160346db46e1',1,'azpvm.hpp']]],
   ['azpvm_5ftest',['azpVM_TEST',['../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3fa22c78f0e24a7a85908b3511b56b00c04',1,'azpvm.hpp']]],
-  ['azpvmstate',['AZPVMState',['../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3f',1,'azpvm.hpp']]]
+  ['azpvmstate',['AZPVMState',['../d4/df7/azpvm_8hpp.html#a57eaee43e1ac9fea34419a209b348b3f',1,'azpvm.hpp']]],
+  ['azpwait',['azpWait',['../da/de3/azpapi_8cpp.html#ae42b912883cda94b15268f4b54b64651',1,'azpapi.cpp']]]
 ];

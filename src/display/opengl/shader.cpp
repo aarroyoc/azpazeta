@@ -21,6 +21,12 @@
 #include "wx/ffile.h"
 /* I don't know way but I need add this in GCC -DGL_GLEXT_PROTOTYPES */
 
+namespace Shader{
+	int vPA;
+	int tCA;
+	int sU;
+
+}
 
 GLint AzpShader::LoadShader(wxString file, GLenum type)
 {
@@ -96,8 +102,18 @@ GLint AzpShader::CreateProgram(GLint vertex, GLint fragment)
 	glAttachShader(program_shader, vertex);
 	glAttachShader(program_shader, fragment);
 	// Bind vPosition to attribute 0
-	glBindAttribLocation(program_shader, 0, "vPosition");
+	/* glBindAttribLocation(program_shader, 0, "vPosition"); */
+	//glBindAttribLocation(program_shader,0,"aTextureCoord");
 	// Link the program
 	glLinkProgram(program_shader);
+
+
+        Shader::vPA = glGetAttribLocation(program_shader, "vPosition");
+        glEnableVertexAttribArray(Shader::vPA);
+
+        Shader::tCA = glGetAttribLocation(program_shader, "aTextureCoord");
+        glEnableVertexAttribArray(Shader::tCA);
+
+        Shader::sU = glGetUniformLocation(program_shader, "uSampler");
 	return program_shader;
 }

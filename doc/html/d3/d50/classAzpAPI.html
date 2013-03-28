@@ -104,6 +104,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acf34e8e087f774a4b4336747679b83b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#acf34e8e087f774a4b4336747679b83b0">azpConsole</a> (Phrase)</td></tr>
 <tr class="memdesc:acf34e8e087f774a4b4336747679b83b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a Phrase in the Log Window.  <a href="#acf34e8e087f774a4b4336747679b83b0">More...</a><br/></td></tr>
 <tr class="separator:acf34e8e087f774a4b4336747679b83b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69e0f89bc542b57a3e39733fc95a7b0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a69e0f89bc542b57a3e39733fc95a7b0d">azpLogo</a> ()</td></tr>
+<tr class="memdesc:a69e0f89bc542b57a3e39733fc95a7b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the Azpazeta logo.  <a href="#a69e0f89bc542b57a3e39733fc95a7b0d">More...</a><br/></td></tr>
+<tr class="separator:a69e0f89bc542b57a3e39733fc95a7b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa691c1f4fa1e1d9267ec19ea88ee483d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#aa691c1f4fa1e1d9267ec19ea88ee483d">azpConsole</a> (Milliseconds)</td></tr>
+<tr class="memdesc:aa691c1f4fa1e1d9267ec19ea88ee483d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits the selected milliseconds.  <a href="#aa691c1f4fa1e1d9267ec19ea88ee483d">More...</a><br/></td></tr>
+<tr class="separator:aa691c1f4fa1e1d9267ec19ea88ee483d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Imaginary class for <a class="el" href="../../d3/d50/classAzpAPI.html" title="Imaginary class for AzpAPI Lua docs.">AzpAPI</a> Lua docs. </p>
@@ -133,6 +139,33 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#ac4bc3b02915493c94b2630a13bf9dfba" title="Start a AZPScript context.">azpInit</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa691c1f4fa1e1d9267ec19ea88ee483d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AzpAPI::azpConsole </td>
+          <td>(</td>
+          <td class="paramtype">Milliseconds&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Waits the selected milliseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Milliseconds</td><td>The time to wait in milliseconds </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a69e0f89bc542b57a3e39733fc95a7b0d" title="Display the Azpazeta logo.">azpLogo</a> </dd></dl>
 
 </div>
 </div>
@@ -183,13 +216,34 @@ The version of Azpazeta </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a69e0f89bc542b57a3e39733fc95a7b0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AzpAPI::azpLogo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display the Azpazeta logo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Nothing <pre class="fragment">Used for exit the map, or loading the map
+* </pre> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#ac4bc3b02915493c94b2630a13bf9dfba" title="Start a AZPScript context.">azpInit</a> </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="../../d4/d5b/azpapilua_8hpp_source.html">azpapilua.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 26 2013 16:42:49 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 28 2013 08:33:31 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

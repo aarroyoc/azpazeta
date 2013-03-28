@@ -27,6 +27,14 @@ extern wxString azppath;
 
 int args[]={WX_GL_RGBA, WX_GL_DOUBLEBUFFER, WX_GL_DEPTH_SIZE, 16, 0};
 
+namespace Shader{
+	extern int vPA;
+	extern int tCA;
+	extern int sU;
+
+}
+extern bool azplogo;
+
 
 AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
 {
@@ -342,6 +350,7 @@ void AZPGL::Render(wxPaintEvent& event)
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	glDisableClientState(GL_INDEX_ARRAY);
 */
+/* WORKS
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 	glViewport(0, 0, getHeight(), getHeight());
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -352,7 +361,7 @@ void AZPGL::Render(wxPaintEvent& event)
 	glEnableVertexAttribArray(0);
 
 	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
-	int loc2 = glGetAttribLocation(program_shader,"vTextureCoord");
+	int loc2 = glGetAttribLocation(program_shader,"aTextureCoord");
 	glVertexAttribPointer(loc2,2,GL_FLOAT,GL_FALSE,0,0);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, azptexture);
@@ -363,6 +372,36 @@ void AZPGL::Render(wxPaintEvent& event)
 	
 	glDrawArrays(GL_QUADS, 0, 4); //Square=glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	SwapBuffers();
+*/
+	if(azplogo)
+	{
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+	glViewport(0, 0, getHeight(), getHeight());
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(program_shader);
+	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
+	//int loc = glGetAttribLocation(program_shader, "vPosition");
+	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
+	//int loc2 = glGetAttribLocation(program_shader,"aTextureCoord");
+	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, azptexture);
+	glUniform1i(Shader::sU, 0);
+
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,triangleIndex);
+	//glDrawElements(GL_TRIANGLES, 5, GL_UNSIGNED_INT, 0);
+	
+	glDrawArrays(GL_QUADS, 0, 4); //Square=glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	SwapBuffers();
+	}else
+	{
+	glClearColor(0.0f,0.0f,0.0f,1.0f);
+	glViewport(0, 0, getHeight(), getHeight());
+	glClear(GL_COLOR_BUFFER_BIT);
+	}
 
 	
 
@@ -408,10 +447,10 @@ void AZPGL::AZPBuffer()
 	//Luego buffer de textura
 	GLfloat texCoords[] = {
           // Front face
-          0.0, 0.0,
-          1.0, 0.0,
+          0.0, 1.0,
           1.0, 1.0,
-          0.0, 1.0
+          1.0, 0.0,
+          0.0, 0.0
         };
 	glGenBuffers(1,&triangleTexture);
 	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
