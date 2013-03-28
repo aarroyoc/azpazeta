@@ -141,7 +141,7 @@ close(sock_server);
 
 #endif
 }
-void MainLoop(int me)
+void MainLoop(int64_t me)
 {
 /*Works in the 2 types of Sockets*/
 /* Un socket ya esta conectado. Se crean un hilo nuevo con listen y accept incluido */
@@ -160,7 +160,7 @@ blueprintf("[INFO] Exit server an user");
 }
 void *RegisterUser (void * yo)
 { 
-	int me=(int)yo;
+	int64_t me=(int64_t)yo;
 	sock_client[me] = accept (sock_server,ipv6 ? (struct sockaddr *)&client6 : (struct sockaddr *)&client4,&long_client);
 	if (sock_client[me] == -1)
 	{
@@ -169,7 +169,7 @@ void *RegisterUser (void * yo)
 	}else{
 	blueprintf("[INFO] New user connected");
 	printf("Connected user number: %d\n",user);
-	printf("Connected me number: %d\n",me);
+	printf("Connected me number: %lld\n",me);
 	}
 	MainLoop(me);
 }

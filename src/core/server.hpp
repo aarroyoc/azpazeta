@@ -26,6 +26,6 @@ void yellowprintf(const char* message);
 void greenprintf(const char* message);
 void StartBerkely();
 void StartWinSock();
-void MainLoop(int);
+void MainLoop(int64_t);
 void *RegisterUser (void *); 
 
