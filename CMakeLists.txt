@@ -52,12 +52,30 @@ LINK_DIRECTORIES(${OPENGLES2_LIBRARY_DIRS})
 # Se puede usar asi ADD_LIBRARY(start src/start.cpp)
 #TARGET_LINK_LIBRARIES(AZPAZETA_JUNO start ${wxWidgets_LIBRARIES}) o con SRC multiples
 
+#SET(AZP_CORE
+#src/core/core.cpp
+#)
+#ADD_LIBRARY(AAZPCORE SHARED ${AZP_CORE})
+
+#IF(${CMAKE_COMPILER_IS_GNUCXX} )
+#	set(CMAKE_SHARED_LINKER_FLAGS "-Wl,-rpath='\$\$ORIGIN'")
+#ENDIF()
+#SET_TARGET_PROPERTIES(AAZPCORE PROPERTIES RUNTIME "${CMAKE_CURRENT_SOURCE_DIR}/libazpcore.so")
 
 #SET (AZP_API
 #src/azpscript/azpapi.cpp
 #)
 #AzpAPI Library
-#ADD_LIBRARY(AZPAPI STATIC ${AZP_API})
+#ADD_LIBRARY(AZPAPI SHARED ${AZP_API})
+
+
+
+
+
+
+SET(AZP_SERVER
+src/core/server.cpp
+)
 
 
 SET (AZP_SRC
@@ -82,7 +100,6 @@ src/xml/tinystr.cpp
 src/xml/tinyxmlerror.cpp
 src/xml/tinyxmlparser.cpp)
 SET (AZP_LIB
-#${AZPAPI}
 ${wxWidgets_LIBRARIES}
 #${GLUT_LIBRARY}
 ${OPENGL_LIBRARIES}
@@ -90,6 +107,7 @@ ${OPENGL_LIBRARIES}
 #${LIBVLCCORE_LIBRARY}
 ${LUA_LIBRARY}
 ${OPENGL_LIBRARIES}
+#${AAZP_CORE}
 )
 
 
@@ -101,7 +119,7 @@ SET_TARGET_PROPERTIES(AZPAZETA_JUNO PROPERTIES RUNTIME "${CMAKE_CURRENT_SOURCE_D
 TARGET_LINK_LIBRARIES(AZPAZETA_JUNO ${AZP_LIB} )
 
 INSTALL(TARGETS AZPAZETA_JUNO
-RUNTIME          DESTINATION    azpazeta/bin
+RUNTIME          DESTINATION    azpazeta
 ARCHIVE          DESTINATION    azpazeta/lib/static
 LIBRARY          DESTINATION    azpazeta/lib
 PUBLIC_HEADER    DESTINATION    azpazeta/include

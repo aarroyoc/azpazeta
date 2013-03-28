@@ -1,7 +1,7 @@
 #!/bin/bash
 #Message
 echo "Azpazeta 2.0 Juno installed sucesfully. Check for updates in Update Manager"
-sudo add-apt-repository ppa:divel/azpazeta
+sudo add-apt-repository -y ppa:divel/azpazeta 
 #Mime types y extensiones
 #xdg-mime install source/azpazeta-mime.xml
 #xdg-mime install source/azpazeta-text-mime-xml
