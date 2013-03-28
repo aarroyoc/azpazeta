@@ -26,6 +26,9 @@
 #endif
 #include "wx/wx.h"
 #include "pathfinder.hpp"
+#include "wx/datetime.h"
+
+#ifdef UUID
 extern "C"
 {
 #ifdef WIN32
@@ -34,6 +37,7 @@ extern "C"
 #include <uuid/uuid.h>
 #endif
 }
+#endif
 
 wxString azppath;
 
@@ -74,6 +78,8 @@ wxString PathFinder::GetUniversalExe(){
 }
 wxString CreateUUID()
 {
+#ifdef UUID
+/* UUID Native Implementation */
 #ifdef WIN32
     UUID uuid;
     UuidCreate ( &uuid );
@@ -91,6 +97,12 @@ wxString CreateUUID()
     uuid_unparse ( uuid, s );
 #endif
     return wxString::FromUTF8(s);
+#else
+/* Date-Time Implementation*/
+wxDateTime now=wxDateTime::UNow();
+return wxString(now.Format());
+
+#endif
 }
 /**
 * @brief Get the Path of the installation
