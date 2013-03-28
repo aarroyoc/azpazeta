@@ -50,6 +50,7 @@ HTMLMarket::HTMLMarket() : wxDialog(NULL,wxID_ANY,_("Azpazeta Market"))
 }
 void HTMLMarket::StartPage(wxString url)
 {
+	
 	wxProgressDialog progress(_("Azpazeta Market"),_("Reading user options"));
 	
 	progress.Pulse(_("Getting server data"));
@@ -69,7 +70,7 @@ void HTMLMarket::StartPage(wxString url)
  	progress.Pulse(_("Accessing files"));
 	// use _T("/") for index.html, index.php, default.asp, etc.
 	wxInputStream *httpStream = get.GetInputStream(subpage);
-
+	html->SetFonts(wxT("Ubuntu"),wxT("Agency FB"));
 if (get.GetError() == wxPROTO_NOERR)
 {
     progress.Pulse(_("Reading page"));
@@ -114,40 +115,151 @@ void HTMLBrowser::OnLinkClicked(const wxHtmlLinkInfo & link)
 	wxProgressDialog progress(_("Azpazeta Market"),_("Reading user options"));
 	wxString webpage=link.GetHref();
 	progress.Pulse(_("Getting server data"));
-	wxString server=webpage.AfterFirst('/').AfterFirst('/').BeforeFirst('/');
-	wxString subpage=webpage.AfterFirst('/').AfterFirst('/').AfterFirst('/').Prepend(_("/"));
+	wxString protocol=webpage.BeforeFirst(':');
+	//Music HTTP
+	if(protocol.Cmp(wxT("music"))==0)
+	{
+		wxString server=webpage.AfterFirst('/').AfterFirst('/').BeforeFirst('/');
+		wxString subpage=webpage.AfterFirst('/').AfterFirst('/').AfterFirst('/').Prepend(_("/"));
 
-	wxHTTP get;
-	get.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
-	get.SetTimeout(10); // 10 seconds of timeout instead of 10 minutes ...
+		wxHTTP get;
+		get.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
+		get.SetTimeout(10); // 10 seconds of timeout instead of 10 minutes ...
 
- 	progress.Pulse(_("Connecting to server: ")+server);
-	// this will wait until the user connects to the internet. It is important in case of dialup (or ADSL) connections
-	while (!get.Connect(server))  // only the server, no pages here yet ...
-	    wxSleep(5);
+ 		progress.Pulse(_("Connecting to server: ")+server);
+		// this will wait until the user connects to the internet. It is important in case of dialup (or ADSL) connections
+		while (!get.Connect(server))  // only the server, no pages here yet ...
+		    wxSleep(5);
  
-	wxApp::IsMainLoopRunning(); // should return true
- 	progress.Pulse(_("Accessing files"));
-	// use _T("/") for index.html, index.php, default.asp, etc.
-	wxInputStream *httpStream = get.GetInputStream(subpage);
+		wxApp::IsMainLoopRunning(); // should return true
+ 		progress.Pulse(_("Accessing music"));
+		// use _T("/") for index.html, index.php, default.asp, etc.
+		wxInputStream *httpStream = get.GetInputStream(subpage);
 
-if (get.GetError() == wxPROTO_NOERR)
-{
-    progress.Pulse(_("Reading page"));
-    wxString res;
-    wxStringOutputStream out_stream(&res);
-    httpStream->Read(out_stream);
-	SetPage(res);
+		if (get.GetError() == wxPROTO_NOERR)
+		{
+		progress.Pulse(_("Downloading music"));
+		if(!wxDirExists(PathFinder::GetUserPath()+wxT("/.azpazeta/music")))
+		{
+			wxMkdir(PathFinder::GetUserPath()+wxT("/.azpazeta/music"));
+		}
+		wxFileOutputStream out_stream(PathFinder::GetUserPath()+wxT("/.azpazeta/music/")+CreateUUID()+wxT(".ogg"));
+		httpStream->Read(out_stream);
+		AppendToPage(_("<br><h1>Installed sucesfully</h1>"));    
+		}
+		else
+		{
+		progress.Update(100,_("Fail to connect"));
+		SetPage(_("<h1>Error</h1>Unable to connect to the server"));
+		}
+		wxDELETE(httpStream);
+		get.Close();
 
-}
-else
-{
-	progress.Update(100,_("Fail to connect"));
-    SetPage(_("<h1>Error</h1>Unable to connect to the server"));
+
+
+		
+	}else if(protocol.Cmp(wxT("map"))==0)
+	{
+		wxString server=webpage.AfterFirst('/').AfterFirst('/').BeforeFirst('/');
+		wxString subpage=webpage.AfterFirst('/').AfterFirst('/').AfterFirst('/').Prepend(_("/"));
+
+		wxHTTP get;
+		get.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
+		get.SetTimeout(10); // 10 seconds of timeout instead of 10 minutes ...
+
+ 		progress.Pulse(_("Connecting to server: ")+server);
+		// this will wait until the user connects to the internet. It is important in case of dialup (or ADSL) connections
+		while (!get.Connect(server))  // only the server, no pages here yet ...
+		    wxSleep(5);
+ 
+		wxApp::IsMainLoopRunning(); // should return true
+ 		progress.Pulse(_("Accessing files"));
+		// use _T("/") for index.html, index.php, default.asp, etc.
+		wxInputStream *httpStream = get.GetInputStream(subpage);
+
+		if (get.GetError() == wxPROTO_NOERR)
+		{
+		progress.Pulse(_("Downloading map"));
+		if(!wxDirExists(PathFinder::GetUserPath()+wxT("/.azpazeta/maps")))
+		{
+			wxMkdir(PathFinder::GetUserPath()+wxT("/.azpazeta/maps"));
+		}
+		wxString zipname=PathFinder::GetUserPath()+wxT("/.azpazeta/maps/")+CreateUUID()+wxT(".zip");
+		wxFileOutputStream out_stream(zipname);
+		httpStream->Read(out_stream);
+		progress.Pulse(_("Installing map"));
 	
-}
+		std::auto_ptr<wxZipEntry> entry;
+		wxFFileInputStream in(zipname);
+		wxZipInputStream zip(in);
+		while (entry.reset(zip.GetNextEntry()), entry.get() != NULL)
+		{
+			// access meta-data
+			wxString name = entry->GetName();
+			// read 'zip' to access the entry's data
+			wxString dirname=PathFinder::GetUserPath()+wxT("/.azpazeta/maps/")+name;
+			if(!wxDirExists(dirname.BeforeLast('/')))
+			{
+				wxMkdir(dirname.BeforeLast('/'));
+			}
+			if(!entry->IsDir())
+			{
+			wxFileOutputStream out_from_zip(PathFinder::GetUserPath()+wxT("/.azpazeta/maps/")+name);
+			zip.Read(out_from_zip);
+			}
+		}
+		wxRemoveFile(zipname);
+		AppendToPage(_("<br><h1>Installed sucesfully</h1>"));
+
+
+	
+		}
+		else
+		{
+		progress.Update(100,_("Fail to connect"));
+		SetPage(_("<h1>Error</h1>Unable to connect to the server"));
+		}
+		wxDELETE(httpStream);
+		get.Close();
+
+
+
+	}else if(protocol.Cmp(wxT("http"))==0)
+	//Normal HTTP
+	{
+		wxString server=webpage.AfterFirst('/').AfterFirst('/').BeforeFirst('/');
+		wxString subpage=webpage.AfterFirst('/').AfterFirst('/').AfterFirst('/').Prepend(_("/"));
+
+		wxHTTP get;
+		get.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
+		get.SetTimeout(10); // 10 seconds of timeout instead of 10 minutes ...
+
+ 		progress.Pulse(_("Connecting to server: ")+server);
+		// this will wait until the user connects to the internet. It is important in case of dialup (or ADSL) connections
+		while (!get.Connect(server))  // only the server, no pages here yet ...
+		    wxSleep(5);
  
-wxDELETE(httpStream);
-get.Close();
+		wxApp::IsMainLoopRunning(); // should return true
+ 		progress.Pulse(_("Accessing files"));
+		// use _T("/") for index.html, index.php, default.asp, etc.
+		wxInputStream *httpStream = get.GetInputStream(subpage);
+
+		if (get.GetError() == wxPROTO_NOERR)
+		{
+		progress.Pulse(_("Reading page"));
+		wxString res;
+		wxStringOutputStream out_stream(&res);
+		httpStream->Read(out_stream);
+		SetPage(res);
+		}
+		else
+		{
+		progress.Update(100,_("Fail to connect"));
+		SetPage(_("<h1>Error</h1>Unable to connect to the server"));
+		}
+		wxDELETE(httpStream);
+		get.Close();
+
+	}
 	
 }

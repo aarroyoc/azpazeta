@@ -15,6 +15,7 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 #include "wx/wx.h"
+
 #ifndef PATHFINDER_HPP
 #define PATHFINDER_HPP
 /**
@@ -35,6 +36,7 @@ namespace PathFinder{
 	wxString GetUserPath();
 	void Start();
 }
+wxString CreateUUID();
 /**
 * @}
 */

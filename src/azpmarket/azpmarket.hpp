@@ -18,6 +18,10 @@
 #define AZPMARKET_HPP
 #include "wx/wx.h"
 #include "wx/wxhtml.h"
+#include "../pathfinder/pathfinder.hpp"
+#include "wx/wfstream.h"
+#include "wx/zipstrm.h"
+#include <memory>
 class HTMLBrowser : public wxHtmlWindow
 {
 	public:
