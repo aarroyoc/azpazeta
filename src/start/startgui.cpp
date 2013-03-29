@@ -24,6 +24,7 @@
 #include "wx/clipbrd.h"
 #include "../azpmarket/azpmarket.hpp"
 #include "../app.hpp"
+#include "../core/core.hpp"
 
 
 extern wxString azppath;
@@ -96,15 +97,38 @@ StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"))
 }
 void StartDialog::NewGame(wxCommandEvent& event)
 {
-
+	AzpClient* client=new AzpClient(); //single player, localhost, ipv6 (WinXP users, sorry)
+	client->Connect();
+	client->Disconnect();
 }
 void StartDialog::LoadGame(wxCommandEvent& event)
 {
-
+	AzpClient* client=new AzpClient(azpCLIENT_LOAD);
+	client->Connect();
+	client->Disconnect();
 }
 void StartDialog::Multiplayer(wxCommandEvent& event)
 {
-
+	bool ipv6;
+	//Find servers?
+	int findserver=wxMessageBox(_("Do you want to find a server in Trola/Divel Network?"),_("Trola/Divel Network services"),wxYES_NO);
+	if(findserver==wxYES)
+		wxLaunchDefaultBrowser(wxT("http://sites.google.com/site/azpazeta/trola"));
+	//Type of IP
+	wxArrayString typesofip;
+	typesofip.Add(wxT("IPv4"));
+	typesofip.Add(wxT("IPv6"));
+	wxString typeip=wxGetSingleChoice(_("Select the type of protocol: "),_("Divel Network"),typesofip);
+	if(typeip.Cmp(wxT("IPv6"))==0)
+		ipv6=true;
+	else
+		ipv6=false;
+	//IP
+	wxString ip=wxGetTextFromUser(_("Insert the IP of the server"),_("Divel Network"),wxT(""));
+	//Connect
+	AzpClient* client=new AzpClient(azpCLIENT_MULTI,ip,ipv6);
+	client->Connect();
+	client->Disconnect();
 }
 void StartDialog::Version(wxCommandEvent& event)
 {
