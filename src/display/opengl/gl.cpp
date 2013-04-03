@@ -34,6 +34,8 @@ namespace Shader{
 
 }
 extern bool azplogo;
+extern bool azpmosaic;
+extern GLfloat mvMatrix[4];
 
 
 AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
@@ -396,6 +398,34 @@ void AZPGL::Render(wxPaintEvent& event)
 	
 	glDrawArrays(GL_QUADS, 0, 4); //Square=glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	SwapBuffers();
+	}else if(azpmosaic)
+	{
+	wxMessageBox(_("Called"));
+	glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+	glViewport(0, 0, getHeight(), getHeight());
+	glClear(GL_COLOR_BUFFER_BIT);
+	glUseProgram(program_shader);
+	(mvMatrix[3]==1.0f) ? mvMatrix[3]==0.0f : mvMatrix[3]==1.0f;
+	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
+	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
+	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, azptexture);
+	glUniform1i(Shader::sU, 0);
+
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,triangleIndex);
+	//glDrawElements(GL_TRIANGLES, 5, GL_UNSIGNED_INT, 0);
+	AzpShader::SetMatrixUniforms();
+	glDrawArrays(GL_QUADS, 0, 4); //Square=
+	//glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	
+	SwapBuffers();
+
+
+
 	}else
 	{
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
@@ -414,7 +444,7 @@ void AZPGL::AZPSetup(int a, int b, int c, int d)
 }
 void AZPGL::OnKey(wxKeyEvent& event)
 {
-
+	Refresh();
 }
 void AZPGL::AZPBuffer()
 {

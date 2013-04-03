@@ -39,7 +39,7 @@ void azpConsole(Phrase);
 Used for exit the map, or loading the map
 * @endverbatim
 * @note This documentation uses C/C++ style in Lua functions. The return values exists
-* @see azpInit
+* @see azpMosaic
 */
 void azpLogo();
 /**
@@ -49,5 +49,15 @@ void azpLogo();
 * @note This documentation uses C/C++ style in Lua functions. The return values exists
 * @see azpLogo
 */
-void azpConsole(Milliseconds);
+void azpWait(Milliseconds);
+/**
+* @brief Display the Azpazeta mosaic
+* @returns Nothing
+* @verbatim 
+Used for exit the map, or loading the map
+* @endverbatim
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpLogo
+*/
+void azpMosaic();
 };

@@ -25,8 +25,16 @@ namespace Shader{
 	int vPA;
 	int tCA;
 	int sU;
+	int pMatrix;
+	int mvMatrix;
 
 }
+GLfloat mvMatrix[]={
+	1.0f,0.0f,0.0f,0.0f,
+	0.0f,1.0f,0.0f,0.0f,
+	0.0f,0.0f,1.0f,0.0f,
+	0.0f,0.0f,0.0f,1.0f
+	};
 
 GLint AzpShader::LoadShader(wxString file, GLenum type)
 {
@@ -39,11 +47,17 @@ GLint AzpShader::LoadShader(wxString file, GLenum type)
 	
 	const GLchar* vShaderStr=
 	"attribute vec2 aTextureCoord;\n"
-	"attribute vec4 vPosition; \n"
+	"attribute vec3 vPosition; \n"
 	"varying vec2 vTextureCoord;\n"
+	"uniform mat4 uMVMatrix;\n"
+	"mat4 igual=mat4(\n"
+	"1.0,0.0,0.0,0.0,\n"
+	"0.0,1.0,0.0,0.0,\n"
+	"0.0,0.0,1.0,0.0,\n"
+	"0.0,0.0,0.0,1.0);\n"
 	"void main() \n"
 	"{ \n"
-	" gl_Position = vPosition; \n"
+	" gl_Position = uMVMatrix * vec4(vPosition, 1.0); \n"
 	"vTextureCoord = aTextureCoord;\n"
 	"} \n";
 	const GLchar* fShaderStr=
@@ -81,7 +95,7 @@ GLint AzpShader::LoadShader(wxString file, GLenum type)
 			wxString log=_("Error compiling shader:\n");
 			log.Append(wxString::FromUTF8(infoLog));
 			log.Append(_("\nFile: "));
-			log.Append(shaderstring);
+			log.Append(wxString::FromUTF8(vShaderStr));
 			wxLogError(log);
 		}
 		glDeleteShader(shader);
@@ -114,6 +128,18 @@ GLint AzpShader::CreateProgram(GLint vertex, GLint fragment)
         Shader::tCA = glGetAttribLocation(program_shader, "aTextureCoord");
         glEnableVertexAttribArray(Shader::tCA);
 
+	Shader::mvMatrix=glGetUniformLocation(program_shader,"uMVMatrix");	
+
         Shader::sU = glGetUniformLocation(program_shader, "uSampler");
+	
 	return program_shader;
+}
+void AzpShader::SetMatrixUniforms()
+{
+	glUniformMatrix4fv(Shader::mvMatrix,1,false,mvMatrix);
+	GLenum glerror=glGetError();
+		if(glerror!=GL_NO_ERROR)
+        		fprintf(stderr, "GL error: %x\n", glerror);
+	
+	
 }

@@ -26,6 +26,8 @@
 
 IMPLEMENT_APP(Azpazeta)
 
+AzpClient* client;
+
 bool Azpazeta::OnInit()
 {
     // create the main application window

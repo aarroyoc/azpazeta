@@ -28,8 +28,9 @@
 
 
 extern wxString azppath;
+extern AzpClient* client;
 
-StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"))
+StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"),wxDefaultPosition,wxDefaultSize,wxCAPTION|wxMINIMIZE_BOX|wxSTAY_ON_TOP)
 {
 	SetSize(64*5,64*10);
 	//Load bitmaps DONE
@@ -97,15 +98,17 @@ StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"))
 }
 void StartDialog::NewGame(wxCommandEvent& event)
 {
-	AzpClient* client=new AzpClient(); //single player, localhost, ipv6 (WinXP users, sorry)
+	client=new AzpClient(); //single player, localhost, ipv6 (WinXP users, sorry)
 	client->Connect();
-	client->Disconnect();
+	//client->Disconnect();
+	Destroy();
 }
 void StartDialog::LoadGame(wxCommandEvent& event)
 {
-	AzpClient* client=new AzpClient(azpCLIENT_LOAD);
+	client=new AzpClient(azpCLIENT_LOAD);
 	client->Connect();
-	client->Disconnect();
+	//client->Disconnect();
+	Destroy();
 }
 void StartDialog::Multiplayer(wxCommandEvent& event)
 {
@@ -113,7 +116,7 @@ void StartDialog::Multiplayer(wxCommandEvent& event)
 	//Find servers?
 	int findserver=wxMessageBox(_("Do you want to find a server in Trola/Divel Network?"),_("Trola/Divel Network services"),wxYES_NO);
 	if(findserver==wxYES)
-		wxLaunchDefaultBrowser(wxT("http://sites.google.com/site/azpazeta/trola"));
+		wxLaunchDefaultBrowser(wxT("http://sites.google.com/site/azpazeta/trola")); //Change for Divel Apps TODO
 	//Type of IP
 	wxArrayString typesofip;
 	typesofip.Add(wxT("IPv4"));
@@ -126,9 +129,10 @@ void StartDialog::Multiplayer(wxCommandEvent& event)
 	//IP
 	wxString ip=wxGetTextFromUser(_("Insert the IP of the server"),_("Divel Network"),wxT(""));
 	//Connect
-	AzpClient* client=new AzpClient(azpCLIENT_MULTI,ip,ipv6);
+	client=new AzpClient(azpCLIENT_MULTI,ip,ipv6);
 	client->Connect();
-	client->Disconnect();
+	//client->Disconnect();
+	Destroy();
 }
 void StartDialog::Version(wxCommandEvent& event)
 {
@@ -136,7 +140,7 @@ void StartDialog::Version(wxCommandEvent& event)
 }
 void StartDialog::MapManager(wxCommandEvent& event)
 {
-
+	wxMessageBox(_("Map manager is not implemented in Juno. If you want to use another solution, try Trola, a pay app in Java"));
 }
 void StartDialog::MapMarket(wxCommandEvent& event)
 {

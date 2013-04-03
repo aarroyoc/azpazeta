@@ -20,6 +20,7 @@
 */
 #include "wx/wx.h"
 #include "wx/intl.h"
+#include "core/core.hpp"
 
 #include "window/options.hpp" 
 #ifndef APP_HPP
@@ -62,7 +63,6 @@ class Azpazeta : public wxApp
 {
 public:
     virtual bool OnInit();
-	
 private:
 	bool InitWxLocale();
 	void Notify();

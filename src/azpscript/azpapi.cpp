@@ -28,6 +28,7 @@
  * @returns The number of the version
  */
 bool azplogo;
+bool azpmosaic;
 
 float azpVersion()
 {
@@ -122,5 +123,19 @@ int azpWait(lua_State* l)
 	int argc = lua_gettop(l);
 	long milliseconds=lua_tointeger(l, lua_gettop(l));
 	wxMilliSleep(milliseconds);
+	return 0;
+}
+/**
+* @brief Display the Azpazeta Mosaic
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpLogo
+*
+*/
+
+int azpMosaic(lua_State* l)
+{
+	azpmosaic=true;
 	return 0;
 }

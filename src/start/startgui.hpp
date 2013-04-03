@@ -21,6 +21,7 @@
 #ifndef STARTGUI_HPP
 #define STARTGUI_HPP
 #include "wx/wx.h"
+#include "../app.hpp"
 
 class StartDialog : public wxDialog
 {
