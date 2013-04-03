@@ -37,6 +37,7 @@ GLfloat mvMatrix[]={
 	};
 
 
+
 GLint AzpShader::LoadShader(wxString file, GLenum type)
 {
 	wxFFile shadersource(file,wxT("r"));
@@ -147,9 +148,10 @@ void AzpShader::SetMatrixUniforms()
 }
 void AzpShader::PushMatrix(GLfloat* matrix)
 {
-
+	
 }
 GLfloat* AzpShader::PopMatrix()
 {
 
 }
+

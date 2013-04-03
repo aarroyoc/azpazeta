@@ -21,12 +21,14 @@
 #include "./pathfinder/pathfinder.hpp"
 #include "wx/wx.h"
 #include "start/startgui.hpp"
+#include "wx/taskbar.h"
 
 #include "xml/tinyxml.h"
 
 IMPLEMENT_APP(Azpazeta)
 
 AzpClient* client;
+extern wxString azppath;
 
 bool Azpazeta::OnInit()
 {
@@ -41,11 +43,24 @@ bool Azpazeta::OnInit()
 
 	PathFinder::Start();
 	Notify();
+
+	//TaskBar Icon
+	wxBitmap azpimg(azppath+wxT("/media/azpazeta.png"));
+	wxIcon azpicon;
+	azpicon.CopyFromBitmap(azpimg);
+	/* System Tray Whitelist Ubuntu 12.04 & Ubuntu 12.10 */
+	/* gsettings set com.canonical.Unity.Panel systray-whitelist "['all']" */
+	wxTaskBarIcon* trayicon=new wxTaskBarIcon();
+	trayicon->SetIcon(azpicon,_("Azpazeta Juno Running"));
+	if(!trayicon->IsOk())
+		wxMessageBox(wxT("Error creating Tray Icon"));
+
     Start *frame = new Start(_("Azpazeta Juno"));
 
     // and show it (the frames, unlike simple controls, are not shown when
     // created initially)
     frame->Show(true);
+
 		//Start Dialog
 	StartDialog* stdg=new StartDialog();
 	stdg->ShowModal();

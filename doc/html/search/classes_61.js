@@ -2,6 +2,7 @@ var searchData=
 [
   ['azpalert',['AZPAlert',['../d2/d2f/classAZPAlert.html',1,'']]],
   ['azpapi',['AzpAPI',['../d3/d50/classAzpAPI.html',1,'']]],
+  ['azpclient',['AzpClient',['../df/dfa/classAzpClient.html',1,'']]],
   ['azpgl',['AZPGL',['../d7/d29/classAZPGL.html',1,'']]],
   ['azplogwindow',['AZPLogWindow',['../d8/df8/classAZPLogWindow.html',1,'']]],
   ['azpmap',['AzpMap',['../df/df7/classAzpMap.html',1,'']]],

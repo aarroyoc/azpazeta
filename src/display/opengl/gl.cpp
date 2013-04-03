@@ -381,6 +381,14 @@ void AZPGL::Render(wxPaintEvent& event)
 	glViewport(0, 0, getHeight(), getHeight());
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(program_shader);
+
+	mvMatrix[12]=0.0f;//x
+	mvMatrix[13]=0.0f; //y
+	mvMatrix[14]=0.0f;//z
+
+	mvMatrix[0]=1.0f; //X-scale
+	mvMatrix[5]=1.0f; //Y-Scale
+
 	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
 	//int loc = glGetAttribLocation(program_shader, "vPosition");
 	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -395,23 +403,30 @@ void AZPGL::Render(wxPaintEvent& event)
 
 	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,triangleIndex);
 	//glDrawElements(GL_TRIANGLES, 5, GL_UNSIGNED_INT, 0);
-	
+	AzpShader::SetMatrixUniforms();
 	glDrawArrays(GL_QUADS, 0, 4); //Square=glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	SwapBuffers();
 	}else if(azpmosaic)
 	{
-	//wxMessageBox(_("Called"));
 	glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
 	glViewport(0, 0, getHeight(), getHeight());
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(program_shader);
 
-	mvMatrix[12]=0.0f;//x
-	mvMatrix[13]=0.0f; //y
-	mvMatrix[14]=0.0f;//z
+	int fila;
+	float xfila=-1.0f;
+	int columna;
+	float ycolumna=1.0f;
+	for(columna=0;columna<21;columna++)
+	{
+	for(fila=0;fila<20;fila++)
+	{
+		mvMatrix[12]=xfila;//x
+		mvMatrix[13]=ycolumna; //y
+		mvMatrix[14]=0.0f;//z
 
-	mvMatrix[0]=0.1f; //X-scale
-	mvMatrix[5]=0.1f; //Y-Scale
+		mvMatrix[0]=0.1f; //X-scale
+		mvMatrix[5]=0.1f; //Y-Scale
 
 	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
 	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
@@ -423,11 +438,15 @@ void AZPGL::Render(wxPaintEvent& event)
 	glBindTexture(GL_TEXTURE_2D, azptexture);
 	glUniform1i(Shader::sU, 0);
 
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,triangleIndex);
-	//glDrawElements(GL_TRIANGLES, 5, GL_UNSIGNED_INT, 0);
+
 	AzpShader::SetMatrixUniforms();
-	glDrawArrays(GL_QUADS, 0, 4); //Square=
-	//glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	glDrawArrays(GL_QUADS, 0, 4);
+
+	xfila+=0.1f;
+	}
+	xfila=-1.0f;
+	ycolumna-=0.1f;
+	}
 	
 	SwapBuffers();
 	
