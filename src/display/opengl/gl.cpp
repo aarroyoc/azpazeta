@@ -35,7 +35,7 @@ namespace Shader{
 }
 extern bool azplogo;
 extern bool azpmosaic;
-extern GLfloat mvMatrix[4];
+extern GLfloat mvMatrix[16];
 
 
 AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
@@ -400,12 +400,19 @@ void AZPGL::Render(wxPaintEvent& event)
 	SwapBuffers();
 	}else if(azpmosaic)
 	{
-	wxMessageBox(_("Called"));
+	//wxMessageBox(_("Called"));
 	glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
 	glViewport(0, 0, getHeight(), getHeight());
 	glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(program_shader);
-	(mvMatrix[3]==1.0f) ? mvMatrix[3]==0.0f : mvMatrix[3]==1.0f;
+
+	mvMatrix[12]=0.0f;//x
+	mvMatrix[13]=0.0f; //y
+	mvMatrix[14]=0.0f;//z
+
+	mvMatrix[0]=0.1f; //X-scale
+	mvMatrix[5]=0.1f; //Y-Scale
+
 	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
 	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
@@ -423,6 +430,7 @@ void AZPGL::Render(wxPaintEvent& event)
 	//glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	
 	SwapBuffers();
+	
 
 
 
@@ -444,7 +452,7 @@ void AZPGL::AZPSetup(int a, int b, int c, int d)
 }
 void AZPGL::OnKey(wxKeyEvent& event)
 {
-	Refresh();
+		Refresh(false);
 }
 void AZPGL::AZPBuffer()
 {

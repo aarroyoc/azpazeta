@@ -36,6 +36,7 @@ GLfloat mvMatrix[]={
 	0.0f,0.0f,0.0f,1.0f
 	};
 
+
 GLint AzpShader::LoadShader(wxString file, GLenum type)
 {
 	wxFFile shadersource(file,wxT("r"));
@@ -128,7 +129,8 @@ GLint AzpShader::CreateProgram(GLint vertex, GLint fragment)
         Shader::tCA = glGetAttribLocation(program_shader, "aTextureCoord");
         glEnableVertexAttribArray(Shader::tCA);
 
-	Shader::mvMatrix=glGetUniformLocation(program_shader,"uMVMatrix");	
+	Shader::mvMatrix=glGetUniformLocation(program_shader,"uMVMatrix");
+	
 
         Shader::sU = glGetUniformLocation(program_shader, "uSampler");
 	
@@ -142,4 +144,12 @@ void AzpShader::SetMatrixUniforms()
         		fprintf(stderr, "GL error: %x\n", glerror);
 	
 	
+}
+void AzpShader::PushMatrix(GLfloat* matrix)
+{
+
+}
+GLfloat* AzpShader::PopMatrix()
+{
+
 }
