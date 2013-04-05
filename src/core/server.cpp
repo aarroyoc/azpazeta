@@ -51,7 +51,89 @@ int main(int argc, char* argv[])
 void StartWinSock()
 {
 #ifdef WIN32
+	struct sockaddr_in host;
+	WSADATA wsaData;
+	WORD version;
 
+	version = MAKEWORD( 2, 2 );
+	
+	WSAStartup( version, &wsaData );
+
+	if(!ipv6)
+	//IPV4
+	{
+		int size=sizeof(sockaddr);
+		sock_server=socket(AF_INET,SOCK_STREAM,0);
+		if(sock_server==-1)
+			redprintf("[ERROR] Azpazeta Server can't open the socket");
+		else
+			greenprintf("[OK] Azpazeta Server opens the socket");
+		host.sin_family = AF_INET;
+		host.sin_port = htons(6996);
+		host.sin_addr.s_addr =INADDR_ANY;
+
+		if (bind (sock_server,(struct sockaddr *)&host, sizeof(struct sockaddr_in)) == -1)
+		{
+			redprintf("[ERROR] Error while server is binding the data");
+			puts(strerror(errno));
+		}
+		if (listen (sock_server, 1) == -1)
+		{
+			redprintf("[ERROR] Error while server is listening");
+			puts(strerror(errno));
+		}
+		long_client = sizeof (client4);
+	}else
+	//IPV6
+	{
+		struct sockaddr_in6 host;
+
+		char buffer [1024];
+		int size=sizeof (client4); 
+		sock_server=socket(AF_INET6,SOCK_STREAM,0);
+		if(sock_server==-1)
+			redprintf("[ERROR] Azpazeta Server can't open the socket");
+		else
+			greenprintf("[OK] Azpazeta Server opens the socket");
+		host.sin6_family = AF_INET6;
+		host.sin6_port = htons(6996);
+		host.sin6_addr = in6addr_any;
+
+		if (bind (sock_server,(struct sockaddr *)&host, sizeof(struct sockaddr_in6)) == -1)
+		{
+			redprintf("[ERROR] Error while server is binding the data");
+			puts(strerror(errno));
+		} 
+		if (listen (sock_server, 1) == -1)
+		{
+			redprintf("[ERROR] Error while server is listening");
+			puts(strerror(errno));
+		}
+		long_client = sizeof (sockaddr_in6);
+	}
+	//Crear un thread y tal
+	DWORD threadIDArray[100];
+	HANDLE threadArray[100];
+
+	for( int i = 0; i < 10; i++){
+	threadArray[i] = CreateThread(
+	    NULL,
+	    0,          
+	    (LPTHREAD_START_ROUTINE)RegisterUser,
+	    NULL,    
+	    i,
+	    &threadIDArray[i]);  
+	}
+	WaitForMultipleObjects(10, threadArray, TRUE, INFINITE);
+    for (int x = 0; x < 10; x++) {
+	int ret;
+	if ((ret = CloseHandle(threadArray[x]) != 0)) {
+	    /* The thread not closing properly */
+	    x--;
+	}
+    }
+closesocket(sock_server);
+WSACleanup();
 
 #endif
 }
@@ -152,7 +234,11 @@ recv(sock_client[me],recvbuf,sizeof(recvbuf),0);
 greenprintf(recvbuf);
 char message2[]="[OK] Waiting ";
 send(sock_client[me],message2,sizeof(message2),0);
+#ifdef WIN32
+closesocket(sock_client[me]);
+#else
 close(sock_client[me]);
+#endif
 blueprintf("[INFO] Exit server an user");
 
 
@@ -172,6 +258,8 @@ void *RegisterUser (void * yo)
 	printf("Connected me number: %lld\n",me);
 	}
 	MainLoop(me);
+
+	return NULL;
 }
 void blueprintf(const char* message)
 {

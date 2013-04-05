@@ -7,4 +7,8 @@ AZPAZETA-JUNO
 AZPAZETA_JUNO
 build
 install_manifest.txt
+<<<<<<< TREE
+AZPAZETA_JUNO.exe
+=======
 AZPSERVER
+>>>>>>> MERGE-SOURCE

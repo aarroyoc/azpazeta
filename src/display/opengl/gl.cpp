@@ -16,7 +16,14 @@
 */
 //#include "EGL/egl.h"
 //#include "GLES2/gl2.h"
+#include "GL/glew.h"
+#ifdef WIN32
+#include <windows.h>
+#endif
 #include "gl.hpp"
+#include <GL/gl.h>
+
+#include "GL/glext.h"
 #include "GL/glu.h"
 #include "../../pathfinder/pathfinder.hpp"
 #include "../../maploader/map.hpp"
@@ -37,7 +44,6 @@ extern bool azplogo;
 extern bool azpmosaic;
 extern GLfloat mvMatrix[16];
 
-
 AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
 {
 	gl=new wxGLContext(this);
@@ -56,7 +62,7 @@ AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,a
 	shaderEnabled=false;
 	bufferEnabled=false;
 	textureEnabled=false;
-
+	glewEnabled=false;
 }
 
 void AZPGL::Resize(wxSizeEvent& event)
@@ -251,12 +257,22 @@ void AZPGL::Render(wxPaintEvent& event)
     
 	wxGLCanvas::SetCurrent(*gl);
 	wxPaintDC(this);
-	
+	if(!glewEnabled)
+	{
+		GLenum err = glewInit();
+		if (GLEW_OK != err)
+		{
+		/* Problem: glewInit failed, something is seriously wrong. */
+		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+		}
+		glewEnabled=true;
+	}
 	if(!shaderEnabled)
 	{
 		AZPShader();
 		shaderEnabled=true;
 	}
+	
 	if(!bufferEnabled)
 	{
 		AZPBuffer();
@@ -375,6 +391,7 @@ void AZPGL::Render(wxPaintEvent& event)
 	glDrawArrays(GL_QUADS, 0, 4); //Square=glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	SwapBuffers();
 */
+
 	if(azplogo)
 	{
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
@@ -390,12 +407,10 @@ void AZPGL::Render(wxPaintEvent& event)
 	mvMatrix[5]=1.0f; //Y-Scale
 
 	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
-	//int loc = glGetAttribLocation(program_shader, "vPosition");
 	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
 
 	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
-	//int loc2 = glGetAttribLocation(program_shader,"aTextureCoord");
 	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, azptexture);
@@ -458,6 +473,15 @@ void AZPGL::Render(wxPaintEvent& event)
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
 	glViewport(0, 0, getHeight(), getHeight());
 	glClear(GL_COLOR_BUFFER_BIT);
+	/*std::string openglabout;
+	openglabout.append((const char*)glGetString(GL_VERSION));
+	openglabout.append((const char*)glGetString(GL_VENDOR));
+	openglabout.append((const char*)glGetString(GL_RENDERER));
+	openglabout.append((const char*)glGetString(GL_SHADING_LANGUAGE_VERSION));
+	openglabout.append((const char*)glGetString(GL_EXTENSIONS));
+	SwapBuffers();
+
+	wxMessageBox(wxString::FromUTF8(openglabout.c_str()));*/
 	}
 
 	

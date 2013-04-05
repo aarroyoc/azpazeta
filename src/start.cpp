@@ -15,6 +15,7 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+#include "GL/glew.h"
 #include "app.hpp"
 #include "start.hpp"
 #include "window/options.hpp"
@@ -90,7 +91,7 @@ Start::Start(const wxString& title)
 	//AzpMapData mapdata=map->GetData();
 	//wxMessageBox(mapdata.inside.tile[1][1]);
 
-	//AzpGL DONE
+	//AzpGL TODO
 	wxPanel* glpanel=new wxPanel(this,wxID_ANY,wxPoint(1,1),wxSize(500,500));
 	wxBoxSizer* sizer=new wxBoxSizer(wxHORIZONTAL);
 	AZPGL* azpgl=new AZPGL(glpanel, azppath+azpmount->mainmap);
@@ -105,8 +106,10 @@ Start::Start(const wxString& title)
     SetStatusText(_T("Welcome to wxWidgets!"));
 #endif // wxUSE_STATUSBAR
 	//FullScreen
-	if(LoadOptions().general.fullScreen)
+    if(LoadOptions().general.fullScreen)
 		ShowFullScreen(true);
+	else
+		SetSize(800,800);
 
 
 }

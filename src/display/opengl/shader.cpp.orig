@@ -15,19 +15,12 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 #include <iostream>
-#include "GL/glew.h"
-#ifdef WIN32
-#include <windows.h>
-#endif
-
 #include "GL/gl.h"
 #include "GL/glext.h"
-
-#include "gl.hpp"
 #include "shader.hpp"
 #include "wx/ffile.h"
-/* I don't know way but I need add this in GCC -DGL_GLEXT_PROTOTYPES. In Windows we use wgl because Microsoft is great (ironic) */
-/* Now we use GLEW, we don't need to add this flag */
+/* I don't know way but I need add this in GCC -DGL_GLEXT_PROTOTYPES */
+
 namespace Shader{
 	int vPA;
 	int tCA;
@@ -52,6 +45,7 @@ GLint AzpShader::LoadShader(wxString file, GLenum type)
 	shaderstring.Clear();
 	shadersource.ReadAll(&shaderstring);
 	const GLchar* shaderSrc=shaderstring.mb_str();
+	
 	
 	const GLchar* vShaderStr=
 	"attribute vec2 aTextureCoord;\n"
@@ -159,6 +153,6 @@ void AzpShader::PushMatrix(GLfloat* matrix)
 }
 GLfloat* AzpShader::PopMatrix()
 {
-	return NULL;
+
 }
 

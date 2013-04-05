@@ -22,6 +22,7 @@
 * @date 1/03/2013
 */
 
+#include <GL/glew.h>
 #include "wx/wx.h"
 #include "wx/glcanvas.h"
 #include "../../maploader/map.hpp"
@@ -45,6 +46,7 @@ class AZPGL : public wxGLCanvas
 		bool shaderEnabled;
 		bool bufferEnabled;
 		bool textureEnabled;
+		bool glewEnabled;
 		unsigned int triangleBuffer;
 		unsigned int triangleTexture;
 		unsigned int triangleIndex;

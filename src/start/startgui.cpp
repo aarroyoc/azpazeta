@@ -30,7 +30,7 @@
 extern wxString azppath;
 extern AzpClient* client;
 
-StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"),wxDefaultPosition,wxDefaultSize,wxCAPTION|wxMINIMIZE_BOX|wxSTAY_ON_TOP)
+StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"),wxDefaultPosition,wxDefaultSize) //Linux wxCAPTION|wxMINIMIZE_BOX|wxSTAY_ON_TOP
 {
 	SetSize(64*5,64*10);
 	//Load bitmaps DONE

@@ -14,12 +14,13 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+#include "server.hpp"
 #include "wx/process.h"
 #include "wx/utils.h"
 #include "wx/wx.h"
 
 #include "core.hpp"
-#include "server.hpp"
+
 extern wxString azppath;
 /*
 Client of Azpazeta Server 
@@ -66,7 +67,49 @@ struct sockaddr_in  sockaddr_ipv4;
 struct sockaddr_in6 sockaddr_ipv6;
 
 #ifdef WIN32
+	WSADATA wsaData;
+	WORD version;
 
+	version = MAKEWORD( 2, 2 );
+	
+	WSAStartup( version, &wsaData );
+
+
+if(!ipv6)
+//IPv4
+{
+	printf("AF_INET (IPv4)\n");
+	server=socket(AF_INET,SOCK_STREAM,0);
+	if(server==-1)
+	{
+		printf("Error\n");
+	}
+	sockaddr_ipv4.sin_family=AF_INET;
+	sockaddr_ipv4.sin_port=htons(6996);
+	inet_pton(AF_INET,ip.mb_str(),&(sockaddr_ipv4.sin_addr));
+	if (connect (server, (struct sockaddr *)&sockaddr_ipv4,sizeof (sockaddr_ipv4)) == -1)
+	{
+		    printf ("Error\n");
+	}
+}else
+//IPv6
+{
+		printf("AF_INET6 (IPv6)\n");
+		server = socket (AF_INET6, SOCK_STREAM, 0);
+
+		if (server == -1)
+		{
+    		printf ("Error\n");
+		} 
+		sockaddr_ipv6.sin6_family = AF_INET6;
+		sockaddr_ipv6.sin6_port = htons(6996);
+		inet_pton(AF_INET6, ip.mb_str(), &(sockaddr_ipv6.sin6_addr));
+	
+		if (connect (server, (struct sockaddr *)&sockaddr_ipv6,sizeof (sockaddr_ipv6)) == -1)
+		{
+		    wxMessageBox(wxString::Format(wxT("WinSocket Error: %d"),WSAGetLastError()));
+		}
+}
 
 
 #else

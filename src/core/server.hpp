@@ -14,8 +14,10 @@
 #include <pthread.h>
 #define AZP_SOCK_TYPE "Berkely Sockets"
 #else
-#include <winsock2.h>
+#include <WinSock2.h>
+#include <ws2tcpip.h>
 #include <windows.h>
+#include <stdint.h>
 #pragma comment (lib, "Ws2_32.lib")
 #define AZP_SOCK_TYPE "WinSockets"
 #endif
