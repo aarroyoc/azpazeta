@@ -59,6 +59,7 @@ void HTMLMarket::StartPage(wxString url)
 
 	wxHTTP get;
 	get.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
+	get.SetHeader(_T("User Agent"),_T("wxHTML/2.8 (")+wxGetOsDescription()+_T(") wxWidgets/2.8 AzpazetaMarket/2.0"));
 	get.SetTimeout(10); // 10 seconds of timeout instead of 10 minutes ...
 
  	progress.Pulse(_("Connecting to server: ")+server);

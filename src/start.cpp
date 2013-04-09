@@ -28,6 +28,7 @@
 #include "maploader/map.hpp"
 #include "maploader/azpmap.hpp"
 #include "start/startgui.hpp"
+#include "sprite/sprite.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
@@ -70,6 +71,7 @@ Start::Start(const wxString& title)
     // ... and attach this menu bar to the frame
     SetMenuBar(menuBar);
 #endif // wxUSE_MENUS
+
 
 
 

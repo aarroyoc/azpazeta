@@ -29,6 +29,8 @@
 #include "../../maploader/map.hpp"
 #include "../../maploader/azpmap.hpp"
 #include "shader.hpp"
+#include "../../sprite/sprite.hpp"
+#include "wx/filedlg.h"
 
 extern wxString azppath;
 
@@ -495,7 +497,19 @@ void AZPGL::AZPSetup(int a, int b, int c, int d)
 }
 void AZPGL::OnKey(wxKeyEvent& event)
 {
-		Refresh(false);
+	switch(event.GetKeyCode())
+	{
+		case WXK_ESCAPE:wxExit();break;
+		case WXK_TAB:{
+		wxFileDialog* screenshotsaver=new wxFileDialog(this,_("Save the screenshot"),wxT(""),wxT(""),wxT("PNG files (*.png)|*.png"),wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+		if(screenshotsaver->ShowModal()==wxID_OK)
+		{
+		//Take a screenshot
+		Screenshot* photo=new Screenshot(this,screenshotsaver->GetPath());
+		}
+		}break;
+	}
+		
 }
 void AZPGL::AZPBuffer()
 {

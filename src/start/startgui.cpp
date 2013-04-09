@@ -25,6 +25,7 @@
 #include "../azpmarket/azpmarket.hpp"
 #include "../app.hpp"
 #include "../core/core.hpp"
+#include "../sprite/sprite.hpp"
 
 
 extern wxString azppath;
@@ -45,7 +46,9 @@ StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"),wxDe
 	wxBitmap options(azppath+wxT("/media/options.png"),wxBITMAP_TYPE_PNG);
 	wxBitmap donate(azppath+wxT("/media/donate.png"),wxBITMAP_TYPE_PNG);
 
-
+	//Test of sprites
+	SpriteLoader* sprite=new SpriteLoader(azppath+wxT("/media/blank.png"),64);
+	/*Load all menu sprites*/
 	//Put the DATA DONE
 	wxPanel* panel=new wxPanel(this);
 
