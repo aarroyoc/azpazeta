@@ -97,10 +97,15 @@ wxString CreateUUID()
     uuid_unparse ( uuid, s );
 #endif
     return wxString::FromUTF8(s);
-#else
+#elif DATETIME
 /* Date-Time Implementation*/
 wxDateTime now=wxDateTime::UNow();
 return wxString(now.Format());
+#else
+srand(time(NULL));
+int randnumber=rand()%1000; //Range between 0-1000
+return wxString::Format(wxT("%d"),randnumber);
+
 
 #endif
 }
