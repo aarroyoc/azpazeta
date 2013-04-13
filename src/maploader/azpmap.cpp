@@ -2,6 +2,9 @@
 #include "azpmap.hpp"
 #include "stdlib.h"
 #include "../xml/tinyxml.h"
+/* Read TMX files from Tiled Map Editor, get meta information ,create ArrayData for OpenGL and create EventData for AzpVM*/
+
+
 AzpMap::AzpMap(wxString file)
 {
 	TiXmlDocument doc(file.mb_str());

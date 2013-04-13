@@ -45,6 +45,8 @@ namespace Shader{
 extern bool azplogo;
 extern bool azpmosaic;
 extern GLfloat mvMatrix[16];
+int64_t mapdata[20][20];
+GLuint currenttexture;
 
 AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
 {
@@ -57,9 +59,14 @@ AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,a
 	//wxLogMessage(azpmapuri);
 	AZPSetup(0,0,0,0);
 
+	/*
 	AzpMap* azpmap=new AzpMap(azpmapuri);
 	map=azpmap->GetData();
 	wxLogMessage(map.inside.tile[1][1]);
+	*/
+	azpmap=new AzpMap(azpmapuri);	
+	
+
 	imgpath=azppath+wxT("/media/");
 	shaderEnabled=false;
 	bufferEnabled=false;
@@ -449,10 +456,17 @@ void AZPGL::Render(wxPaintEvent& event)
 	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
 
+	//Select the Texture according the Data
+	switch(azpmap->ArrayData[fila][columna])
+	{
+		case 0:currenttexture=azptexture;break; //Azpazeta tile
+		default:currenttexture=maintexture[azpmap->ArrayData[fila][columna]];
+	}
+
 	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
 	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, azptexture);
+	glBindTexture(GL_TEXTURE_2D, currenttexture);
 	glUniform1i(Shader::sU, 0);
 
 
@@ -575,6 +589,24 @@ void AZPGL::AZPTexture()
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 512, 512, 0, GL_RGB, GL_UNSIGNED_BYTE, azpazeta_img.GetData());
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	SpriteLoader* dualsprite=new SpriteLoader(azppath+wxT("/media/dualsprite.png"),64);
+
+	glGenTextures(1, &maintexture[1]);
+	glBindTexture(GL_TEXTURE_2D, maintexture[1]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, dualsprite->GetSprite(0).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glGenTextures(1, &maintexture[2]);
+	glBindTexture(GL_TEXTURE_2D, maintexture[2]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, dualsprite->GetSprite(1).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	//wxMessageBox(wxString::Format(wxT("%d"),dualsprite->GetNumbers()));
+
+
 	
 }
 #endif

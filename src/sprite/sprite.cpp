@@ -32,10 +32,6 @@ SpriteLoader::SpriteLoader(wxString filename, int size)
 		copy=image;
 		sprites[numbers]=copy.Size(wxSize(size,size),wxPoint(-1*size*numbers,0),0,255,255);
 	}
-	sprites[0].SaveFile(filename+wxT("0"),wxBITMAP_TYPE_PNG);
-	sprites[1].SaveFile(filename+wxT("1"),wxBITMAP_TYPE_PNG);
-	sprites[2].SaveFile(filename+wxT("2"),wxBITMAP_TYPE_PNG);
-	sprites[3].SaveFile(filename+wxT("3"),wxBITMAP_TYPE_PNG);
 	/*
 	Works, but its a lot of RAM (I think)	
 	wxBitmap img(filename,wxBITMAP_TYPE_PNG);

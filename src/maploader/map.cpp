@@ -16,6 +16,8 @@
 */
 #include "map.hpp"
 #include "../xml/tinyxml.h"
+/* Read mount.xml or info.xml file to get the main map and meta information */
+
 AzpMount::AzpMount(wxString mount_xml_file)
 {
 	TiXmlDocument doc(mount_xml_file.mb_str());
