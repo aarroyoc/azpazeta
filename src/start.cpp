@@ -85,8 +85,8 @@ Start::Start(const wxString& title)
 	//AzpData TODO
 
 
-	//AzpMount TODO
-	AzpMount* azpmount=new AzpMount(azppath+wxT("/maps/core/mount.xml"));
+	//AzpMount DONE
+	AzpMount* azpmount=new AzpMount(azppath+wxT("/maps/core/info.xml"));
 
 	//AzpMap TODO - Esto es un test
 	//AzpMap* map=new AzpMap(azppath+wxT("/maps/core/start.xml")); //azpmount->mainmap

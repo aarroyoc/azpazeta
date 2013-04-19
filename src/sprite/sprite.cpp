@@ -30,7 +30,7 @@ SpriteLoader::SpriteLoader(wxString filename, int size)
 	for(numbers=0;numbers*size<image.GetWidth();numbers++)
 	{
 		copy=image;
-		sprites[numbers]=copy.Size(wxSize(size,size),wxPoint(-1*size*numbers,0),0,255,255);
+		sprites[numbers]=copy.Size(wxSize(size,size),wxPoint(-1*size*numbers,0),0,120,120);
 	}
 	/*
 	Works, but its a lot of RAM (I think)	

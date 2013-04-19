@@ -25,16 +25,32 @@ AzpMount::AzpMount(wxString mount_xml_file)
 	{
 		wxLogError(_("Failed to load the selected map: ")+mount_xml_file);
 	}
-	TiXmlElement *meta_data, *map_main;
+	TiXmlElement *meta_data, *map_main,*data;
 	TiXmlElement *azpazeta_map=doc.RootElement();
 	while(azpazeta_map)
 	{
 		//Parsear cada uno
-		//Meta Data TODO
+		//Meta Data DONE
 		meta_data=azpazeta_map->FirstChildElement("meta-data");
 		while(meta_data)
 		{
-
+		data=meta_data->FirstChildElement("data");
+		while(data){
+		if(strcmp(data->Attribute("id"),"name")==0){
+					metadata.title=wxString::FromUTF8(data->GetText());
+					}
+		if(strcmp(data->Attribute("id"),"description")==0){
+					metadata.description=wxString::FromUTF8(data->GetText());
+					}
+		if(strcmp(data->Attribute("id"),"homesite")==0){
+					metadata.homesite=wxString::FromUTF8(data->GetText());
+					}
+		if(strcmp(data->Attribute("id"),"author")==0){
+					metadata.author=wxString::FromUTF8(data->GetText());
+					}	
+		data=data->NextSiblingElement("data");
+		}
+		
 		meta_data=meta_data->NextSiblingElement("meta-data");
 		}
 		//Main Map DONE
@@ -50,4 +66,8 @@ AzpMount::AzpMount(wxString mount_xml_file)
 
 
 
+}
+AzpMetaData AzpMount::GetMetaData()
+{
+	return metadata;
 }

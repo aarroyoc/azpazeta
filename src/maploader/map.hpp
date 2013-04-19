@@ -30,6 +30,13 @@ typedef enum{
 } AZPTHEME;
 
 typedef struct{
+	wxString title;
+	wxString author;
+	wxString description;
+	wxString homesite;
+} AzpMetaData;
+
+typedef struct{
 	struct background{
 	
 		AZPTHEME theme;
@@ -58,6 +65,9 @@ class AzpMount{
 		bool GetImage(int x, int y);
 		wxString GetMetadata();
 		wxString mainmap;
+		AzpMetaData GetMetaData();
+	private:
+		AzpMetaData metadata;
 
 };
 #endif

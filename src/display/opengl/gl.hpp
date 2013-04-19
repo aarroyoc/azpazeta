@@ -53,6 +53,7 @@ class AZPGL : public wxGLCanvas
 		unsigned int triangleIndex;
 		GLuint azptexture;
 		GLuint maintexture[120];
+		GLuint vadrixtexture[4];
 		AzpMap* azpmap;
 		
 	public:

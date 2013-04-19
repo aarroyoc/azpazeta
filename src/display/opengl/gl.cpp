@@ -45,7 +45,7 @@ namespace Shader{
 extern bool azplogo;
 extern bool azpmosaic;
 extern GLfloat mvMatrix[16];
-int64_t mapdata[20][20];
+int64_t* mapdata;
 GLuint currenttexture;
 
 AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
@@ -455,13 +455,13 @@ void AZPGL::Render(wxPaintEvent& event)
 	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
 	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(0);
-
 	//Select the Texture according the Data
-	switch(azpmap->ArrayData[fila][columna])
+	switch(azpmap->GetArrayData(fila,columna))
 	{
 		case 0:currenttexture=azptexture;break; //Azpazeta tile
-		default:currenttexture=maintexture[azpmap->ArrayData[fila][columna]];
+		default:currenttexture=maintexture[azpmap->GetArrayData(fila,columna)];
 	}
+	
 
 	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
 	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
@@ -590,6 +590,21 @@ void AZPGL::AZPTexture()
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
+	//VADRIX -- No hacer transparente, sino del fondo del lugar (bosque o desierto)
+
+	SpriteLoader* vadrixsprite=new SpriteLoader(azppath+wxT("/media/vadrixmain.png"),64);
+	glGenTextures(1,&vadrixtexture[0]);
+	glBindTexture(GL_TEXTURE_2D, vadrixtexture[1]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, vadrixsprite->GetSprite(1).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	//Other sides of Vadrix TODO
+
+	delete vadrixsprite;
+
+	//BLUEANDRED
+
 	SpriteLoader* dualsprite=new SpriteLoader(azppath+wxT("/media/dualsprite.png"),64);
 
 	glGenTextures(1, &maintexture[1]);
@@ -604,7 +619,37 @@ void AZPGL::AZPTexture()
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-	//wxMessageBox(wxString::Format(wxT("%d"),dualsprite->GetNumbers()));
+	delete dualsprite;
+
+	//HOUSE1	
+
+	SpriteLoader* housesprite=new SpriteLoader(azppath+wxT("/media/housemain.png"),64);
+	
+	glGenTextures(1, &maintexture[3]);
+	glBindTexture(GL_TEXTURE_2D, maintexture[3]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(0).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glGenTextures(1, &maintexture[4]);
+	glBindTexture(GL_TEXTURE_2D, maintexture[4]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(1).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glGenTextures(1, &maintexture[5]);
+	glBindTexture(GL_TEXTURE_2D, maintexture[5]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(2).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glGenTextures(1, &maintexture[6]);
+	glBindTexture(GL_TEXTURE_2D, maintexture[6]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(3).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	delete housesprite;
 
 
 	
