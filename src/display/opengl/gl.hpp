@@ -27,6 +27,7 @@
 #include "wx/glcanvas.h"
 #include "../../maploader/map.hpp"
 #include "../../maploader/azpmap.hpp"
+
 /**
  * @class AZPGL
  * @brief Implementation of Azpazeta Display in OpenGL ES 2

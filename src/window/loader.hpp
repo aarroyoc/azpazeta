@@ -14,26 +14,21 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-class SpriteLoader
+#include "wx/progdlg.h"
+#include "wx/wx.h"
+
+class WindowLoader
 {
 public:
-	SpriteLoader(wxString filename,int spritesize);
-	int GetNumbers();
-	wxImage GetSprite(int number);
+	WindowLoader();
+	void Next();
+	void Finish();
 private:
-	int numbers;
-	wxImage sprites[1024];
-	
+	wxBitmap bmploader;
+	wxGauge* progress;
+	wxStaticText* special_phrase;
+	int number_progress;
+	wxProgressDialog* prg;
+	wxString message;
 
-};
-
-class Screenshot{
-public:
-	Screenshot(wxWindow*,wxString);
-};
-
-class ImageWindow : public wxDialog
-{
-public:
-	ImageWindow(wxImage image);
 };

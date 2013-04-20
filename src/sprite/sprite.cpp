@@ -14,6 +14,7 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+#include "wx/wx.h"
 #include "wx/dcclient.h"
 #include "wx/window.h"
 #include "wx/dcmemory.h"
@@ -26,11 +27,18 @@ SpriteLoader::SpriteLoader(wxString filename, int size)
 	/*
 	Works*/
 	wxImage image(filename,wxBITMAP_TYPE_PNG);
+	
 	wxImage copy;
 	for(numbers=0;numbers*size<image.GetWidth();numbers++)
 	{
-		copy=image;
-		sprites[numbers]=copy.Size(wxSize(size,size),wxPoint(-1*size*numbers,0),0,120,120);
+		//copy=image;
+		//sprites[numbers]=image.Size(wxSize(size,size),wxPoint(-1*size*numbers,0),0,120,120);
+		//ImageWindow* imw=new ImageWindow(sprites[numbers]);
+		//imw->ShowModal();
+		sprites[numbers]=image.GetSubImage(wxRect(size*numbers,0,size,size));
+		//ImageWindow* imw=new ImageWindow(sprites[numbers]);
+		//imw->ShowModal();
+
 	}
 	/*
 	Works, but its a lot of RAM (I think)	
@@ -66,4 +74,9 @@ Screenshot::Screenshot(wxWindow* win, wxString filename)
 	screenshot.SaveFile(filename,wxBITMAP_TYPE_PNG);
 
 
+}
+ImageWindow::ImageWindow(wxImage image) : wxDialog (NULL,wxID_ANY,_("Azpazeta Image Viewer"),wxDefaultPosition,wxSize(800,800))
+{
+	wxBitmap bmp(image);
+	wxStaticBitmap* bitmap=new wxStaticBitmap(this,wxID_ANY,bmp);
 }

@@ -95,6 +95,7 @@ src/maploader/map.cpp
 src/maploader/azpmap.cpp
 src/window/options.cpp
 src/window/alert.cpp
+src/window/loader.cpp
 src/version.cpp
 src/display/opengl/gl.cpp
 src/display/opengl/shader.cpp

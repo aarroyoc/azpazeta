@@ -31,6 +31,7 @@
 #include "shader.hpp"
 #include "../../sprite/sprite.hpp"
 #include "wx/filedlg.h"
+#include "../../window/loader.hpp"
 
 extern wxString azppath;
 
@@ -583,12 +584,20 @@ void AZPGL::AZPShader()
 }
 void AZPGL::AZPTexture()
 {
+
+	WindowLoader* winl=new WindowLoader();
+
 	wxImage azpazeta_img(azppath+_("/media/azpazeta.png"),wxBITMAP_TYPE_PNG);
 	glGenTextures(1, &azptexture);
 	glBindTexture(GL_TEXTURE_2D, azptexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 512, 512, 0, GL_RGB, GL_UNSIGNED_BYTE, azpazeta_img.GetData());
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	
+	int test;
+	for(test=0;test<750;test++)
+		winl->Next();
+	winl->Finish();
 
 	//VADRIX -- No hacer transparente, sino del fondo del lugar (bosque o desierto)
 
@@ -670,6 +679,12 @@ void AZPGL::AZPTexture()
 	glGenTextures(1, &maintexture[11]);
 	glBindTexture(GL_TEXTURE_2D, maintexture[11]);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(7).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glGenTextures(1, &maintexture[12]);
+	glBindTexture(GL_TEXTURE_2D, maintexture[12]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(8).GetData());
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
