@@ -13,5 +13,11 @@ override_dh_auto_install:
 	make install
 	mkdir -p ${CURDIR}/debian/azpazeta/usr/share/applications
 	mkdir -p ${CURDIR}/debian/azpazeta/usr/share/icons/hicolor/scalable/apps
+	mkdir -p ${CURDIR}/debian/azpazeta/usr/share/icons/hicolor/scalable/mimetypes
+	mkdir -p ${CURDIR}/debian/azpazeta/usr/share/mime/packages
 	cp debian/azpazeta.desktop ${CURDIR}/debian/azpazeta/usr/share/applications/
 	cp media/azpazeta.svg ${CURDIR}/debian/azpazeta/usr/share/icons/hicolor/scalable/apps/azpazeta.svg
+	cp media/azpazeta.svg ${CURDIR}/debian/azpazeta/usr/share/icons/hicolor/scalable/mimetypes/application-x-azpazeta.svg
+	cp debian/x-azpazeta.xml ${CURDIR}/debian/azpazeta/usr/share/mime/packages/
+	cp media/azpazeta.svg ${CURDIR}/debian/azpazeta/usr/share/icons/hicolor/scalable/mimetypes/application-x-azpazeta-script.svg
+	cp debian/x-azpazeta-script.xml ${CURDIR}/debian/azpazeta/usr/share/mime/packages/

@@ -8,7 +8,7 @@ Comment[fr]=Le economic sandbox jeux
 Exec=/opt/azpazeta/AZPAZETA_JUNO
 Icon=/opt/azpazeta/media/azpazeta.png
 Categories=StrategyGame;
-MimeType=application/x-azpazeta-script;application/x-azpazeta-city;application/x-azpazeta-serverconf
+MimeType=application/x-azpazeta;application/x-azpazeta-savefile;application/x-azpazeta-script;application/x-azpazeta-city;application/x-azpazeta-serverconf
 Terminal=false
 
 X-Ayatana-Desktop-Shortcuts=Updates;Bug;SendEmail;
@@ -16,14 +16,14 @@ X-Ayatana-Desktop-Shortcuts=Updates;Bug;SendEmail;
 [Updates Shortcut Group]
 Name=Check for updates
 Exec=gksu update-manager
-OnlyShowIn=Unity
+OnlyShowIn=Unity;GNOME
 
 [Bug Shortcut Group]
 Name=Report a bug
 Exec=xdg-open http://bugs.launchpad.net/azpazeta
-OnlyShowIn=Unity
+OnlyShowIn=Unity;GNOME
 
 [SendEmail Shortcut Group]
 Name=Send email to creators
 Exec=xdg-email mailto:adrian.arroyocalle@gmail.com?CC=divel@lists.launchpad.net&Subject=Message%20from%20Azpazeta&Body=Hi%20Adrian%2C%0A%5BComplete%20with%20your%20ideas%2C%20bugs%20or%20messages%5D
-OnlyShowIn=Unity
+OnlyShowIn=Unity;GNOME
