@@ -29,6 +29,7 @@
 #include "maploader/azpmap.hpp"
 #include "start/startgui.hpp"
 #include "sprite/sprite.hpp"
+#include "log.hpp"
 
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
@@ -44,11 +45,16 @@ Start::Start(const wxString& title)
 {
 	//Splash Screen
 	wxInitAllImageHandlers();
+	AzpLog("[OK] Loaded all image handlers",4);
 	wxBitmap bitmap;
   	if (bitmap.LoadFile(azppath+wxT("/media/azpazeta.png"), wxBITMAP_TYPE_PNG))
   	{
       		wxSplashScreen* splash = new wxSplashScreen(bitmap,wxSPLASH_CENTRE_ON_SCREEN|wxSPLASH_TIMEOUT,6000, NULL, -1, wxDefaultPosition, wxDefaultSize,wxSIMPLE_BORDER|wxSTAY_ON_TOP);
-  }
+		AzpLog("[OK] Display Splash Screen",4);
+  }else{
+	AzpLog("[ERROR] Azpazeta can't load $AZP_ROOT/media/azpazeta.png",3);
+	wxExit();
+	}
   wxYield();
 
 
@@ -70,6 +76,7 @@ Start::Start(const wxString& title)
 
     // ... and attach this menu bar to the frame
     SetMenuBar(menuBar);
+	AzpLog("[OK] Created menubar",4);
 #endif // wxUSE_MENUS
 
 
@@ -81,12 +88,13 @@ Start::Start(const wxString& title)
 
 	//AzpVM DONE
 	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
-
+	AzpLog("[OK] Started AzpVM with Init Script",4);
 	//AzpData TODO
 
 
 	//AzpMount DONE
 	AzpMount* azpmount=new AzpMount(azppath+wxT("/maps/core/info.xml"));
+	AzpLog("[OK] Loaded main map data",4);
 
 	//AzpMap TODO - Esto es un test
 	//AzpMap* map=new AzpMap(azppath+wxT("/maps/core/start.xml")); //azpmount->mainmap
@@ -100,18 +108,20 @@ Start::Start(const wxString& title)
 	sizer->Add(azpgl,1,wxEXPAND);
 	glpanel->SetSizer(sizer);
 	glpanel->SetAutoLayout(true);
+	AzpLog("[OK] Displayed AZPGL",4);
 
 
 #if wxUSE_STATUSBAR
     // create a status bar just for fun (by default with 1 pane only)
     CreateStatusBar(2);
-    SetStatusText(_T("Welcome to wxWidgets!"));
+    SetStatusText(_T("Azpazeta 2.0 JUNO"));
 #endif // wxUSE_STATUSBAR
 	//FullScreen
     if(LoadOptions().general.fullScreen)
 		ShowFullScreen(true);
 	else
 		SetSize(800,800);
+	AzpLog("[OK] Applyed full screen settings",4);
 
 
 }

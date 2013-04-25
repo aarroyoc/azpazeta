@@ -22,6 +22,7 @@
 #include "wx/wx.h"
 #include "start/startgui.hpp"
 #include "wx/taskbar.h"
+#include "log.hpp"
 
 #include "xml/tinyxml.h"
 
@@ -32,16 +33,19 @@ extern wxString azppath;
 
 bool Azpazeta::OnInit()
 {
+	AzpLog("[INFO] Welcome to Azpazeta!",1);
+	AzpLog("[INFO] Running JUNO",1);
     // create the main application window
     //Init wxLocale funcionality
     if(!InitWxLocale())
 	{
 		wxMessageBox(_("Your language doesn't appear in Azpazeta translations. Please, create a translation in translations.launchpad.net/azpazeta"));
+		AzpLog("[WARNING] This language doesn't appear in Azpazeta Translations",2);
 	}
-
-
+	AzpLog("[OK] Localization",4);
 
 	PathFinder::Start();
+	AzpLog("[OK] PathFinder gets Azpazeta Resources Dir",4);
 	Notify();
 
 	//TaskBar Icon
@@ -53,13 +57,16 @@ bool Azpazeta::OnInit()
 	wxTaskBarIcon* trayicon=new wxTaskBarIcon();
 	trayicon->SetIcon(azpicon,_("Azpazeta Juno Running"));
 	if(!trayicon->IsOk())
-		wxMessageBox(wxT("Error creating Tray Icon"));
+		AzpLog("[WARNING] Error creating TrayIcon",2);
+	else
+		AzpLog("[OK] Created TrayIcon",4);
 
-    Start *frame = new Start(_("Azpazeta Juno"));
 
-    // and show it (the frames, unlike simple controls, are not shown when
-    // created initially)
-    frame->Show(true);
+	Start *frame = new Start(_("Azpazeta Juno"));
+
+	    // and show it (the frames, unlike simple controls, are not shown when
+	    // created initially)
+	frame->Show(true);
 
 		//Start Dialog
 	StartDialog* stdg=new StartDialog();

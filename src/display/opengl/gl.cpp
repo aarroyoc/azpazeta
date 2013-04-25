@@ -32,6 +32,7 @@
 #include "../../sprite/sprite.hpp"
 #include "wx/filedlg.h"
 #include "../../window/loader.hpp"
+#include "../../log.hpp"
 
 extern wxString azppath;
 
@@ -51,12 +52,15 @@ GLuint currenttexture;
 
 AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,args,wxDefaultPosition,wxDefaultSize,wxFULL_REPAINT_ON_RESIZE)
 {
+	AzpLog("[INFO] Starting OpenGL Context",1);
 	gl=new wxGLContext(this);
+	
 	
 	wxInitAllImageHandlers();
 	this->Connect(wxEVT_PAINT,wxPaintEventHandler(AZPGL::Render));
 	this->Connect(wxEVT_SIZE,wxSizeEventHandler(AZPGL::Resize));
 	this->Connect(wxEVT_KEY_UP, wxKeyEventHandler(AZPGL::OnKey));
+	AzpLog("[OK] Defined main events",4);
 	//wxLogMessage(azpmapuri);
 	AZPSetup(0,0,0,0);
 
@@ -65,7 +69,8 @@ AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,a
 	map=azpmap->GetData();
 	wxLogMessage(map.inside.tile[1][1]);
 	*/
-	azpmap=new AzpMap(azpmapuri);	
+	azpmap=new AzpMap(azpmapuri);
+	AzpLog("[OK] Loaded map in TMX",4);	
 	
 
 	imgpath=azppath+wxT("/media/");
@@ -577,14 +582,16 @@ void AZPGL::AZPBuffer()
 }
 void AZPGL::AZPShader()
 {
+	AzpLog("[INFO] Started compiling shaders",1);
 	vertex_shader=AzpShader::LoadShader(azppath+wxT("/shaders/vertex.vs"),GL_VERTEX_SHADER);
 	fragment_shader=AzpShader::LoadShader(azppath+wxT("/shaders/fragment.fs"),GL_FRAGMENT_SHADER);
 	program_shader=AzpShader::CreateProgram(vertex_shader,fragment_shader);
+	AzpLog("[OK] Shaders created",4);
 	
 }
 void AZPGL::AZPTexture()
 {
-
+	AzpLog("[INFO] Starting loading textures",1);
 	WindowLoader* winl=new WindowLoader();
 
 	wxImage azpazeta_img(azppath+_("/media/azpazeta.png"),wxBITMAP_TYPE_PNG);
@@ -689,6 +696,7 @@ void AZPGL::AZPTexture()
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	wxMessageBox(wxString::Format(wxT("%d"),housesprite->GetNumbers()));
+	AzpLog("[OK] Textures loaded",4);
 	
 	delete housesprite;
 

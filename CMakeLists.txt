@@ -97,6 +97,7 @@ src/window/options.cpp
 src/window/alert.cpp
 src/window/loader.cpp
 src/version.cpp
+src/log.cpp
 src/display/opengl/gl.cpp
 src/display/opengl/shader.cpp
 src/window/testgl.cpp
@@ -132,6 +133,7 @@ ARCHIVE          DESTINATION    azpazeta/lib/static
 LIBRARY          DESTINATION    azpazeta/lib
 PUBLIC_HEADER    DESTINATION    azpazeta/include
 )
+INSTALL(FILES AZPSERVER                   DESTINATION    azpazeta/)
 INSTALL(FILES lang/es/azpazeta.mo         DESTINATION    azpazeta/lang/es/)
 INSTALL(FILES lang/fr/azpazeta.mo         DESTINATION    azpazeta/lang/fr/)
 INSTALL(FILES options/options.xml DESTINATION azpazeta/options/)
