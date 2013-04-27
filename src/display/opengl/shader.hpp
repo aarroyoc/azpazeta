@@ -22,6 +22,7 @@
 namespace AzpShader{
 	GLint LoadShader(wxString file, GLenum type);
 	GLint CreateProgram(GLint vertex, GLint fragment);
+	std::string ReadShaderFile(std::string);
 	void SetMatrixUniforms();
 	GLfloat* PopMatrix(); 
 	void PushMatrix(GLfloat*);

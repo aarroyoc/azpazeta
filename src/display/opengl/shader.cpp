@@ -15,6 +15,8 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 #include <iostream>
+#include <sstream>
+#include <fstream>
 #include "GL/glew.h"
 #ifdef WIN32
 #include <windows.h>
@@ -26,6 +28,7 @@
 #include "gl.hpp"
 #include "shader.hpp"
 #include "wx/ffile.h"
+#include "../../log.hpp"
 /* I don't know way but I need add this in GCC -DGL_GLEXT_PROTOTYPES. In Windows we use wgl because Microsoft is great (ironic) */
 /* Now we use GLEW, we don't need to add this flag */
 namespace Shader{
@@ -43,16 +46,31 @@ GLfloat mvMatrix[]={
 	0.0f,0.0f,0.0f,1.0f
 	};
 
+std::string AzpShader::ReadShaderFile(std::string FileName)
+{
+std::string ShaderString = "";
+std::ifstream shaderFile;
+shaderFile.open(FileName.c_str());
+    while(!shaderFile.eof())
+    {
+        std::string tempholder;
+        getline(shaderFile, tempholder);      
+        ShaderString.append(tempholder);
+        ShaderString.append("\n");
+    }
+shaderFile.close();
 
+return ShaderString;
+}
 
 GLint AzpShader::LoadShader(wxString file, GLenum type)
 {
-	wxFFile shadersource(file,wxT("r"));
-	wxString shaderstring;
-	shaderstring.Clear();
-	shadersource.ReadAll(&shaderstring);
-	const GLchar* shaderSrc=shaderstring.mb_str();
-	
+	if (glewIsSupported("GL_VERSION_2_0"))
+	{
+		AzpLog("[OK] OpenGL 2.0 Supported",4);
+	 	std::string strVertexShader = AzpShader::ReadShaderFile(std::string(file.mb_str()));
+	const GLchar *shaderSrc = strVertexShader.c_str();
+
 	const GLchar* vShaderStr=
 	"attribute vec2 aTextureCoord;\n"
 	"attribute vec3 vPosition; \n"
@@ -88,7 +106,8 @@ GLint AzpShader::LoadShader(wxString file, GLenum type)
 	if(shader == 0)
 		wxLogError(_("Error creating shaders"));
 	// Load the shader source
-	glShaderSource(shader, 1, (type==GL_VERTEX_SHADER)?&vShaderStr : &fShaderStr, NULL);
+	//glShaderSource(shader, 1, (type==GL_VERTEX_SHADER)?&vShaderStr : &fShaderStr, NULL);
+	glShaderSource(shader,1,&shaderSrc,NULL);
 	// Compile the shader
 	glCompileShader(shader);
 	// Check the compile status
@@ -103,14 +122,31 @@ GLint AzpShader::LoadShader(wxString file, GLenum type)
 			glGetShaderInfoLog(shader, infoLen, NULL, infoLog);
 			wxString log=_("Error compiling shader:\n");
 			log.Append(wxString::FromUTF8(infoLog));
-			log.Append(_("\nFile: "));
-			log.Append(wxString::FromUTF8(vShaderStr));
+			log.Append(_("\nFile:\n "));
+			log.Append(file);
+			log.Append(_("\n"));
+			log.Append(wxString::FromUTF8(shaderSrc));
+			log.Append(_("\nType: "));
+			log.Append((type==GL_VERTEX_SHADER)? _("Vertex Shader") : _("Fragment Shader"));
 			wxLogError(log);
 		}
 		glDeleteShader(shader);
 		return 0;
 	}
 	return shader;
+	}else{
+	
+	AzpLog("[ERROR] OpenGL 2.0 not supported",3);	
+	return 0;
+	}
+	/*
+	wxFFile shadersource(file,wxT("r"));
+	wxString shaderstring;
+	shaderstring.Clear();
+	shadersource.ReadAll(&shaderstring);
+	const GLchar* shaderSrc=shaderstring.mb_str();*/
+	
+	
 }
 GLint AzpShader::CreateProgram(GLint vertex, GLint fragment)
 {
