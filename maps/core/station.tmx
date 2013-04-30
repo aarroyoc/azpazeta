@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<event-table>
-<data>
-   <tile onstay="OnCorner.azps" gid="4"/>
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="64" tileheight="64">
+ <properties>
+  <property name="Author" value="Adrián Arroyo Calle"/>
+  <property name="License" value="Apache"/>
+  <property name="MinVersion" value="JUNO"/>
+  <property name="Name" value="Station"/>
+  <property name="Year" value="2013"/>
+ </properties>
+ <tileset firstgid="1" name="dualsprite" tilewidth="64" tileheight="64">
+  <image source="../../media/dualsprite.png" width="192" height="64"/>
+ </tileset>
+ <tileset firstgid="4" name="housemain" tilewidth="64" tileheight="64">
+  <image source="../../media/housemain.png" width="768" height="64"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="20" height="20">
+  <data>
+   <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -401,13 +415,6 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
-</data>
-<info>
-	<side side="up"></side>
-	<side side="down"></side>
-	<side side="left"></side>
-	<side side="right"></side>
-</info>
-
-
-</event-table>
+  </data>
+ </layer>
+</map>

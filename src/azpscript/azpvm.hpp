@@ -19,8 +19,8 @@
 * @file azpvm.hpp
 * @brief AzpVM - Azpazeta Virtual Machine
 */
-
-
+#ifndef AZPVM_HPP
+#define AZPVM_HPP
 
 #include "lua.hpp"
 #include "wx/wx.h"
@@ -51,4 +51,4 @@ class AZPVM
 		*/
 		AZPVM(wxString file,AZPVMState state);
 };
-
+#endif

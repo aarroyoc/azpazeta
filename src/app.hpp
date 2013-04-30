@@ -20,6 +20,7 @@
 */
 #include "wx/wx.h"
 #include "wx/intl.h"
+#include "wx/cmdline.h"
 #include "core/core.hpp"
 
 #include "window/options.hpp" 
@@ -62,11 +63,20 @@ typedef struct{			//Options structure
 class Azpazeta : public wxApp
 {
 public:
-    virtual bool OnInit();
+	virtual bool OnInit();
+	/*virtual void OnInitCmdLine(wxCmdLineParser& parser);
+        virtual bool OnCmdLineParsed(wxCmdLineParser& parser);*/
 private:
 	bool InitWxLocale();
 	void Notify();
 };
+/*static const wxCmdLineEntryDesc g_cmdLineDesc [] =
+{
+     { wxCMD_LINE_SWITCH, _("h"), _("help"), _("displays help on the command line parameters"), wxCMD_LINE_VAL_NONE, wxCMD_LINE_OPTION_HELP},
+        {wxCMD_LINE_PARAM, NULL, NULL,_("save file"), wxCMD_LINE_VAL_STRING, wxCMD_LINE_PARAM_OPTIONAL},
+
+     { wxCMD_LINE_NONE }
+};*/
 enum
 {
     // menu items

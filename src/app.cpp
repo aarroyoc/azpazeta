@@ -23,6 +23,7 @@
 #include "start/startgui.hpp"
 #include "wx/taskbar.h"
 #include "log.hpp"
+#include "wx/cmdline.h"
 
 #include "xml/tinyxml.h"
 
@@ -34,7 +35,28 @@ extern wxString azppath;
 bool Azpazeta::OnInit()
 {
 	AzpLog("[INFO] Welcome to Azpazeta!",1);
-	AzpLog("[INFO] Running JUNO",1);
+	AzpLog("[INFO] Running JUNO version",1);
+
+	SetAppName(wxT("Azpazeta"));
+	SetVendorName(wxT("Adrián Arroyo Calle for Divel"));
+	if(wxApp::argc>=2)
+	{
+		AzpLog("[INFO] Processing parameters",1);
+		//AzpLog(wxString(wxApp::argv[1]).mb_str(),1);
+		if(wxString(wxApp::argv[1]).Cmp(wxT("--help"))==0)
+		{
+			AzpLog("[INFO] Running help mode",1);
+			AzpLog("Azpazeta 2.0 JUNO\nUsage:\n\tAZPAZETA_JUNO [--help]\n\tAZPAZETA_JUNO [savefile]\n\tAZPAZETA_JUNO [script]",1);
+			return false;
+		}else{
+			AzpLog("[INFO] Running loader mode",1);
+		
+		}	
+	}else{
+		AzpLog("[INFO] Running normal mode",1);
+	}
+	
+	
     // create the main application window
     //Init wxLocale funcionality
     if(!InitWxLocale())
@@ -90,6 +112,32 @@ void Azpazeta::Notify()
 
 
 }
+/*void Azpazeta::OnInitCmdLine(wxCmdLineParser& parser)
+{
+	wxMessageBox(_("Parsing"));
+    parser.SetDesc (g_cmdLineDesc);
+    // must refuse '/' as parameter starter or cannot use "/path" style paths
+    parser.SetSwitchChars (wxT("-"));
+}
+
+bool Azpazeta::OnCmdLineParsed(wxCmdLineParser& parser)
+{
+	wxMessageBox(_("Parsing"));
+    //silent_mode = parser.Found(wxT("s"));
+    // to get at your unnamed parameters use
+    wxArrayString files;
+        for (int i = 0; i < parser.GetParamCount(); i++)
+    {
+            files.Add(parser.GetParam(i));
+    }
+
+    // and other command line parameters
+	wxMessageBox(files[0]);
+	wxMessageBox(files[1]);
+    // then do what you need with them.
+
+    return true;
+}*/
 AZPOptions LoadOptions()
 {
 	//Cargar ficheros de opciones XML

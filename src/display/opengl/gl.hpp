@@ -27,6 +27,8 @@
 #include "wx/glcanvas.h"
 #include "../../maploader/map.hpp"
 #include "../../maploader/azpmap.hpp"
+#include "../../azpscript/event.hpp"
+#include "../../core/core.hpp"
 
 /**
  * @class AZPGL
@@ -56,6 +58,10 @@ class AZPGL : public wxGLCanvas
 		GLuint maintexture[120];
 		GLuint vadrixtexture[4];
 		AzpMap* azpmap;
+		EventManager* eventm;
+		int vadrixside; //0=Down 1=Left 2=Right 3=Up
+		int vadrixposx;
+		int vadrixposy;
 		
 	public:
 		AZPGL(wxPanel* parent,wxString azpmapuri);

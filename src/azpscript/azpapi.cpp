@@ -29,6 +29,7 @@
  */
 bool azplogo;
 bool azpmosaic;
+extern wxString azppath;
 
 float azpVersion()
 {
@@ -137,5 +138,47 @@ int azpWait(lua_State* l)
 int azpMosaic(lua_State* l)
 {
 	azpmosaic=true;
+	return 0;
+}
+/**
+* @brief Executes another instance of AzpVM
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpLogo
+*
+*/
+
+int azpExecute(lua_State* l)
+{
+	AZPVMState levelstate=azpVM_SECURE;
+	int argc = lua_gettop(l);
+	lua_pop(l,1);
+	std::string file=lua_tostring(l, lua_gettop(l));
+	lua_pop(l, 1);
+	std::string level=lua_tostring(l,lua_gettop(l));
+	if(level.compare("azpVM_FULL")==0)
+	{
+		levelstate=azpVM_FULL;
+	}
+	if(level.compare("azpVM_SECURE")==0)
+	{
+		levelstate=azpVM_SECURE;
+	}
+	if(level.compare("azpVM_INSTALLATION")==0)
+	{
+		levelstate=azpVM_INSTALLATION;
+	}
+	if(level.compare("azpVM_TEST")==0)
+	{
+		levelstate=azpVM_TEST;
+	}
+	if(level.compare("azpVM_INTERNET")==0)
+	{
+		levelstate=azpVM_INTERNET;
+	}
+	AZPVM* azpvm=new AZPVM(azppath+wxString::FromUTF8(file.c_str()),levelstate);
+
+
 	return 0;
 }

@@ -54,10 +54,22 @@ void azpWait(Milliseconds);
 * @brief Display the Azpazeta mosaic
 * @returns Nothing
 * @verbatim 
-Used for exit the map, or loading the map
+Used for normal play
 * @endverbatim
 * @note This documentation uses C/C++ style in Lua functions. The return values exists
 * @see azpLogo
 */
 void azpMosaic();
+/**
+* @brief Executes a AZPScript
+* @param File The AZPScript file for execute
+* @param Securitylevel The security level of the script, by default azpVM_SECURE
+* @returns Nothing
+* @verbatim 
+Security level can be: azpVM_FULL, azpVM_SECURE, azpVM_INTERNET, azpVM_INSTALLATION and azpVM_TEST
+* @endverbatim
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpLogo
+*/
+void azpExecute(File,Securitylevel);
 };

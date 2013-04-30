@@ -234,6 +234,9 @@ recv(sock_client[me],recvbuf,sizeof(recvbuf),0);
 greenprintf(recvbuf);
 char message2[]="[OK] Waiting ";
 send(sock_client[me],message2,sizeof(message2),0);
+
+LoopProcess(me);
+
 #ifdef WIN32
 closesocket(sock_client[me]);
 #else

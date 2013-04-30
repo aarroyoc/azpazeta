@@ -16,7 +16,7 @@
 */
 #define LOADER_CPP
 #include "loader.hpp"
-wxString phrases[50]={
+wxString phrases[70]={
 _("The future is writed, but I've 'tipex'"),
 _("If we all think alike, someone is not thinking\nSir Winston Churchill"),
 _("The man who gets up, is even larger than it has fallen"),
@@ -64,14 +64,34 @@ _("One can not argue with a mathematical theorem\nStephen Hawking"),
 _("How do you know if the Earth is just another planet's hell?\nAldous Huxley"),
 _("Thanks, Mario .. But the Princess is in another castle\nSuper Marios Bros"),
 _("Creating underworlds...\nAzpazeta State"),
-_("Mammon is dead\nThe new book of Mozilla"),
+_("Mammon is dead!\nThe new book of Mozilla"),
 _("People will remember us always\nUnknow book written by unknow people"),
+_("We love Juice+\nA Clockwork Apple"),
+_("Run Gorrest, run...\nGorrest Lump"),
+_("All work and no play makes Jack a dull boy\nThe Shining"),
+_("Uploading Snapshoots to AzpBook...\nAzpazeta State"),
+_("Counting votes for mayor...\nAzpazeta State"),
+_("Making orienteering map of Azpazeta...\nAzpazeta State"),
+_("Registering UFOs in Radar...\nAzpazeta State"),
+_("Reticulating sprites...\nAzpazeta State"),
+_("Converting real worlds into Azpazeta worlds...\nAzpazeta State"),
+_("Validating cheats avalibles...\nAzpazeta State"),
+_("We've got one bank account more\nGrim Yandango, the founder of Magnox Project"),
+_("SMS, MMS and VoIP. Only for 10$ per month\nAd by Azpazeta Instant!"),
+_("The economy is like a car. The way to move money to the trash\nAdvanced guide for economists by Financial Room of Azpazeta"),
+_("Azpazeta, now with 2 more meters of National Park\nRadio ad by Agence of Azpazeta Tourisme"),
+_("Oh no, spare!\nBook of the year 2012 by Bowling Players Asociation"),
+_("President Adrián Arroyo is the best person in the world\nTitular of The Herald of Azpazeta"),
+_("Buy actions, now sell it\nThe amazing actions systems by KimCorp"),
+_("The enemy is near you. Buy a weapon and use it (in personal defense...)\nWeapon Catalog Spring 2013, \"It's a Spring of Weapons\" by Militar++"),
+_("La Re Fa Sol Mi Mi Re ...\nMusicalized ad by Disco Rien"),
+_("People need food, houses and a enterteinment\nSocial Science for Dummies"),
 _("The money is like ice cream, more is better\nFinancial Guide of Azpazeta Second Edition")};
 
 WindowLoader::WindowLoader()
 {
 	srand(time(NULL));
-	int ran=rand()%50;
+	int ran=rand()%70;
 	number_progress=1;
 	message=phrases[ran];
 	prg=new wxProgressDialog(_("Loading"),message,1000);

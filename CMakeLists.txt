@@ -77,6 +77,7 @@ LINK_DIRECTORIES(${OPENGLES2_LIBRARY_DIRS})
 
 SET(AZP_SERVER
 src/core/server.cpp
+src/core/server_commands.cpp
 )
 ADD_EXECUTABLE(AZPSERVER ${AZP_SERVER})
 SET_TARGET_PROPERTIES(AZPSERVER PROPERTIES RUNTIME "${CMAKE_CURRENT_SOURCE_DIR}/AZPSERVER")
@@ -87,6 +88,7 @@ src/app.cpp
 src/start.cpp
 src/azpscript/azpvm.cpp
 src/azpscript/azpapi.cpp
+src/azpscript/event.cpp
 src/azpmarket/azpmarket.cpp
 src/core/core.cpp
 src/sprite/sprite.cpp
@@ -96,6 +98,7 @@ src/maploader/azpmap.cpp
 src/window/options.cpp
 src/window/alert.cpp
 src/window/loader.cpp
+src/window/longtalk.cpp
 src/version.cpp
 src/log.cpp
 src/display/opengl/gl.cpp
@@ -127,7 +130,9 @@ ADD_EXECUTABLE(AZPAZETA_JUNO ${AZP_SRC})
 SET_TARGET_PROPERTIES(AZPAZETA_JUNO PROPERTIES RUNTIME "${CMAKE_CURRENT_SOURCE_DIR}/AZPAZETA_JUNO")
 TARGET_LINK_LIBRARIES(AZPAZETA_JUNO ${AZP_LIB} )
 
-INSTALL(TARGETS AZPAZETA_JUNO
+SET(TARGETS AZPAZETA_JUNO AZPSERVER)
+
+INSTALL(TARGETS ${TARGETS}
 RUNTIME          DESTINATION    azpazeta
 ARCHIVE          DESTINATION    azpazeta/lib/static
 LIBRARY          DESTINATION    azpazeta/lib

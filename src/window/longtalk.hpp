@@ -14,25 +14,22 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-#ifndef CORE_HPP
-#define CORE_HPP
-typedef enum{
-azpCLIENT_SINGLE,
-azpCLIENT_MULTI,
-azpCLIENT_LOAD
-}azpCLIENT_STATE;
 
-class AzpClient
+#include "wx/wx.h"
+
+class LongTalk : public wxDialog
 {
-	public:
-		AzpClient(azpCLIENT_STATE mode=azpCLIENT_SINGLE,wxString ip=wxT("::1"),bool ipv6=true);
-		static float Version();
-		void Connect();
-		int GetMyNumber();
-		bool RequestMove(int x, int y, int user);
-		void Disconnect();
-	private:
-		int server;
-		wxProcess* process;
+public:
+	LongTalk(wxString bitmapfile1, wxString bitmapfile2, wxArrayString dialogarray1,wxArrayString dialogarray2, int numberoftalks);
+	~LongTalk();
+private:
+	void NextDialog(wxCommandEvent&);
+	wxButton* nextdialog;
+	wxStaticText* dialog1;
+	wxStaticText* dialog2;
+	int max;
+	int current;
+	wxArrayString array1;
+	wxArrayString array2;
+
 };
-#endif

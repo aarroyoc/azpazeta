@@ -89,7 +89,7 @@ Start::Start(const wxString& title)
 	//AzpVM DONE
 	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
 	AzpLog("[OK] Started AzpVM with Init Script",4);
-	//AzpData TODO
+	//AzpEvent TODO
 
 
 	//AzpMount DONE

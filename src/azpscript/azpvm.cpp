@@ -61,6 +61,8 @@ AZPVM::AZPVM(wxString file, AZPVMState state)
 	lua_setglobal(azpvm,"azpWait");
 	lua_pushcfunction(azpvm,azpMosaic);
 	lua_setglobal(azpvm,"azpMosaic");
+	lua_pushcfunction(azpvm,azpExecute);
+	lua_setglobal(azpvm,"azpExecute");
 
     int status = luaL_loadfile(azpvm, file.mb_str());
     int result = 0;

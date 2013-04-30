@@ -15,7 +15,10 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 /* AzpAPI - Library of functions for AzpVM */
+#ifndef AZPAPI_HPP
+#define AZPAPI_HPP
 #include "lua.hpp"
+#include "azpvm.hpp"
 #include "wx/wx.h"
 #include "../version.hpp"
 
@@ -35,4 +38,6 @@ int azpConsole(lua_State*);
 int azpLogo(lua_State*);
 int azpWait(lua_State*);
 int azpMosaic(lua_State*);
+int azpExecute(lua_State*);
 float azpVersion();
+#endif

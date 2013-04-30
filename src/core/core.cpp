@@ -164,8 +164,33 @@ void AzpClient::Connect()
 }
 void AzpClient::Disconnect()
 {
-	if(process!=NULL)
+	/*if(process!=NULL) This method power down the server also in multiplayer (NOT GOOD)
 	{
 		delete process;
-	}
+	}*/
+	char requestmove[2048];
+	char response[2048];
+	sprintf(requestmove,"[EXIT]");
+	send(server, requestmove, 2048,0);
+}
+bool AzpClient::RequestMove(int x, int y, int user)
+{
+	char requestmove[2048];
+	char response[2048];
+	snprintf(requestmove,2048,"[REQUEST]%d|%d|%d",x,y,user);
+	send(server, requestmove, 2048,0);
+	recv(server,response,2048,0);
+	if(strcmp(response,"TRUE")==0)
+		return true;
+	else
+		return false;
+}
+int AzpClient::GetMyNumber()
+{
+	char requestmove[2048];
+	char response[2048];
+	snprintf(requestmove,2048,"[GET]USER-NUMBER");
+	send(server, requestmove, 2048,0);
+	recv(server,response,2048,0);
+	return atoi(response);
 }

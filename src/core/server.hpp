@@ -22,6 +22,10 @@
 #define AZP_SOCK_TYPE "WinSockets"
 #endif
 
+#include "server_command.hpp"
+
+#ifndef SERVER_HPP
+#define SERVER_HPP
 void blueprintf(const char* message);
 void redprintf(const char* message);
 void yellowprintf(const char* message);
@@ -30,4 +34,5 @@ void StartBerkely();
 void StartWinSock();
 void MainLoop(int64_t);
 void *RegisterUser (void *); 
+#endif
 

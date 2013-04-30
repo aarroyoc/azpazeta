@@ -33,8 +33,10 @@
 #include "wx/filedlg.h"
 #include "../../window/loader.hpp"
 #include "../../log.hpp"
+#include "../../azpscript/event.hpp"
 
 extern wxString azppath;
+extern AzpClient* client;
 
 int args[]={WX_GL_RGBA, WX_GL_DOUBLEBUFFER, WX_GL_DEPTH_SIZE, 16, 0};
 
@@ -70,7 +72,9 @@ AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,a
 	wxLogMessage(map.inside.tile[1][1]);
 	*/
 	azpmap=new AzpMap(azpmapuri);
-	AzpLog("[OK] Loaded map in TMX",4);	
+	AzpLog("[OK] Loaded map in TMX",4);
+	eventm=new EventManager(azpmapuri);
+	AzpLog("[OK] EventManager loaded",4);	
 	
 
 	imgpath=azppath+wxT("/media/");
@@ -484,8 +488,38 @@ void AZPGL::Render(wxPaintEvent& event)
 	xfila=-1.0f;
 	ycolumna-=0.1f;
 	}
-	
 	SwapBuffers();
+	//VADRIX
+	//SwapBuffers();
+	//Vadrix ahora no tiene Alpha Channel, asi pues se cargan imagenes con fondo
+  	/* SOLO FUNCIONA SI VADRIX TIENE ALPHA CHANNEL. La funcion GetData no devuelve Alpha Channel
+
+	glEnable(GL_BLEND);
+  	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+
+		mvMatrix[12]=0.2f;//x
+		mvMatrix[13]=0.2f; //y
+		mvMatrix[0]=0.1f; //X-scale
+		mvMatrix[5]=0.1f; //Y-Scale
+
+	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
+	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
+	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, vadrixtexture[0]);
+	glUniform1i(Shader::sU, 0);
+
+
+	AzpShader::SetMatrixUniforms();
+	glDrawArrays(GL_QUADS, 0, 4);
+	 
+   glDisable(GL_BLEND);
+	//Draw
+	SwapBuffers();
+	*/
 	
 
 
@@ -517,6 +551,12 @@ void AZPGL::AZPSetup(int a, int b, int c, int d)
 }
 void AZPGL::OnKey(wxKeyEvent& event)
 {
+	if(client==NULL)
+	{
+		wxMessageBox(_("Please, start a new game, load a saved game or play multiplayer. Currently nothing is selected"),_("Divel Network"),wxICON_WARNING|wxOK);
+		return;
+
+	}
 	switch(event.GetKeyCode())
 	{
 		case WXK_ESCAPE:wxExit();break;
@@ -527,6 +567,106 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		//Take a screenshot
 		Screenshot* photo=new Screenshot(this,screenshotsaver->GetPath());
 		}
+		}break;
+		case WXK_LEFT:{
+			vadrixside=1;
+			//Comunicate with Server TODO
+			if(client->RequestMove(vadrixposx-1,vadrixposy,1))
+			{
+				vadrixposx-=1;
+				//Execute Events TODO
+				eventm->Execute(vadrixposx,vadrixposy);
+				//Refresh TODO
+				Refresh();
+			}
+		}break;
+		case WXK_UP:{
+			vadrixside=3;
+			//Comunicate with Server TODO
+			if(client->RequestMove(vadrixposx,vadrixposy-1,1))
+			{
+				vadrixposy-=1;
+				//Execute Events TODO
+				eventm->Execute(vadrixposx,vadrixposy);
+				//Refresh TODO
+				Refresh();
+			}
+		}break;
+		case WXK_RIGHT:{
+			vadrixside=2;
+			//Comunicate with Server TODO
+			if(client->RequestMove(vadrixposx,vadrixposy+1,1))
+			{
+				vadrixposy+=1;
+				//Execute Events TODO
+				eventm->Execute(vadrixposx,vadrixposy);
+				//Refresh TODO
+				Refresh();
+			}
+		}break;
+		case WXK_DOWN:{
+			vadrixside=0;
+			//Comunicate with Server TODO
+			if(client->RequestMove(vadrixposx+1,vadrixposy,1))
+			{
+				vadrixposx+=1;
+				//Execute Events TODO
+				eventm->Execute(vadrixposx,vadrixposy);
+				//Refresh TODO
+				Refresh();
+			}
+		}break;
+		case 'W':{
+			vadrixside=3;
+			//Comunicate with Server TODO
+			if(client->RequestMove(vadrixposx,vadrixposy-1,1))
+			{
+				vadrixposy-=1;
+				//Execute Events TODO
+				eventm->Execute(vadrixposx,vadrixposy);
+				//Refresh TODO
+				Refresh();
+			}
+
+		}break;
+		case 'A':{
+			vadrixside=1;
+			//Comunicate with Server TODO
+			if(client->RequestMove(vadrixposx-1,vadrixposy,1))
+			{
+				vadrixposx-=1;
+				//Execute Events TODO
+				eventm->Execute(vadrixposx,vadrixposy);
+				//Refresh TODO
+				Refresh();
+			}
+
+		}break;
+		case 'S':{
+			vadrixside=0;
+			//Comunicate with Server TODO
+			if(client->RequestMove(vadrixposx+1,vadrixposy,1))
+			{
+				vadrixposx+=1;
+				//Execute Events TODO
+				eventm->Execute(vadrixposx,vadrixposy);
+				//Refresh TODO
+				Refresh();
+			}
+
+		}break;
+		case 'D':{
+			vadrixside=2;
+			//Comunicate with Server TODO
+			if(client->RequestMove(vadrixposx,vadrixposy+1,1))
+			{
+				vadrixposy+=1;
+				//Execute Events TODO
+				eventm->Execute(vadrixposx,vadrixposy);
+				//Refresh TODO
+				Refresh();
+			}
+
 		}break;
 	}
 		
@@ -610,7 +750,7 @@ void AZPGL::AZPTexture()
 
 	SpriteLoader* vadrixsprite=new SpriteLoader(azppath+wxT("/media/vadrixmain.png"),64);
 	glGenTextures(1,&vadrixtexture[0]);
-	glBindTexture(GL_TEXTURE_2D, vadrixtexture[1]);
+	glBindTexture(GL_TEXTURE_2D, vadrixtexture[0]);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, vadrixsprite->GetSprite(1).GetData());
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
