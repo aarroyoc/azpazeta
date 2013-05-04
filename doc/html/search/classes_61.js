@@ -7,6 +7,7 @@ var searchData=
   ['azplogwindow',['AZPLogWindow',['../d8/df8/classAZPLogWindow.html',1,'']]],
   ['azpmap',['AzpMap',['../df/df7/classAzpMap.html',1,'']]],
   ['azpmapdata',['AzpMapData',['../d8/d98/structAzpMapData.html',1,'']]],
+  ['azpmetadata',['AzpMetaData',['../d3/d36/structAzpMetaData.html',1,'']]],
   ['azpmount',['AzpMount',['../de/d0e/classAzpMount.html',1,'']]],
   ['azppath',['AzpPath',['../d6/db5/classAzpPath.html',1,'']]],
   ['azpvm',['AZPVM',['../d3/d75/classAZPVM.html',1,'']]]

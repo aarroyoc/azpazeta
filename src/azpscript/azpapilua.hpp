@@ -64,6 +64,7 @@ void azpMosaic();
 * @brief Executes a AZPScript
 * @param File The AZPScript file for execute
 * @param Securitylevel The security level of the script, by default azpVM_SECURE
+* @param The script is in the home folder. You must set it to "TRUE" if you made maps for Azpazeta Market
 * @returns Nothing
 * @verbatim 
 Security level can be: azpVM_FULL, azpVM_SECURE, azpVM_INTERNET, azpVM_INSTALLATION and azpVM_TEST
@@ -71,5 +72,5 @@ Security level can be: azpVM_FULL, azpVM_SECURE, azpVM_INTERNET, azpVM_INSTALLAT
 * @note This documentation uses C/C++ style in Lua functions. The return values exists
 * @see azpLogo
 */
-void azpExecute(File,Securitylevel);
+void azpExecute(File,Securitylevel,Home);
 };

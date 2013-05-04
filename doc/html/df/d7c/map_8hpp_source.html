@@ -116,42 +116,52 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    DESERT_THEME</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} AZPTHEME;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="../../d8/d98/structAzpMapData.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="../../d3/d8e/structAzpMapData_1_1background.html">   33</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d3/d8e/structAzpMapData_1_1background.html">background</a>{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        AZPTHEME theme;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }<a class="code" href="../../d3/d8e/structAzpMapData_1_1background.html">background</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="../../da/dcd/structAzpMapData_1_1inside.html">   38</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../da/dcd/structAzpMapData_1_1inside.html">inside</a>{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        wxString tile[100][100];</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        wxString onenter[100][100];</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        wxString onstay[100][100];</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }<a class="code" href="../../da/dcd/structAzpMapData_1_1inside.html">inside</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="../../d7/d68/structAzpMapData_1_1sides.html">   43</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d7/d68/structAzpMapData_1_1sides.html">sides</a>{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        wxString right;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        wxString left;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        wxString up;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        wxString down;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }<a class="code" href="../../d7/d68/structAzpMapData_1_1sides.html">sides</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <a class="code" href="../../d8/d98/structAzpMapData.html">AzpMapData</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="../../de/d0e/classAzpMount.html">   53</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d0e/classAzpMount.html">AzpMount</a>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../de/d0e/classAzpMount.html">AzpMount</a>(wxString mount_xml_file);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">bool</span> LoadAzpMap(wxString file);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">bool</span> LoadNextMap(<span class="keywordtype">int</span> side);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">bool</span> GetImage(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        wxString GetMetadata();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        wxString mainmap;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="../../d3/d36/structAzpMetaData.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    wxString title;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    wxString author;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    wxString description;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    wxString homesite;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <a class="code" href="../../d3/d36/structAzpMetaData.html">AzpMetaData</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="../../d8/d98/structAzpMapData.html">   39</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="../../d3/d8e/structAzpMapData_1_1background.html">   40</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d3/d8e/structAzpMapData_1_1background.html">background</a>{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        AZPTHEME theme;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }<a class="code" href="../../d3/d8e/structAzpMapData_1_1background.html">background</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="../../da/dcd/structAzpMapData_1_1inside.html">   45</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../da/dcd/structAzpMapData_1_1inside.html">inside</a>{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        wxString tile[100][100];</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        wxString onenter[100][100];</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        wxString onstay[100][100];</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }<a class="code" href="../../da/dcd/structAzpMapData_1_1inside.html">inside</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="../../d7/d68/structAzpMapData_1_1sides.html">   50</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d7/d68/structAzpMapData_1_1sides.html">sides</a>{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        wxString right;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        wxString left;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        wxString up;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        wxString down;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }<a class="code" href="../../d7/d68/structAzpMapData_1_1sides.html">sides</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;} <a class="code" href="../../d8/d98/structAzpMapData.html">AzpMapData</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="../../de/d0e/classAzpMount.html">   60</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d0e/classAzpMount.html">AzpMount</a>{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="../../de/d0e/classAzpMount.html">AzpMount</a>(wxString mount_xml_file);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">bool</span> LoadAzpMap(wxString file);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> LoadNextMap(<span class="keywordtype">int</span> side);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">bool</span> GetImage(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        wxString GetMetadata();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        wxString mainmap;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="../../d3/d36/structAzpMetaData.html">AzpMetaData</a> GetMetaData();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="../../d3/d36/structAzpMetaData.html">AzpMetaData</a> metadata;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 4 2013 00:28:28 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 4 2013 13:07:16 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

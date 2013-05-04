@@ -1,6 +1,7 @@
 var searchData=
 [
   ['savefile',['SaveFile',['../df/d09/classTiXmlDocument.html#a21c0aeb0d0a720169ad4ac89523ebe93',1,'TiXmlDocument::SaveFile() const '],['../df/d09/classTiXmlDocument.html#ae869f5ebf7fc54c4a1d737fb4689fd44',1,'TiXmlDocument::SaveFile(const char *filename) const '],['../df/d09/classTiXmlDocument.html#acf1672b4538c6d1d441f9f108aea2bf4',1,'TiXmlDocument::SaveFile(FILE *) const ']]],
+  ['screenshot',['Screenshot',['../db/d63/classScreenshot.html',1,'']]],
   ['serverprocess',['ServerProcess',['../de/dcb/classServerProcess.html',1,'']]],
   ['setattribute',['SetAttribute',['../db/d59/classTiXmlElement.html#abf0b3bd7f0e4c746a89ec6e7f101fc32',1,'TiXmlElement::SetAttribute(const char *name, const char *_value)'],['../db/d59/classTiXmlElement.html#ace6f4be75e373726d4774073d666d1a7',1,'TiXmlElement::SetAttribute(const char *name, int value)']]],
   ['setcdata',['SetCDATA',['../d4/d9a/classTiXmlText.html#acb17ff7c5d09b2c839393445a3de5ea9',1,'TiXmlText']]],
@@ -17,6 +18,7 @@ var searchData=
   ['setvalue',['SetValue',['../d3/dd5/classTiXmlNode.html#a2a38329ca5d3f28f98ce932b8299ae90',1,'TiXmlNode::SetValue()'],['../d4/dc1/classTiXmlAttribute.html#a2dae44178f668b3cb48101be4f2236a0',1,'TiXmlAttribute::SetValue()']]],
   ['sides',['sides',['../d7/d68/structAzpMapData_1_1sides.html',1,'AzpMapData']]],
   ['size',['Size',['../d4/d3c/classTiXmlPrinter.html#ad01375ae9199bd2f48252eaddce3039d',1,'TiXmlPrinter']]],
+  ['spriteloader',['SpriteLoader',['../da/dc1/classSpriteLoader.html',1,'']]],
   ['standalone',['Standalone',['../d2/df2/classTiXmlDeclaration.html#a9ff06afc033d7ef730ec7c6825b97ad9',1,'TiXmlDeclaration']]],
   ['start',['Start',['../dc/d68/classStart.html',1,'']]],
   ['startdialog',['StartDialog',['../db/d78/classStartDialog.html',1,'']]],

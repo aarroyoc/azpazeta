@@ -1,2 +1,2 @@
 print('[AZPCORE] EventManager Works!')
-azpExecute("/maps/core/OnExecutedExtern.azps","azpVM_SECURE")
+-- azpExecute("/maps/core/OnExecutedExtern.azps","azpVM_SECURE")

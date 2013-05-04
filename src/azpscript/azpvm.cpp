@@ -28,8 +28,8 @@ AZPVM::AZPVM(wxString file, AZPVMState state)
 	#pragma message LUA_VERSION
 	#error
 	#endif
-	std::cout << azpVersion() << std::endl;
-	wxLogMessage(wxT("AZPVM Running"));	//Debug TODO
+	//std::cout << azpVersion() << std::endl;
+	//wxLogMessage(wxT("AZPVM Running"));	//Debug TODO
 	if(!wxFileExists(file))
 	{
 		wxLogError(wxT("The file (")+file+wxT(") doesn't exist. Reinstall the game can solve the problem"));

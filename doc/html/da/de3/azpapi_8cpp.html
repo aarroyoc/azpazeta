@@ -117,6 +117,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>azpVersion</b> ()</t
 <tr class="memitem:a6b39f327ce0d47989afdc6a4501343dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/de3/azpapi_8cpp.html#a6b39f327ce0d47989afdc6a4501343dd">azpMosaic</a> (lua_State *l)</td></tr>
 <tr class="memdesc:a6b39f327ce0d47989afdc6a4501343dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the Azpazeta Mosaic.  <a href="#a6b39f327ce0d47989afdc6a4501343dd">More...</a><br/></td></tr>
 <tr class="separator:a6b39f327ce0d47989afdc6a4501343dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12091fcb57d70eb5dbe4ee5d74179ca8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/de3/azpapi_8cpp.html#a12091fcb57d70eb5dbe4ee5d74179ca8">azpExecute</a> (lua_State *l)</td></tr>
+<tr class="memdesc:a12091fcb57d70eb5dbe4ee5d74179ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes another instance of AzpVM.  <a href="#a12091fcb57d70eb5dbe4ee5d74179ca8">More...</a><br/></td></tr>
+<tr class="separator:a12091fcb57d70eb5dbe4ee5d74179ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -126,6 +129,9 @@ Variables</h2></td></tr>
 <tr class="memitem:acc8eb27ffa2f3b6a6fd5f888d50f1926"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc8eb27ffa2f3b6a6fd5f888d50f1926"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>azpmosaic</b></td></tr>
 <tr class="separator:acc8eb27ffa2f3b6a6fd5f888d50f1926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7225aebbe3810c0c1dfcf97269d033c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7225aebbe3810c0c1dfcf97269d033c1"></a>
+wxString&#160;</td><td class="memItemRight" valign="bottom"><b>azppath</b></td></tr>
+<tr class="separator:a7225aebbe3810c0c1dfcf97269d033c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="../../d3/d50/classAzpAPI.html" title="Imaginary class for AzpAPI Lua docs.">AzpAPI</a> - Library of functions for AzpVM. </p>
@@ -156,6 +162,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>azpmosaic</b></td></t
 <dl class="section return"><dt>Returns</dt><dd>Number of output values </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is part of <a class="el" href="../../d3/d50/classAzpAPI.html" title="Imaginary class for AzpAPI Lua docs.">AzpAPI</a> avalible trough AZPScript in AzpVM </dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#acf34e8e087f774a4b4336747679b83b0" title="Writes a Phrase in the Log Window.">AzpAPI::azpConsole</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a12091fcb57d70eb5dbe4ee5d74179ca8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int azpExecute </td>
+          <td>(</td>
+          <td class="paramtype">lua_State *&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes another instance of AzpVM. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td>AzpVM instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of output values </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is part of <a class="el" href="../../d3/d50/classAzpAPI.html" title="Imaginary class for AzpAPI Lua docs.">AzpAPI</a> avalible trough AZPScript in AzpVM </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../da/de3/azpapi_8cpp.html#a9a68a78fac942509d57009d95a014eb0" title="Display the Azpazeta logo.">azpLogo</a> </dd></dl>
 
 </div>
 </div>
@@ -286,7 +319,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>azpmosaic</b></td></t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 4 2013 00:28:28 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 4 2013 13:07:17 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

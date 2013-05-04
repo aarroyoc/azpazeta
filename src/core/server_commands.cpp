@@ -38,7 +38,10 @@ char response[2048];
 			xpos[me]=atoi(commandpart);
 			commandpart=strtok(NULL,"|");
 			ypos[me]=atoi(commandpart);
-			snprintf(response,2048,"TRUE");
+			if(xpos[me]>21 || xpos[me]<0 || ypos[me]>21 || ypos[me]<0)
+				snprintf(response,2048,"FALSE");
+			else
+				snprintf(response,2048,"TRUE");
 			send(sock_client[me],response,2048,0);
 
 

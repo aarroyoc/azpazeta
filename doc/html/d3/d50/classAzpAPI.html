@@ -113,6 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6dc7eed6b53192e10a8171a3ec1199d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a6dc7eed6b53192e10a8171a3ec1199d0">azpMosaic</a> ()</td></tr>
 <tr class="memdesc:a6dc7eed6b53192e10a8171a3ec1199d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the Azpazeta mosaic.  <a href="#a6dc7eed6b53192e10a8171a3ec1199d0">More...</a><br/></td></tr>
 <tr class="separator:a6dc7eed6b53192e10a8171a3ec1199d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fb4145b6ba4ff630bea5eb15a986ec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a7fb4145b6ba4ff630bea5eb15a986ec5">azpExecute</a> (File, Securitylevel, Home)</td></tr>
+<tr class="memdesc:a7fb4145b6ba4ff630bea5eb15a986ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a AZPScript.  <a href="#a7fb4145b6ba4ff630bea5eb15a986ec5">More...</a><br/></td></tr>
+<tr class="separator:a7fb4145b6ba4ff630bea5eb15a986ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Imaginary class for <a class="el" href="../../d3/d50/classAzpAPI.html" title="Imaginary class for AzpAPI Lua docs.">AzpAPI</a> Lua docs. </p>
@@ -142,6 +145,52 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#ac4bc3b02915493c94b2630a13bf9dfba" title="Start a AZPScript context.">azpInit</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7fb4145b6ba4ff630bea5eb15a986ec5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AzpAPI::azpExecute </td>
+          <td>(</td>
+          <td class="paramtype">File&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Securitylevel&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Home&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes a AZPScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">File</td><td>The AZPScript file for execute </td></tr>
+    <tr><td class="paramname">Securitylevel</td><td>The security level of the script, by default azpVM_SECURE </td></tr>
+    <tr><td class="paramname">The</td><td>script is in the home folder. You must set it to "TRUE" if you made maps for Azpazeta Market </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing <pre class="fragment">Security level can be: azpVM_FULL, azpVM_SECURE, azpVM_INTERNET, azpVM_INSTALLATION and azpVM_TEST
+* </pre> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a69e0f89bc542b57a3e39733fc95a7b0d" title="Display the Azpazeta logo.">azpLogo</a> </dd></dl>
 
 </div>
 </div>
@@ -227,7 +276,7 @@ The version of Azpazeta </dd></dl>
 </div><div class="memdoc">
 
 <p>Display the Azpazeta mosaic. </p>
-<dl class="section return"><dt>Returns</dt><dd>Nothing <pre class="fragment">Used for exit the map, or loading the map
+<dl class="section return"><dt>Returns</dt><dd>Nothing <pre class="fragment">Used for normal play
 * </pre> </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a69e0f89bc542b57a3e39733fc95a7b0d" title="Display the Azpazeta logo.">azpLogo</a> </dd></dl>
@@ -267,7 +316,7 @@ The version of Azpazeta </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 4 2013 00:28:28 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 4 2013 13:07:17 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

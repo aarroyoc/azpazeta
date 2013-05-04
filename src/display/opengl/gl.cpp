@@ -82,6 +82,10 @@ AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,a
 	bufferEnabled=false;
 	textureEnabled=false;
 	glewEnabled=false;
+
+	vadrixposx=0.0f;
+	vadrixposy=0.0f;
+
 }
 
 void AZPGL::Resize(wxSizeEvent& event)
@@ -488,7 +492,37 @@ void AZPGL::Render(wxPaintEvent& event)
 	xfila=-1.0f;
 	ycolumna-=0.1f;
 	}
+	//SwapBuffers();
+
+	//VADRIX
+	//float actualposx=(float)((float)vadrixposx/10.0f);
+	//float actualposy=(float)((float)vadrixposy/10.0f);	
+
+		mvMatrix[12]=(float)vadrixposx/10.0f;
+		mvMatrix[13]=(float)vadrixposy/10.0f;
+		//wxMessageBox(wxString::Format(wxT("X Pos in FLOAT: %f\nY Pos in FLOAT: %f"),actualposx,actualposy)); CRASH!! Use it in Virus...
+		//printf("X Pos in float: %f\nY Pos in float: %f\n",(float)vadrixposx/10.0f,(float)vadrixposy/10.0f);
+		mvMatrix[0]=0.1f; //X-scale
+		mvMatrix[5]=0.1f; //Y-Scale
+
+
+
+	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
+	glVertexAttribPointer(Shader::vPA,3,GL_FLOAT,GL_FALSE,0,0);
+	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
+	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, vadrixtexture[0]);
+	glUniform1i(Shader::sU, 0);
+
+
+	AzpShader::SetMatrixUniforms();
+	glDrawArrays(GL_QUADS, 0, 4);
+	
 	SwapBuffers();
+
 	//VADRIX
 	//SwapBuffers();
 	//Vadrix ahora no tiene Alpha Channel, asi pues se cargan imagenes con fondo
@@ -557,6 +591,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		return;
 
 	}
+	
 	switch(event.GetKeyCode())
 	{
 		case WXK_ESCAPE:wxExit();break;
@@ -571,23 +606,25 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case WXK_LEFT:{
 			vadrixside=1;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx-1,vadrixposy,1))
+			if(client->RequestMove(vadrixposx-1+10,vadrixposy+10,1))
 			{
 				vadrixposx-=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx,vadrixposy);
+				//printf("Event of: %d:%d\n",vadrixposx+10,vadrixposy*-1+10);
+				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
+
 			}
 		}break;
 		case WXK_UP:{
 			vadrixside=3;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx,vadrixposy-1,1))
+			if(client->RequestMove(vadrixposx+10,vadrixposy+1+10,1))
 			{
-				vadrixposy-=1;
+				vadrixposy+=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx,vadrixposy);
+				eventm->Execute(vadrixposx+10,vadrixposy+10);
 				//Refresh TODO
 				Refresh();
 			}
@@ -595,11 +632,11 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case WXK_RIGHT:{
 			vadrixside=2;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx,vadrixposy+1,1))
+			if(client->RequestMove(vadrixposx+1+10,vadrixposy+10,1))
 			{
-				vadrixposy+=1;
+				vadrixposx+=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx,vadrixposy);
+				eventm->Execute(vadrixposx+10,vadrixposy+10);
 				//Refresh TODO
 				Refresh();
 			}
@@ -607,11 +644,11 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case WXK_DOWN:{
 			vadrixside=0;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx+1,vadrixposy,1))
+			if(client->RequestMove(vadrixposy+10,vadrixposy-1+10,1))
 			{
-				vadrixposx+=1;
+				vadrixposy-=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx,vadrixposy);
+				eventm->Execute(vadrixposx+10,vadrixposy+10);
 				//Refresh TODO
 				Refresh();
 			}
@@ -668,6 +705,12 @@ void AZPGL::OnKey(wxKeyEvent& event)
 			}
 
 		}break;
+		default:{
+				wxYield();
+				Refresh();
+				wxYield();
+				Update();
+		}
 	}
 		
 }

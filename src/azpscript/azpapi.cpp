@@ -157,9 +157,13 @@ int azpExecute(lua_State* l)
 	std::string file=lua_tostring(l, lua_gettop(l));
 	lua_pop(l, 1);
 	std::string level=lua_tostring(l,lua_gettop(l));
+	lua_pop(l,1);
+	std::string home=lua_tostring(l, lua_gettop(l));
 	if(level.compare("azpVM_FULL")==0)
 	{
-		levelstate=azpVM_FULL;
+		int response=wxMessageBox(_("Current map requires access to complete control of the game. Only accept if you trust in the author. Do you like to accept the requeriment?"),_("AzpVM"),wxICON_QUESTION|wxYES_NO);
+		if(response==wxYES)
+			levelstate=azpVM_FULL;
 	}
 	if(level.compare("azpVM_SECURE")==0)
 	{
@@ -167,17 +171,28 @@ int azpExecute(lua_State* l)
 	}
 	if(level.compare("azpVM_INSTALLATION")==0)
 	{
+		int response=wxMessageBox(_("Current map requires access to complete control of the files from the computer. Only accept if you trust in the author. Do you like to accept the requeriment?"),_("AzpVM"),wxICON_QUESTION|wxYES_NO);
+		if(response==wxYES)
 		levelstate=azpVM_INSTALLATION;
 	}
 	if(level.compare("azpVM_TEST")==0)
 	{
+		int response=wxMessageBox(_("Current map requires access to debug mode of the game. Only accept if you trust in the author. Do you like to accept the requeriment?"),_("AzpVM"),wxICON_QUESTION|wxYES_NO);
+		if(response==wxYES)
 		levelstate=azpVM_TEST;
 	}
 	if(level.compare("azpVM_INTERNET")==0)
 	{
+		int response=wxMessageBox(_("Current map requires access to internet control of the game. Only accept if you trust in the author. Do you like to accept the requeriment?"),_("AzpVM"),wxICON_QUESTION|wxYES_NO);
+		if(response==wxYES)
 		levelstate=azpVM_INTERNET;
 	}
+	if(home.compare("TRUE")==0)
+	{
+	AZPVM* azpvm=new AZPVM(PathFinder::GetUserPath()+wxString::FromUTF8(file.c_str()),levelstate);
+	}else{
 	AZPVM* azpvm=new AZPVM(azppath+wxString::FromUTF8(file.c_str()),levelstate);
+	}
 
 
 	return 0;

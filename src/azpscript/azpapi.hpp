@@ -21,6 +21,7 @@
 #include "azpvm.hpp"
 #include "wx/wx.h"
 #include "../version.hpp"
+#include "../pathfinder/pathfinder.hpp"
 
 /**
 * @brief Start the AZPScript context
