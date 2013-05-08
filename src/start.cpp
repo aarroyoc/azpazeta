@@ -15,6 +15,8 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+
+
 #include "GL/glew.h"
 #include "app.hpp"
 #include "start.hpp"
@@ -25,6 +27,7 @@
 #include "pathfinder/pathfinder.hpp"
 #include "wx/utils.h"
 #include "wx/splash.h"
+#include "wx/busyinfo.h"
 #include "maploader/map.hpp"
 #include "maploader/azpmap.hpp"
 #include "start/startgui.hpp"
@@ -56,6 +59,7 @@ Start::Start(const wxString& title)
 	wxExit();
 	}
   wxYield();
+	wxBusyInfo wait(_("Please wait, working on something stupid"));
 
 
 #if wxUSE_MENUS

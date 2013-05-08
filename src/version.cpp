@@ -32,7 +32,20 @@ void Version::Display::About()
 	info.AddTranslator(wxT("Adrián Arroyo Calle->Spanish"));
 	info.AddTranslator(wxT("Google Translate->French"));
 	info.SetDescription(_("Azpazeta is a strategy-economic game about Vadrix and the region of Azpazeta. Explore the world in a sandbox game"));
-	info.SetLicense(wxT("GPLv2"));
+	info.SetLicense(wxT("Azpazeta The strategy-economic game\nCopyright (C) 2013  Adrián Arroyo Calle\n\n"
+"This program is free software; you can redistribute it and/or\n"
+"modify it under the terms of the GNU General Public License\n"
+"as published by the Free Software Foundation; either version 2\n"
+"of the License, or (at your option) any later version.\n"
+
+"This program is distributed in the hope that it will be useful,\n\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n\n"
+
+"You should have received a copy of the GNU General Public License\n"
+"along with this program; if not, write to the Free Software\n"
+"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA."));
 	info.SetName(wxT("Azpazeta"));
 	info.SetVersion(wxString::FromUTF8(AZPAZETA_VERSION_STR));
 	info.SetWebSite(wxT("http://launchpad.net/azpazeta"));
@@ -47,6 +60,8 @@ void Version::Display::All()
 }
 HTMLVersion::HTMLVersion() : wxDialog(NULL,wxID_ANY,_("Version information"))
 {
+	//#pragma message "Existen mensajes"
+	//#pragma message OS_WX
 	//Put the data DONE
 	SetSize(500,500);
 	html=new wxHtmlWindow(this);
@@ -61,9 +76,9 @@ HTMLVersion::HTMLVersion() : wxDialog(NULL,wxID_ANY,_("Version information"))
 	htmlPageCompile.Append(wxString::FromUTF8(OS_WX));
 	htmlPageCompile.Append(wxT("<br>Processor: "));
 	htmlPageCompile.Append(wxString::FromUTF8(PROCESSOR_WX));
-	htmlPageCompile.Append(wxT("<br>wxWidgets Major Version: "));
-//	htmlPageCompile.Append(wxMAJOR_VERSION);
-	htmlPageCompile.Append(wxT("<br>wxWidgets Minor Version: "));
+	htmlPageCompile.Append(wxT("<br>wxWidgets Version String: "));
+	htmlPageCompile.Append(wxVERSION_STRING);
+//	htmlPageCompile.Append(wxT("<br>wxWidgets Minor Version: "));
 //	htmlPageCompile.Append(wxMINOR_VERSION);
 	htmlPageCompile.Append(wxT("<br></p>"));//COMPILER_WX,CMAKE_WX_VERSION,OS_WX,PROCESSOR_WX,wxMAJOR_VERSION,wxMINOR_VERSION);
 	html->AppendToPage(htmlPageCompile);

@@ -15,6 +15,7 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 #include "../window/options.hpp"
+#include "../window/newgame.hpp"
 #include "startgui.hpp"
 #include "wx/bmpbuttn.h"
 #include "wx/wx.h"
@@ -101,6 +102,8 @@ StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"),wxDe
 }
 void StartDialog::NewGame(wxCommandEvent& event)
 {
+	AZPNewGame* newgame=new AZPNewGame();
+	newgame->ShowModal();
 	client=new AzpClient(); //single player, localhost, ipv6 (WinXP users, sorry)
 	client->Connect();
 	//client->Disconnect();
