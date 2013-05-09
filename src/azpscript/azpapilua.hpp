@@ -76,12 +76,23 @@ void azpExecute(File,Securitylevel,Home);
 /**
 * @brief Gets a var from Database storage
 * @param File The DataBase file to open
-* @param Var The namw of the var to get
+* @param Var The name of the var to get
 * @param Home If the script is under AZP_HOME instead AZP_ROOT set it to TRUE
 * @returns the value of the var
 * @note This documentation uses C/C++ style in Lua functions. The return values exists
 * @see azpSet
 */
 void azpGet(Var,File,Home);
+/**
+* @brief Sets a var from Database storage
+* @param File The DataBase file to open
+* @param Var The name of the var to set
+* @param Value The new value of the var
+* @param Home If the script is under AZP_HOME instead AZP_ROOT set it to TRUE
+* @returns Nothing
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpSet
+*/
+void azpSet(Var,Value,File,Home);
 
 };

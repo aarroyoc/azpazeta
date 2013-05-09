@@ -233,7 +233,7 @@ int azpGet(lua_State* l)
 	return 1;
 }
 /**
-* @brief Display the Azpazeta Mosaic
+* @brief Set a var in Database Storage
 * @param l AzpVM instance
 * @returns Number of output values
 * @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
@@ -243,5 +243,24 @@ int azpGet(lua_State* l)
 
 int azpSet(lua_State* l)
 {
+	int argc=lua_gettop(l);
+	std::string parameter[4];
+    	for(int i=0; i<argc; i++)
+    	{
+ 		parameter[i]=lua_tostring(l, lua_gettop(l));
+		lua_pop(l, 1);
+ 	}
+	DATABASE* database;	
+
+	if(parameter[0].compare("TRUE")==0)
+	{
+		database=new DATABASE(PathFinder::GetUserPath()+wxString::FromUTF8(parameter[1].c_str()));
+	}else{
+		database=new DATABASE(azppath+wxString::FromUTF8(parameter[1].c_str()));
+	}	
+	database->Set(wxString::FromUTF8(parameter[3].c_str()),wxString::FromUTF8(parameter[2].c_str()));	
+
+	delete database;
+
 	return 0;
 }

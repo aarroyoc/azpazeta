@@ -42,5 +42,6 @@ int azpWait(lua_State*);
 int azpMosaic(lua_State*);
 int azpExecute(lua_State*);
 int azpGet(lua_State*);
+int azpSet(lua_State*);
 float azpVersion();
 #endif
