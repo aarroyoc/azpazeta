@@ -14,33 +14,16 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-/* AzpAPI - Library of functions for AzpVM */
-#ifndef AZPAPI_HPP
-#define AZPAPI_HPP
-#include "lua.hpp"
-#include "azpvm.hpp"
+
 #include "wx/wx.h"
-#include "../version.hpp"
-#include "../pathfinder/pathfinder.hpp"
-#include "../database/database.hpp"
 
-/**
-* @brief Start the AZPScript context
-* @param Name The Name of the Script
-* @param Author The Author name
-* @param Version Version of the Script
-* @return The Operating System and the Azpazeta Version
-* @note This is the Lua description of the function
-* @see azpConsole
-*
-*/
-
-int azpInit(lua_State*);
-int azpConsole(lua_State*);
-int azpLogo(lua_State*);
-int azpWait(lua_State*);
-int azpMosaic(lua_State*);
-int azpExecute(lua_State*);
-int azpGet(lua_State*);
-float azpVersion();
-#endif
+class DATABASE{
+public:
+	DATABASE(wxString file);
+	wxString Get(wxString attribute);
+	void Set(wxString attribute,wxString value);
+private:
+	wxString VarArray[1024];
+	int read;
+	wxString databasefile;
+};

@@ -197,3 +197,51 @@ int azpExecute(lua_State* l)
 
 	return 0;
 }
+/**
+* @brief Gets a var from database storage
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpSet
+*
+*/
+
+int azpGet(lua_State* l)
+{
+
+	int argc = lua_gettop(l);
+	std::string parameter[3];
+    	for(int i=0; i<argc; i++)
+    	{
+ 		parameter[i]=lua_tostring(l, lua_gettop(l));
+		lua_pop(l, 1);
+ 	}
+
+	DATABASE* database;	
+
+	if(parameter[0].compare("TRUE")==0)
+	{
+		database=new DATABASE(PathFinder::GetUserPath()+wxString::FromUTF8(parameter[1].c_str()));
+	}else{
+		database=new DATABASE(azppath+wxString::FromUTF8(parameter[1].c_str()));
+	}	
+	wxString var=database->Get(wxString::FromUTF8(parameter[2].c_str()));
+
+	lua_pushstring(l,var.mb_str());
+	delete database;
+
+	return 1;
+}
+/**
+* @brief Display the Azpazeta Mosaic
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpGet
+*
+*/
+
+int azpSet(lua_State* l)
+{
+	return 0;
+}

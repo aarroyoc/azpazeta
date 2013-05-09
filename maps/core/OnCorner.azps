@@ -1,2 +1,4 @@
-print('[AZPCORE] EventManager Works!')
+print('[AZPMAP] EventManager Works!')
 -- azpExecute("/maps/core/OnExecutedExtern.azps","azpVM_SECURE")
+username=azpGet("UserName","/maps/core/database.xml","FALSE")
+io.write('[AZPCORE] UserName is <' .. username .. '>')

@@ -93,6 +93,7 @@ src/azpmarket/azpmarket.cpp
 src/core/core.cpp
 src/sprite/sprite.cpp
 src/start/startgui.cpp
+src/database/database.cpp
 src/maploader/map.cpp
 src/maploader/azpmap.cpp
 src/window/options.cpp
