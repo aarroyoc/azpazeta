@@ -29,6 +29,9 @@
  */
 bool azplogo;
 bool azpmosaic;
+bool azpmission;
+wxString missionid;
+double azpmoney;
 extern wxString azppath;
 
 float azpVersion()
@@ -261,6 +264,89 @@ int azpSet(lua_State* l)
 	database->Set(wxString::FromUTF8(parameter[3].c_str()),wxString::FromUTF8(parameter[2].c_str()));	
 
 	delete database;
+
+	return 0;
+}
+/**
+* @brief Display dialog to start a mission
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpFinishMission
+*
+*/
+
+int azpStartMission(lua_State* l)
+{
+	if(azpmission==false)
+	{
+	int argc=lua_gettop(l);
+	std::string parameter[5];
+	
+    	for(int i=0; i<argc; i++)
+    	{
+ 		parameter[i]=lua_tostring(l, lua_gettop(l));
+		lua_pop(l, 1);
+ 	}
+	missionid=wxString::FromUTF8(parameter[4].c_str());
+	if(parameter[0].compare("TRUE")==0)
+	{
+		AzpStartMission* startmission=new AzpStartMission(wxString::FromUTF8(parameter[3].c_str()),wxString::FromUTF8(parameter[2].c_str()),3,PathFinder::GetUserPath()+wxString::FromUTF8(parameter[1].c_str()));
+		startmission->ShowModal();
+	}else{
+		AzpStartMission* startmission=new AzpStartMission(wxString::FromUTF8(parameter[3].c_str()),wxString::FromUTF8(parameter[2].c_str()),3,azppath+wxString::FromUTF8(parameter[1].c_str()));
+		startmission->ShowModal();
+		
+	}
+	}
+	return 0;
+}
+/**
+* @brief Display dialog to finish the current mission
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpStartMission
+*
+*/
+
+int azpFinishMission(lua_State* l)
+{
+	if(azpmission==true)
+	{
+	int argc=lua_gettop(l);
+	std::string parameter[2];
+
+    		for(int i=0; i<argc; i++)
+    		{
+ 			parameter[i]=lua_tostring(l, lua_gettop(l));
+			lua_pop(l, 1);
+ 		}
+		if(missionid.Cmp(wxString::FromUTF8(parameter[1].c_str()))==0)
+		{
+			azpmoney+=atof(parameter[0].c_str());
+			azpmission=false;
+			wxMessageBox(_("Mission finished sucesfully"),_("AZPVM"),wxICON_INFORMATION|wxOK);
+		
+		}
+	}
+	return 0;
+}
+/**
+* @brief Display the message to the user
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpStartMission
+*
+*/
+
+int azpDialog(lua_State* l)
+{
+
+	int argc=lua_gettop(l);
+
+ 	wxMessageBox(wxString::FromUTF8(lua_tostring(l, lua_gettop(l))),_("Current map says..."),wxICON_INFORMATION|wxOK);
 
 	return 0;
 }

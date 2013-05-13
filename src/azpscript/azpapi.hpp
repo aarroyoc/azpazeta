@@ -23,6 +23,7 @@
 #include "../version.hpp"
 #include "../pathfinder/pathfinder.hpp"
 #include "../database/database.hpp"
+#include "../window/startmission.hpp"
 
 /**
 * @brief Start the AZPScript context
@@ -43,5 +44,8 @@ int azpMosaic(lua_State*);
 int azpExecute(lua_State*);
 int azpGet(lua_State*);
 int azpSet(lua_State*);
+int azpStartMission(lua_State*);
+int azpFinishMission(lua_State*);
+int azpDialog(lua_State*);
 float azpVersion();
 #endif

@@ -14,9 +14,16 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-#ifndef SERVER_COMMAND_HPP
-#define SERVER_COMMAND_HPP
-void LoopProcess(int64_t me);
-bool CheckBuilding(int buildingcode);
 
-#endif
+#include "wx/wx.h"
+#include "../azpscript/azpvm.hpp"
+
+class AzpStartMission : public wxDialog
+{
+public:
+	AzpStartMission(wxString missionname,wxString missiondesc, unsigned short difficult, wxString scriptexec);
+private:
+	wxString scriptfile;
+	void ExecInitScript(wxCommandEvent&);
+	void AutoDestroy(wxCommandEvent&);
+};

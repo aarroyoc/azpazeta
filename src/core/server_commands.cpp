@@ -21,6 +21,7 @@
 extern SOCKET sock_client[100];
 int xpos[100];
 int ypos[100];
+int building;
 
 void LoopProcess(int64_t me)
 {
@@ -38,10 +39,16 @@ char response[2048];
 			xpos[me]=atoi(commandpart);
 			commandpart=strtok(NULL,"|");
 			ypos[me]=atoi(commandpart);
-			if(xpos[me]>21 || xpos[me]<0 || ypos[me]>21 || ypos[me]<0)
+			commandpart=strtok(NULL,"|");
+			building=atoi(commandpart);
+			if(xpos[me]>21 || xpos[me]<0 || ypos[me]>21 || ypos[me]<0 || CheckBuilding(building)==false)
+			{
 				snprintf(response,2048,"FALSE");
+			}
 			else
+			{
 				snprintf(response,2048,"TRUE");
+			}
 			send(sock_client[me],response,2048,0);
 
 
@@ -69,5 +76,22 @@ char response[2048];
 
 
 	}
+
+}
+bool CheckBuilding(int buildingcode)
+{
+	printf("BuildingCode: %d\n",buildingcode);
+	bool result=false;		
+	//Whitelist
+	switch(buildingcode)
+	{
+		case 1:
+		case 2:
+		case 4:result=true;break;
+
+
+	
+	}
+	return result;
 
 }

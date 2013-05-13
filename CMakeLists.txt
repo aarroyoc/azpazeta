@@ -101,6 +101,7 @@ src/window/alert.cpp
 src/window/loader.cpp
 src/window/longtalk.cpp
 src/window/newgame.cpp
+src/window/startmission.cpp
 src/window/feedback/feedback.cpp
 src/version.cpp
 src/log.cpp

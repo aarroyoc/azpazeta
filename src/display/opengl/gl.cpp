@@ -606,7 +606,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case WXK_LEFT:{
 			vadrixside=1;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx-1+10,vadrixposy+10,1))
+			if(client->RequestMove(vadrixposx-1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx-1+10,vadrixposy*-1+10)))
 			{
 				vadrixposx-=1;
 				//Execute Events TODO
@@ -620,11 +620,11 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case WXK_UP:{
 			vadrixside=3;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx+10,vadrixposy+1+10,1))
+			if(client->RequestMove(vadrixposx+10,vadrixposy+1+10,azpmap->GetArrayData(vadrixposx+10,vadrixposy*-1+10-1)))
 			{
 				vadrixposy+=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx+10,vadrixposy+10);
+				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
 			}
@@ -632,11 +632,11 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case WXK_RIGHT:{
 			vadrixside=2;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx+1+10,vadrixposy+10,1))
+			if(client->RequestMove(vadrixposx+1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx+10+1,vadrixposy*-1+10)))
 			{
 				vadrixposx+=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx+10,vadrixposy+10);
+				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
 			}
@@ -644,11 +644,11 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case WXK_DOWN:{
 			vadrixside=0;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposy+10,vadrixposy-1+10,1))
+			if(client->RequestMove(vadrixposy+10,vadrixposy-1+10,azpmap->GetArrayData(vadrixposx+10,vadrixposy*-1+10+1)))
 			{
 				vadrixposy-=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx+10,vadrixposy+10);
+				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
 			}
@@ -656,11 +656,11 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case 'W':{
 			vadrixside=3;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx,vadrixposy-1,1))
+			if(client->RequestMove(vadrixposx+10,vadrixposy+1+10,azpmap->GetArrayData(vadrixposx+10,vadrixposy*-1+10-1)))
 			{
-				vadrixposy-=1;
+				vadrixposy+=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx,vadrixposy);
+				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
 			}
@@ -669,24 +669,26 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case 'A':{
 			vadrixside=1;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx-1,vadrixposy,1))
+			if(client->RequestMove(vadrixposx-1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx+10-1,vadrixposy*-1+10)))
 			{
 				vadrixposx-=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx,vadrixposy);
+				//printf("Event of: %d:%d\n",vadrixposx+10,vadrixposy*-1+10);
+				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
+
 			}
 
 		}break;
 		case 'S':{
 			vadrixside=0;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx+1,vadrixposy,1))
+			if(client->RequestMove(vadrixposy+10,vadrixposy-1+10,azpmap->GetArrayData(vadrixposx+10,vadrixposy*-1+10+1)))
 			{
-				vadrixposx+=1;
+				vadrixposy-=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx,vadrixposy);
+				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
 			}
@@ -695,21 +697,21 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case 'D':{
 			vadrixside=2;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx,vadrixposy+1,1))
+			if(client->RequestMove(vadrixposx+1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx+10+1,vadrixposy*-1+10)))
 			{
-				vadrixposy+=1;
+				vadrixposx+=1;
 				//Execute Events TODO
-				eventm->Execute(vadrixposx,vadrixposy);
+				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
 			}
 
 		}break;
 		default:{
-				wxYield();
+				/*wxYield();
 				Refresh();
 				wxYield();
-				Update();
+				Update();*/
 		}
 	}
 		

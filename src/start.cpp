@@ -59,7 +59,7 @@ Start::Start(const wxString& title)
 	wxExit();
 	}
   wxYield();
-	wxBusyInfo wait(_("Please wait, working on something stupid"));
+	//wxBusyInfo wait(_("Please wait, working on something stupid"));
 
 
 #if wxUSE_MENUS

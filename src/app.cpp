@@ -24,6 +24,7 @@
 #include "wx/taskbar.h"
 #include "log.hpp"
 #include "wx/cmdline.h"
+#include "wx/settings.h"
 
 #include "xml/tinyxml.h"
 
@@ -31,6 +32,8 @@ IMPLEMENT_APP(Azpazeta)
 
 AzpClient* client;
 extern wxString azppath;
+extern bool azpmission;
+extern double azpmoney;
 
 bool Azpazeta::OnInit()
 {
@@ -39,6 +42,11 @@ bool Azpazeta::OnInit()
 
 	SetAppName(wxT("Azpazeta"));
 	SetVendorName(wxT("Adrián Arroyo Calle for Divel"));
+	
+	azpmission=false;
+	azpmoney=1000.0;
+
+
 	if(wxApp::argc>=2)
 	{
 		AzpLog("[INFO] Processing parameters",1);
@@ -54,6 +62,17 @@ bool Azpazeta::OnInit()
 		}	
 	}else{
 		AzpLog("[INFO] Running normal mode",1);
+		wxSystemScreenType screentype=wxSystemSettings::GetScreenType();
+		switch(screentype)
+		{
+			case wxSYS_SCREEN_NONE:AzpLog("[WARNING] Running in a undefined screen",2);break;
+			case wxSYS_SCREEN_TINY:AzpLog("[WARNING] Tiny Screen (320x240). Some dialogues can appear incomplete",2);break;
+			case wxSYS_SCREEN_PDA:AzpLog("[WARNING] PDA Screen. Some dialogues can appear incomplete",2);break;
+			case wxSYS_SCREEN_SMALL:AzpLog("[WARNING] Small Screen. Some dialogues can appear incomplete",2);break;
+			case wxSYS_SCREEN_DESKTOP:AzpLog("[OK] Desktop Screen. All dialogues appears fine",4);break;
+
+		}	
+		
 	}
 	
 	

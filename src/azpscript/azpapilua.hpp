@@ -94,5 +94,33 @@ void azpGet(Var,File,Home);
 * @see azpSet
 */
 void azpSet(Var,Value,File,Home);
-
+/**
+* @brief Display a Start Mission Dialog
+* @param MissionID The unique ID of the mission
+* @param MissionName The name of the mission
+* @param Description A description of the mission
+* @param InitScript Script to execute when the mission starts
+* @param Home If the script is under AZP_HOME instead AZP_ROOT set it to TRUE
+* @returns Nothing
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpFinishMission
+*/
+void azpStartMission(MissionID,MissionName,Description,InitScript,Home);
+/**
+* @brief Display a Finish Mission Dialog
+* @param MissionID The unique ID of the mission
+* @param Money The money to add to user account
+* @returns Nothing
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpStartMission
+*/
+void azpFinishMission(MissionID,Money);
+/**
+* @brief Display a message to the user
+* @param Message The message to show
+* @returns Nothing
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpStartMission
+*/
+void azpDialog(Message);
 };
