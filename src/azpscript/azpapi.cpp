@@ -350,3 +350,20 @@ int azpDialog(lua_State* l)
 
 	return 0;
 }
+/**
+* @brief Change VADRIX to the specified pos
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpDialog
+*
+*/
+
+/*int azpChangePosition(lua_State* l)
+{
+
+	int argc=lua_gettop(l);
+	
+
+	return 0;
+}*/

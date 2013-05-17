@@ -10,6 +10,40 @@ SET(PROJECT_COPYRIGHT    "Copyright (C) 2013 Adrián Arroyo Calle")
 SET(PROJECT_CONTACT      "adrian.arroyocalle@gmail.com")
 SET(PROJECT_VENDOR       "Divel")
 SET(ORG_WEBSITE          "sites.google.com/site/divelmedia")
+#OperatingSystem-Explicit Category
+SET(OperatingSystem_EXPLICIT_BSD false CACHE BOOL "Compile with explicit BSD compatible")
+SET(OperatingSystem_EXPLICIT_SOLARIS false CACHE BOOL "Compile with explicit Solaris compatible")
+SET(OperatingSystem_EXPLICIT_HAIKU false CACHE BOOL "Compile with explicit Haiku compatible")
+SET(OperatingSystem_EXPLICIT_SYLLABLE false CACHE BOOL "Compile with explicit Syllable compatible")
+SET(OperatingSystem_EXPLICIT_REACTOS false CACHE BOOL "Compile with explicit ReactOS compatible")
+SET(OperatingSystem_EXPLICIT_ANDROID false CACHE BOOL "Compile with explicit Android compatible")
+SET(OperatingSystem_EXPLICIT_EMSCRIPTEN false CACHE BOOL "Compile with explicit Emscripten compatible")
+SET(OperatingSystem_EXPLICIT_IOS false CACHE BOOL "Compile with explicit iOS compatible")
+SET(OperatingSystem_EXPLICIT_WINPHONE false CACHE BOOL "Compile with explicit Windows Phone compatible")
+SET(OperatingSystem_EXPLICIT_IRIX false CACHE BOOL "Compile with explicit IRIX compatible")
+SET(OperatingSystem_EXPLICIT_HPUX false CACHE BOOL "Compile with explicit HP-UX compatible")
+SET(OperatingSystem_EXPLICIT_WINDOWS false CACHE BOOL "Compile with explicit Windows compatible")
+SET(OperatingSystem_EXPLICIT_HURD false CACHE BOOL "Compile with explicit Hurd compatible")
+SET(OperatingSystem_EXPLICIT_LINUX true CACHE BOOL "Compile with explicit Linux compatible")
+SET(OperatingSystem_EXPLICIT_ECOMSTATION false CACHE BOOL "Compile with explicit eComStation compatible")
+SET(OperatingSystem_EXPLICIT_OS2 false CACHE BOOL "Compile with explicit OS/2 compatible")
+#Arch optimization
+SET(OperatingSystem_ARCH_ARMEL false CACHE BOOL "Compile with explicit ARMEL compatible")
+SET(OperatingSystem_ARCH_AVR false CACHE BOOL "Compile with explicit AVR compatible")
+SET(OperatingSystem_ARCH_POWERPC false CACHE BOOL "Compile with explicit PowerPC compatible")
+SET(OperatingSystem_ARCH_SPARC false CACHE BOOL "Compile with explicit SPARC compatible")
+SET(OperatingSystem_ARCH_ITANIUM false CACHE BOOL "Compile with explicit Itanium compatible")
+SET(OperatingSystem_ARCH_ARMHF false CACHE BOOL "Compile with explicit ARMHF compatible")
+SET(OperatingSystem_ARCH_x86 true CACHE BOOL "Compile with explicit x86 compatible")
+SET(OperatingSystem_ARCH_HPPA false CACHE BOOL "Compile with explicit HPPA compatible")
+SET(OperatingSystem_ARCH_ALPHA false CACHE BOOL "Compile with explicit Alpha compatible")
+SET(OperatingSystem_ARCH_MIPS false CACHE BOOL "Compile with explicit MIPS compatible")
+SET(OperatingSystem_ARCH_s390 false CACHE BOOL "Compile with explicit s390 compatible")
+SET(OperatingSystem_ARCH_BITS_32 true CACHE BOOL "Compile with explicit 32 Bits compatible")
+SET(OperatingSystem_ARCH_BITS_64 false CACHE BOOL "Compile with explicit 64 Bits compatible")
+#Optional features
+SET(AZPFEATURES_MARKET true CACHE BOOL "Add Azpazeta Market to compilation")
+
 SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 MESSAGE(STATUS "Welcome to Azpazeta 2.0 (Juno)")
 SET(CMAKE_CXX_FLAGS_DEBUG,"-O0 -g3 -Wall -Werror -W -Wno-return-type")
@@ -29,11 +63,7 @@ FIND_PACKAGE(GLEW)
 
 SET(A,${CMAKE_CURRENT_SOURCE_DIR})
 SET(B,${CMAKE_SOURCE_DIR})
-SET(OS_VERSION,${CMAKE_SYSTEM})
-SET(OS_NAME, ${CMAKE_SYSTEM_NAME})
-SET(PROCESSOR, ${CMAKE_SYSTEM_PROCESSOR})
-SET(COMPILER, ${CMAKE_CXX_COMPILER})
-SET(BUILD_CMAKE,${CMAKE_VERSION})
+
 
 IF(NOT CMAKE_BUILD_TYPE )
    SET( CMAKE_BUILD_TYPE "Release" )
@@ -91,6 +121,7 @@ src/azpscript/azpapi.cpp
 src/azpscript/event.cpp
 src/azpmarket/azpmarket.cpp
 src/core/core.cpp
+src/savefile/savefile.cpp
 src/sprite/sprite.cpp
 src/start/startgui.cpp
 src/database/database.cpp

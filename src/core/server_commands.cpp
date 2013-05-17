@@ -85,9 +85,11 @@ bool CheckBuilding(int buildingcode)
 	//Whitelist
 	switch(buildingcode)
 	{
-		case 1:
-		case 2:
-		case 4:result=true;break;
+		case 1: //Green
+		case 2: //Red
+		case 4: //Green
+		case 23: //Bridge 
+		case 24:result=true;break; //Bridge
 
 
 	

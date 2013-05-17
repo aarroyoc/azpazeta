@@ -514,7 +514,7 @@ void AZPGL::Render(wxPaintEvent& event)
 	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
 	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, vadrixtexture[0]);
+	glBindTexture(GL_TEXTURE_2D, vadrixtexture[vadrixside]);
 	glUniform1i(Shader::sU, 0);
 
 
@@ -604,7 +604,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		}
 		}break;
 		case WXK_LEFT:{
-			vadrixside=1;
+			vadrixside=2;
 			//Comunicate with Server TODO
 			if(client->RequestMove(vadrixposx-1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx-1+10,vadrixposy*-1+10)))
 			{
@@ -630,7 +630,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 			}
 		}break;
 		case WXK_RIGHT:{
-			vadrixside=2;
+			vadrixside=1;
 			//Comunicate with Server TODO
 			if(client->RequestMove(vadrixposx+1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx+10+1,vadrixposy*-1+10)))
 			{
@@ -667,7 +667,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 
 		}break;
 		case 'A':{
-			vadrixside=1;
+			vadrixside=2;
 			//Comunicate with Server TODO
 			if(client->RequestMove(vadrixposx-1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx+10-1,vadrixposy*-1+10)))
 			{
@@ -695,7 +695,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 
 		}break;
 		case 'D':{
-			vadrixside=2;
+			vadrixside=1;
 			//Comunicate with Server TODO
 			if(client->RequestMove(vadrixposx+1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx+10+1,vadrixposy*-1+10)))
 			{
@@ -778,20 +778,21 @@ void AZPGL::AZPTexture()
 {
 	AzpLog("[INFO] Starting loading textures",1);
 	WindowLoader* winl=new WindowLoader();
-
+	winl->Next();
 	wxImage azpazeta_img(azppath+_("/media/azpazeta.png"),wxBITMAP_TYPE_PNG);
 	glGenTextures(1, &azptexture);
 	glBindTexture(GL_TEXTURE_2D, azptexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 512, 512, 0, GL_RGB, GL_UNSIGNED_BYTE, azpazeta_img.GetData());
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	
-	int test;
+	winl->Next();
+	/*int test;
 	for(test=0;test<750;test++)
 		winl->Next();
-	winl->Finish();
+	winl->Finish();*/
 
 	//VADRIX -- No hacer transparente, sino del fondo del lugar (bosque o desierto)
+	winl->Next();
 
 	SpriteLoader* vadrixsprite=new SpriteLoader(azppath+wxT("/media/vadrixmain.png"),64);
 	glGenTextures(1,&vadrixtexture[0]);
@@ -799,10 +800,27 @@ void AZPGL::AZPTexture()
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, vadrixsprite->GetSprite(1).GetData());
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glGenTextures(1,&vadrixtexture[1]);
+	glBindTexture(GL_TEXTURE_2D, vadrixtexture[1]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, vadrixsprite->GetSprite(2).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glGenTextures(1,&vadrixtexture[2]);
+	glBindTexture(GL_TEXTURE_2D, vadrixtexture[2]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, vadrixsprite->GetSprite(3).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glGenTextures(1,&vadrixtexture[3]);
+	glBindTexture(GL_TEXTURE_2D, vadrixtexture[3]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, vadrixsprite->GetSprite(4).GetData());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	//Other sides of Vadrix TODO
 
 	delete vadrixsprite;
+	
+	winl->Next();
 
 	//BLUEANDRED
 
@@ -822,69 +840,45 @@ void AZPGL::AZPTexture()
 
 	delete dualsprite;
 
+	winl->Next();
+
 	//HOUSE1	
 
 	SpriteLoader* housesprite=new SpriteLoader(azppath+wxT("/media/housemain.png"),64);
-	
-	glGenTextures(1, &maintexture[4]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[4]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(0).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glGenTextures(1, &maintexture[5]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[5]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(1).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glGenTextures(1, &maintexture[6]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[6]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(2).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glGenTextures(1, &maintexture[7]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[7]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(3).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glGenTextures(1, &maintexture[8]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[8]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(4).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glGenTextures(1, &maintexture[9]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[9]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(5).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glGenTextures(1, &maintexture[10]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[10]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(6).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glGenTextures(1, &maintexture[11]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[11]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(7).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	glGenTextures(1, &maintexture[12]);
-	glBindTexture(GL_TEXTURE_2D, maintexture[12]);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(8).GetData());
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-	wxMessageBox(wxString::Format(wxT("%d"),housesprite->GetNumbers()));
-	AzpLog("[OK] Textures loaded",4);
-	
+	int house1;
+	for(house1=0;house1<housesprite->GetNumbers();house1++)
+	{
+		glGenTextures(1,&maintexture[house1+4]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[house1+4]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(house1).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	}
 	delete housesprite;
 
+	winl->Next();	
+
+	//WATER
+	SpriteLoader* watersprite=new SpriteLoader(azppath+wxT("/media/water.png"),64);
+	int water1;
+	for(water1=0;water1<watersprite->GetNumbers();water1++)
+	{
+		glGenTextures(1,&maintexture[house1+4+water1]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[house1+4+water1]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, watersprite->GetSprite(water1).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	}
+
+	winl->Next();
+
+	/*wxMessageBox(wxString::Format(wxT("%d"),housesprite->GetNumbers()));*/
+	
+	
+	
+	delete watersprite;
+	AzpLog("[OK] Textures loaded",4);
+	winl->Finish();
 
 	
 }

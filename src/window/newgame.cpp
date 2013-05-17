@@ -16,6 +16,7 @@
 */
 
 #include "wx/wx.h"
+#include "../savefile/savefile.hpp"
 #include "newgame.hpp"
 
 AZPNewGame::AZPNewGame() : wxDialog(NULL,wxID_ANY,_("New game"))
@@ -51,8 +52,14 @@ AZPNewGame::AZPNewGame() : wxDialog(NULL,wxID_ANY,_("New game"))
 void AZPNewGame::SaveIt(wxCommandEvent& event)
 {
 	//SaveDialog (also Saver Class) (like Simutrans saver)
-
+	wxFileDialog* select=new wxFileDialog(NULL,wxT("Choose the place to save your progress"),wxT(""),wxT(""),wxT("AZP Save Files (*.azp)|*.azp"),wxFD_SAVE);
+	select->ShowModal();
+	wxMessageBox(wxT("Saving"));
+	SaveFile* saver=new SaveFile(select->GetPath());
+	
 	//Connect with Server
 	Destroy();
+	
+	
 
 }
