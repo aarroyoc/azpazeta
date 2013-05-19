@@ -3,7 +3,7 @@ Version: 2.0.0
 Release: 2
 URL: http://sites.google.com/site/divelmedia
 Summary: Strategic-economic game
-License: GPLv2
+License: GPL-2
 Group: Games
 Source: Azpazeta-2.0.0.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
@@ -12,11 +12,13 @@ BuildRequires: libwx_gtk2u_gl-2_8-0-wxcontainer
 BuildRequires: libwx_gtk2u_core-2_8-0-wxcontainer 
 BuildRequires: libwx_baseu-2_8-0-wxcontainer
 BuildRequires: wxWidgets-devel
+BuildRequires: glew-devel
 %endif
 
 %if 0%{?fedora}
 BuildRequires: wxGTK-gl
 BuildRequires: wxGTK-devel
+BuildRequires: glew-devel
 %endif
 
 %if 0%{?rhel version} || 0%{?centos version}
@@ -54,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(0755,root,root)
-/opt/azpazeta/bin/AZPAZETA_JUNO
+/opt/azpazeta/AZPAZETA_JUNO
 /opt/azpazeta/lang/es/azpazeta.mo
 /opt/azpazeta/lang/fr/azpazeta.mo
 /opt/azpazeta/maps/core/OnInit.azps
@@ -62,6 +64,12 @@ rm -rf $RPM_BUILD_ROOT
 /opt/azpazeta/maps/core/end.xml
 /opt/azpazeta/maps/core/mount.xml
 /opt/azpazeta/maps/core/start.xml
+/opt/azpazeta/maps/core/main.tmx
+/opt/azpazeta/AZPSERVER
+/opt/azpazeta/maps/core/OnCorner.azps
+/opt/azpazeta/maps/core/OnExecutedExtern.azps
+/opt/azpazeta/maps/core/database.xml
+/opt/azpazeta/maps/core/station.tmx
 /opt/azpazeta/maps/data.xml
 /opt/azpazeta/maps/orwell/OnStation.azps
 /opt/azpazeta/maps/orwell/mount.xml
@@ -73,9 +81,30 @@ rm -rf $RPM_BUILD_ROOT
 /opt/azpazeta/scripts/Init.azps
 /opt/azpazeta/shaders/fragment.fs
 /opt/azpazeta/shaders/vertex.vs
+/opt/azpazeta/maps/core/info.xml
+/opt/azpazeta/maps/core/main-event.xml
+/opt/azpazeta/maps/core/main.tmx
+/opt/azpazeta/media/azpazeta.svg
+/opt/azpazeta/media/azpmarket.png
+/opt/azpazeta/media/blank.png
+/opt/azpazeta/media/blank.png0
+/opt/azpazeta/media/blank.png1
+/opt/azpazeta/media/blank.png2
+/opt/azpazeta/media/blank.png3
+/opt/azpazeta/media/donate.png
+/opt/azpazeta/media/dualsprite.png
+/opt/azpazeta/media/housemain.png
+/opt/azpazeta/media/water.png
+/opt/azpazeta/media/loadgame.png
+/opt/azpazeta/media/mapmanager.png
+/opt/azpazeta/media/multiplayer.png
+/opt/azpazeta/media/options.png
+/opt/azpazeta/media/options.xcf
+/opt/azpazeta/media/singleplayer.png
+/opt/azpazeta/media/vadrixmain.png
 
 %dir /opt/azpazeta
-%dir /opt/azpazeta/bin
+%dir /opt/azpazeta
 %dir /opt/azpazeta/lang
 %dir /opt/azpazeta/lang/es
 %dir /opt/azpazeta/lang/fr
@@ -89,4 +118,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Sun Mar 17 2013 Adrian Arroyo Calle
-- First release: Bazaar version 29
+- First release: Bazaar version 50
