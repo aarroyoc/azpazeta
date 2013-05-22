@@ -31,13 +31,16 @@ EventManager::EventManager(wxString tmxmap)
 
 
 	#endif
-	
+	if(!wxFileExists(eventmap))
+	{
+		wxLogError(_("The selected EventTable doesn't exist"));
+	}
 	TiXmlDocument doc(eventmap.mb_str());
 	if(!doc.LoadFile())
 	{
-		wxLogError(_("Failed to load the selected map")+tmxmap);
+		//wxLogError(_("Failed to load the selected event table for map: ")+tmxmap+_("\nThe EventTable: ")+eventmap);
 	}
-	TiXmlElement* *info,*side,*data,*tile;
+	TiXmlElement *info,*side,*data,*tile;
 	TiXmlElement* event_table=doc.RootElement();
 	while(event_table)
 	{
@@ -74,6 +77,37 @@ EventManager::EventManager(wxString tmxmap)
 			data=data->NextSiblingElement("data");
 		}
 
+
+		info=event_table->FirstChildElement("info");
+		while(info)
+		{
+			side=info->FirstChildElement("side");
+			while(side)
+			{
+				if(strcmp(side->Attribute("side"),"up")==0)
+				{
+					MapArray[MAP_UP]=wxString::FromUTF8(side->GetText());
+				}
+				if(strcmp(side->Attribute("side"),"down")==0)
+				{
+					MapArray[MAP_DOWN]=wxString::FromUTF8(side->GetText());
+				}
+				if(strcmp(side->Attribute("side"),"left")==0)
+				{
+					MapArray[MAP_LEFT]=wxString::FromUTF8(side->GetText());
+				}
+				if(strcmp(side->Attribute("side"),"right")==0)
+				{
+					MapArray[MAP_RIGHT]=wxString::FromUTF8(side->GetText());
+				}
+
+
+			
+				side=side->NextSiblingElement("side");
+			}
+			info=info->NextSiblingElement("info");
+		}
+
 		event_table=event_table->NextSiblingElement("event-table");
 	}
 }
@@ -88,4 +122,13 @@ wxString EventManager::Execute(int x, int y)
 		return wxT("[OK] Running map script");
 
 	}
+}
+wxString EventManager::ChangeMap(int side)
+{
+	if(MapArray[side].Cmp(wxT("NULL"))==0)
+		return wxT("NULL");
+	else
+		return scriptpath+wxT("/")+MapArray[side];
+
+
 }

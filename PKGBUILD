@@ -13,6 +13,7 @@ depends=('lua' 'glew' 'wxgtk' 'mesa-libgl' 'cmake')
 
 source=(Azpazeta-${pkgver}.tar.bz2)
 
+md5sums=('6d5a580d000c33d1c652607bc1e60a31')
 
 # Setting this to true activates the compilation and packaging
 # of the plugins which are not yet officially released.

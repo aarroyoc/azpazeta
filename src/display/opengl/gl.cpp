@@ -606,51 +606,122 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		case WXK_LEFT:{
 			vadrixside=2;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx-1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx-1+10,vadrixposy*-1+10)))
+			switch(client->RequestMove(vadrixposx-1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx-1+10,vadrixposy*-1+10)))
 			{
-				vadrixposx-=1;
-				//Execute Events TODO
-				//printf("Event of: %d:%d\n",vadrixposx+10,vadrixposy*-1+10);
-				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
-				//Refresh TODO
-				Refresh();
+				case 1:{
+					vadrixposx-=1;
+					//Execute Events TODO
+					//printf("Event of: %d:%d\n",vadrixposx+10,vadrixposy*-1+10);
+					eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
+					//Refresh TODO
+					Refresh();
+				}break;
+				case 2:{
+					wxString uri=eventm->ChangeMap(MAP_LEFT);
+					if(uri.Cmp(wxT("NULL"))!=0)
+					{
+					
+						delete azpmap;
+						delete eventm;
+						azpmap=new AzpMap(uri);
+						vadrixposx=10;
+						Refresh();
+						eventm=new EventManager(uri);
+					}
+				}break;
+				case 0:{
+
+
+				}break;
 
 			}
 		}break;
 		case WXK_UP:{
 			vadrixside=3;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx+10,vadrixposy+1+10,azpmap->GetArrayData(vadrixposx+10,vadrixposy*-1+10-1)))
+			switch(client->RequestMove(vadrixposx+10,vadrixposy+1+10,azpmap->GetArrayData(vadrixposx+10,vadrixposy*-1+10-1)))
 			{
+				case 1:{
 				vadrixposy+=1;
 				//Execute Events TODO
 				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
+				}break;
+				case 2:{
+				wxString uri=eventm->ChangeMap(MAP_UP);
+				if(uri.Cmp(wxT("NULL"))==0)
+				{
+					
+
+				}else{
+					
+					delete azpmap;
+					delete eventm;
+					azpmap=new AzpMap(uri);
+					vadrixposy=-10;
+					Refresh();
+					eventm=new EventManager(uri);
+				}
+				
+
+				}break;
+			
 			}
 		}break;
 		case WXK_RIGHT:{
 			vadrixside=1;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposx+1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx+10+1,vadrixposy*-1+10)))
+			switch(client->RequestMove(vadrixposx+1+10,vadrixposy+10,azpmap->GetArrayData(vadrixposx+10+1,vadrixposy*-1+10)))
 			{
+				case 1:{
 				vadrixposx+=1;
 				//Execute Events TODO
 				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
+				}break;
+				case 2:{
+					wxString uri=eventm->ChangeMap(MAP_RIGHT);
+					if(uri.Cmp(wxT("NULL"))!=0)
+					{
+					
+						delete azpmap;
+						delete eventm;
+						azpmap=new AzpMap(uri);
+						vadrixposx=-10;
+						Refresh();
+						eventm=new EventManager(uri);
+					}
+				}break;
 			}
 		}break;
 		case WXK_DOWN:{
 			vadrixside=0;
 			//Comunicate with Server TODO
-			if(client->RequestMove(vadrixposy+10,vadrixposy-1+10,azpmap->GetArrayData(vadrixposx+10,vadrixposy*-1+10+1)))
+			switch(client->RequestMove(vadrixposy+10,vadrixposy-1+10,azpmap->GetArrayData(vadrixposx+10,vadrixposy*-1+10+1)))
 			{
+				case 1:{
 				vadrixposy-=1;
 				//Execute Events TODO
 				eventm->Execute(vadrixposx+10,vadrixposy*-1+10);
 				//Refresh TODO
 				Refresh();
+				}break;
+				case 2:{
+					wxString uri=eventm->ChangeMap(MAP_DOWN);
+					if(uri.Cmp(wxT("NULL"))!=0)
+					{
+					
+						delete azpmap;
+						delete eventm;
+						azpmap=new AzpMap(uri);
+						vadrixposy=10;
+						Refresh();
+						eventm=new EventManager(uri);
+					}
+				}break;
+				
 			}
 		}break;
 		case 'W':{

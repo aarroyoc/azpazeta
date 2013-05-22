@@ -16,16 +16,24 @@
 */
 
 #include "wx/wx.h"
+#include "../maploader/azpmap.hpp"
+
 
 #ifndef EVENTMANAGER_HPP
 #define EVENTMANAGER_HPP
+#define MAP_UP 0
+#define MAP_DOWN 1
+#define MAP_LEFT 2
+#define MAP_RIGHT 3
 
 class EventManager{
 	public:
 		EventManager(wxString tmxmap);
 		wxString Execute(int x, int y);
+		wxString ChangeMap(int side);
 	private:
 		wxString EventArray[20][20];
+		wxString MapArray[MAP_RIGHT+1];
 		wxString scriptpath;
 		
 };

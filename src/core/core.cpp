@@ -173,7 +173,7 @@ void AzpClient::Disconnect()
 	sprintf(requestmove,"[EXIT]");
 	send(server, requestmove, 2048,0);
 }
-bool AzpClient::RequestMove(int x, int y, int building)
+int AzpClient::RequestMove(int x, int y, int building)
 {
 	char requestmove[2048];
 	char response[2048];
@@ -181,9 +181,15 @@ bool AzpClient::RequestMove(int x, int y, int building)
 	send(server, requestmove, 2048,0);
 	recv(server,response,2048,0);
 	if(strcmp(response,"TRUE")==0)
-		return true;
+	{
+		return 1;
+	}
+	else if(strcmp(response,"MIGHT")==0)
+	{
+		return 2;
+	}
 	else
-		return false;
+		return 0;
 }
 int AzpClient::GetMyNumber()
 {

@@ -18,7 +18,7 @@ AzpMap::AzpMap(wxString file)
 	TiXmlDocument doc(file.mb_str());
 	if(!doc.LoadFile())
 	{
-		wxLogError(_("Failed to load the selected map")+file);
+		wxLogError(_("Failed to load the selected map: ")+file);
 	}
 	TiXmlElement* properties, *property,*tileset,*layer,*data,*tile;
 	TiXmlElement* azpazeta_map=doc.RootElement();

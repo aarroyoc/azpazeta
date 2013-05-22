@@ -29,7 +29,7 @@ class AzpClient
 		static float Version();
 		void Connect();
 		int GetMyNumber();
-		bool RequestMove(int x, int y, int user);
+		int RequestMove(int x, int y, int user);
 		void Disconnect();
 	private:
 		int server;

@@ -403,10 +403,10 @@
    <tile gid="4"/>
 </data>
 <info>
-	<side side="up"></side>
-	<side side="down"></side>
-	<side side="left"></side>
-	<side side="right"></side>
+	<side side="up">station.tmx</side>
+	<side side="down">NULL</side>
+	<side side="left">NULL</side>
+	<side side="right">NULL</side>
 </info>
 
 
