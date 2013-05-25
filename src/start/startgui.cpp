@@ -102,7 +102,7 @@ StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"),wxDe
 }
 void StartDialog::NewGame(wxCommandEvent& event)
 {
-	AZPNewGame* newgame=new AZPNewGame();
+	AZPNewGame* newgame=new AZPNewGame(_("New game"));
 	newgame->ShowModal();
 	client=new AzpClient(); //single player, localhost, ipv6 (WinXP users, sorry)
 	client->Connect();
@@ -134,9 +134,13 @@ void StartDialog::Multiplayer(wxCommandEvent& event)
 		ipv6=false;
 	//IP
 	wxString ip=wxGetTextFromUser(_("Insert the IP of the server"),_("Divel Network"),wxT(""));
+	//Character and map
+	AZPNewGame* multigame=new AZPNewGame(_("Join multiplayer game"));
+	multigame->ShowModal();
 	//Connect
 	client=new AzpClient(azpCLIENT_MULTI,ip,ipv6);
 	client->Connect();
+
 	//client->Disconnect();
 	Destroy();
 }

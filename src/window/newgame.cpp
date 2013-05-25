@@ -18,8 +18,15 @@
 #include "wx/wx.h"
 #include "../savefile/savefile.hpp"
 #include "newgame.hpp"
+#include "../pathfinder/pathfinder.hpp"
+#include "wx/dir.h"
+#include "../start.hpp"
+#include "../maploader/map.hpp"
 
-AZPNewGame::AZPNewGame() : wxDialog(NULL,wxID_ANY,_("New game"))
+
+extern wxString azppath;
+
+AZPNewGame::AZPNewGame(const wxString& title) : wxDialog(NULL,wxID_ANY,title)
 {
 	SetSize(400,400);
 	wxPanel* panel=new wxPanel(this);
@@ -31,7 +38,7 @@ AZPNewGame::AZPNewGame() : wxDialog(NULL,wxID_ANY,_("New game"))
 	arrayLG.Add(_("JUNO"));
 	//arrayLG.Add(_("LINK"));
 	//arrayLG.Add(_("APOLLO"));
-	apilevel=new wxChoice(panel,wxID_ANY,wxPoint(120,50),wxSize(200,25),arrayLG);
+	apilevel=new wxChoice(panel,wxID_ANY,wxPoint(120,70),wxSize(200,25),arrayLG);
 
 	wxStaticText* tcharacter=new wxStaticText(panel,wxID_ANY,_("Character: "),wxPoint(20,120),wxSize(100,20));
 	wxArrayString charArray;
@@ -41,8 +48,14 @@ AZPNewGame::AZPNewGame() : wxDialog(NULL,wxID_ANY,_("New game"))
 	charArray.Add(_("Vandraxa"));
 	apilevel=new wxChoice(panel,wxID_ANY,wxPoint(120,120),wxSize(200,25),charArray);
 
-	autosave=new wxCheckBox(panel,wxID_ANY,_("Autosave"),wxPoint(20,170));
-	autosave->SetValue(true);
+	//Load all maps avalible
+
+	wxStaticText* tmapstart=new wxStaticText(panel,wxID_ANY,_("Map: "),wxPoint(20,170),wxSize(100,20));
+	wxArrayString mapArray=GetMapsAvalibles();
+	mapstart=new wxChoice(panel,wxID_ANY,wxPoint(120,170),wxSize(200,25),mapArray);
+
+	/*autosave=new wxCheckBox(panel,wxID_ANY,_("Autosave"),wxPoint(20,170));
+	autosave->SetValue(true); -- For  3.0 */
 
 	wxButton* next=new wxButton(panel,wxID_ANY,_("Next"),wxPoint(20,220),wxSize(200,25));
 	next->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(AZPNewGame::SaveIt),NULL,this);
@@ -51,15 +64,67 @@ AZPNewGame::AZPNewGame() : wxDialog(NULL,wxID_ANY,_("New game"))
 }
 void AZPNewGame::SaveIt(wxCommandEvent& event)
 {
-	//SaveDialog (also Saver Class) (like Simutrans saver)
-	wxFileDialog* select=new wxFileDialog(NULL,wxT("Choose the place to save your progress"),wxT(""),wxT(""),wxT("AZP Save Files (*.azp)|*.azp"),wxFD_SAVE);
+	wxString info_xml=GetMapsAvalibles()[mapstart->GetCurrentSelection()];
+	//Check if map is in the ROOT or in the HOME
+	if(info_xml.BeforeLast('/').EndsWith(wxT(".azpazeta/maps")))
+	{
+	//In HOME
+	AzpMount* mount=new AzpMount(info_xml);
+	Start* frame=new Start(wxT("Azpazeta JUNO"),PathFinder::GetUserPath()+wxT("/.azpazeta")+mount->mainmap);
+	frame->Show();
+	}else{
+	//In ROOT
+	AzpMount* mount=new AzpMount(info_xml);
+	Start* frame=new Start(wxT("Azpazeta JUNO"),azppath+mount->mainmap);
+	frame->Show();
+	}
+	//SaveDialog (also Saver Class) (like Simutrans saver) AUTOSAVE- NEVER
+	/*wxFileDialog* select=new wxFileDialog(NULL,wxT("Choose the place to save your progress"),wxT(""),wxT(""),wxT("AZP Save Files (*.azp)|*.azp"),wxFD_SAVE);
 	select->ShowModal();
 	wxMessageBox(wxT("Saving"));
-	SaveFile* saver=new SaveFile(select->GetPath());
+	SaveFile* saver=new SaveFile(select->GetPath());*/
 	
 	//Connect with Server
 	Destroy();
 	
 	
 
+}
+wxArrayString AZPNewGame::GetMapsAvalibles()
+{
+	wxArrayString dirList;
+	wxString azphomestr=PathFinder::GetUserPath();
+	//Checking maps at AZP_ROOT
+	wxDir azproot(azppath+wxT("/maps"));
+	wxString dirAddress = azproot.GetName();
+
+        azproot.GetAllFiles(dirAddress, &dirList, wxEmptyString, wxDIR_DIRS | wxDIR_FILES);
+	wxArrayString mapAvalibles;
+	int count=0;
+	for(count=0;count<dirList.GetCount();count++)
+	{
+		if(dirList[count].AfterLast('/').Cmp(wxT("info.xml"))==0)
+		{
+			mapAvalibles.Add(dirList[count]);
+
+		}
+
+	}
+	//Checking maps in AZP HOME
+	wxArrayString dirListHome;
+	wxDir azphome(azphomestr+wxT("/.azpazeta/maps"));
+	wxString dirHome = azphome.GetName();
+
+        azproot.GetAllFiles(dirHome, &dirListHome, wxEmptyString, wxDIR_DIRS | wxDIR_FILES);
+	for(count=0;count<dirListHome.GetCount();count++)
+	{
+		if(dirListHome[count].AfterLast('/').Cmp(wxT("info.xml"))==0)
+		{
+			mapAvalibles.Add(dirListHome[count]);
+
+		}
+
+	}
+
+	return mapAvalibles;
 }

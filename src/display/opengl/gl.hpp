@@ -62,6 +62,7 @@ class AZPGL : public wxGLCanvas
 		int vadrixside; //0=Down 1=Left 2=Right 3=Up
 		int vadrixposx;
 		int vadrixposy;
+		wxString azpmapuriprivate;
 		
 	public:
 		AZPGL(wxPanel* parent,wxString azpmapuri);

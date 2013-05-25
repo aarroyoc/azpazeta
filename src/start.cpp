@@ -26,7 +26,7 @@
 #include "azpscript/azpvm.hpp"
 #include "pathfinder/pathfinder.hpp"
 #include "wx/utils.h"
-#include "wx/splash.h"
+
 #include "wx/busyinfo.h"
 #include "maploader/map.hpp"
 #include "maploader/azpmap.hpp"
@@ -43,22 +43,13 @@ END_EVENT_TABLE()
 
 extern wxString azppath;
 
-Start::Start(const wxString& title)
+Start::Start(const wxString& title, const wxString& mapuri)
        : wxFrame(NULL, wxID_ANY, title)
 {
 	//Splash Screen
-	wxInitAllImageHandlers();
-	AzpLog("[OK] Loaded all image handlers",4);
-	wxBitmap bitmap;
-  	if (bitmap.LoadFile(azppath+wxT("/media/azpazeta.png"), wxBITMAP_TYPE_PNG))
-  	{
-      		wxSplashScreen* splash = new wxSplashScreen(bitmap,wxSPLASH_CENTRE_ON_SCREEN|wxSPLASH_TIMEOUT,6000, NULL, -1, wxDefaultPosition, wxDefaultSize,wxSIMPLE_BORDER|wxSTAY_ON_TOP);
-		AzpLog("[OK] Display Splash Screen",4);
-  }else{
-	AzpLog("[ERROR] Azpazeta can't load $AZP_ROOT/media/azpazeta.png",3);
-	wxExit();
-	}
-  wxYield();
+	//wxInitAllImageHandlers();
+	//AzpLog("[OK] Loaded all image handlers",4);
+	
 	//wxBusyInfo wait(_("Please wait, working on something stupid"));
 
 
@@ -93,12 +84,12 @@ Start::Start(const wxString& title)
 	//AzpVM DONE
 	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
 	AzpLog("[OK] Started AzpVM with Init Script",4);
-	//AzpEvent TODO
+	//AzpEvent DONE
 
 
-	//AzpMount DONE
-	AzpMount* azpmount=new AzpMount(azppath+wxT("/maps/core/info.xml"));
-	AzpLog("[OK] Loaded main map data",4);
+	//AzpMount QUIT
+	/*AzpMount* azpmount=new AzpMount(azppath+wxT("/maps/core/info.xml"));
+	AzpLog("[OK] Loaded main map data",4);*/
 
 	//AzpMap TODO - Esto es un test
 	//AzpMap* map=new AzpMap(azppath+wxT("/maps/core/start.xml")); //azpmount->mainmap
@@ -108,7 +99,7 @@ Start::Start(const wxString& title)
 	//AzpGL TODO
 	wxPanel* glpanel=new wxPanel(this,wxID_ANY,wxPoint(1,1),wxSize(500,500));
 	wxBoxSizer* sizer=new wxBoxSizer(wxHORIZONTAL);
-	AZPGL* azpgl=new AZPGL(glpanel, azppath+azpmount->mainmap);
+	AZPGL* azpgl=new AZPGL(glpanel, /*azppath+azpmount->mainmap*/mapuri);
 	sizer->Add(azpgl,1,wxEXPAND);
 	glpanel->SetSizer(sizer);
 	glpanel->SetAutoLayout(true);

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<azpazeta-map version="1.0">
+    <meta-data>
+        <data id="name">Azpazeta City</data>
+	<data id="description">The main world of Azpazeta</data>
+        <data id="homesite">http://launchpad.net/azpazeta</data>
+        <data id="author">Adrián Arroyo</data>
+    </meta-data>
+    <map-main>/maps/orwell/station.tmx</map-main>
+</azpazeta-map>

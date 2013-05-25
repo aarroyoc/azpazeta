@@ -25,6 +25,7 @@
 #include "log.hpp"
 #include "wx/cmdline.h"
 #include "wx/settings.h"
+#include "wx/splash.h"
 
 #include "xml/tinyxml.h"
 
@@ -88,6 +89,8 @@ bool Azpazeta::OnInit()
 	PathFinder::Start();
 	AzpLog("[OK] PathFinder gets Azpazeta Resources Dir",4);
 	Notify();
+	wxInitAllImageHandlers();
+	AzpLog("[OK] Loaded all image handlers",4);
 
 	//TaskBar Icon
 	wxBitmap azpimg(azppath+wxT("/media/azpazeta.png"));
@@ -103,13 +106,23 @@ bool Azpazeta::OnInit()
 		AzpLog("[OK] Created TrayIcon",4);
 
 
-	Start *frame = new Start(_("Azpazeta Juno"));
+	/*Start *frame = new Start(_("Azpazeta Juno"));
 
 	    // and show it (the frames, unlike simple controls, are not shown when
 	    // created initially)
-	frame->Show(true);
+	frame->Show(true);*/
 
 		//Start Dialog
+	wxBitmap bitmap;
+  	if (bitmap.LoadFile(azppath+wxT("/media/azpazeta.png"), wxBITMAP_TYPE_PNG))
+  	{
+      		wxSplashScreen* splash = new wxSplashScreen(bitmap,wxSPLASH_CENTRE_ON_SCREEN|wxSPLASH_TIMEOUT,6000, NULL, -1, wxDefaultPosition, wxDefaultSize,wxSIMPLE_BORDER|wxSTAY_ON_TOP);
+		AzpLog("[OK] Display Splash Screen",4);
+  }else{
+	AzpLog("[ERROR] Azpazeta can't load $AZP_ROOT/media/azpazeta.png",3);
+	wxExit();
+	}
+  wxYield();
 	StartDialog* stdg=new StartDialog();
 	stdg->ShowModal();
 

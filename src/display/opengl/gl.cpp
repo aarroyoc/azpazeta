@@ -86,6 +86,7 @@ AZPGL::AZPGL(wxPanel* parent, wxString azpmapuri) : wxGLCanvas(parent,wxID_ANY,a
 	vadrixposx=0.0f;
 	vadrixposy=0.0f;
 
+
 }
 
 void AZPGL::Resize(wxSizeEvent& event)
@@ -591,7 +592,21 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		return;
 
 	}
-	
+	//Change map if new game windows select other TODO
+	/*if(azpmapuriprivate.Cmp(azpmapuripublic)!=0)
+			{
+				azpmapuriprivate=azpmapuripublic;
+				delete azpmap;
+				delete eventm;
+				AzpMount* info_xml=new AzpMount(azpmapuriprivate);
+				wxMessageBox(PathFinder::GetUserPath()+wxT("/.azpazeta")+info_xml->mainmap);
+				azpmap=new AzpMap(PathFinder::GetUserPath()+wxT("/.azpazeta")+info_xml->mainmap);
+				vadrixposx=10;
+				Refresh();
+				eventm=new EventManager(PathFinder::GetUserPath()+wxT("/.azpazeta")+info_xml->mainmap);
+
+
+			}*/
 	switch(event.GetKeyCode())
 	{
 		case WXK_ESCAPE:wxExit();break;
@@ -783,6 +798,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 				Refresh();
 				wxYield();
 				Update();*/
+			
 		}
 	}
 		

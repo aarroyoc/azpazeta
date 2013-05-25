@@ -23,13 +23,16 @@
 class AZPNewGame : public wxDialog
 {
 public:
-	AZPNewGame();
+	AZPNewGame(const wxString& title);
 private:
 	void SaveIt(wxCommandEvent& event);
 	wxTextCtrl* name;
 	wxChoice* apilevel;
 	wxChoice* character;
 	wxCheckBox* autosave;
+	wxChoice* mapstart;
+	wxArrayString GetMapsAvalibles();
+	
 
 
 };
