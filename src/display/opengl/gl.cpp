@@ -34,6 +34,7 @@
 #include "../../window/loader.hpp"
 #include "../../log.hpp"
 #include "../../azpscript/event.hpp"
+#include "../../savefile/savefile.hpp"
 
 extern wxString azppath;
 extern AzpClient* client;
@@ -616,8 +617,20 @@ void AZPGL::OnKey(wxKeyEvent& event)
 		{
 		//Take a screenshot
 		Screenshot* photo=new Screenshot(this,screenshotsaver->GetPath());
+		delete photo;
 		}
 		}break;
+		//Save the game
+		case 'T':
+		case 'G':{
+			wxFileDialog* savefilesaver=new wxFileDialog(this,_("Save the data"),wxT(""),wxT(""),wxT("AZP files (*.azp)|*.azp"),wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+			if(savefilesaver->ShowModal()==wxID_OK)
+			{
+				//Save all
+				SaveFile* saver=new SaveFile(savefilesaver->GetPath());
+				saver->SaveAll();
+				delete saver;
+			}}break;
 		case WXK_LEFT:{
 			vadrixside=2;
 			//Comunicate with Server TODO

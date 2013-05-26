@@ -17,25 +17,12 @@
 
 #include "wx/wx.h"
 
-typedef enum{
-SAVEFILE_NAME,
-SAVEFILE_AGE,
-SAVEFILE_MONEY,
-SAVEFILE_DATE,
-SAVEFILE_PLAYER,
-SAVEFILE_SKIN,
-SAVEFILE_AUTOSAVE,
-SAVEFILE_MISSIONS,
-SAVEFILE_VERSION
-
-}SAVEFILE_PARAMETERS;
-
 
 class SaveFile{
 public:
 	SaveFile(wxString file);
 	bool LoadAll();
 	bool SaveAll();
-	wxString Read(SAVEFILE_PARAMETERS parameter);
-	bool Set(SAVEFILE_PARAMETERS parameter, wxString value);
+private:
+	wxString fileuri;
 };

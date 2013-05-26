@@ -50,7 +50,7 @@ float AzpClient::Version()
 AzpClient::AzpClient(azpCLIENT_STATE mode,wxString ip,bool ipv6)
 {
 /* Creating the server if is needed */
-if(mode==azpCLIENT_SINGLE)
+if(mode==azpCLIENT_SINGLE || mode==azpCLIENT_LOAD)
 {
 	process=new ServerProcess();
 	/*process=new wxProcess();*/

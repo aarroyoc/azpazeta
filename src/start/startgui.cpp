@@ -27,6 +27,7 @@
 #include "../app.hpp"
 #include "../core/core.hpp"
 #include "../sprite/sprite.hpp"
+#include "../savefile/savefile.hpp"
 
 
 extern wxString azppath;
@@ -111,6 +112,17 @@ void StartDialog::NewGame(wxCommandEvent& event)
 }
 void StartDialog::LoadGame(wxCommandEvent& event)
 {
+	//Load VARS
+	wxFileDialog* select=new wxFileDialog(NULL,wxT("Select the savefile"),wxT(""),wxT(""),wxT("AZP Save Files (*.azp)|*.azp"),wxFD_OPEN);
+	select->ShowModal();
+	SaveFile* saver=new SaveFile(select->GetPath());
+	saver->LoadAll();
+
+	//Change settings
+	AZPNewGame* loadgame=new AZPNewGame(_("Load game"));
+	loadgame->ShowModal();
+
+	//Open SERVER
 	client=new AzpClient(azpCLIENT_LOAD);
 	client->Connect();
 	//client->Disconnect();

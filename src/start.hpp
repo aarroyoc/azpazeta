@@ -26,6 +26,7 @@ public:
     void OnAbout(wxCommandEvent& event);
     void SeeVersion(wxCommandEvent& event);
     void SeeOptions(wxCommandEvent& event);
+    void Updater(wxCommandEvent& event);
 
 private:
     // any class wishing to process wxWidgets events must use this macro

@@ -25,13 +25,16 @@
 
 
 extern wxString azppath;
+extern double azpmoney;
+extern wxString azpname;
+extern int vadrixchar;
 
 AZPNewGame::AZPNewGame(const wxString& title) : wxDialog(NULL,wxID_ANY,title)
 {
 	SetSize(400,400);
 	wxPanel* panel=new wxPanel(this);
 	wxStaticText* tname=new wxStaticText(panel,wxID_ANY,_("Name: "),wxPoint(20,20),wxSize(100,20));
-	name=new wxTextCtrl(panel,wxID_ANY,_("Vadrix"),wxPoint(120,20),wxSize(200,25));
+	name=new wxTextCtrl(panel,wxID_ANY,azpname,wxPoint(120,20),wxSize(200,25));
 
 	wxStaticText* tapilevel=new wxStaticText(panel,wxID_ANY,_("API Level: "),wxPoint(20,70),wxSize(100,20));
 	wxArrayString arrayLG;
@@ -46,7 +49,7 @@ AZPNewGame::AZPNewGame(const wxString& title) : wxDialog(NULL,wxID_ANY,title)
 	charArray.Add(_("Anti-Vadrix"));
 	charArray.Add(_("Wadrix"));
 	charArray.Add(_("Vandraxa"));
-	apilevel=new wxChoice(panel,wxID_ANY,wxPoint(120,120),wxSize(200,25),charArray);
+	character=new wxChoice(panel,wxID_ANY,wxPoint(120,120),wxSize(200,25),charArray);
 
 	//Load all maps avalible
 
@@ -78,12 +81,17 @@ void AZPNewGame::SaveIt(wxCommandEvent& event)
 	Start* frame=new Start(wxT("Azpazeta JUNO"),azppath+mount->mainmap);
 	frame->Show();
 	}
+
+
+	azpname=name->GetValue();
+	vadrixchar=character->GetCurrentSelection();
 	//SaveDialog (also Saver Class) (like Simutrans saver) AUTOSAVE- NEVER
-	/*wxFileDialog* select=new wxFileDialog(NULL,wxT("Choose the place to save your progress"),wxT(""),wxT(""),wxT("AZP Save Files (*.azp)|*.azp"),wxFD_SAVE);
+	wxFileDialog* select=new wxFileDialog(NULL,wxT("Choose the place to save your data"),wxT(""),wxT(""),wxT("AZP Save Files (*.azp)|*.azp"),wxFD_SAVE);
 	select->ShowModal();
-	wxMessageBox(wxT("Saving"));
-	SaveFile* saver=new SaveFile(select->GetPath());*/
-	
+	SaveFile* saver=new SaveFile(select->GetPath());
+	saver->SaveAll();
+	saver->LoadAll();
+	//Set VARS
 	//Connect with Server
 	Destroy();
 	

@@ -34,11 +34,16 @@
 #include "sprite/sprite.hpp"
 #include "log.hpp"
 
+#include "wx/sstream.h"
+#include "wx/protocol/http.h"
+#include "wx/wfstream.h"
+
 BEGIN_EVENT_TABLE(Start, wxFrame)
     EVT_MENU(Minimal_Quit,  Start::OnQuit)
     EVT_MENU(Minimal_About, Start::OnAbout)
     EVT_MENU(SEE_VERSION_MENU, Start::SeeVersion)
     EVT_MENU(SEE_OPTIONS, Start::SeeOptions)
+    EVT_MENU(AZPAZETA_UPDATER, Start::Updater)
 END_EVENT_TABLE()
 
 extern wxString azppath;
@@ -61,6 +66,7 @@ Start::Start(const wxString& title, const wxString& mapuri)
     wxMenu *helpMenu = new wxMenu;
     helpMenu->Append(Minimal_About, _("&About...\tF1"), _("Show about dialog"));
     editMenu->Append(SEE_OPTIONS, _("&Settings"),_("Change game settings"));
+    fileMenu->Append(AZPAZETA_UPDATER,_("Azpazeta &Updater"),_("Check for updates"));
     fileMenu->Append(Minimal_Quit, _("E&xit\tAlt-X"), _("Quit this program"));
 
     // now append the freshly created menu to the menu bar...
@@ -81,9 +87,9 @@ Start::Start(const wxString& title, const wxString& mapuri)
 
 //Use AZPGL - Implementation of AZP Graphics in OpenGL ES 2
 
-	//AzpVM DONE
-	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
-	AzpLog("[OK] Started AzpVM with Init Script",4);
+	//AzpVM DONE Moved to App.cpp
+	/*AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
+	AzpLog("[OK] Started AzpVM with Init Script",4);*/
 	//AzpEvent DONE
 
 
@@ -145,4 +151,65 @@ void Start::SeeOptions(wxCommandEvent& event)
 	Options* options=new Options(_("Options"));
 	options->ShowModal();
 
+}
+void Start::Updater(wxCommandEvent& event)
+{
+	//Only for WIN32 and TAR.GZ. The reason is that Linux users must use her package managers
+	#ifndef WIN32
+	wxMessageBox(_("Linux user: You must use your package manager for better performance. If you update from here you get a TAR.GZ for 32 bits"),_("Divel Network"),wxOK|wxICON_WARNING);
+	#endif
+	int check=wxMessageBox(_("Do you want to search Azpazeta updates"),_("Divel Network"),wxYES_NO|wxICON_QUESTION);
+	if(check!=wxYES)
+		return;
+	AZPOptions options=LoadOptions();
+	wxString host=(options.net.DivelAppsURL).AfterFirst('/').AfterFirst('/');
+	wxHTTP get;
+	get.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
+	get.SetHeader(_T("User Agent"),_T("wxHTTP/2.8 (")+wxGetOsDescription()+_T(") wxWidgets/2.8 AzpazetaUpdater/2.0"));
+	get.SetTimeout(10);
+	while (!get.Connect(host))  // only the server, no pages here yet ...
+	    wxSleep(5);
+	#ifdef WIN32
+	wxInputStream *httpStream = get.GetInputStream(wxT("/updater?PRODUCT=AZPAZETA_WIN32&VERSION=2"));
+	#else
+	wxInputStream *httpStream = get.GetInputStream(wxT("/updater?PRODUCT=AZPAZETA_TARGZ32&VERSION=2"));
+	#endif
+	if (get.GetError() == wxPROTO_NOERR)
+	{
+	    wxString res;
+	    wxStringOutputStream out_stream(&res);
+	    httpStream->Read(out_stream);
+		wxMessageBox(res);
+		if(res.StartsWith(wxT("[URL]"))==true)
+		{
+			wxString urlupdate=res.AfterFirst('{').BeforeLast('}');
+			wxMessageBox(_("Update avalible. Click OK to download"));
+			wxFileDialog* select=new wxFileDialog(NULL,wxT("Select the place to save the installer"),wxT(""),wxT(""),wxT("All files (*)|*"),wxFD_SAVE);
+			select->ShowModal();
+			wxString host2=urlupdate.AfterFirst('/').AfterFirst('/').BeforeFirst('/');
+			wxString subpage2=urlupdate.AfterFirst('/').AfterFirst('/').AfterFirst('/')+wxT("/");
+			wxHTTP get2;
+			get2.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
+			get2.SetTimeout(10); // 10 seconds of timeout instead of 10 minutes ...
+
+			// this will wait until the user connects to the internet. It is important in case of dialup (or ADSL) connections
+			while (!get2.Connect(host2))  // only the server, no pages here yet ...
+			    wxSleep(5);
+	 
+			wxInputStream *httpStream2 = get2.GetInputStream(subpage2);
+
+			if (get2.GetError() == wxPROTO_NOERR)
+			{
+				
+				wxFileOutputStream out_stream(select->GetPath());
+				httpStream2->Read(out_stream);
+			
+			}
+		}
+		else{
+			wxMessageBox(_("Azpazeta is already updated"));
+
+		}
+
+	}
 }

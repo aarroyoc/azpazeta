@@ -87,7 +87,8 @@ enum
     // (where it is special and put into the "Apple" menu)
     Minimal_About = wxID_ABOUT,
     SEE_VERSION_MENU,
-    SEE_OPTIONS
+    SEE_OPTIONS,
+    AZPAZETA_UPDATER
 };
 AZPOptions LoadOptions();
 #endif

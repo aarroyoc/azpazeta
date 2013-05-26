@@ -26,6 +26,9 @@
 #include "wx/cmdline.h"
 #include "wx/settings.h"
 #include "wx/splash.h"
+#include "azpscript/azpvm.hpp"
+#include "savefile/savefile.hpp"
+#include "window/newgame.hpp"
 
 #include "xml/tinyxml.h"
 
@@ -33,6 +36,8 @@ IMPLEMENT_APP(Azpazeta)
 
 AzpClient* client;
 extern wxString azppath;
+int vadrixchar;
+wxString azpname;
 extern bool azpmission;
 extern double azpmoney;
 
@@ -46,6 +51,10 @@ bool Azpazeta::OnInit()
 	
 	azpmission=false;
 	azpmoney=1000.0;
+	azpname=_("Vadrix");
+	vadrixchar=0;
+	bool loader=false;
+	
 
 
 	if(wxApp::argc>=2)
@@ -59,6 +68,7 @@ bool Azpazeta::OnInit()
 			return false;
 		}else{
 			AzpLog("[INFO] Running loader mode",1);
+			loader=true;
 		
 		}	
 	}else{
@@ -123,8 +133,30 @@ bool Azpazeta::OnInit()
 	wxExit();
 	}
   wxYield();
-	StartDialog* stdg=new StartDialog();
-	stdg->ShowModal();
+	//AZPVM
+	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
+	AzpLog("[OK] Started AzpVM with Init Script",4);
+	//STARTDIALOG
+	if(!loader)
+	{
+		StartDialog* stdg=new StartDialog();
+		stdg->ShowModal();
+	}else{
+	//Copy from newgame.cpp
+	SaveFile* saver=new SaveFile(wxApp::argv[1]);
+	saver->LoadAll();
+
+	//Change settings
+	AZPNewGame* loadgame=new AZPNewGame(_("Load game"));
+	loadgame->ShowModal();
+
+	//Open SERVER
+	client=new AzpClient(azpCLIENT_LOAD);
+	client->Connect();
+	//client->Disconnect();
+	//Destroy();
+
+	}
 
     // success: wxApp::OnRun() will be called which will enter the main message
     // loop and the application will run. If we returned false here, the

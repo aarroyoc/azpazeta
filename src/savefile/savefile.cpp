@@ -15,7 +15,8 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-extern double azpmoney;
+
+
 #include <fstream>
 #include <iostream>
 #include "wx/zipstrm.h"
@@ -24,13 +25,80 @@ extern double azpmoney;
 #include "wx/wfstream.h"
 #include "wx/txtstrm.h"
 #include "../version.hpp"
+#include "wx/progdlg.h"
+#include <memory>
+extern double azpmoney;
+extern wxString azpname;
+extern int vadrixchar;
 
 SaveFile::SaveFile(wxString file)
 {
-	if(wxFileExists(file)!=true)
+fileuri=file;
+	
+
+
+}
+bool SaveFile::LoadAll()
+{
+char superbuffer[8192];
+wxProgressDialog pd(_("Loading savefile"),_("Loading data"),5);
+pd.Update(1);
+std::auto_ptr<wxZipEntry> entry;
+wxFFileInputStream in(fileuri);
+wxZipInputStream zip(in);
+do{
+
+    entry.reset(zip.GetNextEntry());
+
+}while(entry.get() != NULL && entry->GetInternalName() != _("AZP-DATA/main.xml"));
+pd.Update(2);
+if(entry.get() != NULL)
+{
+	zip.Read(superbuffer,8192);
+}else
+{
+pd.Pulse(_("Wrong Azpazeta package format"));
+wxSleep(5000);
+pd.Update(6);
+return false;
+}
+pd.Update(3);
+//READING SUPERBUFFER
+TiXmlDocument doc;
+doc.Parse(superbuffer,0,TIXML_ENCODING_UTF8);
+TiXmlElement *var;
+TiXmlElement* savefile=doc.RootElement();
+pd.Update(4);
+while(savefile)
+{
+	var=savefile->FirstChildElement("var");
+	while(var)
 	{
-		//Create AZP file if not exists
-	wxFFileOutputStream out(file);
+		if(strcmp(var->Attribute("name"),"azpmoney")==0)
+		{
+			azpmoney=atof(var->GetText());
+		}
+		if(strcmp(var->Attribute("name"),"vadrixchar")==0)
+		{
+			vadrixchar=atoi(var->GetText());
+		}
+		if(strcmp(var->Attribute("name"),"azpname")==0)
+		{
+			azpname=wxString::FromUTF8(var->GetText());
+		}
+		var=var->NextSiblingElement("var");
+	}
+	savefile=savefile->NextSiblingElement("savefile");
+}
+pd.Update(5);
+pd.Update(6);
+
+
+
+}
+bool SaveFile::SaveAll()
+{
+	wxFFileOutputStream out(fileuri);
 	wxZipOutputStream zip(out);
 	wxTextOutputStream txt(zip);
 	wxString sep(wxFileName::GetPathSeparator());
@@ -44,7 +112,7 @@ SaveFile::SaveFile(wxString file)
 	txt << wxT("Hi, this is the user information\n");
 
 	//NOT USED IN AZPAZETA, BUT UTIL
-	zip.PutNextEntry(wxT("META-DATA")+ sep + wxT("VERSION.TXT"));
+	zip.PutNextEntry(wxT("META-DATA")+ sep + wxT("VERSION.HTML"));
 	txt << wxT("MinVersion: JUNO\n");
 	txt << wxString::Format(wxT("<h1>Azpazeta Version Information</h1><h2>Version</h2><p>Major version: %d<br>Minor version: %d<br>Patch version: %d<br>Version name: %s<br>AZPScript Version: %d</p>"),AZPAZETA_VERSION_MAJOR,AZPAZETA_VERSION_MINOR,AZPAZETA_VERSION_PATCH,AZPAZETA_WX_NAME,AZPSCRIPT_VERSION);
 
@@ -75,41 +143,31 @@ SaveFile::SaveFile(wxString file)
 	//First create XML with TinyXML, later pass it to the ZIP
 	TiXmlDocument doc;
 	TiXmlDeclaration * decl = new TiXmlDeclaration( "1.0", "", "" );
-	TiXmlElement * element = new TiXmlElement( "Hello" );
-	TiXmlText * text = new TiXmlText( "World" );
-	element->LinkEndChild( text );
+	TiXmlElement * savefile = new TiXmlElement( "savefile" );
+	TiXmlElement* varmoney=new TiXmlElement("var");
+	varmoney->SetAttribute("name","azpmoney");
+	char buffer[8192];
+	sprintf(buffer,"%f",azpmoney);
+	varmoney->LinkEndChild(new TiXmlText(buffer));
+	savefile->LinkEndChild(varmoney);
+	TiXmlElement* varname=new TiXmlElement("var");
+	varname->SetAttribute("name","azpname");
+	sprintf(buffer,"%s",(const char*)azpname.mb_str());
+	varname->LinkEndChild(new TiXmlText(buffer));
+	savefile->LinkEndChild(varname);
+	TiXmlElement* varvadrixchar=new TiXmlElement("var");
+	varvadrixchar->SetAttribute("name","vadrixchar");
+	sprintf(buffer,"%d",vadrixchar);
+	varvadrixchar->LinkEndChild(new TiXmlText(buffer));
+	savefile->LinkEndChild(varvadrixchar);
+	/*TiXmlText * text = new TiXmlText( "World" );
+	element->LinkEndChild( text );*/
 	doc.LinkEndChild( decl );
-	doc.LinkEndChild( element );
+	doc.LinkEndChild( savefile );
 	zip.PutNextEntry(wxT("AZP-DATA/main.xml"));
 	TiXmlPrinter printer;
 	printer.SetStreamPrinting ();
 	doc.Accept (&printer);
 
 	txt << wxString::FromUTF8(printer.CStr ());
-
-
-	
-	}
-
-
-}
-bool SaveFile::LoadAll()
-{
-
-}
-bool SaveFile::SaveAll()
-{
-
-}
-wxString SaveFile::Read(SAVEFILE_PARAMETERS parameter)
-{
-
-
-
-
-}
-bool SaveFile::Set(SAVEFILE_PARAMETERS parameter, wxString value)
-{
-
-
 }
