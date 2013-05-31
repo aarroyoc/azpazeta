@@ -410,9 +410,9 @@
 
 
 <info>
-	<side side="up">station-duo.tmx</side>
-	<side side="down">main.tmx</side>
-	<side side="left">rocky.tmx</side>
+	<side side="up">rocky.tmx</side>
+	<side side="down">station.tmx</side>
+	<side side="left">NULL</side>
 	<side side="right">NULL</side>
 </info>
 </event-table>

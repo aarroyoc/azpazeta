@@ -49,6 +49,7 @@ namespace Shader{
 }
 extern bool azplogo;
 extern bool azpmosaic;
+extern int vadrixchar;
 extern GLfloat mvMatrix[16];
 int64_t* mapdata;
 GLuint currenttexture;
@@ -457,9 +458,9 @@ void AZPGL::Render(wxPaintEvent& event)
 	float xfila=-1.0f;
 	int columna;
 	float ycolumna=1.0f;
-	for(columna=0;columna<21;columna++)
+	for(columna=0;columna<21;columna++) //columna<21
 	{
-	for(fila=0;fila<20;fila++)
+	for(fila=0;fila<20;fila++) //fila<20
 	{
 		mvMatrix[12]=xfila;//x
 		mvMatrix[13]=ycolumna; //y
@@ -468,28 +469,28 @@ void AZPGL::Render(wxPaintEvent& event)
 		mvMatrix[0]=0.1f; //X-scale
 		mvMatrix[5]=0.1f; //Y-Scale
 
-	glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
-	glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(0);
-	//Select the Texture according the Data
-	switch(azpmap->GetArrayData(fila,columna))
-	{
-		case 0:currenttexture=azptexture;break; //Azpazeta tile
-		default:currenttexture=maintexture[azpmap->GetArrayData(fila,columna)];
-	}
+		glBindBuffer(GL_ARRAY_BUFFER,triangleBuffer);
+		glVertexAttribPointer(Shader::vPA, 3, GL_FLOAT, GL_FALSE, 0, 0);
+		glEnableVertexAttribArray(0);
+		//Select the Texture according the Data
+		switch(azpmap->GetArrayData(fila,columna))
+		{
+			case 0:currenttexture=azptexture;break; //Azpazeta tile
+			default:currenttexture=maintexture[azpmap->GetArrayData(fila,columna)];
+		}
 	
 
-	glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
-	glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, currenttexture);
-	glUniform1i(Shader::sU, 0);
+		glBindBuffer(GL_ARRAY_BUFFER,triangleTexture);
+		glVertexAttribPointer(Shader::tCA,2,GL_FLOAT,GL_FALSE,0,0);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, currenttexture);
+		glUniform1i(Shader::sU, 0);
 
 
-	AzpShader::SetMatrixUniforms();
-	glDrawArrays(GL_QUADS, 0, 4);
+		AzpShader::SetMatrixUniforms();
+		glDrawArrays(GL_QUADS, 0, 4);
 
-	xfila+=0.1f;
+		xfila+=0.1f;
 	}
 	xfila=-1.0f;
 	ycolumna-=0.1f;
@@ -687,7 +688,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 					delete azpmap;
 					delete eventm;
 					azpmap=new AzpMap(uri);
-					vadrixposy=-10;
+					vadrixposy=-10; //VADRIXPOSY=-10
 					Refresh();
 					eventm=new EventManager(uri);
 				}
@@ -893,8 +894,18 @@ void AZPGL::AZPTexture()
 
 	//VADRIX -- No hacer transparente, sino del fondo del lugar (bosque o desierto)
 	winl->Next();
+	
+	//VADRIX-ANTIVADRIX-WADRIX-VANDRAXA
+	wxString vadrixpath=azppath+wxT("/media/vadrixmain.png");
+	switch(vadrixchar)
+	{
+		case 0:vadrixpath=azppath+wxT("/media/vadrixmain.png");break;
+		case 1:vadrixpath=azppath+wxT("/media/anti-vadrixmain.png");break;
+		case 2:vadrixpath=azppath+wxT("/media/wadrixmain.png");break;
+		case 3:vadrixpath=azppath+wxT("/media/vandraxamain.png");break;
 
-	SpriteLoader* vadrixsprite=new SpriteLoader(azppath+wxT("/media/vadrixmain.png"),64);
+	}
+	SpriteLoader* vadrixsprite=new SpriteLoader(vadrixpath,64);
 	glGenTextures(1,&vadrixtexture[0]);
 	glBindTexture(GL_TEXTURE_2D, vadrixtexture[0]);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, vadrixsprite->GetSprite(1).GetData());
@@ -923,6 +934,7 @@ void AZPGL::AZPTexture()
 	winl->Next();
 
 	//BLUEANDRED
+	int total;
 
 	SpriteLoader* dualsprite=new SpriteLoader(azppath+wxT("/media/dualsprite.png"),64);
 
@@ -939,7 +951,7 @@ void AZPGL::AZPTexture()
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	delete dualsprite;
-
+	total=4;
 	winl->Next();
 
 	//HOUSE1	
@@ -948,14 +960,15 @@ void AZPGL::AZPTexture()
 	int house1;
 	for(house1=0;house1<housesprite->GetNumbers();house1++)
 	{
-		glGenTextures(1,&maintexture[house1+4]);
-		glBindTexture(GL_TEXTURE_2D, maintexture[house1+4]);
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, housesprite->GetSprite(house1).GetData());
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
 	}
 	delete housesprite;
-
+	
 	winl->Next();	
 
 	//WATER
@@ -963,20 +976,108 @@ void AZPGL::AZPTexture()
 	int water1;
 	for(water1=0;water1<watersprite->GetNumbers();water1++)
 	{
-		glGenTextures(1,&maintexture[house1+4+water1]);
-		glBindTexture(GL_TEXTURE_2D, maintexture[house1+4+water1]);
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, watersprite->GetSprite(water1).GetData());
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
 	}
 
 	winl->Next();
+	delete watersprite;
+	//HOUSERED
+	SpriteLoader* houseredsprite=new SpriteLoader(azppath+wxT("/media/housered.png"),64);
+	int housered1;
+	for(housered1=0;housered1<houseredsprite->GetNumbers();housered1++)
+	{
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, houseredsprite->GetSprite(housered1).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
+	}
+
+	winl->Next();
+	delete houseredsprite;
+	//HOUSEYELLOW
+	SpriteLoader* houseyellowsprite=new SpriteLoader(azppath+wxT("/media/houseyellow.png"),64);
+	int houseyellow1;
+	for(houseyellow1=0;houseyellow1<houseyellowsprite->GetNumbers();houseyellow1++)
+	{
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, houseyellowsprite->GetSprite(houseyellow1).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
+	}
+
+	winl->Next();
+	delete houseyellowsprite;
+
+	//MOUNTAIN
+	SpriteLoader* mountainsprite=new SpriteLoader(azppath+wxT("/media/mountain.png"),64);
+	int mountain1;
+	for(mountain1=0;mountain1<mountainsprite->GetNumbers();mountain1++)
+	{
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, mountainsprite->GetSprite(mountain1).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
+
+
+	}
+	winl->Next();
+	delete mountainsprite;
+	
+	//MOUNTAIN-INSIDE
+	SpriteLoader* mountainsidesprite=new SpriteLoader(azppath+wxT("/media/mountain-inside.png"),64);
+	int mountain2;
+	for(mountain2=0;mountain2<mountainsidesprite->GetNumbers();mountain2++)
+	{
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, mountainsidesprite->GetSprite(mountain2).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
+
+
+	}
+	winl->Next();
+	delete mountainsidesprite;
+
+	//ROAD.PNG
+	SpriteLoader* roadsprite=new SpriteLoader(azppath+wxT("/media/road.png"),64);
+	int road1;
+	for(road1=0;road1<roadsprite->GetNumbers();road1++)
+	{
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, roadsprite->GetSprite(road1).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
+
+
+	}
+	winl->Next();
+	delete roadsprite;
+	//PALACETOWER TODO
+
+
+	//VILLAGERS TODO
+	
 
 	/*wxMessageBox(wxString::Format(wxT("%d"),housesprite->GetNumbers()));*/
 	
 	
 	
-	delete watersprite;
+	
 	AzpLog("[OK] Textures loaded",4);
 	winl->Finish();
 

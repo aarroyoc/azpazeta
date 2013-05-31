@@ -59,7 +59,7 @@ EventManager::EventManager(wxString tmxmap)
 					file=wxString::FromUTF8(archive);
 				EventArray[x][y]=file;
 
-				if(x==19)
+				if(x==19) //x==19
 				{
 					x=0;y++;
 				}else{
@@ -71,7 +71,8 @@ EventManager::EventManager(wxString tmxmap)
 
 
 				tile=tile->NextSiblingElement("tile");
-			}			
+			}
+			//printf("READING EVENTS... [100]\nX->%d\nY->%d\n",x,y);		
 		
 
 			data=data->NextSiblingElement("data");

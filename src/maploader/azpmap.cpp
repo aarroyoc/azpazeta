@@ -88,16 +88,18 @@ AzpMap::AzpMap(wxString file)
 		{
 			ArrayData[x][y]=atoi(tile->Attribute("gid"));
 			//wxMessageBox(wxString::Format(wxT("Part 1: %d"),ArrayData[x][y]));
-			if(x==19)
+			//printf("DATA-FROM-MAP: %d\n",atoi(tile->Attribute("gid")));
+			if(x==19) //x==19
 			{
 				x=0;y++;
 			}else{
 			x++;
 			}
-
+	
 
 			tile=tile->NextSiblingElement("tile");
 		}
+		//printf("READING MAP... [100]\nX->%d\nY->%d\n",x,y);
 		
 
 

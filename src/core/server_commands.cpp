@@ -41,7 +41,7 @@ char response[2048];
 			ypos[me]=atoi(commandpart);
 			commandpart=strtok(NULL,"|");
 			building=atoi(commandpart);
-			if(xpos[me]>21 || xpos[me]<0 || ypos[me]>21 || ypos[me]<0)
+			if(xpos[me]>20 || xpos[me]<0 || ypos[me]>20 || ypos[me]<0) //21,0,21,0
 			{
 				snprintf(response,2048,"MIGHT");
 				printf("Changing map...");
@@ -94,7 +94,10 @@ bool CheckBuilding(int buildingcode)
 		case 2: //Red
 		case 4: //Green
 		case 23: //Bridge 
-		case 24:result=true;break; //Bridge
+		case 24: //Bridge
+		case 54: //Enter to the cave
+		case 66: //Enter to the cave
+		case 75:result=true;break; //Green
 
 
 	

@@ -67,6 +67,8 @@ AZPNewGame::AZPNewGame(const wxString& title) : wxDialog(NULL,wxID_ANY,title)
 }
 void AZPNewGame::SaveIt(wxCommandEvent& event)
 {
+	azpname=name->GetValue();
+	vadrixchar=character->GetCurrentSelection();
 	wxString info_xml=GetMapsAvalibles()[mapstart->GetCurrentSelection()];
 	//Check if map is in the ROOT or in the HOME
 	if(info_xml.BeforeLast('/').EndsWith(wxT(".azpazeta/maps")))
@@ -83,8 +85,7 @@ void AZPNewGame::SaveIt(wxCommandEvent& event)
 	}
 
 
-	azpname=name->GetValue();
-	vadrixchar=character->GetCurrentSelection();
+
 	//SaveDialog (also Saver Class) (like Simutrans saver) AUTOSAVE- NEVER
 	wxFileDialog* select=new wxFileDialog(NULL,wxT("Choose the place to save your data"),wxT(""),wxT(""),wxT("AZP Save Files (*.azp)|*.azp"),wxFD_SAVE);
 	select->ShowModal();

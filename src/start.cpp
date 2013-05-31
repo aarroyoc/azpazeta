@@ -156,8 +156,8 @@ void Start::Updater(wxCommandEvent& event)
 {
 	//Only for WIN32 and TAR.GZ. The reason is that Linux users must use her package managers
 	#ifndef WIN32
-	wxMessageBox(_("Linux user: You must use your package manager for better performance. If you update from here you get a TAR.GZ for 32 bits"),_("Divel Network"),wxOK|wxICON_WARNING);
-	#endif
+	wxMessageBox(_("Linux user: You must use your package manager for better performance. Only Windows user should update from here"),_("Divel Network"),wxOK|wxICON_WARNING);
+	#else
 	int check=wxMessageBox(_("Do you want to search Azpazeta updates"),_("Divel Network"),wxYES_NO|wxICON_QUESTION);
 	if(check!=wxYES)
 		return;
@@ -171,8 +171,6 @@ void Start::Updater(wxCommandEvent& event)
 	    wxSleep(5);
 	#ifdef WIN32
 	wxInputStream *httpStream = get.GetInputStream(wxT("/updater?PRODUCT=AZPAZETA_WIN32&VERSION=2"));
-	#else
-	wxInputStream *httpStream = get.GetInputStream(wxT("/updater?PRODUCT=AZPAZETA_TARGZ32&VERSION=2"));
 	#endif
 	if (get.GetError() == wxPROTO_NOERR)
 	{
@@ -212,4 +210,5 @@ void Start::Updater(wxCommandEvent& event)
 		}
 
 	}
+	#endif
 }
