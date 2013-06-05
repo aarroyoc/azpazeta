@@ -41,12 +41,13 @@ char response[2048];
 			ypos[me]=atoi(commandpart);
 			commandpart=strtok(NULL,"|");
 			building=atoi(commandpart);
-			if(xpos[me]>20 || xpos[me]<0 || ypos[me]>20 || ypos[me]<0) //21,0,21,0
+			if(xpos[me]>20 || xpos[me]<0 || ypos[me]>20 || ypos[me]<1) //21,0,21,0
 			{
 				snprintf(response,2048,"MIGHT");
 				printf("Changing map...");
 			}
 			else if(CheckBuilding(building)==false){
+				//printf("YPOS[ME]: %d\t",ypos[me]);
 				snprintf(response,2048,"FALSE");
 
 			}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <event-table>
 <data>
-   <tile onstay="OnCorner.azps" gid="4"/>
+   <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -404,7 +404,7 @@
 </data>
 <info>
 	<side side="up">NULL</side>
-	<side side="down">station.tmx</side>
+	<side side="down">NULL</side>
 	<side side="left">NULL</side>
 	<side side="right">NULL</side>
 </info>

@@ -15,6 +15,7 @@
 		<option id="divelAppsURL">http://divelapps.appspot.com</option>
 		<option id="google-plus">Not registered</option>
 		<option id="divel-network">Not registered</option>
+		<option id="divelTelemetry">1</option>
 	</option-tab>
 
 

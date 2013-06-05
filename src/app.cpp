@@ -29,6 +29,7 @@
 #include "azpscript/azpvm.hpp"
 #include "savefile/savefile.hpp"
 #include "window/newgame.hpp"
+#include "network/telemetry.hpp"
 
 #include "xml/tinyxml.h"
 
@@ -96,6 +97,8 @@ bool Azpazeta::OnInit()
 	}
 	AzpLog("[OK] Localization",4);
 
+
+	//Get Installed path
 	PathFinder::Start();
 	AzpLog("[OK] PathFinder gets Azpazeta Resources Dir",4);
 	Notify();
@@ -133,6 +136,63 @@ bool Azpazeta::OnInit()
 	wxExit();
 	}
   wxYield();
+	//Run Divel Telemetry if required
+	int lang=wxLocale::GetSystemLanguage();
+	wxString lang_param;
+	switch(lang)
+	{
+		case wxLANGUAGE_ARABIC:lang_param=wxT("ar");break;
+		case wxLANGUAGE_CHINESE:lang_param=wxT("zh");break;
+		case wxLANGUAGE_CROATIAN:lang_param=wxT("hr");break;
+		case wxLANGUAGE_CZECH:lang_param=wxT("cs");break;	
+		case wxLANGUAGE_DANISH:lang_param=wxT("da");break;
+		case wxLANGUAGE_DUTCH:lang_param=wxT("nl");break;
+		case wxLANGUAGE_ENGLISH:
+		case wxLANGUAGE_ENGLISH_UK: 	
+		case wxLANGUAGE_ENGLISH_US:lang_param=wxT("en");break;
+		case wxLANGUAGE_ESPERANTO:lang_param=wxT("eo");break;
+		case wxLANGUAGE_FRENCH:lang_param=wxT("fr");break;
+		case wxLANGUAGE_GERMAN:lang_param=wxT("de");break;
+		case wxLANGUAGE_ITALIAN:lang_param=wxT("it");break;
+		case wxLANGUAGE_JAPANESE:lang_param=wxT("ja");break;
+		case wxLANGUAGE_KOREAN:lang_param=wxT("ko");break;
+		case wxLANGUAGE_LATIN:lang_param=wxT("la");break;
+		case wxLANGUAGE_PORTUGUESE:	
+		case wxLANGUAGE_PORTUGUESE_BRAZILIAN:lang_param=wxT("pt");break;
+		case wxLANGUAGE_RUSSIAN:lang_param=wxT("ru");break;
+		case wxLANGUAGE_SPANISH:
+		case wxLANGUAGE_SPANISH_ARGENTINA :
+		case wxLANGUAGE_SPANISH_BOLIVIA :	
+		case wxLANGUAGE_SPANISH_CHILE 	:
+		case wxLANGUAGE_SPANISH_COLOMBIA :	
+		case wxLANGUAGE_SPANISH_COSTA_RICA: 	
+		case wxLANGUAGE_SPANISH_DOMINICAN_REPUBLIC 	:
+		case wxLANGUAGE_SPANISH_ECUADOR 	:
+		case wxLANGUAGE_SPANISH_EL_SALVADOR 	:
+		case wxLANGUAGE_SPANISH_GUATEMALA 	:
+		case wxLANGUAGE_SPANISH_HONDURAS 	:
+		case wxLANGUAGE_SPANISH_MEXICAN 	:
+		case wxLANGUAGE_SPANISH_MODERN 	:
+		case wxLANGUAGE_SPANISH_NICARAGUA: 	
+		case wxLANGUAGE_SPANISH_PANAMA 	:
+		case wxLANGUAGE_SPANISH_PARAGUAY :	
+		case wxLANGUAGE_SPANISH_PERU 	:
+		case wxLANGUAGE_SPANISH_PUERTO_RICO : 	
+		case wxLANGUAGE_SPANISH_URUGUAY 	:
+		case wxLANGUAGE_SPANISH_US 	:
+		case wxLANGUAGE_SPANISH_VENEZUELA :lang_param=wxT("es"); break;
+		default: lang_param=wxT("en");
+	}
+	
+	wxString screen_string=wxString::Format(wxT("%dx%d"),wxSystemSettings::GetMetric ( wxSYS_SCREEN_X ),wxSystemSettings::GetMetric ( wxSYS_SCREEN_Y ) );
+	if(LoadOptions().net.divelTelemetry)
+	{
+	
+		//Telemetry AppStart
+		Telemetry* telemetry=new Telemetry(wxT("UA-20035972-12"),wxT("Azpazeta"),wxT("2.0.0"),wxT("AppStart"),screen_string,lang_param);
+		telemetry->Send();
+		delete telemetry;
+	}
 	//AZPVM
 	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
 	AzpLog("[OK] Started AzpVM with Init Script",4);
@@ -316,6 +376,14 @@ AZPOptions LoadOptions()
 						else
 							box=false;
 						options.net.autoConnect=box;
+					}
+					if(strcmp(option->Attribute("id"),"divelTelemetry")==0){
+						bool box;
+						if(strcmp(option->GetText(),"1")==0)
+							box=true;
+						else
+							box=false;
+						options.net.divelTelemetry=box;
 					}
 					if(strcmp(option->Attribute("id"),"google-plus")==0){
 						options.net.GooglePlus=wxString::FromUTF8(option->GetText());

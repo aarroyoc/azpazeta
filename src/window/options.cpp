@@ -88,6 +88,9 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 	
 	wxStaticText* googleplus=new wxStaticText(net,wxID_ANY,_("Google+ Profile: "),wxPoint(1,90),wxSize(150,15));
 	Xgoogleplus=new wxTextCtrl(net,wxID_ANY,options.net.GooglePlus,wxPoint(160,90),wxSize(200,25));
+
+	divelTelemetry=new wxCheckBox(net,wxID_ANY,_("Divel Telemetry"),wxPoint(1,120));
+	divelTelemetry->SetValue(options.net.divelTelemetry);
 	
 
 
@@ -228,32 +231,37 @@ void Options::SaveData()
 	net_tab->SetAttribute("id","net");
 	azpazeta_options->LinkEndChild(net_tab);
 
-	TiXmlElement* net_option[4];
+	TiXmlElement* net_option[5];
 	net_option[0]=new TiXmlElement("option");
 	net_option[1]=new TiXmlElement("option");
 	net_option[2]=new TiXmlElement("option");	
 	net_option[3]=new TiXmlElement("option");
+	net_option[4]=new TiXmlElement("option");
 
 	net_option[0]->SetAttribute("id","autoConnect");
 	net_option[1]->SetAttribute("id","divelAppsURL");
 	net_option[2]->SetAttribute("id","google-plus");
 	net_option[3]->SetAttribute("id","divel-network");
+	net_option[4]->SetAttribute("id","divelTelemetry");
 
 	net_tab->LinkEndChild(net_option[0]);
 	net_tab->LinkEndChild(net_option[1]);
 	net_tab->LinkEndChild(net_option[2]);
 	net_tab->LinkEndChild(net_option[3]);
+	net_tab->LinkEndChild(net_option[4]);
 
-	TiXmlText* net_text[4];
+	TiXmlText* net_text[5];
 	net_text[0]=new TiXmlText(autoConnect->GetValue() ? "1" : "0");
 	net_text[1]=new TiXmlText(XdivelAppsUrl->GetValue().mb_str());
 	net_text[2]=new TiXmlText(Xgoogleplus->GetValue().mb_str());
 	net_text[3]=new TiXmlText(XdivelNetwork->GetValue().mb_str());
+	net_text[4]=new TiXmlText(divelTelemetry->GetValue() ? "1" : "0");
 
 	net_option[0]->LinkEndChild(net_text[0]);
 	net_option[1]->LinkEndChild(net_text[1]);
 	net_option[2]->LinkEndChild(net_text[2]);
 	net_option[3]->LinkEndChild(net_text[3]);
+	net_option[4]->LinkEndChild(net_text[4]);
 	//Saving file DONE
 	
 	#ifdef WIN32

@@ -35,6 +35,7 @@ typedef struct{			//Options structure
 			wxString GooglePlus;
 			wxString DivelNetworkName;
 			wxString UserAgent;
+			bool divelTelemetry;
 			//Check new version
 			//Apply
 		}net;	

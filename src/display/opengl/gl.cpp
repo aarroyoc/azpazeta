@@ -458,7 +458,7 @@ void AZPGL::Render(wxPaintEvent& event)
 	float xfila=-1.0f;
 	int columna;
 	float ycolumna=1.0f;
-	for(columna=0;columna<21;columna++) //columna<21
+	for(columna=0;columna<20;columna++) //columna<21
 	{
 	for(fila=0;fila<20;fila++) //fila<20
 	{
@@ -688,7 +688,7 @@ void AZPGL::OnKey(wxKeyEvent& event)
 					delete azpmap;
 					delete eventm;
 					azpmap=new AzpMap(uri);
-					vadrixposy=-10; //VADRIXPOSY=-10
+					vadrixposy=-9; //VADRIXPOSY=-10
 					Refresh();
 					eventm=new EventManager(uri);
 				}
@@ -1068,9 +1068,38 @@ void AZPGL::AZPTexture()
 	winl->Next();
 	delete roadsprite;
 	//PALACETOWER TODO
+	SpriteLoader* palacesprite=new SpriteLoader(azppath+wxT("/media/palacetower.png"),64);
+	int palace1;
+	for(palace1=0;palace1<roadsprite->GetNumbers();palace1++)
+	{
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, palacesprite->GetSprite(palace1).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
 
+
+	}
+	winl->Next();
+	delete palacesprite;
 
 	//VILLAGERS TODO
+	SpriteLoader* villagerssprite=new SpriteLoader(azppath+wxT("/media/villagers.png"),64);
+	int villagers1;
+	for(villagers1=0;villagers1<villagerssprite->GetNumbers();villagers1++)
+	{
+		glGenTextures(1,&maintexture[total]);
+		glBindTexture(GL_TEXTURE_2D, maintexture[total]);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, villagerssprite->GetSprite(villagers1).GetData());
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		total++;
+
+
+	}
+	winl->Next();
+	delete villagerssprite;
 	
 
 	/*wxMessageBox(wxString::Format(wxT("%d"),housesprite->GetNumbers()));*/

@@ -76,6 +76,7 @@ private:
 	wxButton* checkNewVersion;
 	wxTextCtrl* XdivelNetwork;
 	wxTextCtrl* Xgoogleplus;
+	wxCheckBox* divelTelemetry;
 	//All
 	wxButton* optOk;
 	wxButton* optCancel;
