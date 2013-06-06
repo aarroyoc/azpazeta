@@ -120,6 +120,9 @@ ADD_EXECUTABLE(AZPSERVER ${AZP_SERVER})
 SET_TARGET_PROPERTIES(AZPSERVER PROPERTIES RUNTIME "${CMAKE_CURRENT_SOURCE_DIR}/AZPSERVER")
 #TARGET_LINK_LIBRARIES(AZPSERVER ${AZP_LIB} ) Nothing, yet...
 
+
+
+IF(AzpazetaVersion_StandardEdition)
 SET (AZP_SRC
 src/app.cpp
 src/start.cpp
@@ -153,6 +156,14 @@ src/xml/tinyxml.cpp
 src/xml/tinystr.cpp
 src/xml/tinyxmlerror.cpp
 src/xml/tinyxmlparser.cpp)
+#ELSEIF() For Haiku, Android, etc
+#ELSE() Nothing specified
+
+
+
+ENDIF()
+
+IF(AzpazetaVersion_StandardEdition)
 SET (AZP_LIB
 ${wxWidgets_LIBRARIES}
 #${GLUT_LIBRARY}
@@ -164,6 +175,7 @@ ${OPENGL_LIBRARIES}
 #${AAZP_CORE}
 ${GLEW_LIBRARIES}
 )
+ENDIF()
 
 
 #If you can't use GLEW, add -DGL_GLEXT_PROTOTYPES

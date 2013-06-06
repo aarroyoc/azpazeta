@@ -9,6 +9,8 @@ var searchData=
   ['azpmapdata',['AzpMapData',['../d8/d98/structAzpMapData.html',1,'']]],
   ['azpmetadata',['AzpMetaData',['../d3/d36/structAzpMetaData.html',1,'']]],
   ['azpmount',['AzpMount',['../de/d0e/classAzpMount.html',1,'']]],
+  ['azpnewgame',['AZPNewGame',['../d6/de6/classAZPNewGame.html',1,'']]],
   ['azppath',['AzpPath',['../d6/db5/classAzpPath.html',1,'']]],
+  ['azpstartmission',['AzpStartMission',['../d8/db8/classAzpStartMission.html',1,'']]],
   ['azpvm',['AZPVM',['../d3/d75/classAZPVM.html',1,'']]]
 ];

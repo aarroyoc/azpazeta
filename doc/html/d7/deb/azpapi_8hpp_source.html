@@ -113,19 +113,26 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;wx/wx.h&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../version.hpp&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../pathfinder/pathfinder.hpp&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a58e2a7800602f633830b335cf8874c4f" title="Start the AZPScript context.">azpInit</a>(lua_State*);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a7a6fde83253590499c09f65cb67ff840" title="Show a string in the Window Console.">azpConsole</a>(lua_State*);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a9a68a78fac942509d57009d95a014eb0" title="Display the Azpazeta logo.">azpLogo</a>(lua_State*);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#ae42b912883cda94b15268f4b54b64651" title="Wait the selected miliseconds.">azpWait</a>(lua_State*);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a6b39f327ce0d47989afdc6a4501343dd" title="Display the Azpazeta Mosaic.">azpMosaic</a>(lua_State*);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a12091fcb57d70eb5dbe4ee5d74179ca8" title="Executes another instance of AzpVM.">azpExecute</a>(lua_State*);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">float</span> azpVersion();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../database/database.hpp&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../window/startmission.hpp&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a58e2a7800602f633830b335cf8874c4f" title="Start the AZPScript context.">azpInit</a>(lua_State*);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a7a6fde83253590499c09f65cb67ff840" title="Show a string in the Window Console.">azpConsole</a>(lua_State*);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a9a68a78fac942509d57009d95a014eb0" title="Display the Azpazeta logo.">azpLogo</a>(lua_State*);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#ae42b912883cda94b15268f4b54b64651" title="Wait the selected miliseconds.">azpWait</a>(lua_State*);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a6b39f327ce0d47989afdc6a4501343dd" title="Display the Azpazeta Mosaic.">azpMosaic</a>(lua_State*);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a12091fcb57d70eb5dbe4ee5d74179ca8" title="Executes another instance of AzpVM.">azpExecute</a>(lua_State*);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#ac223dc9a9d0ba96b73f269a7a716ab0c" title="Gets a var from database storage.">azpGet</a>(lua_State*);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a6225d12bfab96011b897d51979d25f98" title="Set a var in Database Storage.">azpSet</a>(lua_State*);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#acc5e662c753ff5c009982c499b0b84aa" title="Display dialog to start a mission.">azpStartMission</a>(lua_State*);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a85f025da4dccc8bc3d2c214dfb587359" title="Display dialog to finish the current mission.">azpFinishMission</a>(lua_State*);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../da/de3/azpapi_8cpp.html#a46bf8222b5f7ac106697418e97a41b5f" title="Display the message to the user.">azpDialog</a>(lua_State*);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">float</span> azpVersion();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 4 2013 13:07:16 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 6 2013 20:46:53 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

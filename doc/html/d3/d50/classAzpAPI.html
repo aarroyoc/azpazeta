@@ -116,6 +116,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7fb4145b6ba4ff630bea5eb15a986ec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a7fb4145b6ba4ff630bea5eb15a986ec5">azpExecute</a> (File, Securitylevel, Home)</td></tr>
 <tr class="memdesc:a7fb4145b6ba4ff630bea5eb15a986ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a AZPScript.  <a href="#a7fb4145b6ba4ff630bea5eb15a986ec5">More...</a><br/></td></tr>
 <tr class="separator:a7fb4145b6ba4ff630bea5eb15a986ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f25c1e6ae43eb4326b18737d6584097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a4f25c1e6ae43eb4326b18737d6584097">azpGet</a> (Var, File, Home)</td></tr>
+<tr class="memdesc:a4f25c1e6ae43eb4326b18737d6584097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a var from Database storage.  <a href="#a4f25c1e6ae43eb4326b18737d6584097">More...</a><br/></td></tr>
+<tr class="separator:a4f25c1e6ae43eb4326b18737d6584097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d1abcc98cf86ec2313a089bcb2ad89f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a3d1abcc98cf86ec2313a089bcb2ad89f">azpSet</a> (Var, Value, File, Home)</td></tr>
+<tr class="memdesc:a3d1abcc98cf86ec2313a089bcb2ad89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a var from Database storage.  <a href="#a3d1abcc98cf86ec2313a089bcb2ad89f">More...</a><br/></td></tr>
+<tr class="separator:a3d1abcc98cf86ec2313a089bcb2ad89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d4e2dae4d21490d640f549a5e07cc6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a9d4e2dae4d21490d640f549a5e07cc6d">azpStartMission</a> (MissionID, MissionName, Description, InitScript, Home)</td></tr>
+<tr class="memdesc:a9d4e2dae4d21490d640f549a5e07cc6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a <a class="el" href="../../dc/d68/classStart.html">Start</a> Mission Dialog.  <a href="#a9d4e2dae4d21490d640f549a5e07cc6d">More...</a><br/></td></tr>
+<tr class="separator:a9d4e2dae4d21490d640f549a5e07cc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c4e412e70ef04d73d949ab1930d26d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a3c4e412e70ef04d73d949ab1930d26d3">azpFinishMission</a> (MissionID, Money)</td></tr>
+<tr class="memdesc:a3c4e412e70ef04d73d949ab1930d26d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a Finish Mission Dialog.  <a href="#a3c4e412e70ef04d73d949ab1930d26d3">More...</a><br/></td></tr>
+<tr class="separator:a3c4e412e70ef04d73d949ab1930d26d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fdbf51fc6392923b7a1f4db4d1e0356"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d50/classAzpAPI.html#a8fdbf51fc6392923b7a1f4db4d1e0356">azpDialog</a> (Message)</td></tr>
+<tr class="memdesc:a8fdbf51fc6392923b7a1f4db4d1e0356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a message to the user.  <a href="#a8fdbf51fc6392923b7a1f4db4d1e0356">More...</a><br/></td></tr>
+<tr class="separator:a8fdbf51fc6392923b7a1f4db4d1e0356"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Imaginary class for <a class="el" href="../../d3/d50/classAzpAPI.html" title="Imaginary class for AzpAPI Lua docs.">AzpAPI</a> Lua docs. </p>
@@ -145,6 +160,33 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#ac4bc3b02915493c94b2630a13bf9dfba" title="Start a AZPScript context.">azpInit</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8fdbf51fc6392923b7a1f4db4d1e0356"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AzpAPI::azpDialog </td>
+          <td>(</td>
+          <td class="paramtype">Message&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display a message to the user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Message</td><td>The message to show </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a9d4e2dae4d21490d640f549a5e07cc6d" title="Display a Start Mission Dialog.">azpStartMission</a> </dd></dl>
 
 </div>
 </div>
@@ -191,6 +233,89 @@ Public Member Functions</h2></td></tr>
 * </pre> </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a69e0f89bc542b57a3e39733fc95a7b0d" title="Display the Azpazeta logo.">azpLogo</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3c4e412e70ef04d73d949ab1930d26d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AzpAPI::azpFinishMission </td>
+          <td>(</td>
+          <td class="paramtype">MissionID&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Money&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display a Finish Mission Dialog. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MissionID</td><td>The unique ID of the mission </td></tr>
+    <tr><td class="paramname">Money</td><td>The money to add to user account </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a9d4e2dae4d21490d640f549a5e07cc6d" title="Display a Start Mission Dialog.">azpStartMission</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4f25c1e6ae43eb4326b18737d6584097"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AzpAPI::azpGet </td>
+          <td>(</td>
+          <td class="paramtype">Var&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">File&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Home&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a var from Database storage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">File</td><td>The DataBase file to open </td></tr>
+    <tr><td class="paramname">Var</td><td>The name of the var to get </td></tr>
+    <tr><td class="paramname">Home</td><td>If the script is under AZP_HOME instead AZP_ROOT set it to TRUE </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the value of the var </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a3d1abcc98cf86ec2313a089bcb2ad89f" title="Sets a var from Database storage.">azpSet</a> </dd></dl>
 
 </div>
 </div>
@@ -283,6 +408,117 @@ The version of Azpazeta </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a3d1abcc98cf86ec2313a089bcb2ad89f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AzpAPI::azpSet </td>
+          <td>(</td>
+          <td class="paramtype">Var&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Value&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">File&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Home&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a var from Database storage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">File</td><td>The DataBase file to open </td></tr>
+    <tr><td class="paramname">Var</td><td>The name of the var to set </td></tr>
+    <tr><td class="paramname">Value</td><td>The new value of the var </td></tr>
+    <tr><td class="paramname">Home</td><td>If the script is under AZP_HOME instead AZP_ROOT set it to TRUE </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a3d1abcc98cf86ec2313a089bcb2ad89f" title="Sets a var from Database storage.">azpSet</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9d4e2dae4d21490d640f549a5e07cc6d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AzpAPI::azpStartMission </td>
+          <td>(</td>
+          <td class="paramtype">MissionID&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MissionName&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Description&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InitScript&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Home&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display a <a class="el" href="../../dc/d68/classStart.html">Start</a> Mission Dialog. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MissionID</td><td>The unique ID of the mission </td></tr>
+    <tr><td class="paramname">MissionName</td><td>The name of the mission </td></tr>
+    <tr><td class="paramname">Description</td><td>A description of the mission </td></tr>
+    <tr><td class="paramname">InitScript</td><td>Script to execute when the mission starts </td></tr>
+    <tr><td class="paramname">Home</td><td>If the script is under AZP_HOME instead AZP_ROOT set it to TRUE </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This documentation uses C/C++ style in Lua functions. The return values exists </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d50/classAzpAPI.html#a3c4e412e70ef04d73d949ab1930d26d3" title="Display a Finish Mission Dialog.">azpFinishMission</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a4d13bbf44b3777d4e4046e4859b8717b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -316,7 +552,7 @@ The version of Azpazeta </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 4 2013 13:07:17 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 6 2013 20:46:53 for Azpazeta by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

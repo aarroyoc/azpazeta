@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-26 16:55+0100\n"
+"POT-Creation-Date: 2013-06-05 21:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,61 +17,169 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/display/opengl/shader.cpp:77
+#: ../src/display/opengl/shader.cpp:127
+msgid "\n"
+msgstr ""
+
+#: ../src/display/opengl/shader.cpp:125
 msgid ""
 "\n"
-"File: "
+"File:\n"
+" "
 msgstr ""
 
-#: ../src/start.cpp:59
-msgid "&About...\tF1"
-msgstr ""
-
-#: ../src/start.cpp:66
-msgid "&Edit"
-msgstr ""
-
-#: ../src/start.cpp:65
-msgid "&File"
+#: ../src/display/opengl/shader.cpp:129
+msgid ""
+"\n"
+"Type: "
 msgstr ""
 
 #: ../src/start.cpp:67
+msgid "&About...\tF1"
+msgstr ""
+
+#: ../src/start.cpp:75
+msgid "&Edit"
+msgstr ""
+
+#: ../src/start.cpp:74
+msgid "&File"
+msgstr ""
+
+#: ../src/start.cpp:76
 msgid "&Help"
 msgstr ""
 
-#: ../src/start.cpp:60
+#: ../src/start.cpp:68
 msgid "&Settings"
 msgstr ""
 
-#: ../src/display/opengl/gl.cpp:438
+#: ../src/window/loader.cpp:44
+msgid ""
+"'Do not know' has become 'Do not know yet'\n"
+"Bill Gates"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:58 ../src/azpmarket/azpmarket.cpp:124
+#: ../src/azpmarket/azpmarket.cpp:165 ../src/azpmarket/azpmarket.cpp:232
+msgid "/"
+msgstr ""
+
+#: ../src/display/opengl/gl.cpp:883
 msgid "/media/azpazeta.png"
 msgstr ""
 
-#: ../src/window/options.cpp:114
+#: ../src/azpmarket/azpmarket.cpp:149 ../src/azpmarket/azpmarket.cpp:213
+msgid "<br><h1>Installed sucesfully</h1>"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:89 ../src/azpmarket/azpmarket.cpp:154
+#: ../src/azpmarket/azpmarket.cpp:221 ../src/azpmarket/azpmarket.cpp:259
+msgid "<h1>Error</h1>Unable to connect to the server"
+msgstr ""
+
+#: ../src/window/loader.cpp:61
+msgid ""
+"A good politician is one who, having been purchased, it is still affordable\n"
+"Sir Winston Churchill"
+msgstr ""
+
+#: ../src/window/newgame.cpp:39
+msgid "API Level: "
+msgstr ""
+
+#: ../src/savefile/savefile.cpp:53
+msgid "AZP-DATA/main.xml"
+msgstr ""
+
+#: ../src/window/options.cpp:117
 msgid "AZPScript"
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:329
+msgid "AZPVM"
+msgstr ""
+
+#: ../src/window/startmission.cpp:37
+msgid "Accept"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:71 ../src/azpmarket/azpmarket.cpp:177
+#: ../src/azpmarket/azpmarket.cpp:244
+msgid "Accessing files"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:136
+msgid "Accessing music"
+msgstr ""
+
+#: ../src/window/loader.cpp:71
+msgid ""
+"All work and no play makes Jack a dull boy\n"
+"The Shining"
 msgstr ""
 
 #: ../src/window/options.cpp:58
 msgid "Allow Divel Marketing"
 msgstr ""
 
+#: ../src/window/loader.cpp:30
+msgid ""
+"An infinite number of monkeys typing into GNU emacs would never make a good "
+"program.\n"
+"Linus Torvalds"
+msgstr ""
+
+#: ../src/window/loader.cpp:25
+msgid ""
+"An optimist sees the opportunity in every calamity, a pessimist sees a "
+"calamity in every opportunity\n"
+"Sir Winston Churchill"
+msgstr ""
+
+#: ../src/window/newgame.cpp:49
+msgid "Anti-Vadrix"
+msgstr ""
+
 #: ../src/window/options.cpp:83
 msgid "Auto-Update"
 msgstr ""
 
-#: ../src/start/startgui.cpp:29
+#: ../src/azpscript/azpapi.cpp:167 ../src/azpscript/azpapi.cpp:177
+#: ../src/azpscript/azpapi.cpp:183 ../src/azpscript/azpapi.cpp:189
+msgid "AzpVM"
+msgstr ""
+
+#: ../src/core/core.cpp:41
+msgid "Azpazeta"
+msgstr ""
+
+#: ../src/start.cpp:69
+msgid "Azpazeta &Updater"
+msgstr ""
+
+#: ../src/start/startgui.cpp:36
 msgid "Azpazeta 2.0 Juno"
 msgstr ""
 
-#: ../src/app.cpp:42
-msgid "Azpazeta Juno"
+#: ../src/sprite/sprite.cpp:78
+msgid "Azpazeta Image Viewer"
+msgstr ""
+
+#: ../src/app.cpp:115
+msgid "Azpazeta Juno Running"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:25 ../src/azpmarket/azpmarket.cpp:54
+#: ../src/azpmarket/azpmarket.cpp:116
+msgid "Azpazeta Market"
 msgstr ""
 
 #: ../src/window/options.cpp:72
 msgid "Azpazeta Market URL: "
 msgstr ""
 
-#: ../src/start/startgui.cpp:155
+#: ../src/start/startgui.cpp:174
 msgid "Azpazeta Money"
 msgstr ""
 
@@ -81,38 +189,153 @@ msgid ""
 "Azpazeta. Explore the world in a sandbox game"
 msgstr ""
 
-#: ../src/window/options.cpp:121
+#: ../src/start.cpp:208
+msgid "Azpazeta is already updated"
+msgstr ""
+
+#: ../src/window/loader.cpp:82
+msgid ""
+"Azpazeta, now with 2 more meters of National Park\n"
+"Radio ad by Agence of Azpazeta Tourisme"
+msgstr ""
+
+#: ../src/window/loader.cpp:85
+msgid ""
+"Buy actions, now sell it\n"
+"The amazing actions systems by KimCorp"
+msgstr ""
+
+#: ../src/window/options.cpp:124 ../src/window/startmission.cpp:39
 msgid "Cancel"
 msgstr ""
 
-#: ../src/start.cpp:60
+#: ../src/start.cpp:68
 msgid "Change game settings"
 msgstr ""
 
-#: ../src/window/options.cpp:149
+#: ../src/window/newgame.cpp:46
+msgid "Character: "
+msgstr ""
+
+#: ../src/start.cpp:69
+msgid "Check for updates"
+msgstr ""
+
+#: ../src/window/options.cpp:152
 msgid "Closing"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:65 ../src/azpmarket/azpmarket.cpp:130
+#: ../src/azpmarket/azpmarket.cpp:171 ../src/azpmarket/azpmarket.cpp:238
+msgid "Connecting to server: "
+msgstr ""
+
+#: ../src/window/loader.cpp:77
+msgid ""
+"Converting real worlds into Azpazeta worlds...\n"
+"Azpazeta State"
+msgstr ""
+
+#: ../src/window/loader.cpp:73
+msgid ""
+"Counting votes for mayor...\n"
+"Azpazeta State"
+msgstr ""
+
+#: ../src/window/loader.cpp:66
+msgid ""
+"Creating underworlds...\n"
+"Azpazeta State"
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:177
+msgid ""
+"Current map requires access to complete control of the files from the "
+"computer. Only accept if you trust in the author. Do you like to accept the "
+"requeriment?"
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:167
+msgid ""
+"Current map requires access to complete control of the game. Only accept if "
+"you trust in the author. Do you like to accept the requeriment?"
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:183
+msgid ""
+"Current map requires access to debug mode of the game. Only accept if you "
+"trust in the author. Do you like to accept the requeriment?"
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:189
+msgid ""
+"Current map requires access to internet control of the game. Only accept if "
+"you trust in the author. Do you like to accept the requeriment?"
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:349
+msgid "Current map says..."
 msgstr ""
 
 #: ../src/window/options.cpp:56
 msgid "Developer"
 msgstr ""
 
+#: ../src/window/longtalk.cpp:20
+msgid "Dialog"
+msgstr ""
+
+#: ../src/start/startgui.cpp:142 ../src/start/startgui.cpp:148
+#: ../src/start.cpp:159 ../src/start.cpp:161 ../src/display/opengl/gl.cpp:593
+msgid "Divel Network"
+msgstr ""
+
 #: ../src/window/options.cpp:86
 msgid "Divel Network Name: "
 msgstr ""
 
-#: ../src/display/opengl/gl.cpp:224
+#: ../src/window/options.cpp:92 ../src/network/telemetry.cpp:65
+msgid "Divel Telemetry"
+msgstr ""
+
+#: ../src/window/loader.cpp:47
+msgid ""
+"Do not be afraid to give up the good to pursue the grandiose\n"
+"John D. Rockefeller"
+msgstr ""
+
+#: ../src/display/opengl/gl.cpp:266
 msgid "Do you want to exit?"
 msgstr ""
 
-#: ../src/start/startgui.cpp:155
+#: ../src/start/startgui.cpp:135
+msgid "Do you want to find a server in Trola/Divel Network?"
+msgstr ""
+
+#: ../src/start.cpp:161
+msgid "Do you want to search Azpazeta updates"
+msgstr ""
+
+#: ../src/start/startgui.cpp:174
 msgid ""
 "Do you want to spend some money on Azpazeta? We accept BitCoins and Bank "
 "Transfer. Divel BitCoins key is 1A2j8CwiFEhQ4Uycsjhr3gQPbJxFk1LRmM . Do you "
 "want to copy to the clipboard?"
 msgstr ""
 
-#: ../src/start.cpp:61
+#: ../src/azpmarket/azpmarket.cpp:183
+msgid "Downloading map"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:142
+msgid "Downloading music"
+msgstr ""
+
+#: ../src/window/loader.cpp:51
+msgid "Dreaming of success is good, but do it better."
+msgstr ""
+
+#: ../src/start.cpp:70
 msgid "E&xit\tAlt-X"
 msgstr ""
 
@@ -120,25 +343,38 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: ../src/display/opengl/shader.cpp:75
+#: ../src/display/opengl/shader.cpp:123
 msgid "Error compiling shader:\n"
 msgstr ""
 
-#: ../src/display/opengl/shader.cpp:60
+#: ../src/display/opengl/shader.cpp:107
 msgid "Error creating shaders"
 msgstr ""
 
-#: ../src/display/opengl/shader.cpp:90
+#: ../src/display/opengl/shader.cpp:155
 #, c-format
 msgid "Error while creating shader program in %s"
 msgstr ""
 
-#: ../src/maploader/azpmap.cpp:10
-msgid "Failed to load the selected map"
+#: ../src/azpmarket/azpmarket.cpp:88 ../src/azpmarket/azpmarket.cpp:153
+#: ../src/azpmarket/azpmarket.cpp:220 ../src/azpmarket/azpmarket.cpp:258
+msgid "Fail to connect"
 msgstr ""
 
-#: ../src/maploader/map.cpp:24
+#: ../src/database/database.cpp:27 ../src/database/database.cpp:70
+msgid "Failed to load the selected database"
+msgstr ""
+
+#: ../src/maploader/azpmap.cpp:21 ../src/maploader/map.cpp:26
 msgid "Failed to load the selected map: "
+msgstr ""
+
+#: ../src/network/telemetry.cpp:65
+msgid "Failed to submit data to Divel Telemetry"
+msgstr ""
+
+#: ../src/display/opengl/shader.cpp:130
+msgid "Fragment Shader"
 msgstr ""
 
 #: ../src/window/options.cpp:44
@@ -149,69 +385,559 @@ msgstr ""
 msgid "Full Screen"
 msgstr ""
 
-#: ../src/window/options.cpp:112
+#: ../src/window/options.cpp:115
 msgid "General"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:56 ../src/azpmarket/azpmarket.cpp:118
+msgid "Getting server data"
 msgstr ""
 
 #: ../src/window/options.cpp:62
 msgid "Go to website"
 msgstr ""
 
+#: ../src/window/loader.cpp:56
+msgid ""
+"Gold is not everything. Diamonds are also\n"
+"Uncle Scrooge and Minecraft players"
+msgstr ""
+
 #: ../src/window/options.cpp:89
 msgid "Google+ Profile: "
 msgstr ""
 
-#: ../src/window/options.cpp:103
+#: ../src/window/loader.cpp:64
+msgid ""
+"How do you know if the Earth is just another planet's hell?\n"
+"Aldous Huxley"
+msgstr ""
+
+#: ../src/window/loader.cpp:57
+msgid ""
+"I have some ideals, but not like I have other\n"
+"Groucho Marx"
+msgstr ""
+
+#: ../src/window/loader.cpp:39
+msgid ""
+"I only know that I know nothing\n"
+"Socrates"
+msgstr ""
+
+#: ../src/window/loader.cpp:32
+msgid ""
+"I'd like to say that I knew this would happen, that it's all part of the "
+"plan for world domination\n"
+"Linus Torvalds"
+msgstr ""
+
+#: ../src/window/loader.cpp:28
+msgid ""
+"If it compiles, it is good, if it boots up it is perfect\n"
+"Linus Torvalds"
+msgstr ""
+
+#: ../src/window/loader.cpp:50
+msgid "If not try great things, not make it."
+msgstr ""
+
+#: ../src/window/loader.cpp:21
+msgid ""
+"If we all think alike, someone is not thinking\n"
+"Sir Winston Churchill"
+msgstr ""
+
+#: ../src/window/options.cpp:106
 msgid "If you see the square and the cube your computer supports OpenGL"
 msgstr ""
 
-#: ../src/window/options.cpp:115
+#: ../src/window/loader.cpp:31
+msgid ""
+"If you think your users are idiots, only idiots will use it.\n"
+"Linus Torvalds"
+msgstr ""
+
+#: ../src/window/loader.cpp:48
+msgid ""
+"In a revolution one wins or dies, if it's true\n"
+"Ernesto Che Guevara"
+msgstr ""
+
+#: ../src/window/loader.cpp:46
+msgid ""
+"In every failure there is a new opportunity\n"
+"John D. Rockefeller"
+msgstr ""
+
+#: ../src/start/startgui.cpp:148
+msgid "Insert the IP of the server"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:191
+msgid "Installing map"
+msgstr ""
+
+#: ../src/window/loader.cpp:53
+msgid ""
+"Internet? We're not interested in that\n"
+"Bill Gates"
+msgstr ""
+
+#: ../src/window/loader.cpp:60
+msgid ""
+"It failure are successful if we learn from them\n"
+"Malcom Forbes"
+msgstr ""
+
+#: ../src/window/loader.cpp:43
+msgid ""
+"It's fine celebrate success but it is more important to heed the lessons of "
+"failure\n"
+"Bill Gates"
+msgstr ""
+
+#: ../src/window/newgame.cpp:41
+msgid "JUNO"
+msgstr ""
+
+#: ../src/start/startgui.cpp:150
+msgid "Join multiplayer game"
+msgstr ""
+
+#: ../src/window/loader.cpp:87
+msgid ""
+"La Re Fa Sol Mi Mi Re ...\n"
+"Musicalized ad by Disco Rien"
+msgstr ""
+
+#: ../src/start.cpp:159
+msgid ""
+"Linux user: You must use your package manager for better performance. Only "
+"Windows user should update from here"
+msgstr ""
+
+#: ../src/start/startgui.cpp:122 ../src/app.cpp:210
+msgid "Load game"
+msgstr ""
+
+#: ../src/window/loader.cpp:97
+msgid "Loading"
+msgstr ""
+
+#: ../src/savefile/savefile.cpp:44
+msgid "Loading data"
+msgstr ""
+
+#: ../src/savefile/savefile.cpp:44
+msgid "Loading savefile"
+msgstr ""
+
+#: ../src/window/loader.cpp:74
+msgid ""
+"Making orienteering map of Azpazeta...\n"
+"Azpazeta State"
+msgstr ""
+
+#: ../src/window/loader.cpp:67
+msgid ""
+"Mammon is dead!\n"
+"The new book of Mozilla"
+msgstr ""
+
+#: ../src/start/startgui.cpp:165
+msgid ""
+"Map manager is not implemented in Juno. If you want to use another solution, "
+"try Trola, a pay app in Java"
+msgstr ""
+
+#: ../src/window/newgame.cpp:56
+msgid "Map: "
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:329
+msgid "Mission finished sucesfully"
+msgstr ""
+
+#: ../src/window/loader.cpp:29
+msgid ""
+"My name is Vadrix, and I am your god.\n"
+"Letter of GOD to Azpazeta creators"
+msgstr ""
+
+#: ../src/window/newgame.cpp:36
+msgid "Name: "
+msgstr ""
+
+#: ../src/window/options.cpp:118
 msgid "Net"
 msgstr ""
 
-#: ../src/window/options.cpp:120
+#: ../src/window/loader.cpp:58
+msgid ""
+"Never go on the traveled path because it leads to where others have gone\n"
+"Alexander Graham Bell"
+msgstr ""
+
+#: ../src/start/startgui.cpp:106
+msgid "New game"
+msgstr ""
+
+#: ../src/window/longtalk.cpp:41 ../src/window/newgame.cpp:63
+msgid "Next"
+msgstr ""
+
+#: ../src/window/loader.cpp:55
+msgid ""
+"No aspire to be something, aspire to be somebody\n"
+"Victor Hugo"
+msgstr ""
+
+#: ../src/window/options.cpp:123
 msgid "OK"
+msgstr ""
+
+#: ../src/window/loader.cpp:83
+msgid ""
+"Oh no, spare!\n"
+"Book of the year 2012 by Bowling Players Asociation"
+msgstr ""
+
+#: ../src/window/loader.cpp:63
+msgid ""
+"One can not argue with a mathematical theorem\n"
+"Stephen Hawking"
 msgstr ""
 
 #: ../src/window/options.cpp:69
 msgid "Only from Market"
 msgstr ""
 
-#: ../src/window/options.cpp:116
+#: ../src/window/loader.cpp:41
+msgid ""
+"Only he who contributes to the future has the right to judge the past\n"
+"Nietzsche"
+msgstr ""
+
+#: ../src/window/loader.cpp:49
+msgid ""
+"Only one absolute maximum is that there are no absolutes\n"
+"Auguste Comte"
+msgstr ""
+
+#: ../src/window/options.cpp:119
 msgid "OpenGL"
 msgstr ""
 
-#: ../src/start/startgui.cpp:169 ../src/start.cpp:135
+#: ../src/start/startgui.cpp:188 ../src/start.cpp:151
 msgid "Options"
 msgstr ""
 
-#: ../src/start.cpp:61
+#: ../src/window/loader.cpp:88
+msgid ""
+"People need food, houses and a enterteinment\n"
+"Social Science for Dummies"
+msgstr ""
+
+#: ../src/window/loader.cpp:68
+msgid ""
+"People will remember us always\n"
+"Unknow book written by unknow people"
+msgstr ""
+
+#: ../src/display/opengl/gl.cpp:593
+msgid ""
+"Please, start a new game, load a saved game or play multiplayer. Currently "
+"nothing is selected"
+msgstr ""
+
+#: ../src/window/loader.cpp:84
+msgid ""
+"President Adrian Arroyo is the best person in the world\n"
+"Titular of The Herald of Azpazeta"
+msgstr ""
+
+#: ../src/start.cpp:70
 msgid "Quit this program"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:77 ../src/azpmarket/azpmarket.cpp:250
+msgid "Reading page"
+msgstr ""
+
+#: ../src/azpmarket/azpmarket.cpp:54 ../src/azpmarket/azpmarket.cpp:116
+msgid "Reading user options"
+msgstr ""
+
+#: ../src/window/loader.cpp:75
+msgid ""
+"Registering UFOs in Radar...\n"
+"Azpazeta State"
+msgstr ""
+
+#: ../src/window/loader.cpp:76
+msgid ""
+"Reticulating sprites...\n"
+"Azpazeta State"
+msgstr ""
+
+#: ../src/window/loader.cpp:62
+msgid ""
+"Reviews will not be pleasant, but they are necessary\n"
+"Sir Winston Churchill"
+msgstr ""
+
+#: ../src/window/loader.cpp:70
+msgid ""
+"Run Gorrest, run...\n"
+"Gorrest Lump"
+msgstr ""
+
+#: ../src/window/loader.cpp:80
+msgid ""
+"SMS, MMS and VoIP. Only for 10$ per month\n"
+"Ad by Azpazeta Instant!"
+msgstr ""
+
+#: ../src/display/opengl/gl.cpp:627
+msgid "Save the data"
+msgstr ""
+
+#: ../src/display/opengl/gl.cpp:616
+msgid "Save the screenshot"
 msgstr ""
 
 #: ../src/window/options.cpp:61
 msgid "See version"
 msgstr ""
 
-#: ../src/start.cpp:59
+#: ../src/start/startgui.cpp:142
+msgid "Select the type of protocol: "
+msgstr ""
+
+#: ../src/core/core.cpp:41
+msgid "Server fails!"
+msgstr ""
+
+#: ../src/start.cpp:67
 msgid "Show about dialog"
+msgstr ""
+
+#: ../src/window/loader.cpp:45
+msgid ""
+"Sometimes life gonna hit you in the head with a brick. But do not lose "
+"faith\n"
+"Steve Jobs"
 msgstr ""
 
 #: ../src/window/options.cpp:43
 msgid "Spanish"
 msgstr ""
 
-#: ../src/version.cpp:48
+#: ../src/window/startmission.cpp:22
+msgid "Start Mission"
+msgstr ""
+
+#: ../src/window/startmission.cpp:26
+msgid "Start Mission - "
+msgstr ""
+
+#: ../src/window/loader.cpp:65
+msgid ""
+"Thanks, Mario .. But the Princess is in another castle\n"
+"Super Marios Bros"
+msgstr ""
+
+#: ../src/window/loader.cpp:54
+#, c-format
+msgid ""
+"The bed is the most dangerous place in the world: die 80%% of people\n"
+"Mark Twain"
+msgstr ""
+
+#: ../src/window/loader.cpp:52
+msgid ""
+"The circulating gold because it has value, but the paper money has value "
+"because it circulates\n"
+"Karl Marx"
+msgstr ""
+
+#: ../src/window/loader.cpp:81
+msgid ""
+"The economy is like a car. The way to move money to the trash\n"
+"Advanced guide for economists by Financial Room of Azpazeta"
+msgstr ""
+
+#: ../src/window/loader.cpp:86
+msgid ""
+"The enemy is near you. Buy a weapon and use it (in personal defense...)\n"
+"Weapon Catalog Spring 2013, \"It's a Spring of Weapons\" by Militar++"
+msgstr ""
+
+#: ../src/window/loader.cpp:26
+msgid ""
+"The fate of humanity is usually that she deserves\n"
+"Albert Einstein"
+msgstr ""
+
+#: ../src/window/loader.cpp:36
+msgid ""
+"The friend must be like money, they need you before, do not know the value.\n"
+"Socrates"
+msgstr ""
+
+#: ../src/window/loader.cpp:20
+msgid "The future is writed, but I've 'tipex'"
+msgstr ""
+
+#: ../src/window/loader.cpp:33
+msgid ""
+"The man is the supreme being for man\n"
+"Karl Marx"
+msgstr ""
+
+#: ../src/window/loader.cpp:22
+msgid "The man who gets up, is even larger than it has fallen"
+msgstr ""
+
+#: ../src/window/loader.cpp:89
+msgid ""
+"The money is like ice cream, more is better\n"
+"Financial Guide of Azpazeta Second Edition"
+msgstr ""
+
+#: ../src/window/loader.cpp:27
+msgid ""
+"The one who was free of fault that tire the first stone\n"
+"Jesus of Nazaret"
+msgstr ""
+
+#: ../src/azpscript/event.cpp:36
+msgid "The selected EventTable doesn't exist"
+msgstr ""
+
+#: ../src/window/loader.cpp:23
+msgid ""
+"The wise person does not say all what knows, and the fool does not know all "
+"what says"
+msgstr ""
+
+#: ../src/window/loader.cpp:42
+msgid ""
+"The world is beautiful, but has a defect called man\n"
+"Nietzsche"
+msgstr ""
+
+#: ../src/window/loader.cpp:34
+msgid ""
+"The worst fight is the one which does not do .\n"
+"Karl Marx"
+msgstr ""
+
+#: ../src/maploader/azpmap.cpp:47
+msgid "This map requires an updated version of Azpazeta"
+msgstr ""
+
+#: ../src/start/startgui.cpp:135
+msgid "Trola/Divel Network services"
+msgstr ""
+
+#: ../src/window/loader.cpp:37
+msgid ""
+"True wisdom is to recognize one's own ignorance.\n"
+"Socrates"
+msgstr ""
+
+#: ../src/start.cpp:184
+msgid "Update avalible. Click OK to download"
+msgstr ""
+
+#: ../src/window/loader.cpp:72
+msgid ""
+"Uploading Snapshoots to AzpBook...\n"
+"Azpazeta State"
+msgstr ""
+
+#: ../src/window/newgame.cpp:48 ../src/app.cpp:55
+msgid "Vadrix"
+msgstr ""
+
+#: ../src/window/loader.cpp:78
+msgid ""
+"Validating cheats avalibles...\n"
+"Azpazeta State"
+msgstr ""
+
+#: ../src/window/newgame.cpp:51
+msgid "Vandraxa"
+msgstr ""
+
+#: ../src/version.cpp:61
 msgid "Version information"
 msgstr ""
 
-#: ../src/start/startgui.cpp:52
+#: ../src/display/opengl/shader.cpp:130
+msgid "Vertex Shader"
+msgstr ""
+
+#: ../src/window/newgame.cpp:50
+msgid "Wadrix"
+msgstr ""
+
+#: ../src/window/loader.cpp:69
+msgid ""
+"We love Juice+\n"
+"A Clockwork Apple"
+msgstr ""
+
+#: ../src/window/loader.cpp:79
+msgid ""
+"We've got one bank account more\n"
+"Grim Yandango, the founder of Magnox Project"
+msgstr ""
+
+#: ../src/window/loader.cpp:38
+msgid ""
+"Weighs the opinions, do not count them\n"
+"Socrates"
+msgstr ""
+
+#: ../src/start/startgui.cpp:61
 msgid ""
 "Welcome to Azpazeta 2.0 Juno, the strategy-economic\n"
 " game in sandbox mode. Please select an option"
 msgstr ""
 
-#: ../src/app.cpp:35
+#: ../src/window/loader.cpp:40
+msgid ""
+"What does not kill me makes me stronger\n"
+"Nietzsche"
+msgstr ""
+
+#: ../src/window/loader.cpp:59
+msgid ""
+"What worries me is not that you lied to me but, from now on I can no longer "
+"believe in you\n"
+"Nietzsche"
+msgstr ""
+
+#: ../src/window/loader.cpp:35
+msgid ""
+"When I know more the man more love to my dog\n"
+"Adolf Hitler"
+msgstr ""
+
+#: ../src/window/loader.cpp:24
+msgid ""
+"When the well is dry we know the worth of water\n"
+"Benjamin Franklin"
+msgstr ""
+
+#: ../src/savefile/savefile.cpp:60
+msgid "Wrong Azpazeta package format"
+msgstr ""
+
+#: ../src/app.cpp:95
 msgid ""
 "Your language doesn't appear in Azpazeta translations. Please, create a "
 "translation in translations.launchpad.net/azpazeta"

@@ -35,7 +35,9 @@ void Telemetry::Send()
 {
 	wxHTTP get;
 	get.SetHeader(_T("Content-type"), _T("text/html; charset=utf-8"));
-	get.SetHeader(_T("User Agent"),_T("wxHTML/2.8 (")+wxGetOsDescription()+_T(") wxWidgets/2.8 AzpazetaMarket/2.0"));
+	//get.SetHeader(_T("User Agent"),_T("wxHTML/2.8 (")+wxGetOsDescription()+_T(") wxWidgets/2.8 AzpazetaMarket/2.0")); Older UserAgent
+	get.SetHeader(_T("User Agent"),_T("Azpazeta/2.0 (")+wxGetOsDescription()+_T(") wxHTML/2.8"));
+	//printf((_T("Azpazeta/2.0 (")+wxGetOsDescription()+_T(") wxHTML/2.8")).mb_str());
 	get.SetTimeout(10);
 	while (!get.Connect(wxT("www.google-analytics.com")))  // only the server, no pages here yet ...
 	    wxSleep(5);
