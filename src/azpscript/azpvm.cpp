@@ -73,6 +73,10 @@ AZPVM::AZPVM(wxString file, AZPVMState state)
 	lua_setglobal(azpvm,"azpFinishMission");
 	lua_pushcfunction(azpvm,azpDialog);
 	lua_setglobal(azpvm,"azpDialog");
+	lua_pushcfunction(azpvm,azpQuestion);
+	lua_setglobal(azpvm,"azpQuestion");
+	lua_pushcfunction(azpvm,azpBattle);
+	lua_setglobal(azpvm,"azpBattle");
 
     int status = luaL_loadfile(azpvm, file.mb_str());
     int result = 0;

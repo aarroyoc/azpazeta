@@ -1,0 +1,51 @@
+--Constants
+DATABASE="/maps/the_sect-es/database.xml"
+AZP_HOME="FALSE"
+
+-- Vuelves más tarde sin saber qué hacer
+function SecondTime()
+	azpDialog("Tú:\nMe podríais llevar a ver a Grim Yandango. Quiero hablar con él.")
+	azpDialog("Discípulo 616:\nGrim Yandango tiene una agenda realmente apretada. No sé si podrás. Una ayuda económica...")
+	azpDialog("Tú:\nVale, cuanto dinero quieres que te de para que pueda verlo")
+	azpDialog("Discípulo 616:\nLo entiendes mal, lo quieres hacer es un donación voluntaria y sin presión... 5000 $...")
+	azpStartMission("money@the_sect","Earn 5000$","Necesitas 5000$ para la donación voluntaria que te permita hablar con Grim.\nIntenta convencer a alguien de que te los de...","/maps/the_sect-es/OnMoneyTutorial.azps","FALSE")
+end
+function FirstTime()
+	azpDialog("Tú:\nVoy a entrar en la casa a ver si me regalan algo")
+	--First Time
+	azpDialog("Tú:\nHola, ¿alguien me podría decir que es esto?") --[[ 
+La primera vez hablas con él mas largamente, va implícita la segunda
+]]
+	azpDialog("---:\nBuenos días, me llamó \"Discípulo 616\" y estas en el espacio de difusión gloriosa.")
+	azpDialog("Tú:\n¿Espacio de qué?")
+	azpDialog("Discípulo 616:\nEspacio de difusión gloriosa. Aquí escuchamos las enseñanzas de nuestro líder Grim Yandango. Él nos llevará al planeta GrinGlor donde los indeseables serán llamados a gobernar y los honestos serán llevados a las prisiones")
+	azpDialog("Tú:\n¿Algo así como una secta?")
+	azpDialog("Discípulo 616:\n¿Secta? ¿Qué secta? La única secta que conozco es la que tienes en la Plaza del Mesías. Una secta sobre un tal Jesuscristo, por favor, no hay quien se lo crea")
+	azpDialog("Tú:\n¿Y entonces esto qué es si no es una secta?")
+	azpDialog("Discípulo 616:\nSomos una fundación donde explicamos las enseñanzas de Grim Yandango")
+	--Second Time
+	SecondTime()
+	--Set Variable
+	azpSet("enterhouse","1",DATABASE,AZP_HOME)
+end
+--Finished Mission
+function FinishedMission()
+	azpDialog("Discípulo 616:\nVeo que ya tienes los 5000 $. Para ir a hablar con Grim Yandango vete hacia el norte pasando por el puente. Les he dicho a mis compañeros que puedes pasar a verle")
+	azpDialog("Tú:\nBien, tengo ganas de decirle unas cuantas cosas")
+	azpSet("bridgeOpen","1",DATABASE,AZP_HOME)
+
+
+
+
+end
+-- Main function
+local enterhouse=azpGet("enterhouse",DATABASE,AZP_HOME)
+if enterhouse=="0" then
+	FirstTime()
+elseif enterhouse=="1" then
+	SecondTime()
+elseif enterhouse=="2" then
+	FinishedMission()
+end
+	
+	

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<azpazeta-map version="1.0">
+    <meta-data>
+        <data id="name">La Secta</data>
+	<data id="description">El Proyecto Magnox es extraordinario. Pero no es oro todo lo que reluce...</data>
+        <data id="homesite">http://launchpad.net/azpazeta</data>
+        <data id="author">Adrián Arroyo</data>
+    </meta-data>
+    <map-main>/maps/the_sect-es/main.tmx</map-main>
+</azpazeta-map>

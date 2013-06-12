@@ -1,0 +1,9 @@
+azpDialog("Chica:\nHola, ¿cuál es tu nombre y de dónde vienes?")
+azpDialog("Tú:\nBueno, no puedo recordar mi nombre. Tampoco puedo recordar de donde vengo. ¿Puedo hacerte otra pregunta?")
+azpDialog("Chica:\nSí, dime tu pregunta")
+azpDialog("Tú:\n¿Dónde estoy?")
+azpDialog("Chica:\nEstas en Azpazeta, la tierra de las oportunidades. Exactamente estas en el Condado de la Muerte. Sí, es cierto, el nombre es un poco macabro")
+azpDialog("Tú:\nBien... Pero necesito una casa o algo similar");
+azpDialog("Chica:\nPuedes ir al cementerio y encontrar el cofre")
+azpStartMission("chest@tutorial","Busca el cofre","No tienes dinero\nDebes buscar el cofre en el cementerio para obtener algo de dinero\n¡Buena suerte!","/maps/tutorial-es/OnChestTutorial.azps","FALSE")
+

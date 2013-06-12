@@ -106,7 +106,7 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
-   <tile gid="4"  onstay="OnPurpleGirl.azps"/>
+   <tile gid="4"/>
    <tile gid="8"/>
    <tile gid="9"/>
    <tile gid="4"/>
@@ -123,6 +123,7 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4" onstay="OnEnterPalace.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -210,11 +211,12 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4"/> <!-- VADRIX appears here in starter maps -->
    <tile gid="4"/>
    <tile gid="4"/>
-   <tile gid="4" onstay="OnTalk.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4" onstay="TalkWithCure.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -323,8 +325,6 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
-   <tile gid="4"/>
-   <tile gid="4" onstay="OnFinishChest.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>

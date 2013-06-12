@@ -346,9 +346,70 @@ int azpDialog(lua_State* l)
 
 	int argc=lua_gettop(l);
 
- 	wxMessageBox(wxString::FromUTF8(lua_tostring(l, lua_gettop(l))),_("Current map says..."),wxICON_INFORMATION|wxOK);
+ 	wxMessageBox(wxString::FromUTF8(lua_tostring(l, lua_gettop(l))),_("Current map says..."),wxOK);
 
 	return 0;
+}
+/**
+* @brief Display a question to the user
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpDialog
+*
+*/
+
+int azpQuestion(lua_State* l)
+{
+
+	int argc=lua_gettop(l);
+	std::string parameter[1];
+
+    		for(int i=0; i<argc; i++)
+    		{
+ 			parameter[i]=lua_tostring(l, lua_gettop(l));
+			lua_pop(l, 1);
+ 		}
+
+ 	int response=wxMessageBox(wxString::FromUTF8(parameter[0].c_str()),_("Current map asks..."),wxICON_QUESTION|wxYES_NO);
+	if(response==wxYES)
+	{
+		lua_pushboolean(l,1);
+	}else
+	{
+		lua_pushboolean(l,0);
+	}
+
+	return 1;
+}
+/**
+* @brief Makes a battle with the player and the AI
+* @param l AzpVM instance
+* @returns Number of output values
+* @note This function is part of AzpAPI avalible trough AZPScript in AzpVM
+* @see azpStartMission
+*
+*/
+
+int azpBattle(lua_State* l)
+{
+
+	int argc=lua_gettop(l);
+ 	std::string parameter[5];
+
+    	for(int i=0; i<argc; i++)
+    	{
+ 		parameter[i]=lua_tostring(l, lua_gettop(l));
+		lua_pop(l, 1);
+ 	}
+	AzpBattle* battle=new AzpBattle(wxString::FromUTF8(parameter[4].c_str()),wxString::FromUTF8(parameter[3].c_str()),wxString::FromUTF8(parameter[2].c_str()),atoi(parameter[1].c_str()),atoi(parameter[0].c_str()));
+	battle->ShowModal();
+	while(battle->IsModal())
+	{
+
+	}
+	lua_pushboolean(l,battle->Win ? 1 : 0);
+	return 1;
 }
 /**
 * @brief Change VADRIX to the specified pos

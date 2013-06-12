@@ -1,0 +1,4 @@
+azpDialog("Tú:\n¡El cofre!")
+azpFinishMission("chest@tutorial","1000")
+azpDialog("Tú:\n He ganado 1000 $")
+azpDialog("Azpazeta:\nPuedes guardar con la G y salir del juego con ESC. También puedes tomar una foto con TAB")

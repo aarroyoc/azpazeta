@@ -1,0 +1,13 @@
+--[[ local value=azpQuestion("Testing azpQuestion")
+if value==true then
+	azpDialog("Has presionado Sí")
+	local win=azpBattle("The first battle of the world","Vadrix","Grim Yandango","0","5000")
+	if win==true then
+		azpDialog("Has ganado la batalla")
+	else
+		azpDialog("Has perdido la batalla")
+	end
+else
+	azpDialog("Has presionado No")
+end
+]] 

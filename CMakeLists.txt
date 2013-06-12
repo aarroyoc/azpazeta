@@ -135,6 +135,7 @@ src/network/telemetry.cpp
 src/savefile/savefile.cpp
 src/sprite/sprite.cpp
 src/start/startgui.cpp
+src/physics/battle.cpp
 src/database/database.cpp
 src/maploader/map.cpp
 src/maploader/azpmap.cpp

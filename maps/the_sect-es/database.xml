@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<database>
+    <var name="finished" value="0" />
+    <var name="bridgePassed" value="0" />
+    <var name="showedIntro" value="1" />
+    <var name="enterhouse" value="2" />
+    <var name="money5000" value="0" />
+    <var name="bridgeOpen" value="1" />
+    <var name="grimState" value="0" />
+</database>

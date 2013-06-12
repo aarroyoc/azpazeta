@@ -1,0 +1,4 @@
+azpDialog("You:\n The chest!")
+azpFinishMission("chest@tutorial","1000")
+azpDialog("You:\n I get 1000 $")
+azpDialog("Azpazeta:\nYou can save with G and exit mission with ESC. You can also take a screenshot with TAB")

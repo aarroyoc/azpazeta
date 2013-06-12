@@ -227,12 +227,12 @@ void MainLoop(int64_t me)
 {
 /*Works in the 2 types of Sockets*/
 /* Un socket ya esta conectado. Se crean un hilo nuevo con listen y accept incluido */
-char message[]="[OK] Azpazeta Server connection stablished";
+char message[]="Connection stablished";
 char recvbuf[1024];
 send(sock_client[me],message,sizeof(message),0);
 recv(sock_client[me],recvbuf,sizeof(recvbuf),0);
 greenprintf(recvbuf);
-char message2[]="[OK] Waiting ";
+char message2[]="Welcome to Azpazeta! I expect that you will enjoy the game\nAdrián Arroyo Calle -- Creator of Azpazeta"; //Put your custom message here
 send(sock_client[me],message2,sizeof(message2),0);
 
 LoopProcess(me);

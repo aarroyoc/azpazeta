@@ -1,0 +1,11 @@
+-- CheckBridge.azps
+--Constants
+DATABASE="/maps/the_sect-es/database.xml"
+AZP_HOME="FALSE"
+
+local pass=azpGet("bridgeOpen",DATABASE,AZP_HOME)
+if pass=="1" then
+	azpDialog("Guarda:\nBienvenido a los terrenos del Proyecto Magnox")
+else
+	azpDialog("Guarda:\nNo puedes pasar, detente ahora mismo")
+end

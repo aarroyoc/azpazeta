@@ -1,0 +1,3 @@
+--OnAcceptSteal.azps
+azpDialog("Grim Yandango:\nCuando me lo traigas me podrás hablar")
+azpSet("grimState","1",DATABASE,AZP_HOME)

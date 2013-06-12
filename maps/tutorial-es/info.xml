@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<azpazeta-map version="1.0">
+    <meta-data>
+        <data id="name">Tutorial</data>
+	<data id="description">El tutorial de Azpazeta (en español)</data>
+        <data id="homesite">http://launchpad.net/azpazeta</data>
+        <data id="author">Adrián Arroyo</data>
+    </meta-data>
+    <map-main>/maps/tutorial-es/main.tmx</map-main>
+</azpazeta-map>

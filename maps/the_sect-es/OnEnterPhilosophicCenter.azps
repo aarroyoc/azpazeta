@@ -1,0 +1,24 @@
+--Constants
+DATABASE="/maps/the_sect-es/database.xml"
+AZP_HOME="FALSE"
+
+-- OnEnterPhilosophicCenter.azps
+local value=azpQuestion("¿Quieres entrar en este edificio?")
+if value==true then
+	azpDialog("Tú:\n¿Qué hay en este edificio?")
+	azpDialog("...:\nBienvenido al Centro Filosófico, ¿en qué podemos ayudarte?")
+	azpDialog("Tú:\nGenial... ¿Puedo encontrar aquí 5000 $?")
+	azpDialog("...:\nNadie nos había pedido algo así, tan pronto, pero creo que podemos ayudarte")
+	azpDialog("Tú:\n¿Me los dais ya?")
+	azpDialog("...:\nNo, primero debes vencerme en un pequeño duelo filosófico. ¿Aceptas?")
+	local participe=azpQuestion("¿Participas en la batalla filosófica?")
+	if participe==true then
+		local win=azpBattle("Duelo filosófico por 5000 $","Tú","Centro Filosófico","0","400")
+		if win==true then
+			azpDialog("...:\nMe has ganado, toma tus 5000 $")
+			-- Cambiar misión y finalizar misión
+			azpFinishMission("money@the_sect","5000")
+			azpSet("enterhouse","2",DATABASE,AZP_HOME)
+		end
+	end
+end

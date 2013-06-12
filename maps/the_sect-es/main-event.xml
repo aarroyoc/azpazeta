@@ -50,7 +50,7 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
-   <tile gid="4"/>
+   <tile gid="4" onstay="CheckBridge.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -106,7 +106,7 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
-   <tile gid="4"  onstay="OnPurpleGirl.azps"/>
+   <tile gid="4"/>
    <tile gid="8"/>
    <tile gid="9"/>
    <tile gid="4"/>
@@ -165,14 +165,17 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4" onstay="OnEnterPhilosophicCenter.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4" onstay="OnEnterMasonicCenter.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4" onstay="OnEnterHouse.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -188,6 +191,7 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4" onstay="OnInit.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -206,13 +210,15 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4" onstay="OnInit.azps"/>
+   <tile gid="4"/> <!-- VADRIX appears here -->
+   <tile gid="4" onstay="OnInit.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
-   <tile gid="4" onstay="OnTalk.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -225,6 +231,7 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
+   <tile gid="4" onstay="OnInit.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -318,13 +325,6 @@
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
-   <tile gid="4"/>
-   <tile gid="4"/>
-   <tile gid="4"/>
-   <tile gid="4"/>
-   <tile gid="4"/>
-   <tile gid="4"/>
-   <tile gid="4" onstay="OnFinishChest.azps"/>
    <tile gid="4"/>
    <tile gid="4"/>
    <tile gid="4"/>
@@ -403,7 +403,7 @@
    <tile gid="4"/>
 </data>
 <info>
-	<side side="up">NULL</side>
+	<side side="up">magnox.tmx</side>
 	<side side="down">NULL</side>
 	<side side="left">NULL</side>
 	<side side="right">NULL</side>

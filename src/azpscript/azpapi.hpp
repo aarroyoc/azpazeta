@@ -24,6 +24,7 @@
 #include "../pathfinder/pathfinder.hpp"
 #include "../database/database.hpp"
 #include "../window/startmission.hpp"
+#include "../physics/battle.hpp"
 
 /**
 * @brief Start the AZPScript context
@@ -47,5 +48,7 @@ int azpSet(lua_State*);
 int azpStartMission(lua_State*);
 int azpFinishMission(lua_State*);
 int azpDialog(lua_State*);
+int azpQuestion(lua_State*);
+int azpBattle(lua_State*);
 float azpVersion();
 #endif

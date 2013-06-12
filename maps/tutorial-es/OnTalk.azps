@@ -1,0 +1,6 @@
+bridgePassed=azpGet("bridgePassed","/maps/tutorial-es/database.xml","FALSE")
+if bridgePassed=="0" then
+	azpDialog("Bienvenido al tutorial de Azpazeta")
+	azpDialog("Tú:\n¿Dónde estoy?\n¿Qué es esto?\nVoy a hablar con esa chica")
+	azpSet("bridgePassed","1","/maps/tutorial-es/database.xml","FALSE")
+end

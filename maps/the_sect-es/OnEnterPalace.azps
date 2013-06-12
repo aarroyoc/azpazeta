@@ -1,0 +1,38 @@
+-- OnEnterPalace.azps
+--Constants
+DATABASE="/maps/the_sect-es/database.xml"
+AZP_HOME="FALSE"
+
+local enter=azpQuestion("¿Quieres entrar a este edificio?")
+if enter==true then
+	local state=azpGet("grimState",DATABASE,AZP_HOME)
+	if state=="0" then
+		-- First time
+		azpDialog("Tú:\nBuenos días, esta por aquí Grim Yandango, tengo una cita con él")
+		azpDialog("Mayordomo:\nGrim Yandango se encuentra en la planta superior. Puedes subir")
+		azpDialog("Tú:\nBuenos días Grim Yandango, ha venido aquí porque te tengo que decir algo sobre las sectas y esta cosa llamada Proyecto Magnox")
+		azpDialog("Grim Yandango:\nSTOP. Has venido aquí porque el destino a querido que vinieses y eso quiere decir que vas a colaborar en Proyecto Z")
+		azpDialog("Tú:\n¿Proyecto Z? Si yo solo quiero hablar de las sectas que quieren ganar dinero y se aprovechan de los demás")
+		azpDialog("Grim Yandango:\nAhora no tenemos tiempo, debemos llevar a cabo el Proyecto Z. Te lo explico enseguida")
+		azpDialog("Tú:\n¿Y luego podré hablar contigo?")
+		azpDialog("Grim Yandango:\nCalla. El Proyecto Z consiste en robar a los militares su misil Z-40. Con él podremos presionar al gobierno para que haga obligatorio nuestro camino espiritual")
+		azpDialog("Tú:\n¿Robar a los militares? ¡Estás loco!")
+		azpDialog("Grim Yandango:\nEso ya se verá, ahora dirígete a la base militar por el agujero de la montaña y roba el misil. Cuando lo traigas hablaré contigo")
+		azpStartMission("misil@the_sect","Robar el misil Z-40","Si robas el misil podrás hablar definitivamente con Grim\nQuizá todo pueda volver a la normalidad después de todo","/maps/the_sect-es/OnAcceptSteal.azps",AZP_HOME)
+	elseif state=="1" then
+		--Second time
+		azpDialog("Grim Yandango:\nNo me has traído el misil, por tanto, no te dejo que debatas conmigo")
+		
+
+	elseif state=="2" then
+		--Mission finished
+		azpFinishMission("misil@the_sect","5000")
+		azpDialog("Grim Yandango:\nBien, me has traído el misil. Planteame tus cuestiones")
+		azpDialog("Tú:\nBien, primero,¿Cómo puedes estafar a la gente con esto?")
+		azpDialog("Grim Yandango:\nNo les estafo, ellos creen en esto como si fuera la verdad universal")
+		azpDialog("Tú:\n¿Y no les vas a decir que es un timo?")
+		azpDialog("Grim Yandango:\nSe lo diré si alguien con razonables conocimientos de falacias me lo pide")
+		azpDialog("Tú:\nEse puedo ser yo")
+		azpDialog("Grim Yandango:\nVamos a probarte")
+	end
+end

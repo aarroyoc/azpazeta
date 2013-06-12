@@ -123,4 +123,28 @@ void azpFinishMission(MissionID,Money);
 * @see azpStartMission
 */
 void azpDialog(Message);
+/**
+* @brief Display a question to the user
+* @param Message The message to show
+* @returns Boolean value for the response
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpDialog
+*/
+void azpQuestion(Message);
+/**
+* @brief Makes a battle with the player and the AI
+* @param Title The name of the battle
+* @param Protagonist The name of the protagonist
+* @param Enemy The name of the enemy
+* @param Type The type of battle
+* @verbatim
+TYPES AVALIBLES:
+0-Philosophical
+@endverbatim
+* @param Max The caount for wining the game. If is higher, it's more difficoult
+* @returns Boolean value for the response
+* @note This documentation uses C/C++ style in Lua functions. The return values exists
+* @see azpQuestion
+*/
+void azpBattle(Title ,Protagonist ,Enemy ,Type ,Max);
 };
