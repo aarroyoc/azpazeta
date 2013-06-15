@@ -1,3 +1,6 @@
 --OnAcceptSteal.azps
+DATABASE="/maps/the_sect-es/database.xml"
+AZP_HOME="FALSE"
+
 azpDialog("Grim Yandango:\nCuando me lo traigas me podrás hablar")
 azpSet("grimState","1",DATABASE,AZP_HOME)

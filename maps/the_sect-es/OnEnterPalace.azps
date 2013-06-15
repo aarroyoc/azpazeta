@@ -22,6 +22,7 @@ if enter==true then
 	elseif state=="1" then
 		--Second time
 		azpDialog("Grim Yandango:\nNo me has traído el misil, por tanto, no te dejo que debatas conmigo")
+		azpSet("militarSee","0",DATABASE,AZP_HOME)
 		
 
 	elseif state=="2" then
@@ -34,5 +35,16 @@ if enter==true then
 		azpDialog("Grim Yandango:\nSe lo diré si alguien con razonables conocimientos de falacias me lo pide")
 		azpDialog("Tú:\nEse puedo ser yo")
 		azpDialog("Grim Yandango:\nVamos a probarte")
+		local battle=azpBattle("Batalla con Grim Yandango","Tú","Grim Yandango","0","1000")
+		if battle==true then
+			azpDialog("Grim Yandango:\nMe has ganado. Eres muy bueno ¿sabes? Podrías tener tu propia secta")
+			azpDialog("Tú:\nEntonces ahora vas a liberar a tus fanáticos")
+			azpDialog("Grim Yandango:\nTú ganas, liberaré a mis fanáticos")
+			azpDialog("Narrador:\nY Grim Yandango cerró la secta dejando a la gente libre y pudiendo vivir sus vidas de una manera más feliz")
+			azpSet("grimState","3",DATABASE,AZP_HOME)
+			azpDialog("Has terminado esta misión. Gracias por jugar. (C) Adrián Arroyo Calle 2013 Licensed under Apache 2.0")
+		else
+			azpDialog("Grim Yandango:\nJaja, te he ganado")
+		end
 	end
 end

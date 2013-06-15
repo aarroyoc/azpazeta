@@ -1,0 +1,8 @@
+--OnMilitarSee.azps
+--Constants
+DATABASE="/maps/the_sect-es/database.xml"
+AZP_HOME="FALSE"
+
+azpDialog("Militar:\nEh,¿Qué estás haciendo? Vuelve atrás civil")
+azpDialog("Debes volver a hablar con Grim para poder seguir")
+azpSet("militarSee","1",DATABASE,AZP_HOME)

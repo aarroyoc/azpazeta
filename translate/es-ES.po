@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AZPAZETA JUNO\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-05 21:06+0200\n"
-"PO-Revision-Date: 2013-06-06 19:19+0100\n"
+"POT-Creation-Date: 2013-06-15 18:08+0200\n"
+"PO-Revision-Date: 2013-06-15 18:18+0100\n"
 "Last-Translator: Adrián Arroyo <adrian.arroyocalle@gmail.com>\n"
 "Language-Team:  <adrian.arroyocalle@gmail.com>\n"
 "Language: \n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Spanish\n"
 
+#: ../src/physics/battle.cpp:176
 #: ../src/display/opengl/shader.cpp:127
 msgid "\n"
 msgstr "\n"
@@ -36,6 +37,14 @@ msgid ""
 msgstr ""
 "\n"
 "Tipo:"
+
+#: ../src/physics/battle.cpp:43
+msgid " - "
+msgstr "-"
+
+#: ../src/physics/battle.cpp:43
+msgid " VS "
+msgstr " VS "
 
 #: ../src/start.cpp:67
 msgid "&About...\tF1"
@@ -125,6 +134,34 @@ msgstr "Accediendo archivos"
 #: ../src/azpmarket/azpmarket.cpp:136
 msgid "Accessing music"
 msgstr "Accediendo música"
+
+#: ../src/physics/battle.cpp:82
+msgid "Ad baculum"
+msgstr "Ad baculum"
+
+#: ../src/physics/battle.cpp:61
+msgid "Ad hominen"
+msgstr "Ad hominen"
+
+#: ../src/physics/battle.cpp:64
+msgid "Ad ignorantiam"
+msgstr "Ad ignorantiam"
+
+#: ../src/physics/battle.cpp:70
+msgid "Ad misericordiam"
+msgstr "Ad misericordiam"
+
+#: ../src/physics/battle.cpp:79
+msgid "Ad nauseam"
+msgstr "Ad nauseam"
+
+#: ../src/physics/battle.cpp:67
+msgid "Ad populum"
+msgstr "Ad populum"
+
+#: ../src/physics/battle.cpp:76
+msgid "Ad verecundiam"
+msgstr "Ad verecundiam"
 
 #: ../src/window/loader.cpp:71
 msgid ""
@@ -225,6 +262,14 @@ msgstr ""
 "Azpazeta, ahora con 2 metros más de Parque Nacional\n"
 "Anuncio de radio por la Agencia de Turismo de Azpazeta"
 
+#: ../src/physics/battle.cpp:153
+msgid "Bad!"
+msgstr "¡Mal!"
+
+#: ../src/physics/battle.cpp:43
+msgid "Battle: "
+msgstr "Batalla:"
+
 #: ../src/window/loader.cpp:85
 msgid ""
 "Buy actions, now sell it\n"
@@ -285,6 +330,15 @@ msgstr ""
 "Creando submundos...\n"
 "Estado de Azpazeta"
 
+#: ../src/physics/battle.cpp:73
+msgid "Cum hoc, ergo propter hoc"
+msgstr "Cum hoc, ergo propter hoc"
+
+#: ../src/azpscript/azpapi.cpp:374
+#, fuzzy
+msgid "Current map asks..."
+msgstr "El mapa actual dice..."
+
 #: ../src/azpscript/azpapi.cpp:177
 msgid "Current map requires access to complete control of the files from the computer. Only accept if you trust in the author. Do you like to accept the requeriment?"
 msgstr "El mapa actual requiere acceso al control completo de los archivos del ordenador. Solo acéptalo si confías en el autor. ¿Quieres aceptar el requerimiento?"
@@ -327,7 +381,7 @@ msgid "Divel Network Name: "
 msgstr "Divel Network Name:"
 
 #: ../src/window/options.cpp:92
-#: ../src/network/telemetry.cpp:65
+#: ../src/network/telemetry.cpp:67
 msgid "Divel Telemetry"
 msgstr "Divel Telemetry"
 
@@ -404,7 +458,7 @@ msgstr "Error al cargar el mapa seleccionado"
 msgid "Failed to load the selected map: "
 msgstr "Error al cargar el mapa seleccionado"
 
-#: ../src/network/telemetry.cpp:65
+#: ../src/network/telemetry.cpp:67
 msgid "Failed to submit data to Divel Telemetry"
 msgstr "Error al subir datos a Divel Telemetry"
 
@@ -439,6 +493,10 @@ msgid ""
 "Uncle Scrooge and Minecraft players"
 msgstr ""
 
+#: ../src/physics/battle.cpp:135
+msgid "Good!"
+msgstr "¡Bien!"
+
 #: ../src/window/options.cpp:89
 msgid "Google+ Profile: "
 msgstr "Google+ Profile:"
@@ -459,6 +517,14 @@ msgstr ""
 msgid ""
 "I only know that I know nothing\n"
 "Socrates"
+msgstr ""
+
+#: ../src/physics/battle.cpp:28
+msgid "I repeat it again, we will destroy the city of Orwell"
+msgstr ""
+
+#: ../src/physics/battle.cpp:36
+msgid "I say this about 1000 but one more time, I am inocent"
 msgstr ""
 
 #: ../src/window/loader.cpp:32
@@ -543,6 +609,12 @@ msgstr "Unirse a juego multijugador"
 msgid ""
 "La Re Fa Sol Mi Mi Re ...\n"
 "Musicalized ad by Disco Rien"
+msgstr ""
+
+#: ../src/physics/battle.cpp:33
+msgid ""
+"Ladies and gentlemen of the jury, look at this miserable man,\n"
+" in a wheelchair, unable to use his legs. Could such a man really be guilty of embezzlement?"
 msgstr ""
 
 #: ../src/start.cpp:159
@@ -711,12 +783,16 @@ msgid ""
 "Registering UFOs in Radar...\n"
 "Azpazeta State"
 msgstr ""
+"Registrando OVNIs en el radar\n"
+"Estado de Azpazeta"
 
 #: ../src/window/loader.cpp:76
 msgid ""
 "Reticulating sprites...\n"
 "Azpazeta State"
 msgstr ""
+"Reticulando imágenes...\n"
+"Estado de Azpazeta"
 
 #: ../src/window/loader.cpp:62
 msgid ""
@@ -729,12 +805,18 @@ msgid ""
 "Run Gorrest, run...\n"
 "Gorrest Lump"
 msgstr ""
+"Corre Gorrest, corre...\n"
+"Gorrest Lump"
 
 #: ../src/window/loader.cpp:80
 msgid ""
 "SMS, MMS and VoIP. Only for 10$ per month\n"
 "Ad by Azpazeta Instant!"
 msgstr ""
+
+#: ../src/physics/battle.cpp:29
+msgid "STOP stupid. I say that we need to draw a circle in the forest"
+msgstr "Calla estúpido. He dicho que necesitamos dibujar un círculo en el bosque"
 
 #: ../src/display/opengl/gl.cpp:627
 msgid "Save the data"
@@ -748,6 +830,11 @@ msgstr "Guardar captura de pantalla"
 msgid "See version"
 msgstr "Mostrar versión"
 
+#: ../src/physics/battle.cpp:181
+#, fuzzy
+msgid "Select the type of fallacy"
+msgstr "Selecciona el tipo de protocolo"
+
 #: ../src/start/startgui.cpp:142
 msgid "Select the type of protocol: "
 msgstr "Selecciona el tipo de protocolo"
@@ -759,6 +846,32 @@ msgstr "El servidor falló"
 #: ../src/start.cpp:67
 msgid "Show about dialog"
 msgstr "Mostrar cuadro de autores"
+
+#: ../src/physics/battle.cpp:37
+msgid "Silly boy, you need to get married with my sister"
+msgstr "Chico estúpido, tienes que casarte con mi hermana"
+
+#: ../src/physics/battle.cpp:26
+msgid ""
+"Since 2000 the climate change advanced and the pirates \n"
+"decreases, with less prirates we've got more climate change"
+msgstr ""
+"Desde el 2000 el cambio climático a avanzado y los piratas\n"
+"descendido; con menos piratas tenemos más cambio climático"
+
+#: ../src/physics/battle.cpp:34
+msgid ""
+"Sleeping with one's shoes on is strongly correlated with waking\n"
+" up with a headache, so sleeping with one's shoes on causes headache"
+msgstr ""
+
+#: ../src/physics/battle.cpp:32
+msgid ""
+"Some virus are from the Azpazeta Spy Council,\n"
+" the people say that"
+msgstr ""
+"Algunos virus vienen de la Agencia de Espionaje\n"
+"de Azpazeta. La gente lo dice"
 
 #: ../src/window/loader.cpp:45
 msgid ""
@@ -783,6 +896,14 @@ msgid ""
 "Thanks, Mario .. But the Princess is in another castle\n"
 "Super Marios Bros"
 msgstr ""
+"Gracias, Mario... Pero la princesa está en otro castillo\n"
+"Super Mario Bros"
+
+#: ../src/physics/battle.cpp:24
+msgid ""
+"That film it's good because the a lot of people have seen \n"
+"the movie"
+msgstr "Esta película es buena porque la ha visto mucha gente"
 
 #: ../src/window/loader.cpp:54
 #, c-format
@@ -796,6 +917,10 @@ msgid ""
 "The circulating gold because it has value, but the paper money has value because it circulates\n"
 "Karl Marx"
 msgstr ""
+
+#: ../src/physics/battle.cpp:35
+msgid "The earth has gravity, because Newton say that"
+msgstr "La Tierra tiene gravedad, porque Newton lo dijo"
 
 #: ../src/window/loader.cpp:81
 msgid ""
@@ -847,9 +972,13 @@ msgid ""
 "Jesus of Nazaret"
 msgstr ""
 
+#: ../src/physics/battle.cpp:27
+msgid "The root square of 2 is irrational, because Euclides say that"
+msgstr "La raíz cuadrada de 2 es irracional, porque lo dijo Euclides"
+
 #: ../src/azpscript/event.cpp:36
 msgid "The selected EventTable doesn't exist"
-msgstr ""
+msgstr "La EventTable seleccionada no existe"
 
 #: ../src/window/loader.cpp:23
 msgid "The wise person does not say all what knows, and the fool does not know all what says"
@@ -869,7 +998,7 @@ msgstr ""
 
 #: ../src/maploader/azpmap.cpp:47
 msgid "This map requires an updated version of Azpazeta"
-msgstr ""
+msgstr "Este mapa requiere una versión actualizada de Azpazeta"
 
 #: ../src/start/startgui.cpp:135
 #, fuzzy
@@ -950,6 +1079,10 @@ msgstr ""
 "económico en modo sandbox. Por favor selecciona\n"
 "una opción."
 
+#: ../src/physics/battle.cpp:60
+msgid "Welcome to a philosophical battle"
+msgstr "Bienvenido a una batalla filosófica"
+
 #: ../src/window/loader.cpp:40
 msgid ""
 "What does not kill me makes me stronger\n"
@@ -977,6 +1110,39 @@ msgstr ""
 #: ../src/savefile/savefile.cpp:60
 msgid "Wrong Azpazeta package format"
 msgstr "Formato de Azpazeta corrupto"
+
+#: ../src/physics/battle.cpp:30
+msgid "You aren't the best person for say this"
+msgstr "No eres la mejor persona para decir esto"
+
+#: ../src/physics/battle.cpp:22
+msgid ""
+"You can say that the triangle has got 4 corners because you\n"
+" haven't studied geometry"
+msgstr ""
+"No puedes decir que el triángulo tiene 4 esquinas porque\n"
+"no has estudiado geometría"
+
+#: ../src/physics/battle.cpp:23
+msgid "You can't demostrate that god exists, so god doesn't exist"
+msgstr "No puedes demostrar de Dios existe, así pues Dios existe"
+
+#: ../src/physics/battle.cpp:31
+msgid ""
+"You can't demostrate that my son has gone to this party, \n"
+"so my son hasn't gone to this party"
+msgstr ""
+"No puedes demostrar que mi hijo ha ido a esa fiesta\n"
+"así pues mi hijo no fue a la fiesta"
+
+#: ../src/physics/battle.cpp:25
+msgid ""
+"You must have graded my exam incorrectly. I studied very \n"
+"hard for weeks specifically because I knew my career depended on getting a good grade. If you give me a failing grade I'm ruined!"
+msgstr ""
+"Debes haber corregido el examen mal. He estudiado\n"
+"muy duro durante semanas. Si no me apruebas me\n"
+"arruinaré"
 
 #: ../src/app.cpp:95
 msgid "Your language doesn't appear in Azpazeta translations. Please, create a translation in translations.launchpad.net/azpazeta"

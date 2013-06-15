@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-05 21:06+0200\n"
+"POT-Creation-Date: 2013-06-15 18:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/display/opengl/shader.cpp:127
+#: ../src/physics/battle.cpp:176 ../src/display/opengl/shader.cpp:127
 msgid "\n"
 msgstr ""
 
@@ -32,6 +32,14 @@ msgstr ""
 msgid ""
 "\n"
 "Type: "
+msgstr ""
+
+#: ../src/physics/battle.cpp:43
+msgid " - "
+msgstr ""
+
+#: ../src/physics/battle.cpp:43
+msgid " VS "
 msgstr ""
 
 #: ../src/start.cpp:67
@@ -111,6 +119,34 @@ msgstr ""
 
 #: ../src/azpmarket/azpmarket.cpp:136
 msgid "Accessing music"
+msgstr ""
+
+#: ../src/physics/battle.cpp:82
+msgid "Ad baculum"
+msgstr ""
+
+#: ../src/physics/battle.cpp:61
+msgid "Ad hominen"
+msgstr ""
+
+#: ../src/physics/battle.cpp:64
+msgid "Ad ignorantiam"
+msgstr ""
+
+#: ../src/physics/battle.cpp:70
+msgid "Ad misericordiam"
+msgstr ""
+
+#: ../src/physics/battle.cpp:79
+msgid "Ad nauseam"
+msgstr ""
+
+#: ../src/physics/battle.cpp:67
+msgid "Ad populum"
+msgstr ""
+
+#: ../src/physics/battle.cpp:76
+msgid "Ad verecundiam"
 msgstr ""
 
 #: ../src/window/loader.cpp:71
@@ -199,6 +235,14 @@ msgid ""
 "Radio ad by Agence of Azpazeta Tourisme"
 msgstr ""
 
+#: ../src/physics/battle.cpp:153
+msgid "Bad!"
+msgstr ""
+
+#: ../src/physics/battle.cpp:43
+msgid "Battle: "
+msgstr ""
+
 #: ../src/window/loader.cpp:85
 msgid ""
 "Buy actions, now sell it\n"
@@ -248,6 +292,14 @@ msgid ""
 "Azpazeta State"
 msgstr ""
 
+#: ../src/physics/battle.cpp:73
+msgid "Cum hoc, ergo propter hoc"
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:374
+msgid "Current map asks..."
+msgstr ""
+
 #: ../src/azpscript/azpapi.cpp:177
 msgid ""
 "Current map requires access to complete control of the files from the "
@@ -294,7 +346,7 @@ msgstr ""
 msgid "Divel Network Name: "
 msgstr ""
 
-#: ../src/window/options.cpp:92 ../src/network/telemetry.cpp:65
+#: ../src/window/options.cpp:92 ../src/network/telemetry.cpp:67
 msgid "Divel Telemetry"
 msgstr ""
 
@@ -369,7 +421,7 @@ msgstr ""
 msgid "Failed to load the selected map: "
 msgstr ""
 
-#: ../src/network/telemetry.cpp:65
+#: ../src/network/telemetry.cpp:67
 msgid "Failed to submit data to Divel Telemetry"
 msgstr ""
 
@@ -403,6 +455,10 @@ msgid ""
 "Uncle Scrooge and Minecraft players"
 msgstr ""
 
+#: ../src/physics/battle.cpp:135
+msgid "Good!"
+msgstr ""
+
 #: ../src/window/options.cpp:89
 msgid "Google+ Profile: "
 msgstr ""
@@ -423,6 +479,14 @@ msgstr ""
 msgid ""
 "I only know that I know nothing\n"
 "Socrates"
+msgstr ""
+
+#: ../src/physics/battle.cpp:28
+msgid "I repeat it again, we will destroy the city of Orwell"
+msgstr ""
+
+#: ../src/physics/battle.cpp:36
+msgid "I say this about 1000 but one more time, I am inocent"
 msgstr ""
 
 #: ../src/window/loader.cpp:32
@@ -509,6 +573,13 @@ msgstr ""
 msgid ""
 "La Re Fa Sol Mi Mi Re ...\n"
 "Musicalized ad by Disco Rien"
+msgstr ""
+
+#: ../src/physics/battle.cpp:33
+msgid ""
+"Ladies and gentlemen of the jury, look at this miserable man,\n"
+" in a wheelchair, unable to use his legs. Could such a man really be guilty "
+"of embezzlement?"
 msgstr ""
 
 #: ../src/start.cpp:159
@@ -699,6 +770,10 @@ msgid ""
 "Ad by Azpazeta Instant!"
 msgstr ""
 
+#: ../src/physics/battle.cpp:29
+msgid "STOP stupid. I say that we need to draw a circle in the forest"
+msgstr ""
+
 #: ../src/display/opengl/gl.cpp:627
 msgid "Save the data"
 msgstr ""
@@ -711,6 +786,10 @@ msgstr ""
 msgid "See version"
 msgstr ""
 
+#: ../src/physics/battle.cpp:181
+msgid "Select the type of fallacy"
+msgstr ""
+
 #: ../src/start/startgui.cpp:142
 msgid "Select the type of protocol: "
 msgstr ""
@@ -721,6 +800,28 @@ msgstr ""
 
 #: ../src/start.cpp:67
 msgid "Show about dialog"
+msgstr ""
+
+#: ../src/physics/battle.cpp:37
+msgid "Silly boy, you need to get married with my sister"
+msgstr ""
+
+#: ../src/physics/battle.cpp:26
+msgid ""
+"Since 2000 the climate change advanced and the pirates \n"
+"decreases, with less prirates we've got more climate change"
+msgstr ""
+
+#: ../src/physics/battle.cpp:34
+msgid ""
+"Sleeping with one's shoes on is strongly correlated with waking\n"
+" up with a headache, so sleeping with one's shoes on causes headache"
+msgstr ""
+
+#: ../src/physics/battle.cpp:32
+msgid ""
+"Some virus are from the Azpazeta Spy Council,\n"
+" the people say that"
 msgstr ""
 
 #: ../src/window/loader.cpp:45
@@ -748,6 +849,12 @@ msgid ""
 "Super Marios Bros"
 msgstr ""
 
+#: ../src/physics/battle.cpp:24
+msgid ""
+"That film it's good because the a lot of people have seen \n"
+"the movie"
+msgstr ""
+
 #: ../src/window/loader.cpp:54
 #, c-format
 msgid ""
@@ -760,6 +867,10 @@ msgid ""
 "The circulating gold because it has value, but the paper money has value "
 "because it circulates\n"
 "Karl Marx"
+msgstr ""
+
+#: ../src/physics/battle.cpp:35
+msgid "The earth has gravity, because Newton say that"
 msgstr ""
 
 #: ../src/window/loader.cpp:81
@@ -810,6 +921,10 @@ msgstr ""
 msgid ""
 "The one who was free of fault that tire the first stone\n"
 "Jesus of Nazaret"
+msgstr ""
+
+#: ../src/physics/battle.cpp:27
+msgid "The root square of 2 is irrational, because Euclides say that"
 msgstr ""
 
 #: ../src/azpscript/event.cpp:36
@@ -908,6 +1023,10 @@ msgid ""
 " game in sandbox mode. Please select an option"
 msgstr ""
 
+#: ../src/physics/battle.cpp:60
+msgid "Welcome to a philosophical battle"
+msgstr ""
+
 #: ../src/window/loader.cpp:40
 msgid ""
 "What does not kill me makes me stronger\n"
@@ -935,6 +1054,33 @@ msgstr ""
 
 #: ../src/savefile/savefile.cpp:60
 msgid "Wrong Azpazeta package format"
+msgstr ""
+
+#: ../src/physics/battle.cpp:30
+msgid "You aren't the best person for say this"
+msgstr ""
+
+#: ../src/physics/battle.cpp:22
+msgid ""
+"You can say that the triangle has got 4 corners because you\n"
+" haven't studied geometry"
+msgstr ""
+
+#: ../src/physics/battle.cpp:23
+msgid "You can't demostrate that god exists, so god doesn't exist"
+msgstr ""
+
+#: ../src/physics/battle.cpp:31
+msgid ""
+"You can't demostrate that my son has gone to this party, \n"
+"so my son hasn't gone to this party"
+msgstr ""
+
+#: ../src/physics/battle.cpp:25
+msgid ""
+"You must have graded my exam incorrectly. I studied very \n"
+"hard for weeks specifically because I knew my career depended on getting a "
+"good grade. If you give me a failing grade I'm ruined!"
 msgstr ""
 
 #: ../src/app.cpp:95
