@@ -79,6 +79,12 @@ Start::Start(const wxString& title, const wxString& mapuri)
     SetMenuBar(menuBar);
 	AzpLog("[OK] Created menubar",4);
 #endif // wxUSE_MENUS
+	//FullScreen
+    if(LoadOptions().general.fullScreen)
+		ShowFullScreen(true);
+	else
+		SetSize(800,800);
+	AzpLog("[OK] Applyed full screen settings",4);
 
 
 
@@ -117,12 +123,6 @@ Start::Start(const wxString& title, const wxString& mapuri)
     CreateStatusBar(2);
     SetStatusText(_T("Azpazeta 2.0 JUNO"));
 #endif // wxUSE_STATUSBAR
-	//FullScreen
-    if(LoadOptions().general.fullScreen)
-		ShowFullScreen(true);
-	else
-		SetSize(800,800);
-	AzpLog("[OK] Applyed full screen settings",4);
 
 
 }
