@@ -1,0 +1,12 @@
+--OnGetMisil.azps
+--Constants
+DATABASE="/maps/the_sect/database.xml"
+AZP_HOME="FALSE"
+
+militar=azpGet("militarSee",DATABASE,AZP_HOME)
+if militar=="1" then
+	azpDialog("Los militares te han visto y han escondido el misil")
+else
+	azpDialog("Tú:\nBien, he conseguido el misil")
+	azpSet("grimState","2",DATABASE,AZP_HOME)
+end

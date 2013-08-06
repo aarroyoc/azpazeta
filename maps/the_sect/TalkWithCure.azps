@@ -1,0 +1,4 @@
+-- TalkWithCure.azps
+
+azpDialog("...:\nBienvenido a los terrenos del Proyecto Magnox, si quieres hablar con Grim Yandango ve a nuestra humilde morada")
+azpDialog("Tú:\nGracias por la información")

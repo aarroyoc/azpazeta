@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<azpazeta-map version="1.0">
+    <meta-data>
+        <data id="name">The Sect</data>
+	<data id="description">The Magnox Project is great but there are some strange things... </data>
+        <data id="homesite">http://launchpad.net/azpazeta</data>
+        <data id="author">Adrián Arroyo</data>
+    </meta-data>
+    <map-main>/maps/the_sect/main.tmx</map-main>
+</azpazeta-map>

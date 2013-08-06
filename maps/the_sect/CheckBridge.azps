@@ -1,0 +1,11 @@
+-- CheckBridge.azps
+--Constants
+DATABASE="/maps/the_sect/database.xml"
+AZP_HOME="FALSE"
+
+local pass=azpGet("bridgeOpen",DATABASE,AZP_HOME)
+if pass=="1" then
+	azpDialog("Guarda:\nWelcome to the Magnox Project terrains")
+else
+	azpDialog("Guarda:\nYou can't pass, stop it now")
+end

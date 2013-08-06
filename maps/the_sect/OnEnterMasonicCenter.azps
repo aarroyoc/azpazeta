@@ -1,0 +1,7 @@
+-- OnEnterMasonicCenter.azps
+local value=azpQuestion("¿Quieres entrar a este edificio?")
+if value==true then
+	azpDialog("Tú:\n¿Quién está aquí?")
+	azpDialog("...:\nRtfytfgtyg")
+	azpDialog("Tú:\n¡Mejor me voy!")
+end

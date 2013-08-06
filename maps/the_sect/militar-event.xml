@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event-table>
+  <data>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16" onstay="OnMilitarSee.azps"/>
+   <tile gid="16" onstay="OnMilitarSee.azps"/>
+   <tile gid="16" onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16" onstay="OnMilitarSee.azps"/>
+   <tile gid="16" onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"   onstay="OnGetMisil.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="91"/> <!-- The misil -->
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="117"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="16"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="60"/>
+   <tile gid="4"/>
+   <tile gid="59"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+   <tile gid="57"  onstay="OnMilitarSee.azps"/>
+  </data>
+<info>
+	<side side="up">NULL</side>
+	<side side="down">magnox.tmx</side>
+	<side side="left">NULL</side>
+	<side side="right">NULL</side>
+</info>
+
+
+</event-table>

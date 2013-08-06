@@ -1,0 +1,9 @@
+azpDialog("Girl:\nHello, what's your name and where are you from?")
+azpDialog("You:\nWell, I can't remember my name. Also, I don't know from where I was. Please, Can I make another question?")
+azpDialog("Girl:\nYes, tell me your question")
+azpDialog("You:\nWhere I am?")
+azpDialog("Girl:\nYou are on Azpazeta, the land of the opportunities. You are exactly on Dead County. Yes, the name is a bit grim")
+azpDialog("You:\nOk... But I need a house or something similar.");
+azpDialog("Girl:\nYou can go to the cementery and search for a chest.")
+azpStartMission("chest@tutorial","Search the chest","You haven't got money\nYou must search a chest in the cementery\nGood luck!","/maps/tutorial/OnChestTutorial.azps","FALSE")
+

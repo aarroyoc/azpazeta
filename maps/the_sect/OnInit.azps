@@ -1,0 +1,12 @@
+DATABASE="/maps/the_sect/database.xml"
+AZP_HOME="FALSE"
+
+showedIntro=azpGet("showedIntro","/maps/the_sect/database.xml","FALSE")
+if showedIntro=="0" then
+	azpDialog("Welcome to The Sect! The best map for the Azpazeta JUNO version. [Some texts are in Spanish, help us with the translations]")
+	azpDialog("Tú:\n¿Porqué hay tanta gente allí? ¿Estarán dando alguna cosa gratis? ¡No me lo tengo que perder!")
+	azpDialog("Tú:\nParece que salen de esa casa roja. Deberé de ir allí si quiero enterarme de algo")
+	azpSet("showedIntro","1",DATABASE,AZP_HOME)
+else
+	-- Do nothing
+end
