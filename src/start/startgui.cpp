@@ -37,6 +37,10 @@ StartDialog::StartDialog() : wxDialog (NULL,wxID_ANY,_("Azpazeta 2.0 Juno"),wxDe
 {
 	SetSize(64*5,64*10);
 	//Load bitmaps DONE
+	#ifdef WIN32
+	wxIcon azpicon(azppath+wxT("/media/azpazeta.ico"),wxBITMAP_TYPE_ICON);
+	SetIcon(azpicon);
+	#endif
 	wxImage azpazetaimg(azppath+wxT("/media/azpazeta.png"),wxBITMAP_TYPE_PNG);
 	wxBitmap azpscale=wxBitmap(azpazetaimg.Scale(64,64));
 

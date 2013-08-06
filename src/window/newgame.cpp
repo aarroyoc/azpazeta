@@ -29,7 +29,7 @@ extern double azpmoney;
 extern wxString azpname;
 extern int vadrixchar;
 
-AZPNewGame::AZPNewGame(const wxString& title) : wxDialog(NULL,wxID_ANY,title)
+AZPNewGame::AZPNewGame(const wxString& title) : wxDialog(NULL,wxID_ANY,title,wxDefaultPosition,wxDefaultSize,wxCAPTION|wxRESIZE_BORDER)
 {
 	SetSize(400,400);
 	wxPanel* panel=new wxPanel(this);
@@ -104,36 +104,57 @@ wxArrayString AZPNewGame::GetMapsAvalibles()
 	wxArrayString dirList;
 	wxString azphomestr=PathFinder::GetUserPath();
 	//Checking maps at AZP_ROOT
+	#ifdef WIN32
+	wxDir azproot(azppath+wxT("\\maps"));
+#else
 	wxDir azproot(azppath+wxT("/maps"));
+#endif
 	wxString dirAddress = azproot.GetName();
+		
 
         azproot.GetAllFiles(dirAddress, &dirList, wxEmptyString, wxDIR_DIRS | wxDIR_FILES);
 	wxArrayString mapAvalibles;
 	int count=0;
 	for(count=0;count<dirList.GetCount();count++)
 	{
+#ifdef WIN32
+		if(dirList[count].AfterLast('\\').Cmp(wxT("info.xml"))==0)
+		{
+			mapAvalibles.Add(dirList[count]);
+
+		}
+#else
 		if(dirList[count].AfterLast('/').Cmp(wxT("info.xml"))==0)
 		{
 			mapAvalibles.Add(dirList[count]);
 
 		}
+#endif
 
 	}
-	//Checking maps in AZP HOME
-	wxArrayString dirListHome;
-	wxDir azphome(azphomestr+wxT("/.azpazeta/maps"));
-	wxString dirHome = azphome.GetName();
+//Checking maps in Azpazeta
 
+wxArrayString dirListHome;
+ wxDir azphome(azphomestr+wxT("/.azpazeta/maps"));
+ wxString dirHome = azphome.GetName();
         azproot.GetAllFiles(dirHome, &dirListHome, wxEmptyString, wxDIR_DIRS | wxDIR_FILES);
-	for(count=0;count<dirListHome.GetCount();count++)
-	{
-		if(dirListHome[count].AfterLast('/').Cmp(wxT("info.xml"))==0)
-		{
-			mapAvalibles.Add(dirListHome[count]);
+ for(count=0;count<dirListHome.GetCount();count++)
+ {
+#ifdef WIN32
+  if(dirListHome[count].AfterLast('\\').Cmp(wxT("info.xml"))==0)
+  {
+   mapAvalibles.Add(dirListHome[count]);
 
-		}
+  }
+#else
+  if(dirListHome[count].AfterLast('/').Cmp(wxT("info.xml"))==0)
+  {
+   mapAvalibles.Add(dirListHome[count]);
 
-	}
+  }
+#endif
+
+ }
 
 	return mapAvalibles;
 }

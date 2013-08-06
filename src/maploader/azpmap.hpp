@@ -1,6 +1,7 @@
 #ifndef AZPMAP_HPP
 #define AZPMAP_HPP 
 
+#include <stdint.h>
 #include "map.hpp"
 
 #define BLUE_AND_RED_TILES 0

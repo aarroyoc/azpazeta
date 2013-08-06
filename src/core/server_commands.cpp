@@ -15,6 +15,7 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+#include <stdio.h>
 #include "server.hpp"
 #include "server_command.hpp"
 
@@ -43,17 +44,17 @@ char response[2048];
 			building=atoi(commandpart);
 			if(xpos[me]>20 || xpos[me]<0 || ypos[me]>20 || ypos[me]<1) //21,0,21,0
 			{
-				snprintf(response,2048,"MIGHT");
+				sprintf(response,"MIGHT");
 				printf("Changing map...");
 			}
 			else if(CheckBuilding(building)==false){
 				//printf("YPOS[ME]: %d\t",ypos[me]);
-				snprintf(response,2048,"FALSE");
+				sprintf(response,"FALSE");
 
 			}
 			else
 			{
-				snprintf(response,2048,"TRUE");
+				sprintf(response,"TRUE");
 			}
 			send(sock_client[me],response,2048,0);
 
@@ -64,7 +65,7 @@ char response[2048];
 			commandpart=strtok(NULL,"]");
 			if(strcmp(commandpart,"USER-NUMBER")==0)
 			{
-				snprintf(response,2048,"%lld",(long long)me);
+				sprintf(response,"%lld",(long long)me);
 				send(sock_client[me],response,2048,0);
 
 			}			

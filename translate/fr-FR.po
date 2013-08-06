@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Azpazeta Juno\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-05 21:06+0200\n"
-"PO-Revision-Date: 2013-06-06 19:23+0100\n"
+"POT-Creation-Date: 2013-07-29 13:25+0200\n"
+"PO-Revision-Date: 2013-07-29 13:36+0100\n"
 "Last-Translator: Adrián Arroyo <adrian.arroyocalle@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: French\n"
 
+#: ../src/physics/battle.cpp:176
 #: ../src/display/opengl/shader.cpp:127
 msgid "\n"
 msgstr "\n"
@@ -34,23 +35,31 @@ msgid ""
 "Type: "
 msgstr ""
 
-#: ../src/start.cpp:67
+#: ../src/physics/battle.cpp:43
+msgid " - "
+msgstr "-"
+
+#: ../src/physics/battle.cpp:43
+msgid " VS "
+msgstr "VS"
+
+#: ../src/start.cpp:71
 msgid "&About...\tF1"
 msgstr ""
 
-#: ../src/start.cpp:75
+#: ../src/start.cpp:79
 msgid "&Edit"
 msgstr ""
 
-#: ../src/start.cpp:74
+#: ../src/start.cpp:78
 msgid "&File"
 msgstr ""
 
-#: ../src/start.cpp:76
+#: ../src/start.cpp:80
 msgid "&Help"
 msgstr "&Aider"
 
-#: ../src/start.cpp:68
+#: ../src/start.cpp:72
 msgid "&Settings"
 msgstr ""
 
@@ -58,7 +67,7 @@ msgstr ""
 msgid ""
 "'Do not know' has become 'Do not know yet'\n"
 "Bill Gates"
-msgstr ""
+msgstr "'"
 
 #: ../src/azpmarket/azpmarket.cpp:58
 #: ../src/azpmarket/azpmarket.cpp:124
@@ -107,7 +116,7 @@ msgstr "AZPVM"
 
 #: ../src/window/startmission.cpp:37
 msgid "Accept"
-msgstr ""
+msgstr "OK"
 
 #: ../src/azpmarket/azpmarket.cpp:71
 #: ../src/azpmarket/azpmarket.cpp:177
@@ -118,6 +127,34 @@ msgstr ""
 #: ../src/azpmarket/azpmarket.cpp:136
 msgid "Accessing music"
 msgstr ""
+
+#: ../src/physics/battle.cpp:82
+msgid "Ad baculum"
+msgstr "Ad baculum"
+
+#: ../src/physics/battle.cpp:61
+msgid "Ad hominen"
+msgstr "Ad hominen"
+
+#: ../src/physics/battle.cpp:64
+msgid "Ad ignorantiam"
+msgstr "Ad ignorantiam"
+
+#: ../src/physics/battle.cpp:70
+msgid "Ad misericordiam"
+msgstr "Ad misericordiam"
+
+#: ../src/physics/battle.cpp:79
+msgid "Ad nauseam"
+msgstr "Ad nauseam"
+
+#: ../src/physics/battle.cpp:67
+msgid "Ad populum"
+msgstr "Ad populum"
+
+#: ../src/physics/battle.cpp:76
+msgid "Ad verecundiam"
+msgstr "Ad verecundiam"
 
 #: ../src/window/loader.cpp:71
 msgid ""
@@ -161,7 +198,7 @@ msgstr "AzpVM"
 msgid "Azpazeta"
 msgstr "Azpazeta Juno"
 
-#: ../src/start.cpp:69
+#: ../src/start.cpp:73
 #, fuzzy
 msgid "Azpazeta &Updater"
 msgstr "Azpazeta Juno"
@@ -175,7 +212,8 @@ msgstr "Azpazeta Juno"
 msgid "Azpazeta Image Viewer"
 msgstr ""
 
-#: ../src/app.cpp:115
+#: ../src/app.cpp:114
+#: ../src/app.cpp:126
 #, fuzzy
 msgid "Azpazeta Juno Running"
 msgstr "Azpazeta Juno"
@@ -191,23 +229,32 @@ msgstr "Azpazeta Juno"
 msgid "Azpazeta Market URL: "
 msgstr ""
 
-#: ../src/start/startgui.cpp:174
+#: ../src/start/startgui.cpp:178
 #, fuzzy
 msgid "Azpazeta Money"
+msgstr "Azpazeta Juno"
+
+#: ../src/start.cpp:162
+#, fuzzy
+msgid "Azpazeta Updater"
 msgstr "Azpazeta Juno"
 
 #: ../src/version.cpp:34
 msgid "Azpazeta is a strategy-economic game about Vadrix and the region of Azpazeta. Explore the world in a sandbox game"
 msgstr ""
 
-#: ../src/start.cpp:208
-msgid "Azpazeta is already updated"
-msgstr ""
-
 #: ../src/window/loader.cpp:82
 msgid ""
 "Azpazeta, now with 2 more meters of National Park\n"
 "Radio ad by Agence of Azpazeta Tourisme"
+msgstr ""
+
+#: ../src/physics/battle.cpp:153
+msgid "Bad!"
+msgstr ""
+
+#: ../src/physics/battle.cpp:43
+msgid "Battle: "
 msgstr ""
 
 #: ../src/window/loader.cpp:85
@@ -221,7 +268,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../src/start.cpp:68
+#: ../src/start.cpp:72
 msgid "Change game settings"
 msgstr "Change jue "
 
@@ -229,7 +276,7 @@ msgstr "Change jue "
 msgid "Character: "
 msgstr ""
 
-#: ../src/start.cpp:69
+#: ../src/start.cpp:73
 msgid "Check for updates"
 msgstr ""
 
@@ -262,6 +309,14 @@ msgid ""
 "Azpazeta State"
 msgstr ""
 
+#: ../src/physics/battle.cpp:73
+msgid "Cum hoc, ergo propter hoc"
+msgstr ""
+
+#: ../src/azpscript/azpapi.cpp:374
+msgid "Current map asks..."
+msgstr ""
+
 #: ../src/azpscript/azpapi.cpp:177
 msgid "Current map requires access to complete control of the files from the computer. Only accept if you trust in the author. Do you like to accept the requeriment?"
 msgstr ""
@@ -290,10 +345,8 @@ msgstr ""
 msgid "Dialog"
 msgstr ""
 
-#: ../src/start/startgui.cpp:142
-#: ../src/start/startgui.cpp:148
-#: ../src/start.cpp:159
-#: ../src/start.cpp:161
+#: ../src/start/startgui.cpp:146
+#: ../src/start/startgui.cpp:152
 #: ../src/display/opengl/gl.cpp:593
 msgid "Divel Network"
 msgstr ""
@@ -303,7 +356,7 @@ msgid "Divel Network Name: "
 msgstr ""
 
 #: ../src/window/options.cpp:92
-#: ../src/network/telemetry.cpp:65
+#: ../src/network/telemetry.cpp:67
 msgid "Divel Telemetry"
 msgstr ""
 
@@ -317,16 +370,16 @@ msgstr ""
 msgid "Do you want to exit?"
 msgstr ""
 
-#: ../src/start/startgui.cpp:135
+#: ../src/start/startgui.cpp:139
 msgid "Do you want to find a server in Trola/Divel Network?"
 msgstr ""
 
-#: ../src/start.cpp:161
-msgid "Do you want to search Azpazeta updates"
+#: ../src/start/startgui.cpp:178
+msgid "Do you want to spend some money on Azpazeta? We accept BitCoins and Bank Transfer. Divel BitCoins key is 1A2j8CwiFEhQ4Uycsjhr3gQPbJxFk1LRmM . Do you want to copy to the clipboard?"
 msgstr ""
 
-#: ../src/start/startgui.cpp:174
-msgid "Do you want to spend some money on Azpazeta? We accept BitCoins and Bank Transfer. Divel BitCoins key is 1A2j8CwiFEhQ4Uycsjhr3gQPbJxFk1LRmM . Do you want to copy to the clipboard?"
+#: ../src/start.cpp:162
+msgid "Do you want to visit the project page for new updates?"
 msgstr ""
 
 #: ../src/azpmarket/azpmarket.cpp:183
@@ -341,7 +394,7 @@ msgstr ""
 msgid "Dreaming of success is good, but do it better."
 msgstr ""
 
-#: ../src/start.cpp:70
+#: ../src/start.cpp:74
 msgid "E&xit\tAlt-X"
 msgstr ""
 
@@ -379,7 +432,7 @@ msgstr ""
 msgid "Failed to load the selected map: "
 msgstr ""
 
-#: ../src/network/telemetry.cpp:65
+#: ../src/network/telemetry.cpp:67
 msgid "Failed to submit data to Divel Telemetry"
 msgstr ""
 
@@ -414,6 +467,10 @@ msgid ""
 "Uncle Scrooge and Minecraft players"
 msgstr ""
 
+#: ../src/physics/battle.cpp:135
+msgid "Good!"
+msgstr ""
+
 #: ../src/window/options.cpp:89
 msgid "Google+ Profile: "
 msgstr ""
@@ -434,6 +491,14 @@ msgstr ""
 msgid ""
 "I only know that I know nothing\n"
 "Socrates"
+msgstr ""
+
+#: ../src/physics/battle.cpp:28
+msgid "I repeat it again, we will destroy the city of Orwell"
+msgstr ""
+
+#: ../src/physics/battle.cpp:36
+msgid "I say this about 1000 but one more time, I am inocent"
 msgstr ""
 
 #: ../src/window/loader.cpp:32
@@ -480,7 +545,7 @@ msgid ""
 "John D. Rockefeller"
 msgstr ""
 
-#: ../src/start/startgui.cpp:148
+#: ../src/start/startgui.cpp:152
 msgid "Insert the IP of the server"
 msgstr ""
 
@@ -510,7 +575,7 @@ msgstr ""
 msgid "JUNO"
 msgstr ""
 
-#: ../src/start/startgui.cpp:150
+#: ../src/start/startgui.cpp:154
 msgid "Join multiplayer game"
 msgstr ""
 
@@ -520,12 +585,14 @@ msgid ""
 "Musicalized ad by Disco Rien"
 msgstr ""
 
-#: ../src/start.cpp:159
-msgid "Linux user: You must use your package manager for better performance. Only Windows user should update from here"
+#: ../src/physics/battle.cpp:33
+msgid ""
+"Ladies and gentlemen of the jury, look at this miserable man,\n"
+" in a wheelchair, unable to use his legs. Could such a man really be guilty of embezzlement?"
 msgstr ""
 
-#: ../src/start/startgui.cpp:122
-#: ../src/app.cpp:210
+#: ../src/start/startgui.cpp:126
+#: ../src/app.cpp:226
 msgid "Load game"
 msgstr ""
 
@@ -553,7 +620,7 @@ msgid ""
 "The new book of Mozilla"
 msgstr ""
 
-#: ../src/start/startgui.cpp:165
+#: ../src/start/startgui.cpp:169
 msgid "Map manager is not implemented in Juno. If you want to use another solution, try Trola, a pay app in Java"
 msgstr ""
 
@@ -585,7 +652,7 @@ msgid ""
 "Alexander Graham Bell"
 msgstr ""
 
-#: ../src/start/startgui.cpp:106
+#: ../src/start/startgui.cpp:110
 msgid "New game"
 msgstr ""
 
@@ -636,8 +703,8 @@ msgstr ""
 msgid "OpenGL"
 msgstr "OpenGL"
 
-#: ../src/start/startgui.cpp:188
-#: ../src/start.cpp:151
+#: ../src/start/startgui.cpp:192
+#: ../src/start.cpp:155
 msgid "Options"
 msgstr ""
 
@@ -663,7 +730,7 @@ msgid ""
 "Titular of The Herald of Azpazeta"
 msgstr ""
 
-#: ../src/start.cpp:70
+#: ../src/start.cpp:74
 msgid "Quit this program"
 msgstr ""
 
@@ -707,6 +774,10 @@ msgid ""
 "Ad by Azpazeta Instant!"
 msgstr ""
 
+#: ../src/physics/battle.cpp:29
+msgid "STOP stupid. I say that we need to draw a circle in the forest"
+msgstr ""
+
 #: ../src/display/opengl/gl.cpp:627
 msgid "Save the data"
 msgstr ""
@@ -719,7 +790,11 @@ msgstr ""
 msgid "See version"
 msgstr ""
 
-#: ../src/start/startgui.cpp:142
+#: ../src/physics/battle.cpp:181
+msgid "Select the type of fallacy"
+msgstr ""
+
+#: ../src/start/startgui.cpp:146
 msgid "Select the type of protocol: "
 msgstr ""
 
@@ -727,8 +802,30 @@ msgstr ""
 msgid "Server fails!"
 msgstr ""
 
-#: ../src/start.cpp:67
+#: ../src/start.cpp:71
 msgid "Show about dialog"
+msgstr ""
+
+#: ../src/physics/battle.cpp:37
+msgid "Silly boy, you need to get married with my sister"
+msgstr ""
+
+#: ../src/physics/battle.cpp:26
+msgid ""
+"Since 2000 the climate change advanced and the pirates \n"
+"decreases, with less prirates we've got more climate change"
+msgstr ""
+
+#: ../src/physics/battle.cpp:34
+msgid ""
+"Sleeping with one's shoes on is strongly correlated with waking\n"
+" up with a headache, so sleeping with one's shoes on causes headache"
+msgstr ""
+
+#: ../src/physics/battle.cpp:32
+msgid ""
+"Some virus are from the Azpazeta Spy Council,\n"
+" the people say that"
 msgstr ""
 
 #: ../src/window/loader.cpp:45
@@ -755,6 +852,12 @@ msgid ""
 "Super Marios Bros"
 msgstr ""
 
+#: ../src/physics/battle.cpp:24
+msgid ""
+"That film it's good because the a lot of people have seen \n"
+"the movie"
+msgstr ""
+
 #: ../src/window/loader.cpp:54
 #, c-format
 msgid ""
@@ -766,6 +869,10 @@ msgstr ""
 msgid ""
 "The circulating gold because it has value, but the paper money has value because it circulates\n"
 "Karl Marx"
+msgstr ""
+
+#: ../src/physics/battle.cpp:35
+msgid "The earth has gravity, because Newton say that"
 msgstr ""
 
 #: ../src/window/loader.cpp:81
@@ -818,7 +925,11 @@ msgid ""
 "Jesus of Nazaret"
 msgstr ""
 
-#: ../src/azpscript/event.cpp:36
+#: ../src/physics/battle.cpp:27
+msgid "The root square of 2 is irrational, because Euclides say that"
+msgstr ""
+
+#: ../src/azpscript/event.cpp:29
 msgid "The selected EventTable doesn't exist"
 msgstr ""
 
@@ -842,7 +953,7 @@ msgstr ""
 msgid "This map requires an updated version of Azpazeta"
 msgstr ""
 
-#: ../src/start/startgui.cpp:135
+#: ../src/start/startgui.cpp:139
 msgid "Trola/Divel Network services"
 msgstr ""
 
@@ -850,10 +961,6 @@ msgstr ""
 msgid ""
 "True wisdom is to recognize one's own ignorance.\n"
 "Socrates"
-msgstr ""
-
-#: ../src/start.cpp:184
-msgid "Update avalible. Click OK to download"
 msgstr ""
 
 #: ../src/window/loader.cpp:72
@@ -877,7 +984,7 @@ msgstr ""
 msgid "Vandraxa"
 msgstr ""
 
-#: ../src/version.cpp:61
+#: ../src/version.cpp:78
 msgid "Version information"
 msgstr ""
 
@@ -907,10 +1014,14 @@ msgid ""
 "Socrates"
 msgstr ""
 
-#: ../src/start/startgui.cpp:61
+#: ../src/start/startgui.cpp:65
 msgid ""
 "Welcome to Azpazeta 2.0 Juno, the strategy-economic\n"
 " game in sandbox mode. Please select an option"
+msgstr ""
+
+#: ../src/physics/battle.cpp:60
+msgid "Welcome to a philosophical battle"
 msgstr ""
 
 #: ../src/window/loader.cpp:40
@@ -939,6 +1050,32 @@ msgstr ""
 
 #: ../src/savefile/savefile.cpp:60
 msgid "Wrong Azpazeta package format"
+msgstr ""
+
+#: ../src/physics/battle.cpp:30
+msgid "You aren't the best person for say this"
+msgstr ""
+
+#: ../src/physics/battle.cpp:22
+msgid ""
+"You can say that the triangle has got 4 corners because you\n"
+" haven't studied geometry"
+msgstr ""
+
+#: ../src/physics/battle.cpp:23
+msgid "You can't demostrate that god exists, so god doesn't exist"
+msgstr ""
+
+#: ../src/physics/battle.cpp:31
+msgid ""
+"You can't demostrate that my son has gone to this party, \n"
+"so my son hasn't gone to this party"
+msgstr ""
+
+#: ../src/physics/battle.cpp:25
+msgid ""
+"You must have graded my exam incorrectly. I studied very \n"
+"hard for weeks specifically because I knew my career depended on getting a good grade. If you give me a failing grade I'm ruined!"
 msgstr ""
 
 #: ../src/app.cpp:95

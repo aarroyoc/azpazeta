@@ -56,7 +56,11 @@ Start::Start(const wxString& title, const wxString& mapuri)
 	//AzpLog("[OK] Loaded all image handlers",4);
 	
 	//wxBusyInfo wait(_("Please wait, working on something stupid"));
+#ifdef WIN32
+	wxIcon azpicon(azppath+wxT("/media/azpazeta.ico"));
+	SetIcon(azpicon);
 
+#endif
 
 #if wxUSE_MENUS
     // create a menu bar
@@ -154,6 +158,14 @@ void Start::SeeOptions(wxCommandEvent& event)
 }
 void Start::Updater(wxCommandEvent& event)
 {
+	//Only check the URL for the user
+	int check=wxMessageBox(_("Do you want to visit the project page for new updates?"),_("Azpazeta Updater"),wxYES_NO|wxICON_QUESTION);
+	if(check==wxYES)
+	{
+		wxLaunchDefaultBrowser(wxT("http://launchpad.net/azpazeta/+download"));
+
+	}
+	/*
 	//Only for WIN32 and TAR.GZ. The reason is that Linux users must use her package managers
 	#ifndef WIN32
 	wxMessageBox(_("Linux user: You must use your package manager for better performance. Only Windows user should update from here"),_("Divel Network"),wxOK|wxICON_WARNING);
@@ -211,4 +223,5 @@ void Start::Updater(wxCommandEvent& event)
 
 	}
 	#endif
+*/
 }

@@ -23,14 +23,7 @@
 EventManager::EventManager(wxString tmxmap)
 {
 	wxString eventmap=(tmxmap.BeforeLast('.'))+wxT("-event.xml");
-	#ifdef WIN32
-	scriptpath=eventmap.BeforeLast('\\');
-
-	#else
 	scriptpath=eventmap.BeforeLast('/');
-
-
-	#endif
 	if(!wxFileExists(eventmap))
 	{
 		wxLogError(_("The selected EventTable doesn't exist"));
@@ -119,7 +112,11 @@ wxString EventManager::Execute(int x, int y)
 		return wxT("NOTEXIST");
 	else
 	{
+#ifdef WIN32
+		AZPVM* azpvm=new AZPVM(scriptpath+wxT("\\")+EventArray[x][y],azpVM_SECURE);
+#else
 		AZPVM* azpvm=new AZPVM(scriptpath+wxT("/")+EventArray[x][y],azpVM_SECURE);
+#endif
 		return wxT("[OK] Running map script");
 
 	}
@@ -129,7 +126,11 @@ wxString EventManager::ChangeMap(int side)
 	if(MapArray[side].Cmp(wxT("NULL"))==0)
 		return wxT("NULL");
 	else
+#ifdef WIN32
+		return scriptpath+wxT("\\")+MapArray[side];
+#else
 		return scriptpath+wxT("/")+MapArray[side];
+#endif
 
 
 }

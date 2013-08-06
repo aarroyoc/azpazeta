@@ -1,6 +1,0 @@
-bridgePassed=azpGet("bridgePassed","/maps/tutorial/database.xml","FALSE")
-if bridgePassed=="0" then
-	azpDialog("Welcome to the Azpazeta Tutorial")
-	azpDialog("You:\n Where I am?\nWhat is this?\nI'm going to talk with this women")
-	azpSet("bridgePassed","1","/maps/tutorial/database.xml","FALSE")
-end

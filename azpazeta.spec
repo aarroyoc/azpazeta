@@ -102,6 +102,26 @@ rm -rf $RPM_BUILD_ROOT
 /opt/azpazeta/media/options.xcf
 /opt/azpazeta/media/singleplayer.png
 /opt/azpazeta/media/vadrixmain.png
+/opt/azpazeta/maps/core/INTRODUCTION
+/opt/azpazeta/maps/core/rocky-event.xml
+/opt/azpazeta/maps/core/rocky.tmx
+/opt/azpazeta/maps/core/station-duo-event.xml
+/opt/azpazeta/maps/core/station-duo.tmx
+/opt/azpazeta/maps/core/station-event.xml
+/opt/azpazeta/maps/orwell/info.xml
+/opt/azpazeta/maps/orwell/station-event.xml
+/opt/azpazeta/maps/orwell/station.tmx
+/opt/azpazeta/media/anti-vadrixmain.png
+/opt/azpazeta/media/azpazeta.ico
+/opt/azpazeta/media/housered.png
+/opt/azpazeta/media/houseyellow.png
+/opt/azpazeta/media/mountain-inside.png
+/opt/azpazeta/media/mountain.png
+/opt/azpazeta/media/palacetower.png
+/opt/azpazeta/media/road.png
+/opt/azpazeta/media/vandraxamain.png
+/opt/azpazeta/media/villagers.png
+/opt/azpazeta/media/wadrixmain.png
 
 %dir /opt/azpazeta
 %dir /opt/azpazeta
@@ -117,5 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir /opt/azpazeta/shaders
 
 %changelog
+* Tue Aug 06 2013 Adrian Arroyo Calle
+- Ready to release
 * Sun Mar 17 2013 Adrian Arroyo Calle
 - First release: Bazaar version 50

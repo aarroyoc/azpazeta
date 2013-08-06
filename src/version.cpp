@@ -32,6 +32,22 @@ void Version::Display::About()
 	info.AddTranslator(wxT("Adrián Arroyo Calle->Spanish"));
 	info.AddTranslator(wxT("Google Translate->French"));
 	info.SetDescription(_("Azpazeta is a strategy-economic game about Vadrix and the region of Azpazeta. Explore the world in a sandbox game"));
+#ifdef WIN32
+	info.SetLicense(wxT("Azpazeta The strategy-economic game\nCopyright (C) 2013  Adrián Arroyo Calle\n\n"
+L"This program is free software; you can redistribute it and/or\n"
+L"modify it under the terms of the GNU General Public License\n"
+L"as published by the Free Software Foundation; either version 2\n"
+L"of the License, or (at your option) any later version.\n"
+
+L"This program is distributed in the hope that it will be useful,\n\n"
+L"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+L"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+L"GNU General Public License for more details.\n\n"
+
+L"You should have received a copy of the GNU General Public License\n"
+L"along with this program; if not, write to the Free Software\n"
+L"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA."));
+#else
 	info.SetLicense(wxT("Azpazeta The strategy-economic game\nCopyright (C) 2013  Adrián Arroyo Calle\n\n"
 "This program is free software; you can redistribute it and/or\n"
 "modify it under the terms of the GNU General Public License\n"
@@ -46,6 +62,7 @@ void Version::Display::About()
 "You should have received a copy of the GNU General Public License\n"
 "along with this program; if not, write to the Free Software\n"
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA."));
+#endif
 	info.SetName(wxT("Azpazeta"));
 	info.SetVersion(wxString::FromUTF8(AZPAZETA_VERSION_STR));
 	info.SetWebSite(wxT("http://launchpad.net/azpazeta"));

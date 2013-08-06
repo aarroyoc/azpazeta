@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AZPAZETA JUNO\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-15 18:08+0200\n"
-"PO-Revision-Date: 2013-06-15 18:18+0100\n"
+"POT-Creation-Date: 2013-07-29 13:25+0200\n"
+"PO-Revision-Date: 2013-07-29 13:33+0100\n"
 "Last-Translator: Adrián Arroyo <adrian.arroyocalle@gmail.com>\n"
 "Language-Team:  <adrian.arroyocalle@gmail.com>\n"
 "Language: \n"
@@ -46,23 +46,23 @@ msgstr "-"
 msgid " VS "
 msgstr " VS "
 
-#: ../src/start.cpp:67
+#: ../src/start.cpp:71
 msgid "&About...\tF1"
 msgstr "&Acerca...\tF1"
 
-#: ../src/start.cpp:75
+#: ../src/start.cpp:79
 msgid "&Edit"
 msgstr "&Editar"
 
-#: ../src/start.cpp:74
+#: ../src/start.cpp:78
 msgid "&File"
 msgstr "&Archivo"
 
-#: ../src/start.cpp:76
+#: ../src/start.cpp:80
 msgid "&Help"
 msgstr "A&yuda"
 
-#: ../src/start.cpp:68
+#: ../src/start.cpp:72
 msgid "&Settings"
 msgstr "&Ajustes"
 
@@ -207,28 +207,25 @@ msgid "AzpVM"
 msgstr "AzpVM"
 
 #: ../src/core/core.cpp:41
-#, fuzzy
 msgid "Azpazeta"
 msgstr "Azpazeta Juno"
 
-#: ../src/start.cpp:69
-#, fuzzy
+#: ../src/start.cpp:73
 msgid "Azpazeta &Updater"
-msgstr "Azpazeta Juno"
+msgstr "Azpazeta &Updater"
 
 #: ../src/start/startgui.cpp:36
-#, fuzzy
 msgid "Azpazeta 2.0 Juno"
-msgstr "Azpazeta Juno"
+msgstr "Azpazeta 2.0 Juno"
 
 #: ../src/sprite/sprite.cpp:78
 msgid "Azpazeta Image Viewer"
 msgstr "Visor de imágenes de Azpazeta"
 
-#: ../src/app.cpp:115
-#, fuzzy
+#: ../src/app.cpp:114
+#: ../src/app.cpp:126
 msgid "Azpazeta Juno Running"
-msgstr "Azpazeta Juno"
+msgstr "Azpazeta Juno funcionando"
 
 #: ../src/azpmarket/azpmarket.cpp:25
 #: ../src/azpmarket/azpmarket.cpp:54
@@ -241,18 +238,18 @@ msgstr "Azpazeta Market URL:"
 msgid "Azpazeta Market URL: "
 msgstr "Azpazeta Market URL:"
 
-#: ../src/start/startgui.cpp:174
+#: ../src/start/startgui.cpp:178
 #, fuzzy
 msgid "Azpazeta Money"
 msgstr "Azpazeta Juno"
 
+#: ../src/start.cpp:162
+msgid "Azpazeta Updater"
+msgstr "Azpazeta Updater"
+
 #: ../src/version.cpp:34
 msgid "Azpazeta is a strategy-economic game about Vadrix and the region of Azpazeta. Explore the world in a sandbox game"
 msgstr "Azpazeta es el juego estratégico económico sobre Vadrix y la región de Azpazeta. Explora el mundo en modo sandbox"
-
-#: ../src/start.cpp:208
-msgid "Azpazeta is already updated"
-msgstr "Azpazeta está actualmente actualizado"
 
 #: ../src/window/loader.cpp:82
 msgid ""
@@ -283,7 +280,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../src/start.cpp:68
+#: ../src/start.cpp:72
 msgid "Change game settings"
 msgstr "Cambiar ajustes del juego"
 
@@ -291,7 +288,7 @@ msgstr "Cambiar ajustes del juego"
 msgid "Character: "
 msgstr "Personaje"
 
-#: ../src/start.cpp:69
+#: ../src/start.cpp:73
 msgid "Check for updates"
 msgstr "Comprobando actualizaciones"
 
@@ -335,9 +332,8 @@ msgid "Cum hoc, ergo propter hoc"
 msgstr "Cum hoc, ergo propter hoc"
 
 #: ../src/azpscript/azpapi.cpp:374
-#, fuzzy
 msgid "Current map asks..."
-msgstr "El mapa actual dice..."
+msgstr "El mapa actual pregunta..."
 
 #: ../src/azpscript/azpapi.cpp:177
 msgid "Current map requires access to complete control of the files from the computer. Only accept if you trust in the author. Do you like to accept the requeriment?"
@@ -367,10 +363,8 @@ msgstr "Desarrollador"
 msgid "Dialog"
 msgstr "Diálogo"
 
-#: ../src/start/startgui.cpp:142
-#: ../src/start/startgui.cpp:148
-#: ../src/start.cpp:159
-#: ../src/start.cpp:161
+#: ../src/start/startgui.cpp:146
+#: ../src/start/startgui.cpp:152
 #: ../src/display/opengl/gl.cpp:593
 #, fuzzy
 msgid "Divel Network"
@@ -395,17 +389,18 @@ msgstr ""
 msgid "Do you want to exit?"
 msgstr "¿Quieres salir?"
 
-#: ../src/start/startgui.cpp:135
+#: ../src/start/startgui.cpp:139
 msgid "Do you want to find a server in Trola/Divel Network?"
 msgstr "¿Quieres buscar un servidor en Trola/Divel Network?"
 
-#: ../src/start.cpp:161
-msgid "Do you want to search Azpazeta updates"
-msgstr "¿Quieres buscar actualizaciones de Azpazeta?"
-
-#: ../src/start/startgui.cpp:174
+#: ../src/start/startgui.cpp:178
 msgid "Do you want to spend some money on Azpazeta? We accept BitCoins and Bank Transfer. Divel BitCoins key is 1A2j8CwiFEhQ4Uycsjhr3gQPbJxFk1LRmM . Do you want to copy to the clipboard?"
 msgstr "¿Quieres donar dinero a Azpazeta? Aceptamos BitCoins y transferencia bancaria. Nuestra llave es 1A2j8CwiFEhQ4Uycsjhr3gQPbJxFk1LRmM . ¿Quieres copiarlo al portapapeles?"
+
+#: ../src/start.cpp:162
+#, fuzzy
+msgid "Do you want to visit the project page for new updates?"
+msgstr "¿Quieres buscar actualizaciones de Azpazeta?"
 
 #: ../src/azpmarket/azpmarket.cpp:183
 msgid "Downloading map"
@@ -417,9 +412,9 @@ msgstr "Descargando música"
 
 #: ../src/window/loader.cpp:51
 msgid "Dreaming of success is good, but do it better."
-msgstr ""
+msgstr "Soñar algo es bueno, pero hacerlo es mejor"
 
-#: ../src/start.cpp:70
+#: ../src/start.cpp:74
 msgid "E&xit\tAlt-X"
 msgstr "&Salir\tAlt-X"
 
@@ -492,6 +487,8 @@ msgid ""
 "Gold is not everything. Diamonds are also\n"
 "Uncle Scrooge and Minecraft players"
 msgstr ""
+"El oro no lo es todo. También están los diamantes\n"
+"Tío Scrooge y los jugadores de Minecraft"
 
 #: ../src/physics/battle.cpp:135
 msgid "Good!"
@@ -506,18 +503,24 @@ msgid ""
 "How do you know if the Earth is just another planet's hell?\n"
 "Aldous Huxley"
 msgstr ""
+"¿Cómo puedes saber si la Tierra no es el infierno de otro planeta?\n"
+"Aldous Huxley"
 
 #: ../src/window/loader.cpp:57
 msgid ""
 "I have some ideals, but not like I have other\n"
 "Groucho Marx"
 msgstr ""
+"Tengo unos principios, pero si no le gustan tengo otros\n"
+"Groucho Marx"
 
 #: ../src/window/loader.cpp:39
 msgid ""
 "I only know that I know nothing\n"
 "Socrates"
 msgstr ""
+"Solo sé que no sé nada\n"
+"Sócrates"
 
 #: ../src/physics/battle.cpp:28
 msgid "I repeat it again, we will destroy the city of Orwell"
@@ -571,7 +574,7 @@ msgid ""
 "John D. Rockefeller"
 msgstr ""
 
-#: ../src/start/startgui.cpp:148
+#: ../src/start/startgui.cpp:152
 msgid "Insert the IP of the server"
 msgstr "Introduce la IP del servidor"
 
@@ -601,7 +604,7 @@ msgstr ""
 msgid "JUNO"
 msgstr "JUNO"
 
-#: ../src/start/startgui.cpp:150
+#: ../src/start/startgui.cpp:154
 msgid "Join multiplayer game"
 msgstr "Unirse a juego multijugador"
 
@@ -610,19 +613,20 @@ msgid ""
 "La Re Fa Sol Mi Mi Re ...\n"
 "Musicalized ad by Disco Rien"
 msgstr ""
+"La Re Fa Sol Mi Mi Re ...\n"
+"Anuncio musical de Disco Rien"
 
 #: ../src/physics/battle.cpp:33
 msgid ""
 "Ladies and gentlemen of the jury, look at this miserable man,\n"
 " in a wheelchair, unable to use his legs. Could such a man really be guilty of embezzlement?"
 msgstr ""
+"Señoras y señores del jurado, miren a este hombre miserable,\n"
+"en su silla de ruedas, incapaz de usar sus piernas. ¿Puede ser este hombre acusado de\n"
+"matar a varias familias?"
 
-#: ../src/start.cpp:159
-msgid "Linux user: You must use your package manager for better performance. Only Windows user should update from here"
-msgstr "Usuarios Linux: Debes usar el gestor de paquetes para actualizar. Solo Windows debe actualizar desde aquí-"
-
-#: ../src/start/startgui.cpp:122
-#: ../src/app.cpp:210
+#: ../src/start/startgui.cpp:126
+#: ../src/app.cpp:226
 msgid "Load game"
 msgstr "Cargar juego"
 
@@ -651,8 +655,10 @@ msgid ""
 "Mammon is dead!\n"
 "The new book of Mozilla"
 msgstr ""
+"¡Mammon a muerto!\n"
+"El nuevo libro de Mozilla"
 
-#: ../src/start/startgui.cpp:165
+#: ../src/start/startgui.cpp:169
 msgid "Map manager is not implemented in Juno. If you want to use another solution, try Trola, a pay app in Java"
 msgstr "El gestor de mapas no está implementado en Juno. Si quieres buscar una alternativa, prueba Trola."
 
@@ -686,7 +692,7 @@ msgid ""
 "Alexander Graham Bell"
 msgstr ""
 
-#: ../src/start/startgui.cpp:106
+#: ../src/start/startgui.cpp:110
 msgid "New game"
 msgstr "Nuevo juego"
 
@@ -737,8 +743,8 @@ msgstr ""
 msgid "OpenGL"
 msgstr "OpenGL"
 
-#: ../src/start/startgui.cpp:188
-#: ../src/start.cpp:151
+#: ../src/start/startgui.cpp:192
+#: ../src/start.cpp:155
 msgid "Options"
 msgstr "Opciones"
 
@@ -764,7 +770,7 @@ msgid ""
 "Titular of The Herald of Azpazeta"
 msgstr ""
 
-#: ../src/start.cpp:70
+#: ../src/start.cpp:74
 msgid "Quit this program"
 msgstr "Salir de Azpazeta"
 
@@ -831,11 +837,10 @@ msgid "See version"
 msgstr "Mostrar versión"
 
 #: ../src/physics/battle.cpp:181
-#, fuzzy
 msgid "Select the type of fallacy"
-msgstr "Selecciona el tipo de protocolo"
+msgstr "Selecciona el tipo de falacia"
 
-#: ../src/start/startgui.cpp:142
+#: ../src/start/startgui.cpp:146
 msgid "Select the type of protocol: "
 msgstr "Selecciona el tipo de protocolo"
 
@@ -843,7 +848,7 @@ msgstr "Selecciona el tipo de protocolo"
 msgid "Server fails!"
 msgstr "El servidor falló"
 
-#: ../src/start.cpp:67
+#: ../src/start.cpp:71
 msgid "Show about dialog"
 msgstr "Mostrar cuadro de autores"
 
@@ -976,7 +981,7 @@ msgstr ""
 msgid "The root square of 2 is irrational, because Euclides say that"
 msgstr "La raíz cuadrada de 2 es irracional, porque lo dijo Euclides"
 
-#: ../src/azpscript/event.cpp:36
+#: ../src/azpscript/event.cpp:29
 msgid "The selected EventTable doesn't exist"
 msgstr "La EventTable seleccionada no existe"
 
@@ -1000,7 +1005,7 @@ msgstr ""
 msgid "This map requires an updated version of Azpazeta"
 msgstr "Este mapa requiere una versión actualizada de Azpazeta"
 
-#: ../src/start/startgui.cpp:135
+#: ../src/start/startgui.cpp:139
 #, fuzzy
 msgid "Trola/Divel Network services"
 msgstr "Divel Network Name:"
@@ -1010,10 +1015,6 @@ msgid ""
 "True wisdom is to recognize one's own ignorance.\n"
 "Socrates"
 msgstr ""
-
-#: ../src/start.cpp:184
-msgid "Update avalible. Click OK to download"
-msgstr "Actualización disponible. Presiona OK para descargar"
 
 #: ../src/window/loader.cpp:72
 msgid ""
@@ -1040,7 +1041,7 @@ msgstr ""
 msgid "Vandraxa"
 msgstr "Vandraxa"
 
-#: ../src/version.cpp:61
+#: ../src/version.cpp:78
 msgid "Version information"
 msgstr "Información de versión"
 
@@ -1070,7 +1071,7 @@ msgid ""
 "Socrates"
 msgstr ""
 
-#: ../src/start/startgui.cpp:61
+#: ../src/start/startgui.cpp:65
 msgid ""
 "Welcome to Azpazeta 2.0 Juno, the strategy-economic\n"
 " game in sandbox mode. Please select an option"
@@ -1147,6 +1148,19 @@ msgstr ""
 #: ../src/app.cpp:95
 msgid "Your language doesn't appear in Azpazeta translations. Please, create a translation in translations.launchpad.net/azpazeta"
 msgstr "Tu lenguaje no aparece en las traducciones de Azpazeta. Por favor crea tu traducción en Launchpad.net/azpazeta"
+
+#~ msgid "Azpazeta is already updated"
+#~ msgstr "Azpazeta está actualmente actualizado"
+
+#~ msgid ""
+#~ "Linux user: You must use your package manager for better performance. "
+#~ "Only Windows user should update from here"
+#~ msgstr ""
+#~ "Usuarios Linux: Debes usar el gestor de paquetes para actualizar. Solo "
+#~ "Windows debe actualizar desde aquí-"
+
+#~ msgid "Update avalible. Click OK to download"
+#~ msgstr "Actualización disponible. Presiona OK para descargar"
 
 #~ msgid "Minimal wxWidgets App"
 #~ msgstr "Azpazeta"

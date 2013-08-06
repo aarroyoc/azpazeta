@@ -100,7 +100,8 @@ if(!ipv6)
 		if (server == -1)
 		{
     		printf ("Error\n");
-		} 
+		}
+		memset(&sockaddr_ipv6,0,sizeof(sockaddr_in6));
 		sockaddr_ipv6.sin6_family = AF_INET6;
 		sockaddr_ipv6.sin6_port = htons(6996);
 		inet_pton(AF_INET6, ip.mb_str(), &(sockaddr_ipv6.sin6_addr));
@@ -139,7 +140,8 @@ if(!ipv6)
 		if (server == -1)
 		{
     		printf ("Error\n");
-		} 
+		}
+		memset(&sockaddr_ipv6,0,sizeof(sockaddr_in6));
 		sockaddr_ipv6.sin6_family = AF_INET6;
 		sockaddr_ipv6.sin6_port = htons(6996);
 		inet_pton(AF_INET6, ip.mb_str(), &(sockaddr_ipv6.sin6_addr));
@@ -177,7 +179,7 @@ int AzpClient::RequestMove(int x, int y, int building)
 {
 	char requestmove[2048];
 	char response[2048];
-	snprintf(requestmove,2048,"[REQUEST]%d|%d|%d",x,y,building);
+	sprintf(requestmove,"[REQUEST]%d|%d|%d",x,y,building);
 	send(server, requestmove, 2048,0);
 	recv(server,response,2048,0);
 	if(strcmp(response,"TRUE")==0)
@@ -195,7 +197,7 @@ int AzpClient::GetMyNumber()
 {
 	char requestmove[2048];
 	char response[2048];
-	snprintf(requestmove,2048,"[GET]USER-NUMBER");
+	sprintf(requestmove,"[GET]USER-NUMBER");
 	send(server, requestmove, 2048,0);
 	recv(server,response,2048,0);
 	return atoi(response);

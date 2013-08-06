@@ -11,12 +11,16 @@ Categories=StrategyGame;
 MimeType=application/x-azpazeta;application/x-azpazeta-savefile;application/x-azpazeta-script;application/x-azpazeta-city;application/x-azpazeta-serverconf
 Terminal=false
 
-X-Ayatana-Desktop-Shortcuts=Updates;Bug;SendEmail;
+X-Ayatana-Desktop-Shortcuts=Bug;SendEmail;
 
-[Updates Shortcut Group]
-Name=Check for updates
-Exec=gksu update-manager
-OnlyShowIn=Unity;GNOME
+#[Updates Shortcut Group]
+#Name=Check for updates
+#Exec=gksu update-manager
+#OnlyShowIn=Unity;GNOME
+#[DevReference Shortcut Group]
+#Name=Developer Reference
+#Exec=yelp help:azpazeta
+#OnlyShowIn=Unity;GNOME
 
 [Bug Shortcut Group]
 Name=Report a bug

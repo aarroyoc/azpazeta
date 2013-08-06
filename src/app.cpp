@@ -106,6 +106,17 @@ bool Azpazeta::OnInit()
 	AzpLog("[OK] Loaded all image handlers",4);
 
 	//TaskBar Icon
+#ifdef WIN32
+	wxIcon azpicon(azppath+wxT("/media/azpazeta.ico"),wxBITMAP_TYPE_ICO);
+	/* System Tray Whitelist Ubuntu 12.04 & Ubuntu 12.10 */
+	/* gsettings set com.canonical.Unity.Panel systray-whitelist "['all']" */
+	wxTaskBarIcon* trayicon=new wxTaskBarIcon();
+	trayicon->SetIcon(azpicon,_("Azpazeta Juno Running"));
+	if(!trayicon->IsOk())
+		AzpLog("[WARNING] Error creating TrayIcon",2);
+	else
+		AzpLog("[OK] Created TrayIcon",4);
+#else
 	wxBitmap azpimg(azppath+wxT("/media/azpazeta.png"));
 	wxIcon azpicon;
 	azpicon.CopyFromBitmap(azpimg);
@@ -117,7 +128,7 @@ bool Azpazeta::OnInit()
 		AzpLog("[WARNING] Error creating TrayIcon",2);
 	else
 		AzpLog("[OK] Created TrayIcon",4);
-
+#endif
 
 	/*Start *frame = new Start(_("Azpazeta Juno"));
 
@@ -127,7 +138,12 @@ bool Azpazeta::OnInit()
 
 		//Start Dialog
 	wxBitmap bitmap;
-  	if (bitmap.LoadFile(azppath+wxT("/media/azpazeta.png"), wxBITMAP_TYPE_PNG))
+#ifdef WIN32
+	wxString azpiconpath=wxT("\\media\\azpazeta.png");
+#else
+	wxString azpiconpath=wxT("/media/azpazeta.png");
+#endif
+  	if (bitmap.LoadFile(azppath+azpiconpath,wxBITMAP_TYPE_PNG))
   	{
       		wxSplashScreen* splash = new wxSplashScreen(bitmap,wxSPLASH_CENTRE_ON_SCREEN|wxSPLASH_TIMEOUT,6000, NULL, -1, wxDefaultPosition, wxDefaultSize,wxSIMPLE_BORDER|wxSTAY_ON_TOP);
 		AzpLog("[OK] Display Splash Screen",4);

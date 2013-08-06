@@ -48,6 +48,7 @@ SET(AzpazetaVersion_StandardEdition true CACHE BOOL "Compile the standard editio
 SET(AzpazetaVersion_MinimalEditionHaiku false CACHE BOOL "Compile the Azpazeta Edition for Haiku (experimental)")
 SET(AzpazetaVersion_MinimalEditionAndroid false CACHE BOOL "Compile the Azpazeta Edition for Android (experimental)")
 SET(AzpazetaVersion_MinimalEditionEmscripten false CACHE BOOL "Compile the Azpazeta Edition for Emscripten (experimental)")
+SET(AzpazetaDocs_Enabled false CACHE BOOL "Generate the Azpazeta documentation")
 
 
 
@@ -198,7 +199,7 @@ ARCHIVE          DESTINATION    azpazeta/lib/static
 LIBRARY          DESTINATION    azpazeta/lib
 PUBLIC_HEADER    DESTINATION    azpazeta/include
 )
-INSTALL(FILES AZPSERVER                   DESTINATION    azpazeta/)
+#INSTALL(FILES AZPSERVER                   DESTINATION    azpazeta/)
 INSTALL(FILES lang/es/azpazeta.mo         DESTINATION    azpazeta/lang/es/)
 INSTALL(FILES lang/fr/azpazeta.mo         DESTINATION    azpazeta/lang/fr/)
 INSTALL(FILES options/options.xml DESTINATION azpazeta/options/)
@@ -208,4 +209,6 @@ INSTALL(FILES maps/data.xml DESTINATION azpazeta/maps/)
 INSTALL(DIRECTORY maps/core DESTINATION azpazeta/maps/)
 INSTALL(DIRECTORY maps/orwell DESTINATION azpazeta/maps/)
 INSTALL(DIRECTORY shaders DESTINATION azpazeta/)
-
+IF(AzpazetaDocs_Enabled)
+INSTALL(DIRECTORY doc DESTINATION azpazeta/)
+ENDIF()
