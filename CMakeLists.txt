@@ -49,7 +49,7 @@ SET(AzpazetaVersion_MinimalEditionHaiku false CACHE BOOL "Compile the Azpazeta E
 SET(AzpazetaVersion_MinimalEditionAndroid false CACHE BOOL "Compile the Azpazeta Edition for Android (experimental)")
 SET(AzpazetaVersion_MinimalEditionEmscripten false CACHE BOOL "Compile the Azpazeta Edition for Emscripten (experimental)")
 SET(AzpazetaDocs_Enabled false CACHE BOOL "Generate the Azpazeta documentation")
-
+SET(Media_MusicEnabled true CACHE BOOL "Build with audio libraries")
 
 
 SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
@@ -68,6 +68,14 @@ FIND_PACKAGE(wxWidgets COMPONENTS gl aui adv html core net base QUIET)
 FIND_PACKAGE(Lua52 REQUIRED) #Comment if you are in Windows
 FIND_PACKAGE(OpenGLES2)
 FIND_PACKAGE(GLEW)
+IF(Media_MusicEnabled)
+	FIND_PACKAGE(PortAudio)
+	INCLUDE_DIRECTORIES(${PORTAUDIO_INCLUDE_DIRS})
+	LINK_DIRECTORIES(${PORTAUDIO_LIBRARY_DIRS})
+	FIND_PACKAGE(LibSndFile)
+	INCLUDE_DIRECTORIES(${LIBSNDFILE_INCLUDE_DIR})
+	LINK_DIRECTORIES(${LIBSNDFILE_LIBRARY})
+ENDIF()
 
 SET(A,${CMAKE_CURRENT_SOURCE_DIR})
 SET(B,${CMAKE_SOURCE_DIR})
@@ -133,6 +141,7 @@ src/azpscript/event.cpp
 src/azpmarket/azpmarket.cpp
 src/core/core.cpp
 src/network/telemetry.cpp
+src/sound/sound.c
 src/savefile/savefile.cpp
 src/sprite/sprite.cpp
 src/start/startgui.cpp
@@ -178,10 +187,15 @@ ${OPENGL_LIBRARIES}
 ${GLEW_LIBRARIES}
 )
 ENDIF()
-
+SET(DEFINITIONS -DLANGUAGE=SPANISH -DOS_WX="${CMAKE_SYSTEM}" -DPROCESSOR_WX="${CMAKE_SYSTEM_PROCESSOR}" -DCOMPILER_WX="${CMAKE_CXX_COMPILER}" -DCMAKE_WX_VERSION="${CMAKE_VERSION}")
+IF(Media_MusicEnabled)
+	LIST(APPEND AZP_LIB ${LIBSNDFILE_LIBRARY})
+	LIST(APPEND AZP_LIB ${PORTAUDIO_LIBRARIES})
+	LIST(APPEND DEFINITIONS "-DMUSIC_ENABLED")
+ENDIF()
 
 #If you can't use GLEW, add -DGL_GLEXT_PROTOTYPES
-add_definitions(-DLANGUAGE=SPANISH -DOS_WX="${CMAKE_SYSTEM}" -DPROCESSOR_WX="${CMAKE_SYSTEM_PROCESSOR}" -DCOMPILER_WX="${CMAKE_CXX_COMPILER}" -DCMAKE_WX_VERSION="${CMAKE_VERSION}")
+add_definitions(${DEFINITIONS})
 MESSAGE(STATUS ${welcome})
 MESSAGE(STATUS ${CMAKE_SYSTEM})
 MESSAGE(STATUS ${CMAKE_SYSTEM_PROCESSOR})

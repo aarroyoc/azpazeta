@@ -30,6 +30,7 @@
 #include "savefile/savefile.hpp"
 #include "window/newgame.hpp"
 #include "network/telemetry.hpp"
+#include "sound/sound.hpp"
 
 #include "xml/tinyxml.h"
 
@@ -135,7 +136,10 @@ bool Azpazeta::OnInit()
 	    // and show it (the frames, unlike simple controls, are not shown when
 	    // created initially)
 	frame->Show(true);*/
-
+	//Start sound 
+	#ifdef MUSIC_ENABLED
+	AZPSound((azppath+wxT("/media/music/ClassicRPGBattle.ogg")).mb_str());
+	#endif MUSIC_ENABLED
 		//Start Dialog
 	wxBitmap bitmap;
 #ifdef WIN32
@@ -151,7 +155,6 @@ bool Azpazeta::OnInit()
 	AzpLog("[ERROR] Azpazeta can't load $AZP_ROOT/media/azpazeta.png",3);
 	wxExit();
 	}
-  wxYield();
 	//Run Divel Telemetry if required
 	int lang=wxLocale::GetSystemLanguage();
 	wxString lang_param;
@@ -208,6 +211,8 @@ bool Azpazeta::OnInit()
 		Telemetry* telemetry=new Telemetry(wxT("UA-20035972-12"),wxT("Azpazeta"),wxT("2.0.0"),wxT("AppStart"),screen_string,lang_param);
 		telemetry->Send();
 		delete telemetry;
+	}else{
+		AzpLog("[INFO] Telemetry not enabled",1);
 	}
 	//AZPVM
 	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
