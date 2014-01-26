@@ -1,0 +1,8 @@
+Welcome to the Azpazeta Source Code
+
+This repo contains the current working tree for Azpazeta starting with Link (2.1). The older repo was hosted on Launchpad using Bazaar.
+To build it run:
+cmake .
+make
+
+There's a copy of the repo on Launchpad (http://launchpad.net/azpazeta) and binary packages availible for Ubuntu
