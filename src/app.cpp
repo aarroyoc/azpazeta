@@ -34,6 +34,8 @@
 
 #include "xml/tinyxml.h"
 
+#include <config.h>
+
 IMPLEMENT_APP(Azpazeta)
 
 AzpClient* client;
@@ -137,9 +139,9 @@ bool Azpazeta::OnInit()
 	    // created initially)
 	frame->Show(true);*/
 	//Start sound 
-	#ifdef MUSIC_ENABLED
+	#ifdef AZP_AUDIO
 	AZPSound((azppath+wxT("/media/music/ClassicRPGBattle.ogg")).mb_str());
-	#endif MUSIC_ENABLED
+	#endif
 		//Start Dialog
 	wxBitmap bitmap;
 #ifdef WIN32

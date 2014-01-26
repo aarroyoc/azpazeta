@@ -1,0 +1,12 @@
+/*
+* Configure file for Azpazeta
+*/
+#ifndef CONFIG_H
+#define CONFIG_H
+#cmakedefine AZP_AUDIO
+#cmakedefine AZP_DEBUG
+#define AZP_SYSTEM @AZP_SYSTEM@
+#define AZP_PROCESSOR @AZP_PROCESSOR@
+#define AZP_COMPILER @AZP_COMPILER@
+#define AZP_CMAKE_VERSION @AZP_CMAKE_VERSION@
+#endif

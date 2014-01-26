@@ -27,6 +27,7 @@
 #include "../version.hpp"
 #include "wx/progdlg.h"
 #include <memory>
+#include <config.h>
 extern double azpmoney;
 extern wxString azpname;
 extern int vadrixchar;
@@ -118,13 +119,13 @@ bool SaveFile::SaveAll()
 
 	//Compiling options
         txt << wxT("<h2>Compile configuration</h2><p>Compiler: ");
-	txt << wxString::FromUTF8(COMPILER_WX);
+	txt << wxString::FromUTF8("Unknow"); //AZP_COMPILER
 	txt << wxT("<br>CMake Version: ");
-	txt << wxString::FromUTF8(CMAKE_WX_VERSION);
+	txt << wxString::FromUTF8("Unkown"); //AZP_CMAKE_VERSION
 	txt << wxT("<br>Operating System: ");
-	txt << wxString::FromUTF8(OS_WX);
+	txt << wxString::FromUTF8("Unknow"); //AZP_SYSTEM
 	txt << wxT("<br>Processor: ");
-	txt << wxString::FromUTF8(PROCESSOR_WX);
+	txt << wxString::FromUTF8("Unknow"); //AZP_PROCESSOR
 	txt << wxT("<br>wxWidgets Version String: ");
 	txt << wxVERSION_STRING;
 	txt << wxT("<br></p>");//COMPILER_WX,CMAKE_WX_VERSION,OS_WX,PROCESSOR_WX,wxMAJOR_VERSION,wxMINOR_VERSION);

@@ -86,13 +86,13 @@ HTMLVersion::HTMLVersion() : wxDialog(NULL,wxID_ANY,_("Version information"))
 	html->SetPage(htmlPageVersion);
 	//Compiling options
         wxString htmlPageCompile=wxT("<h2>Compile configuration</h2><p>Compiler: ");
-	htmlPageCompile.Append(wxString::FromUTF8(COMPILER_WX));
+	htmlPageCompile.Append(wxString::FromUTF8("Unknow")); //AZP_COMPILER
 	htmlPageCompile.Append(wxT("<br>CMake Version: "));
-	htmlPageCompile.Append(wxString::FromUTF8(CMAKE_WX_VERSION));
+	htmlPageCompile.Append(wxString::FromUTF8("Unknow")); //AZP_CMAKE_VERSION
 	htmlPageCompile.Append(wxT("<br>Operating System: "));
-	htmlPageCompile.Append(wxString::FromUTF8(OS_WX));
+	htmlPageCompile.Append(wxString::FromUTF8("Unknow")); //AZP_SYSTEM
 	htmlPageCompile.Append(wxT("<br>Processor: "));
-	htmlPageCompile.Append(wxString::FromUTF8(PROCESSOR_WX));
+	htmlPageCompile.Append(wxString::FromUTF8("Unknow")); //AZP_PROCESSOR
 	htmlPageCompile.Append(wxT("<br>wxWidgets Version String: "));
 	htmlPageCompile.Append(wxVERSION_STRING);
 //	htmlPageCompile.Append(wxT("<br>wxWidgets Minor Version: "));

@@ -1,3 +1,5 @@
+#include <config.h>
+#ifdef AZP_AUDIO
 #include <portaudio.h>
 #include <sndfile.h>
 
@@ -46,10 +48,10 @@ int
 AZPSound(char* filename)
 {
 
-    puts(filename);
+    /*puts(filename);
     file = sf_open(filename, SFM_READ, &sfinfo);
     printf("%d frames %d samplerate %d channels\n", (int)sfinfo.frames,
-            sfinfo.samplerate, sfinfo.channels);
+            sfinfo.samplerate, sfinfo.channels);*/
 
     /* init portaudio */
     err = Pa_Initialize();
@@ -99,6 +101,7 @@ int AZPSoundStop()
 {
 	Pa_StopStream(stream);
 	Pa_CloseStream(stream);
-	sf_close(file);
+	//sf_close(file);
 	Pa_Terminate();
 }
+#endif /* AZP_AUDIO */
