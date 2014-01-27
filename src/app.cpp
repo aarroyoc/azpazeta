@@ -140,7 +140,10 @@ bool Azpazeta::OnInit()
 	frame->Show(true);*/
 	//Start sound 
 	#ifdef AZP_AUDIO
-	AZPSound((azppath+wxT("/media/music/ClassicRPGBattle.ogg")).mb_str());
+	AzpLog("[OK] Started audio thread",4);
+	AudioThread* audioThread=new AudioThread((azppath+wxT("/media/music/ClassicRPGBattle.ogg")).mb_str());
+	audioThread->Create();
+	audioThread->Run();
 	#endif
 		//Start Dialog
 	wxBitmap bitmap;

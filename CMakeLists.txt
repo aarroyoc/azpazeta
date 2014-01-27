@@ -68,7 +68,7 @@ src/azpscript/event.cpp
 src/azpmarket/azpmarket.cpp
 src/core/core.cpp
 src/network/telemetry.cpp
-src/sound/sound.c
+src/sound/sound.cpp
 src/savefile/savefile.cpp
 src/sprite/sprite.cpp
 src/start/startgui.cpp

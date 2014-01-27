@@ -1,5 +1,5 @@
 /*  	Azpazeta - Sandbox strategy game
-    	Copyright (C) 2013  Adrián Arroyo Calle
+    	Copyright (C) 2013-2014  Adrián Arroyo Calle
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
 	as published by the Free Software Foundation; either version 2
@@ -15,12 +15,30 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 #include <config.h>
+#include "wx/thread.h"
 #ifndef SOUND_HPP
 #define SOUND_HPP
 #ifdef AZP_AUDIO
-extern "C" {
-int AZPSound(const char* filename);
+extern "C"
+{
+	#include <portaudio.h>
+	#include <vorbis/vorbisfile.h>
+	#include <stdlib.h>
 }
+class AZPAudio{
+	public:
+		AZPAudio(const char* filename);
+		~AZPAudio();
+	private:
+		PaStream* stream;
+};
+class AudioThread : public wxThread{
+	public:
+		AudioThread(const char* filename);
+	private:
+		virtual wxThread::ExitCode Entry();
+		const char* file;
+};
 #endif
 #endif
 
