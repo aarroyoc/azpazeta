@@ -1,8 +1,15 @@
+azpazeta (2.0.1.2) precise; urgency=low
+
+  * Moved source to GitHub
+  * Improved source code
+  
+ -- Adrian Arroyo Calle (Divel) <adrian.arroyocalle@gmail.com>  Mon, 27 Jan 2014 12:00:00 +1200
+  
 azpazeta (2.0.1.1) precise; urgency=low
 
   * Added Sound support with PortAudio and libsndfile
 
- -- Adrian Arroyo Calle (Divel) <adrian.arroyocalle@gmail.com> Mon, 02 Sep 2013 14:23:00 +1200
+ -- Adrian Arroyo Calle (Divel) <adrian.arroyocalle@gmail.com>  Mon, 02 Sep 2013 14:23:00 +1200
 
 azpazeta (2.0.0.1) precise; urgency=low
 
