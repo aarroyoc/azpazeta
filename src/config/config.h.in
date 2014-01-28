@@ -5,6 +5,7 @@
 #define CONFIG_H
 #cmakedefine AZP_AUDIO
 #cmakedefine AZP_DEBUG
+#cmakedefine TELEMETRY
 #define AZP_SYSTEM @AZP_SYSTEM@
 #define AZP_PROCESSOR @AZP_PROCESSOR@
 #define AZP_COMPILER @AZP_COMPILER@

@@ -207,6 +207,7 @@ bool Azpazeta::OnInit()
 	}
 	
 	wxString screen_string=wxString::Format(wxT("%dx%d"),wxSystemSettings::GetMetric ( wxSYS_SCREEN_X ),wxSystemSettings::GetMetric ( wxSYS_SCREEN_Y ) );
+	#ifdef TELEMETRY
 	if(LoadOptions().net.divelTelemetry)
 	{
 	
@@ -217,6 +218,7 @@ bool Azpazeta::OnInit()
 	}else{
 		AzpLog("[INFO] Telemetry not enabled",1);
 	}
+	#endif
 	//AZPVM
 	AZPVM* azpvm=new AZPVM(azppath+wxT("/scripts/Init.azps"),azpVM_TEST);
 	AzpLog("[OK] Started AzpVM with Init Script",4);
