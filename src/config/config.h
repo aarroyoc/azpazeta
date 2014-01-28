@@ -3,7 +3,7 @@
 */
 #ifndef CONFIG_H
 #define CONFIG_H
-/* #undef AZP_AUDIO */
+#define AZP_AUDIO
 #define AZP_DEBUG
 #define AZP_SYSTEM Linux-3.2.0-40-generic-pae
 #define AZP_PROCESSOR i686

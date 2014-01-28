@@ -24,17 +24,18 @@ extern "C"
 	#include <portaudio.h>
 	#include <vorbis/vorbisfile.h>
 	#include <stdlib.h>
+	static int Callback(const void* inputBuffer, void* outputBuffer, unsigned long framesPerBuffer,  const PaStreamCallbackTimeInfo* timeInfo, PaStreamCallbackFlags statusFlags, void *userData);
 }
 class AZPAudio{
 	public:
 		AZPAudio(const char* filename);
 		~AZPAudio();
 	private:
-		PaStream* stream;
+		bool CheckPortAudioError(PaError err);
 };
 class AudioThread : public wxThread{
 	public:
-		AudioThread(const char* filename);
+		AudioThread();
 	private:
 		virtual wxThread::ExitCode Entry();
 		const char* file;
