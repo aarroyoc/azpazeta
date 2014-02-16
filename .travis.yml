@@ -3,4 +3,4 @@ compiler:
  - gcc
  - clang
 script: cmake . && make
-install: sudo apt-get update && sudo apt-get install wxgtk2.8-dev libglew-devel libgles2-mesa-dev liblua5.2-dev portaudio19-dev libvorbisfile3
+install: sudo apt-get update && sudo apt-get install wxgtk2.8-dev libglew-dev libgles2-mesa-dev liblua5.2-dev portaudio19-dev libvorbisfile3
