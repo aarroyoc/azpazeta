@@ -20,6 +20,7 @@ class Start : public wxFrame
 public:
     // ctor(s)
     Start(const wxString& title, const wxString& mapuri);
+    ~Start();
 
     // event handlers (these functions should _not_ be virtual)
     void OnQuit(wxCommandEvent& event);

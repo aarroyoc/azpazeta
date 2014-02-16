@@ -130,7 +130,10 @@ Start::Start(const wxString& title, const wxString& mapuri)
 
 
 }
-
+Start::~Start()
+{
+	
+}
 
 // event handlers
 
