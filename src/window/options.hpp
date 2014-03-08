@@ -55,7 +55,8 @@ private:
 	void Tab(wxCommandEvent& event);
 	void SeeVersion(wxCommandEvent& event);
 	void LaunchWebSite(wxCommandEvent& event);	
-	void SaveData();
+	void SaveXMLData();
+	void SaveINIData();
 	//General
 	wxChoice* getLanguage;
 	wxCheckBox* fullScreen;

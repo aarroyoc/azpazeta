@@ -101,7 +101,6 @@ bool Azpazeta::OnInit()
 	}
 	AzpLog("[OK] Localization",4);
 
-	LoadINIOptions();
 	//Get Installed path
 	PathFinder::Start();
 	AzpLog("[OK] PathFinder gets Azpazeta Resources Dir",4);
@@ -209,7 +208,7 @@ bool Azpazeta::OnInit()
 	
 	wxString screen_string=wxString::Format(wxT("%dx%d"),wxSystemSettings::GetMetric ( wxSYS_SCREEN_X ),wxSystemSettings::GetMetric ( wxSYS_SCREEN_Y ) );
 	#ifdef TELEMETRY
-	if(LoadOptions().net.divelTelemetry)
+	if(LoadINIOptions().net.divelTelemetry)
 	{
 	
 		//Telemetry AppStart

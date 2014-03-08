@@ -48,7 +48,7 @@ Options::Options(const wxString& title) : wxDialog(NULL, wxID_ANY, title)
 
 
 	//Loading data
-	AZPOptions options=LoadOptions(); 
+	AZPOptions options=LoadINIOptions(); 
 	//General tab DONE 
 	
 	fullScreen=new wxCheckBox(general,wxID_ANY,_("Full Screen"),wxPoint(1,1));
@@ -153,14 +153,29 @@ void Options::OnClose(wxCloseEvent& event)
 }
 void Options::Ok(wxCommandEvent& event)
 {
-	SaveData();
+	SaveINIData();
 	Destroy();
 }
 void Options::Cancel(wxCommandEvent& event)
 {
 	Destroy();
 }
-void Options::SaveData()
+void Options::SaveINIData()
+{
+	AZPOptions soptions;
+	soptions.general.fullScreen=fullScreen->GetValue();
+	soptions.general.developer=developer->GetValue();
+	soptions.general.divelMarketing=developer->GetValue();
+	soptions.azpscript.onlyFromMarket=onlyFromMarket->GetValue();
+	soptions.azpscript.azpazetaMarketURL=XazpazetaMarketURL->GetValue();
+	soptions.net.divelTelemetry=divelTelemetry->GetValue();
+	soptions.net.autoConnect=autoConnect->GetValue();
+	soptions.net.DivelAppsURL=XdivelAppsUrl->GetValue();
+	soptions.net.DivelNetworkName=XdivelNetwork->GetValue();
+	soptions.net.GooglePlus=xgoogleplus->GetValue();
+	SavaINIOptions(soptions);
+}
+void Options::SaveXMLData()
 {
 	//Get the data and put it into the XML file DONE
 	TiXmlDocument doc;
