@@ -3,4 +3,4 @@ compiler:
  - gcc
  - clang
 script: cmake . && make
-install: sudo apt-get update && sudo apt-get install debhelper, libstdc++6, libgtk-3-dev, libgdk-pixbuf2.0-0, libcairo2, libcairomm-1.0-1, libpango1.0-0, libpangomm-1.4-1, libx11-6, libsm6, libpango1.0-dev, libgtk2.0-dev, libwxbase2.8-0, libwxbase2.8-dev, libwxgtk2.8-0, libwxgtk2.8-dev, wx2.8-headers, cmake, freeglut3-dev, libxmu-dev, libxi-dev, libvlc-dev, libvlccore-dev, libgles2-mesa-dev, liblua5.2-dev, libglew-dev, portaudio19-dev, libvorbis-dev
+install: sudo apt-get update && sudo apt-get install debhelper libstdc++6 libgtk-3-dev libgdk-pixbuf2.0-0 libcairo2 libcairomm-1.0-1 libpango1.0-0 libpangomm-1.4-1 libx11-6 libsm6 libpango1.0-dev libgtk2.0-dev libwxbase2.8-0 libwxbase2.8-dev libwxgtk2.8-0 libwxgtk2.8-dev wx2.8-headers cmake freeglut3-dev libxmu-dev libxi-dev libvlc-dev libvlccore-dev libgles2-mesa-dev liblua5.2-dev libglew-dev portaudio19-dev libvorbis-dev
