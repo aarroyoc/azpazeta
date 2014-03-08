@@ -31,6 +31,7 @@
 #include "window/newgame.hpp"
 #include "network/telemetry.hpp"
 #include "sound/sound.hpp"
+#include "wx/fileconf.h"
 
 #include "xml/tinyxml.h"
 
@@ -100,7 +101,7 @@ bool Azpazeta::OnInit()
 	}
 	AzpLog("[OK] Localization",4);
 
-
+	LoadINIOptions();
 	//Get Installed path
 	PathFinder::Start();
 	AzpLog("[OK] PathFinder gets Azpazeta Resources Dir",4);
@@ -256,7 +257,7 @@ void Azpazeta::Notify()
 
 	//Linux-Ayatana DONE
 	#else
-	wxShell(wxT("notify-send -i azpazeta \"Azpazeta\" \"Welcome to Azpazeta 2.0 Juno\""));
+	wxShell(wxT("notify-send -i azpazeta \"Azpazeta\" \"Welcome to Azpazeta 2.1 Link\""));
 
 	#endif 
 
@@ -288,6 +289,13 @@ bool Azpazeta::OnCmdLineParsed(wxCmdLineParser& parser)
 
     return true;
 }*/
+/**
+ * @brief Loads options.xml file and returns a struct containing the options
+ * @return AZPOptions struct with the user preferences
+ * @note This function is deprecated and it's only for compatibility. You should use LoadINIOptions
+ * @deprecated
+ * @see LoadINIOptions
+ * */
 AZPOptions LoadOptions()
 {
 	//Cargar ficheros de opciones XML
@@ -466,5 +474,69 @@ bool Azpazeta::InitWxLocale()
         	userLanguage = wxLANGUAGE_ENGLISH;
 		return false;
     	}
+	return true;
+}
+/**
+ * @brief Loads a options.ini file and returns a struct containing the user preferences
+ * @return AZPOptions struct with user preferences
+ * @since Azpazeta 2.1 Link
+ * @see LoadOptions
+ * */
+AZPOptions LoadINIOptions()
+{
+	AZPOptions options;
+	wxFileConfig* config=new wxFileConfig("azpazeta");
+	if(!config->Read("/General/fullScreen",&options.general.fullScreen,false))
+	{
+		AzpLog("[WARNING] Options node doesn't exist",2);
+		config->Write("/General/fullScreen",false);
+	}
+	if(!config->Read("/General/developer",&options.general.developer,false))
+	{
+		AzpLog("[WARNING] Developer node doesn't exist",2);
+		config->Write("/General/developer",false);
+	}
+	if(!config->Read("/General/divelMarketing",&options.general.divelMarketing,true))
+		config->Write("/General/divelMarketing",true);
+	if(!config->Read("/AZPScript/onlyFromMarket",&options.azpscript.onlyFromMarket,true))
+		config->Write("/AZPScript/onlyFromMarket",true);
+	if(!config->Read("/AZPScript/allowPayPal",&options.azpscript.allowPayPal,true))
+		config->Write("/AZPScript/allowPayPal",true);
+	if(!config->Read("/AZPScript/azpazetaMarketURL",&options.azpscript.azpazetaMarketURL,"http://azpazeta-market.googlecode.com/svn/trunk/AzpazetaMarket.html"))
+		config->Write("/AZPScript/azpazetaMarketURL","http://azpazeta-market.googlecode.com/svn/trunk/AzpazetaMarket.html");
+	if(!config->Read("/Net/divelAppsURL",&options.net.DivelAppsURL,"http://divelapps.appspot.com"))
+		config->Write("/Net/divelAppsURL","http://divelapps.appspot.com");
+	if(!config->Read("/Net/autoConnect",&options.net.autoConnect,true))
+		config->Write("/Net/autoConnect",true);
+	if(!config->Read("/Net/divelTelemetry",&options.net.divelTelemetry,true))
+		config->Write("/Net/divelTelemetry",true);
+	if(!config->Read("/Net/UserAgent",&options.net.UserAgent,"Azpazeta Market/2.1"))
+		config->Write("/Net/UserAgent","Azpazeta Market/2.1");
+	if(!config->Read("/Net/DivelNetworkName",&options.net.DivelNetworkName,"Anonymous"))
+		config->Write("/Net/DivelNetworkName","Anonymous");
+	if(!config->Read("/Net/GooglePlus",&options.net.GooglePlus,"Anonymous"))
+		config->Write("/Net/GooglePlus","Anonymous");
+	
+	config->Flush();
+	delete config;
+	return options;
+}
+bool SaveINIOptions(AZPOptions options)
+{
+	wxFileConfig* config=new wxFileConfig("azpazeta");
+	config->Write("/General/fullScreen",options.general.fullScreen);
+	config->Write("/General/developer",options.general.developer);
+	config->Write("/General/divelMarketing",options.general.divelMarketing);
+	config->Write("/AZPScript/onlyFromMarket",options.azpscript.onlyFromMarket);
+	config->Write("/AZPScript/allowPayPal",options.azpscript.allowPayPal);
+	config->Write("/AZPScript/azpazetaMarketURL",options.azpscript.azpazetaMarketURL);
+	config->Write("/Net/divelAppsURL",options.net.DivelAppsURL);
+	config->Write("/Net/autoConnect",options.net.autoConnect);
+	config->Write("/Net/divelTelemetry",options.net.divelTelemetry);
+	config->Write("/Net/UserAgent",options.net.UserAgent);
+	config->Write("/Net/DivelNetworkName",options.net.DivelNetworkName);
+	config->Write("/Net/GooglePlus",options.net.GooglePlus);
+	config->Flush();
+	delete config;
 	return true;
 }

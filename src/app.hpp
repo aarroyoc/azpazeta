@@ -92,4 +92,5 @@ enum
     AZPAZETA_UPDATER
 };
 AZPOptions LoadOptions();
+AZPOptions LoadINIOptions();
 #endif
