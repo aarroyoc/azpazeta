@@ -125,7 +125,7 @@ Start::Start(const wxString& title, const wxString& mapuri)
 #if wxUSE_STATUSBAR
     // create a status bar just for fun (by default with 1 pane only)
     CreateStatusBar(2);
-    SetStatusText(_T("Azpazeta 2.0 JUNO"));
+    SetStatusText(_T("Azpazeta 2.1 Link"));
 #endif // wxUSE_STATUSBAR
 
 
@@ -139,7 +139,6 @@ Start::~Start()
 
 void Start::OnQuit(wxCommandEvent& WXUNUSED(event))
 {
-    // true is to force the frame to close
     Close(true);
 }
 
@@ -149,15 +148,12 @@ void Start::OnAbout(wxCommandEvent& WXUNUSED(event))
 }
 void Start::SeeVersion(wxCommandEvent& event)
 {
-	//See Version dialog DONE
-	Version::Display::About();
-	
+	Version::Display::About();	
 }
 void Start::SeeOptions(wxCommandEvent& event)
 {
 	Options* options=new Options(_("Options"));
 	options->ShowModal();
-
 }
 void Start::Updater(wxCommandEvent& event)
 {
