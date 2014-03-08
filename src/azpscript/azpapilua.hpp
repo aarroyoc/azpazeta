@@ -7,9 +7,9 @@
 /**
 * @class AzpAPI
 * @brief Imaginary class for AzpAPI Lua docs
-* @verbatim
+* @details
 AzpAPI is a imaginary class for the AzpAPI functions in Lua avalible trough AzpVM in AZPScript. This class is not a C++ class.
-* @endverbatim
+* 
 */
 class AzpAPI {
 public:

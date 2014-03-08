@@ -23,17 +23,19 @@
  * @author Adrián Arroyo Calle
  */
 #include "azpapi.hpp"
-/**
- * @brief Get the current version of AZPScript
- * @returns The number of the version
- */
+
 bool azplogo;
 bool azpmosaic;
 bool azpmission;
 wxString missionid;
 double azpmoney;
 extern wxString azppath;
-
+/**
+ * @brief Get the current version of AZPScript
+ * @returns The number of the version
+ * @deprecated
+ * @note Function deprecated since Azpazeta 2.1 Link
+ */
 float azpVersion()
 {
 	return 1.0;
