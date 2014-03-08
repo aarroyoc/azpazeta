@@ -1,0 +1,10 @@
+build/
+doc/
+CMakeFiles/
+AZPAZETA
+AZPAZETA_JUNO
+AZPSERVER
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+install_manifest.txt
