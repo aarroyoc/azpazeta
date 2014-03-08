@@ -412,6 +412,16 @@ int azpBattle(lua_State* l)
 	return 1;
 }
 /**
+ * @brief Gets the current Azpazeta version
+ * @note This is a function implemented on AZPScript
+ * @see azpBattle
+ * */
+int azpVersionCLI(lua_State* l)
+{
+	lua_pushnumber(l,AZPAZETA_VERSION_FLOAT);
+	return 1;
+}
+/**
 * @brief Change VADRIX to the specified pos
 * @param l AzpVM instance
 * @returns Number of output values

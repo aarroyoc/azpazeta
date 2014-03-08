@@ -147,4 +147,12 @@ TYPES AVALIBLES:
 * @see azpQuestion
 */
 void azpBattle(Title ,Protagonist ,Enemy ,Type ,Max);
+/**
+ * @brief Returns the current version of AZPVM and Azpazeta
+ * @return A Lua Number with the version
+ * @note This documentation uses C/C++ 
+ * @since Azpazeta 2.1 Link
+ * @see azpBattle
+ * */
+void azpVersion();
 };

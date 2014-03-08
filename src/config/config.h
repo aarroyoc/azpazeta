@@ -6,8 +6,8 @@
 #define AZP_AUDIO
 #define AZP_DEBUG
 /* #undef TELEMETRY */
-#define AZP_SYSTEM Linux-3.12.6-1-ARCH
-#define AZP_PROCESSOR x86_64
+#define AZP_SYSTEM Linux-3.2.0-40-generic-pae
+#define AZP_PROCESSOR i686
 #define AZP_COMPILER /usr/bin/c++
-#define AZP_CMAKE_VERSION 2.8.12.1
+#define AZP_CMAKE_VERSION 2.8.9
 #endif

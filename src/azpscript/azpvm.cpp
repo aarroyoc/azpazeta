@@ -77,6 +77,8 @@ AZPVM::AZPVM(wxString file, AZPVMState state)
 	lua_setglobal(azpvm,"azpQuestion");
 	lua_pushcfunction(azpvm,azpBattle);
 	lua_setglobal(azpvm,"azpBattle");
+	lua_pushcfunction(azpvm,azpVersionCLI);
+	lua_setglobal(azpvm,"azpVersion");
 
     int status = luaL_loadfile(azpvm, file.mb_str());
     int result = 0;

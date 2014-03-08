@@ -50,5 +50,6 @@ int azpFinishMission(lua_State*);
 int azpDialog(lua_State*);
 int azpQuestion(lua_State*);
 int azpBattle(lua_State*);
+int azpVersionCLI(lua_State*);
 float azpVersion();
 #endif
