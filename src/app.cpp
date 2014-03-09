@@ -49,7 +49,7 @@ extern double azpmoney;
 bool Azpazeta::OnInit()
 {
 	AzpLog("[INFO] Welcome to Azpazeta!",1);
-	AzpLog("[INFO] Running JUNO version",1);
+	AzpLog("[INFO] Running Link version",1);
 
 	SetAppName(wxT("Azpazeta"));
 	SetVendorName(wxT("Adrián Arroyo Calle for Divel"));

@@ -84,7 +84,7 @@ Start::Start(const wxString& title, const wxString& mapuri)
 	AzpLog("[OK] Created menubar",4);
 #endif // wxUSE_MENUS
 	//FullScreen
-    if(LoadOptions().general.fullScreen)
+    if(LoadINIOptions().general.fullScreen)
 		ShowFullScreen(true);
 	else
 		SetSize(800,800);

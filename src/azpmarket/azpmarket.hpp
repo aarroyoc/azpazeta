@@ -28,6 +28,7 @@ class HTMLBrowser : public wxHtmlWindow
 		HTMLBrowser(wxWindow* panel);
 	private:
 		virtual void OnLinkClicked(const wxHtmlLinkInfo & link);
+		void Deprecated();
 };
 class HTMLMarket : public wxDialog
 {
