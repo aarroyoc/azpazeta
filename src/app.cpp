@@ -484,37 +484,37 @@ bool Azpazeta::InitWxLocale()
 AZPOptions LoadINIOptions()
 {
 	AZPOptions options;
-	wxFileConfig* config=new wxFileConfig("azpazeta");
-	if(!config->Read("/General/fullScreen",&options.general.fullScreen,false))
+	wxFileConfig* config=new wxFileConfig(wxT("azpazeta"));
+	if(!config->Read(wxT("/General/fullScreen"),&options.general.fullScreen,false))
 	{
 		AzpLog("[WARNING] Options node doesn't exist",2);
-		config->Write("/General/fullScreen",false);
+		config->Write(wxT("/General/fullScreen"),false);
 	}
-	if(!config->Read("/General/developer",&options.general.developer,false))
+	if(!config->Read(wxT("/General/developer"),&options.general.developer,false))
 	{
 		AzpLog("[WARNING] Developer node doesn't exist",2);
-		config->Write("/General/developer",false);
+		config->Write(wxT("/General/developer"),false);
 	}
-	if(!config->Read("/General/divelMarketing",&options.general.divelMarketing,true))
-		config->Write("/General/divelMarketing",true);
-	if(!config->Read("/AZPScript/onlyFromMarket",&options.azpscript.onlyFromMarket,true))
-		config->Write("/AZPScript/onlyFromMarket",true);
-	if(!config->Read("/AZPScript/allowPayPal",&options.azpscript.allowPayPal,true))
-		config->Write("/AZPScript/allowPayPal",true);
-	if(!config->Read("/AZPScript/azpazetaMarketURL",&options.azpscript.azpazetaMarketURL,"http://azpazeta-market.googlecode.com/svn/trunk/AzpazetaMarket.html"))
-		config->Write("/AZPScript/azpazetaMarketURL","http://azpazeta-market.googlecode.com/svn/trunk/AzpazetaMarket.html");
-	if(!config->Read("/Net/divelAppsURL",&options.net.DivelAppsURL,"http://divelapps.appspot.com"))
-		config->Write("/Net/divelAppsURL","http://divelapps.appspot.com");
-	if(!config->Read("/Net/autoConnect",&options.net.autoConnect,true))
-		config->Write("/Net/autoConnect",true);
-	if(!config->Read("/Net/divelTelemetry",&options.net.divelTelemetry,true))
-		config->Write("/Net/divelTelemetry",true);
-	if(!config->Read("/Net/UserAgent",&options.net.UserAgent,"Azpazeta Market/2.1"))
-		config->Write("/Net/UserAgent","Azpazeta Market/2.1");
-	if(!config->Read("/Net/DivelNetworkName",&options.net.DivelNetworkName,"Anonymous"))
-		config->Write("/Net/DivelNetworkName","Anonymous");
-	if(!config->Read("/Net/GooglePlus",&options.net.GooglePlus,"Anonymous"))
-		config->Write("/Net/GooglePlus","Anonymous");
+	if(!config->Read(wxT("/General/divelMarketing"),&options.general.divelMarketing,true))
+		config->Write(wxT("/General/divelMarketing"),true);
+	if(!config->Read(wxT("/AZPScript/onlyFromMarket"),&options.azpscript.onlyFromMarket,true))
+		config->Write(wxT("/AZPScript/onlyFromMarket"),true);
+	if(!config->Read(wxT("/AZPScript/allowPayPal"),&options.azpscript.allowPayPal,true))
+		config->Write(wxT("/AZPScript/allowPayPal"),true);
+	if(!config->Read(wxT("/AZPScript/azpazetaMarketURL"),&options.azpscript.azpazetaMarketURL,wxT("http://azpazeta-market.googlecode.com/svn/trunk/AzpazetaMarket.html")))
+		config->Write(wxT("/AZPScript/azpazetaMarketURL"),wxT("http://azpazeta-market.googlecode.com/svn/trunk/AzpazetaMarket.html"));
+	if(!config->Read(wxT("/Net/divelAppsURL"),&options.net.DivelAppsURL,wxT("http://divelapps.appspot.com")))
+		config->Write(wxT("/Net/divelAppsURL"),wxT("http://divelapps.appspot.com"));
+	if(!config->Read(wxT("/Net/autoConnect"),&options.net.autoConnect,true))
+		config->Write(wxT("/Net/autoConnect"),true);
+	if(!config->Read(wxT("/Net/divelTelemetry"),&options.net.divelTelemetry,true))
+		config->Write(wxT("/Net/divelTelemetry"),true);
+	if(!config->Read(wxT("/Net/UserAgent"),&options.net.UserAgent,wxT("Azpazeta Market/2.1")))
+		config->Write(wxT("/Net/UserAgent"),wxT("Azpazeta Market/2.1"));
+	if(!config->Read(wxT("/Net/DivelNetworkName"),&options.net.DivelNetworkName,wxT("Anonymous")))
+		config->Write(wxT("/Net/DivelNetworkName"),wxT("Anonymous"));
+	if(!config->Read(wxT("/Net/GooglePlus"),&options.net.GooglePlus,wxT("Anonymous")))
+		config->Write(wxT("/Net/GooglePlus"),wxT("Anonymous"));
 	
 	config->Flush();
 	delete config;
@@ -522,19 +522,19 @@ AZPOptions LoadINIOptions()
 }
 bool SaveINIOptions(AZPOptions options)
 {
-	wxFileConfig* config=new wxFileConfig("azpazeta");
-	config->Write("/General/fullScreen",options.general.fullScreen);
-	config->Write("/General/developer",options.general.developer);
-	config->Write("/General/divelMarketing",options.general.divelMarketing);
-	config->Write("/AZPScript/onlyFromMarket",options.azpscript.onlyFromMarket);
-	config->Write("/AZPScript/allowPayPal",options.azpscript.allowPayPal);
-	config->Write("/AZPScript/azpazetaMarketURL",options.azpscript.azpazetaMarketURL);
-	config->Write("/Net/divelAppsURL",options.net.DivelAppsURL);
-	config->Write("/Net/autoConnect",options.net.autoConnect);
-	config->Write("/Net/divelTelemetry",options.net.divelTelemetry);
-	config->Write("/Net/UserAgent",options.net.UserAgent);
-	config->Write("/Net/DivelNetworkName",options.net.DivelNetworkName);
-	config->Write("/Net/GooglePlus",options.net.GooglePlus);
+	wxFileConfig* config=new wxFileConfig(wxT("azpazeta"));
+	config->Write(wxT("/General/fullScreen"),options.general.fullScreen);
+	config->Write(wxT("/General/developer"),options.general.developer);
+	config->Write(wxT("/General/divelMarketing"),options.general.divelMarketing);
+	config->Write(wxT("/AZPScript/onlyFromMarket"),options.azpscript.onlyFromMarket);
+	config->Write(wxT("/AZPScript/allowPayPal"),options.azpscript.allowPayPal);
+	config->Write(wxT("/AZPScript/azpazetaMarketURL"),options.azpscript.azpazetaMarketURL);
+	config->Write(wxT("/Net/divelAppsURL"),options.net.DivelAppsURL);
+	config->Write(wxT("/Net/autoConnect"),options.net.autoConnect);
+	config->Write(wxT("/Net/divelTelemetry"),options.net.divelTelemetry);
+	config->Write(wxT("/Net/UserAgent"),options.net.UserAgent);
+	config->Write(wxT("/Net/DivelNetworkName"),options.net.DivelNetworkName);
+	config->Write(wxT("/Net/GooglePlus"),options.net.GooglePlus);
 	config->Flush();
 	delete config;
 	return true;

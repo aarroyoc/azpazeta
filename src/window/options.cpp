@@ -172,8 +172,8 @@ void Options::SaveINIData()
 	soptions.net.autoConnect=autoConnect->GetValue();
 	soptions.net.DivelAppsURL=XdivelAppsUrl->GetValue();
 	soptions.net.DivelNetworkName=XdivelNetwork->GetValue();
-	soptions.net.GooglePlus=xgoogleplus->GetValue();
-	SavaINIOptions(soptions);
+	soptions.net.GooglePlus=Xgoogleplus->GetValue();
+	SaveINIOptions(soptions);
 }
 void Options::SaveXMLData()
 {

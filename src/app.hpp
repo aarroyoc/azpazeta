@@ -93,4 +93,5 @@ enum
 };
 AZPOptions LoadOptions();
 AZPOptions LoadINIOptions();
+bool SaveINIOptions(AZPOptions options);
 #endif
