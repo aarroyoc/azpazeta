@@ -484,7 +484,7 @@ bool Azpazeta::InitWxLocale()
 AZPOptions LoadINIOptions()
 {
 	AZPOptions options;
-	wxFileConfig* config=new wxFileConfig(wxT("azpazeta"));
+	wxFileConfig* config=new wxFileConfig(wxT("azpazeta.cfg"));
 	if(!config->Read(wxT("/General/fullScreen"),&options.general.fullScreen,false))
 	{
 		AzpLog("[WARNING] Options node doesn't exist",2);
@@ -522,7 +522,7 @@ AZPOptions LoadINIOptions()
 }
 bool SaveINIOptions(AZPOptions options)
 {
-	wxFileConfig* config=new wxFileConfig(wxT("azpazeta"));
+	wxFileConfig* config=new wxFileConfig(wxT("azpazeta.cfg"));
 	config->Write(wxT("/General/fullScreen"),options.general.fullScreen);
 	config->Write(wxT("/General/developer"),options.general.developer);
 	config->Write(wxT("/General/divelMarketing"),options.general.divelMarketing);
