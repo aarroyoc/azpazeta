@@ -2,7 +2,7 @@ PROJECT(AZPAZETA)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
 
-SET(welcome,"Welcome to Azpazeta 2.1 (Link)")
+SET(welcome "Welcome to Azpazeta 2.1 (Link)")
 SET(PROJECT_NAME_SHORT   "Azpazeta")
 SET(PROJECT_NAME_LONG    "Azpazeta 2.1 Link")
 SET(PROJECT_DESCRIPTION  "Azpazeta is the strategy-economic sandbox game")
