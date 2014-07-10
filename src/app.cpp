@@ -32,6 +32,7 @@
 #include "network/telemetry.hpp"
 #include "sound/sound.hpp"
 #include "wx/fileconf.h"
+#include "url.hpp"
 
 #include "xml/tinyxml.h"
 
@@ -501,10 +502,10 @@ AZPOptions LoadINIOptions()
 		config->Write(wxT("/AZPScript/onlyFromMarket"),true);
 	if(!config->Read(wxT("/AZPScript/allowPayPal"),&options.azpscript.allowPayPal,true))
 		config->Write(wxT("/AZPScript/allowPayPal"),true);
-	if(!config->Read(wxT("/AZPScript/azpazetaMarketURL"),&options.azpscript.azpazetaMarketURL,wxT("http://adrianarroyocalle.github.io/azpazeta-market/AzpazetaMarket.html")))
-		config->Write(wxT("/AZPScript/azpazetaMarketURL"),wxT("http://adrianarroyocalle.github.io/azpazeta-market/AzpazetaMarket.html"));
-	if(!config->Read(wxT("/Net/divelAppsURL"),&options.net.DivelAppsURL,wxT("http://divelapps.appspot.com")))
-		config->Write(wxT("/Net/divelAppsURL"),wxT("http://divelapps.appspot.com"));
+	if(!config->Read(wxT("/AZPScript/azpazetaMarketURL"),&options.azpscript.azpazetaMarketURL,wxString::FromUTF8(URL_MARKET)))
+		config->Write(wxT("/AZPScript/azpazetaMarketURL"),wxString::FromUTF8(URL_MARKET));
+	if(!config->Read(wxT("/Net/divelAppsURL"),&options.net.DivelAppsURL,wxString::FromUTF8(URL_APPS))
+		config->Write(wxT("/Net/divelAppsURL"),wxString::FromUTF8(URL_APPS);
 	if(!config->Read(wxT("/Net/autoConnect"),&options.net.autoConnect,true))
 		config->Write(wxT("/Net/autoConnect"),true);
 	if(!config->Read(wxT("/Net/divelTelemetry"),&options.net.divelTelemetry,true))

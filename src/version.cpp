@@ -16,6 +16,8 @@
 */
 
 //Add Version frame DONE
+#include "url.hpp"
+
 #include "wx/aboutdlg.h"
 #include "version.hpp"
 #include "wx/wxhtml.h"
@@ -65,7 +67,7 @@ L"Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 #endif
 	info.SetName(wxT("Azpazeta"));
 	info.SetVersion(wxString::FromUTF8(AZPAZETA_VERSION_STR));
-	info.SetWebSite(wxT("http://launchpad.net/azpazeta"));
+	info.SetWebSite(wxString::FromUTF8(URL_HOMEPAGE));
 	wxAboutBox(info);
 }
 void Version::Display::All()

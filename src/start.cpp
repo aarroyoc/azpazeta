@@ -33,6 +33,7 @@
 #include "start/startgui.hpp"
 #include "sprite/sprite.hpp"
 #include "log.hpp"
+#include "url.hpp"
 
 #include "wx/sstream.h"
 #include "wx/protocol/http.h"
@@ -161,7 +162,7 @@ void Start::Updater(wxCommandEvent& event)
 	int check=wxMessageBox(_("Do you want to visit the project page for new updates?"),_("Azpazeta Updater"),wxYES_NO|wxICON_QUESTION);
 	if(check==wxYES)
 	{
-		wxLaunchDefaultBrowser(wxT("http://launchpad.net/azpazeta/+download"));
+		wxLaunchDefaultBrowser(wxString::FromUTF8(URL_DOWNLOAD));
 
 	}
 	/*
