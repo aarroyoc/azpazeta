@@ -1,5 +1,5 @@
 /*  	Azpazeta - Sandbox strategy game
-    	Copyright (C) 2013  Adrián Arroyo Calle
+    	Copyright (C) 2013-2014  Adrián Arroyo Calle
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
 	as published by the Free Software Foundation; either version 2
@@ -504,7 +504,7 @@ AZPOptions LoadINIOptions()
 		config->Write(wxT("/AZPScript/allowPayPal"),true);
 	if(!config->Read(wxT("/AZPScript/azpazetaMarketURL"),&options.azpscript.azpazetaMarketURL,wxString::FromUTF8(URL_MARKET)))
 		config->Write(wxT("/AZPScript/azpazetaMarketURL"),wxString::FromUTF8(URL_MARKET));
-	if(!config->Read(wxT("/Net/divelAppsURL"),&options.net.DivelAppsURL,wxString::FromUTF8(URL_APPS))
+	if(!config->Read(wxT("/Net/divelAppsURL"),&options.net.DivelAppsURL,wxString::FromUTF8(URL_APPS)))
 		config->Write(wxT("/Net/divelAppsURL"),wxString::FromUTF8(URL_APPS));
 	if(!config->Read(wxT("/Net/autoConnect"),&options.net.autoConnect,true))
 		config->Write(wxT("/Net/autoConnect"),true);
